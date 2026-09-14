@@ -1,6 +1,6 @@
 # A.I.R.: Adaptive, Iterative, and Reasoning-based Frame Selection for Video Question Answering
 
-> 版本说明（2026-09-14）：文中对“我们”的固定四段／20秒窗口比较属于早期方案；当前设计以[研究与实验计划](../../研究与实验计划.md)为准。PDF版本与下载记录见[相关工作索引](../README.md)。
+> 版本说明（2026-09-14）：文中对“我们”的固定四段／20秒窗口比较属于早期方案；当前设计以[研究与实验计划](../../research/研究与实验计划.md)为准。PDF版本与下载记录见[相关工作索引](../README.md)。
 
 > Yuanhao Zou 等，ICLR 2026。原文：[本地PDF](../pdfs/AIR_ICLR2026.pdf)｜[论文主页](https://arxiv.org/abs/2510.04428)｜[项目与代码](https://github.com/UCF-AIR/A.I.R.)
 

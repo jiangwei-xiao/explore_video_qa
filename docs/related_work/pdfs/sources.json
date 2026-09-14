@@ -1,7 +1,7 @@
 [
   {
     "file": "AKS_CVPR2025.pdf",
-    "analysis": "../analyse/01_AKS_Adaptive_Keyframe_Sampling.md",
+    "analysis": "../analysis/01_AKS_Adaptive_Keyframe_Sampling.md",
     "source_url": "https://arxiv.org/pdf/2502.21271",
     "arxiv_version": "2502.21271v1",
     "versioned_url": "https://arxiv.org/pdf/2502.21271v1",
@@ -12,7 +12,7 @@
   },
   {
     "file": "MDP3_ICCV2025.pdf",
-    "analysis": "../analyse/02_MDP3_List-wise_Frame_Selection.md",
+    "analysis": "../analysis/02_MDP3_List-wise_Frame_Selection.md",
     "source_url": "https://arxiv.org/pdf/2501.02885",
     "arxiv_version": "2501.02885v2",
     "versioned_url": "https://arxiv.org/pdf/2501.02885v2",
@@ -23,7 +23,7 @@
   },
   {
     "file": "AIR_ICLR2026.pdf",
-    "analysis": "../analyse/03_AIR_Adaptive_Iterative_Reasoning.md",
+    "analysis": "../analysis/03_AIR_Adaptive_Iterative_Reasoning.md",
     "source_url": "https://arxiv.org/pdf/2510.04428",
     "arxiv_version": "2510.04428v3",
     "versioned_url": "https://arxiv.org/pdf/2510.04428v3",
@@ -34,7 +34,7 @@
   },
   {
     "file": "EFS_2026.pdf",
-    "analysis": "../analyse/04_EFS_Event_Anchored_Frame_Selection.md",
+    "analysis": "../analysis/04_EFS_Event_Anchored_Frame_Selection.md",
     "source_url": "https://arxiv.org/pdf/2603.00983",
     "arxiv_version": "2603.00983v1",
     "versioned_url": "https://arxiv.org/pdf/2603.00983v1",
@@ -45,7 +45,7 @@
   },
   {
     "file": "WFS-SB_CVPR2026.pdf",
-    "analysis": "../analyse/05_WFS-SB_Wavelet_Semantic_Boundary.md",
+    "analysis": "../analysis/05_WFS-SB_Wavelet_Semantic_Boundary.md",
     "source_url": "https://arxiv.org/pdf/2603.00512",
     "arxiv_version": "2603.00512v2",
     "versioned_url": "https://arxiv.org/pdf/2603.00512v2",

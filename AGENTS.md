@@ -1,8 +1,9 @@
 # 项目协作约定
 
 - 研究执行位置为远端容器 `/home/admin/projects/explore_video_qa`；共享模型在 `/home/models`，只读使用。
-- 本研究使用专用Conda环境 `explore_video_qa`（`/App/conda/envs/explore_video_qa`）。非交互任务显式指定该环境的Python；官方推理源码与入口已重新构建，旧会话代码不再是前置依赖，说明见 `docs/LLaVA推理与环境.md`。
-- 先阅读 `docs/研究与实验计划.md`、`docs/实验进展记录.md`、`docs/环境与资产核验.md`。相关工作解析中的固定四段／20秒窗口属于早期方案。
+- 本研究使用专用Conda环境 `explore_video_qa`（`/App/conda/envs/explore_video_qa`）。非交互任务显式指定该环境的Python；官方推理源码与入口已重新构建，旧会话代码不再是前置依赖，说明见 `docs/setup/LLaVA推理与环境.md`。
+- 先阅读 `docs/README.md`、`docs/research/研究与实验计划.md`、`docs/experiments/实验进展记录.md`。代码入口见 `docs/development/代码结构与运行入口.md`，历史迁移资料在 `docs/archive/`；相关工作解析中的固定四段／20秒窗口属于早期方案。
+- 文档按研究、环境、开发、实验、相关工作和历史归档分类；每轮协议与报告放在 `docs/experiments/<数据集>/<日期>/`。原始结果、日志和代码快照留在对应 `outputs/` 运行目录，不随文档整理改写。维护代码路径兼容性与实验指纹，迁移时同步修复引用。
 - 每次 Git 提交前必须 review 拟提交 diff、相关验证结果、数据与配置变化以及大文件／敏感信息，给出 review 结论并确认后才能提交。没有提交指令时不自动提交；push 需单独授权。
 - 保留用户已有未提交内容。密码、token、模型、视频、压缩包和缓存不进入 Git。
 - 开发、预留与替补清单已经冻结，不重新抽样、不按模型对错筛题；预留集当前不运行问答。

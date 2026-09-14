@@ -1,6 +1,6 @@
 # Adaptive Keyframe Sampling for Long Video Understanding
 
-> 版本说明（2026-09-14）：文中对“我们”的固定四段／20秒窗口比较属于早期方案；当前设计以[研究与实验计划](../../研究与实验计划.md)为准。PDF版本与下载记录见[相关工作索引](../README.md)。
+> 版本说明（2026-09-14）：文中对“我们”的固定四段／20秒窗口比较属于早期方案；当前设计以[研究与实验计划](../../research/研究与实验计划.md)为准。PDF版本与下载记录见[相关工作索引](../README.md)。
 
 > Xi Tang 等，CVPR 2025。原文：[本地PDF](../pdfs/AKS_CVPR2025.pdf)｜[论文主页](https://arxiv.org/abs/2502.21271)｜[代码](https://github.com/ncTimTang/AKS)
 

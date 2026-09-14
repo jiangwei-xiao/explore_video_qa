@@ -6,7 +6,7 @@
 /.cache/
 /outputs/
 /third_party/
-/docs/releated_work/pdfs/*.pdf
+/docs/related_work/pdfs/*.pdf
 *.zip
 *.part
 __pycache__/

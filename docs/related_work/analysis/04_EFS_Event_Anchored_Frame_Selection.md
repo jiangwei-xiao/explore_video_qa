@@ -1,6 +1,6 @@
 # Event-Anchored Frame Selection for Effective Long-Video Understanding
 
-> 版本说明（2026-09-14）：文中对“我们”的固定四段／20秒窗口比较属于早期方案；当前设计以[研究与实验计划](../../研究与实验计划.md)为准。PDF版本与下载记录见[相关工作索引](../README.md)。
+> 版本说明（2026-09-14）：文中对“我们”的固定四段／20秒窗口比较属于早期方案；当前设计以[研究与实验计划](../../research/研究与实验计划.md)为准。PDF版本与下载记录见[相关工作索引](../README.md)。
 
 > Wang Chen 等，2026。原文：[本地PDF](../pdfs/EFS_2026.pdf)｜[论文主页](https://arxiv.org/abs/2603.00983)
 

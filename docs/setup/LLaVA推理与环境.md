@@ -42,13 +42,13 @@ python scripts/run_llava_smoke.py \
   --output outputs/acceptance/new_run.json
 ```
 
-当前尚未实现BLIP批量评分、Top-K调度、完整50×2断点续跑及研究方法模块；BLIP仅完成文件哈希，不能把这次LLaVA验收视为评分器运行验收。
+后续已补齐BLIP流式批量评分、Top-K选择、独立后台调度、断点恢复、分阶段计时及统计入口，并完成50×2基线。当前结果见[基线结果](../experiments/video_mme_50/2026-09-14/实验结果.md)，条件见[执行协议](../experiments/video_mme_50/2026-09-14/执行协议.md)。下节保留最初的单题验收记录；研究方法模块尚未实现。
 
 ## 本机实际验收
 
 固定开发题 `264-2` 仅生成1次，输出 `A.`，可解析为A。16帧预处理形状为 `[16,3,384,384]`，实际prefill为3585 Token，其中视觉序列3360 Token。生成约0.98秒，峰值已分配显存约19.29 GiB；包含视频解码和模型加载的脚本耗时约11.13秒。这是单题运行验收，不是准确率估计或长视频平均速度。
 
-记录：`outputs/acceptance/llava_264-2.json`（完整逐题证据），[model_runtime_validation.json](../configs/model_runtime_validation.json)（小型验收摘要）。15项协议／时间戳测试通过，`pip check`通过，运行后GPU已释放。
+记录：`outputs/acceptance/llava_264-2.json`（完整逐题证据），[model_runtime_validation.json](../../configs/model_runtime_validation.json)（小型验收摘要）。15项协议／时间戳测试通过，`pip check`通过，运行后GPU已释放。
 
 官方嵌套SigLIP加载产生448条meta-copy警告，完整保留在结果中。最终无meta参数；语言嵌入、投影、newline与两组视觉权重的确定切片共5项均与外层LLaVA checkpoint一致，实际生成各步下一Token logits有限。没有将这些切片检查宣称为内存中全部权重的逐元素核验。
 
@@ -56,4 +56,4 @@ python scripts/run_llava_smoke.py \
 
 ## 后续工作
 
-旧会话资产现在只用于历史追溯与对照，不是重建前置条件。继续开发BLIP评分与两组基线时，先review当前输入协议和新入口，明确复用这一次验收结果的条件，再完成前5题两组验收及剩余调用。方法设计和冻结样本未改动，预留集未使用，每次Git提交前仍需review确认。
+旧会话资产只用于历史追溯与对照，不是前置条件。两组100条基线已独立新测，旧单题结果未混入，执行后review通过。后续围绕已确认研究机制制定下一轮对照，预留集不提前使用，每次Git提交前仍需review确认。

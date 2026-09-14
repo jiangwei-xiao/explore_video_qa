@@ -89,7 +89,32 @@ class LlavaBackend:
                 checks.append({'name': name, 'elements_compared': actual.numel(), 'exact_match': True})
         return checks
 
-    def answer(self, frames, timestamps, duration, question, options, before_generate=None):
+    def warmup(self):
+        """One synthetic full forward, never an answer-generation call."""
+        from PIL import Image
+        from llava.constants import IMAGE_TOKEN_INDEX
+        from llava.conversation import conv_templates
+        from llava.mm_utils import tokenizer_image_token
+        torch = self.torch
+        conversation = copy.deepcopy(conv_templates['qwen_1_5'])
+        conversation.append_message(conversation.roles[0], question_text(
+            'Which synthetic color is visible?', ['Gray', 'Red', 'Blue', 'Green'], 16, list(range(16))))
+        conversation.append_message(conversation.roles[1], None)
+        ids = tokenizer_image_token(conversation.get_prompt(), self.tokenizer, IMAGE_TOKEN_INDEX,
+                                    return_tensors='pt').unsqueeze(0).cuda()
+        with torch.inference_mode():
+            pixels = self.processor.preprocess([Image.new('RGB', (384, 384), 'gray')] * 16,
+                                               return_tensors='pt')['pixel_values'].to('cuda', torch.bfloat16)
+            prepared = self.model.prepare_inputs_labels_for_multimodal(
+                ids, None, torch.ones_like(ids), None, None, [pixels], ['video'])
+            output = self.model(input_ids=prepared[0], position_ids=prepared[1], attention_mask=prepared[2],
+                                inputs_embeds=prepared[4], use_cache=False)
+            if not torch.isfinite(output.logits[:, -1, :]).all():
+                raise RuntimeError('Synthetic warmup produced non-finite logits')
+        torch.cuda.synchronize()
+
+    def answer(self, frames, timestamps, duration, question, options, before_generate=None, generation_state=None):
+        answer_started = time.perf_counter()
         torch = self.torch
         from llava.constants import IMAGE_TOKEN_INDEX
         from llava.conversation import conv_templates
@@ -111,6 +136,7 @@ class LlavaBackend:
         context_limit = min(self.context, self.model.config.tokenizer_model_max_length)
         if expected_prefill + 8 > context_limit:
             raise ValueError('Input exceeds context; silent truncation is prohibited')
+        prompt_tokenize_seconds = time.perf_counter() - answer_started
         torch.cuda.reset_peak_memory_stats()
         started = time.perf_counter()
         video = self.processor.preprocess(frames, return_tensors='pt')['pixel_values'].to('cuda:0', torch.bfloat16)
@@ -149,9 +175,13 @@ class LlavaBackend:
                                  'expected_visual_tokens': expected_visual_tokens,
                                  'generation_config': config.to_dict()})
             begin = time.perf_counter()
+            if generation_state is not None:
+                generation_state['started'] = True
             with torch.inference_mode():
                 output = self.model.generate(input_ids, images=[video], modalities=['video'],
                                              attention_mask=torch.ones_like(input_ids), generation_config=config)
+            if generation_state is not None:
+                generation_state['returned'] = True
             torch.cuda.synchronize()
             generation_seconds = time.perf_counter() - begin
         finally:
@@ -159,11 +189,15 @@ class LlavaBackend:
             logits_hook.remove()
         if measured['prefill_calls'] != 1 or measured['checked_logit_steps'] == 0:
             raise RuntimeError('Missing actual prefill or logits observations')
+        parse_started = time.perf_counter()
         raw = self.tokenizer.batch_decode(output, skip_special_tokens=True)[0].strip()
+        parsed = parse_answer(raw)
+        answer_parse_seconds = time.perf_counter() - parse_started
         return {'protocol': PROTOCOL_VERSION, 'prompt': prompt, 'raw_output': raw,
-                'parsed_answer': parse_answer(raw), 'generated_token_ids': output[0].tolist(),
+                'parsed_answer': parsed, 'generated_token_ids': output[0].tolist(),
                 'text_input_tokens': input_ids.shape[1], 'pixel_shape': list(video.shape),
                 **measured, 'preprocessing_seconds': preprocessing_seconds,
+                'prompt_tokenize_seconds': prompt_tokenize_seconds, 'answer_parse_seconds': answer_parse_seconds,
                 'generation_seconds': generation_seconds,
                 'peak_allocated_gib': torch.cuda.max_memory_allocated() / 2**30,
                 'peak_reserved_gib': torch.cuda.max_memory_reserved() / 2**30}
