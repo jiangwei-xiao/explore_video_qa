@@ -1,0 +1,44 @@
+{
+  "cross_dataset_content_reuse": "PENDING: other official metadata unavailable. Cross-dataset source identity and recognizable content reuse must be audited before combined freezing; URLs alone cannot prove independence.",
+  "dataset": "video_mme",
+  "development": 50,
+  "development_domains": {
+    "Artistic Performance": 4,
+    "Film & Television": 12,
+    "Knowledge": 14,
+    "Life Record": 10,
+    "Multilingual": 3,
+    "Sports Competition": 7
+  },
+  "development_quotas": {
+    "long": 16,
+    "medium": 17,
+    "short": 17
+  },
+  "development_tasks": {
+    "Action Reasoning": 6,
+    "Action Recognition": 8,
+    "Attribute Perception": 5,
+    "Counting Problem": 3,
+    "Information Synopsis": 8,
+    "OCR Problems": 2,
+    "Object Reasoning": 6,
+    "Object Recognition": 7,
+    "Temporal Perception": 1,
+    "Temporal Reasoning": 4
+  },
+  "files": {
+    "manifests/video_mme_development.json": "785004b81d10e8be73349f7a328cb79bf133aa6dacfb5340b538296585b8fa3b",
+    "manifests/video_mme_replacements.json": "2e3d0144de1e7c161e33e4727eb2fa4c738c002e5d4a43e5194db9e2bd3d9e01",
+    "manifests/video_mme_reserve.json": "8cfc4fb7be09f637c20565bc1f9496a3f9e4e7bca6be683ffbcb924775a8b746"
+  },
+  "group_overlap": 0,
+  "metadata_questions": 2700,
+  "reserve": 150,
+  "reserve_quotas": {
+    "long": 50,
+    "medium": 50,
+    "short": 50
+  },
+  "unique_source_groups": 900
+}

@@ -1,0 +1,1819 @@
+{
+  "dataset": "video_mme",
+  "metadata_sha256": "ae75376593ec0f3454670ae67b165efc2979074b3e1526ec7b8d96379ac2f5e7",
+  "rows": [
+    {
+      "answer_index": 0,
+      "domain": "Life Record",
+      "options": [
+        "A. Kangaroo.",
+        "B. Giraffe.",
+        "C. Donkey.",
+        "D. Horse."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Life Record",
+        "duration": "short",
+        "options": [
+          "A. Kangaroo.",
+          "B. Giraffe.",
+          "C. Donkey.",
+          "D. Horse."
+        ],
+        "question": "Which animal is shown in the video?",
+        "question_id": "264-2",
+        "sub_category": "Travel",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=8e05W-wi38g",
+        "videoID": "8e05W-wi38g",
+        "video_id": "264"
+      },
+      "question": "Which animal is shown in the video?",
+      "question_id": "264-2",
+      "source_group": "youtube:8e05W-wi38g",
+      "source_url": "https://www.youtube.com/watch?v=8e05W-wi38g",
+      "stratum": "short",
+      "task_type": "Object Recognition",
+      "video_id": "8e05W-wi38g",
+      "video_relative_path": "videos/video_mme/8e05W-wi38g.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Life Record",
+      "options": [
+        "A. (c)(b)(a)(d).",
+        "B. (c)(a)(d)(b).",
+        "C. (d)(c)(a)(b).",
+        "D. (d)(a)(b)(c)."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Life Record",
+        "duration": "long",
+        "options": [
+          "A. (c)(b)(a)(d).",
+          "B. (c)(a)(d)(b).",
+          "C. (d)(c)(a)(b).",
+          "D. (d)(a)(b)(c)."
+        ],
+        "question": "In what chronological order did the following events take place?\n(a) The Prada brand was almost ceasing to exist.\n(b) The launch of the label Miu Miu.\n(c) Prada gained connections to royal families.\n(d) The arrival of Miuccia Prada.",
+        "question_id": "844-1",
+        "sub_category": "Fashion",
+        "task_type": "Temporal Reasoning",
+        "url": "https://www.youtube.com/watch?v=K7YNoRZMv2k",
+        "videoID": "K7YNoRZMv2k",
+        "video_id": "844"
+      },
+      "question": "In what chronological order did the following events take place?\n(a) The Prada brand was almost ceasing to exist.\n(b) The launch of the label Miu Miu.\n(c) Prada gained connections to royal families.\n(d) The arrival of Miuccia Prada.",
+      "question_id": "844-1",
+      "source_group": "youtube:K7YNoRZMv2k",
+      "source_url": "https://www.youtube.com/watch?v=K7YNoRZMv2k",
+      "stratum": "long",
+      "task_type": "Temporal Reasoning",
+      "video_id": "K7YNoRZMv2k",
+      "video_relative_path": "videos/video_mme/K7YNoRZMv2k.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Life Record",
+      "options": [
+        "A. Cute.",
+        "B. Savage.",
+        "C. Dangerous.",
+        "D. Fool."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Life Record",
+        "duration": "long",
+        "options": [
+          "A. Cute.",
+          "B. Savage.",
+          "C. Dangerous.",
+          "D. Fool."
+        ],
+        "question": "As depicted in the video, what are the characteristics of these animals?",
+        "question_id": "872-2",
+        "sub_category": "Pet & Animal",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=ZP-Y2S750KY",
+        "videoID": "ZP-Y2S750KY",
+        "video_id": "872"
+      },
+      "question": "As depicted in the video, what are the characteristics of these animals?",
+      "question_id": "872-2",
+      "source_group": "youtube:ZP-Y2S750KY",
+      "source_url": "https://www.youtube.com/watch?v=ZP-Y2S750KY",
+      "stratum": "long",
+      "task_type": "Object Recognition",
+      "video_id": "ZP-Y2S750KY",
+      "video_relative_path": "videos/video_mme/ZP-Y2S750KY.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Artistic Performance",
+      "options": [
+        "A. Senior citizens.",
+        "B. Young adults.",
+        "C. Adolescents.",
+        "D. Children."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Artistic Performance",
+        "duration": "short",
+        "options": [
+          "A. Senior citizens.",
+          "B. Young adults.",
+          "C. Adolescents.",
+          "D. Children."
+        ],
+        "question": "Based on the backdrop and costumes, which demographic is the intended audience for the show in the video?",
+        "question_id": "184-3",
+        "sub_category": "Stage Play",
+        "task_type": "Action Reasoning",
+        "url": "https://www.youtube.com/watch?v=HiJb_2dvuHc",
+        "videoID": "HiJb_2dvuHc",
+        "video_id": "184"
+      },
+      "question": "Based on the backdrop and costumes, which demographic is the intended audience for the show in the video?",
+      "question_id": "184-3",
+      "source_group": "youtube:HiJb_2dvuHc",
+      "source_url": "https://www.youtube.com/watch?v=HiJb_2dvuHc",
+      "stratum": "short",
+      "task_type": "Action Reasoning",
+      "video_id": "HiJb_2dvuHc",
+      "video_relative_path": "videos/video_mme/HiJb_2dvuHc.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Knowledge",
+      "options": [
+        "A. Dryopithecus.",
+        "B. Homo Sapiens.",
+        "C. Ardipithecus Ramidus.",
+        "D. Homo Sapiens Neanderthalensi."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Knowledge",
+        "duration": "short",
+        "options": [
+          "A. Dryopithecus.",
+          "B. Homo Sapiens.",
+          "C. Ardipithecus Ramidus.",
+          "D. Homo Sapiens Neanderthalensi."
+        ],
+        "question": "Given the information provided by the video, during which stage of human evolution did the regression of body hair occur rapidly?",
+        "question_id": "004-3",
+        "sub_category": "Humanity & History",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=HwnB8aCn8yE",
+        "videoID": "HwnB8aCn8yE",
+        "video_id": "004"
+      },
+      "question": "Given the information provided by the video, during which stage of human evolution did the regression of body hair occur rapidly?",
+      "question_id": "004-3",
+      "source_group": "youtube:HwnB8aCn8yE",
+      "source_url": "https://www.youtube.com/watch?v=HwnB8aCn8yE",
+      "stratum": "short",
+      "task_type": "Object Recognition",
+      "video_id": "HwnB8aCn8yE",
+      "video_relative_path": "videos/video_mme/HwnB8aCn8yE.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Film & Television",
+      "options": [
+        "A. Engaging in business.",
+        "B. Taking a vacation.",
+        "C. Reading additional newspapers.",
+        "D. Seeking food."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Film & Television",
+        "duration": "medium",
+        "options": [
+          "A. Engaging in business.",
+          "B. Taking a vacation.",
+          "C. Reading additional newspapers.",
+          "D. Seeking food."
+        ],
+        "question": "What does the yellow turtle monster do after receiving a red book?",
+        "question_id": "395-2",
+        "sub_category": "Animation",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=-XpJeDGh8No",
+        "videoID": "-XpJeDGh8No",
+        "video_id": "395"
+      },
+      "question": "What does the yellow turtle monster do after receiving a red book?",
+      "question_id": "395-2",
+      "source_group": "youtube:-XpJeDGh8No",
+      "source_url": "https://www.youtube.com/watch?v=-XpJeDGh8No",
+      "stratum": "medium",
+      "task_type": "Action Recognition",
+      "video_id": "-XpJeDGh8No",
+      "video_relative_path": "videos/video_mme/-XpJeDGh8No.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Artistic Performance",
+      "options": [
+        "A. The first and fourth programs.",
+        "B. Second and fourth programs.",
+        "C. Third and fifth programs.",
+        "D. Third and seventh programs."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Artistic Performance",
+        "duration": "long",
+        "options": [
+          "A. The first and fourth programs.",
+          "B. Second and fourth programs.",
+          "C. Third and fifth programs.",
+          "D. Third and seventh programs."
+        ],
+        "question": "Which two programs have similarities in the use of the ring?",
+        "question_id": "815-2",
+        "sub_category": "Acrobatics",
+        "task_type": "Object Reasoning",
+        "url": "https://www.youtube.com/watch?v=7TydWUguPRU",
+        "videoID": "7TydWUguPRU",
+        "video_id": "815"
+      },
+      "question": "Which two programs have similarities in the use of the ring?",
+      "question_id": "815-2",
+      "source_group": "youtube:7TydWUguPRU",
+      "source_url": "https://www.youtube.com/watch?v=7TydWUguPRU",
+      "stratum": "long",
+      "task_type": "Object Reasoning",
+      "video_id": "7TydWUguPRU",
+      "video_relative_path": "videos/video_mme/7TydWUguPRU.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Artistic Performance",
+      "options": [
+        "A. (a)(b)(c).",
+        "B. (b)(c)(a).",
+        "C. (b)(a)(c).",
+        "D. (c)(b)(a)."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Artistic Performance",
+        "duration": "medium",
+        "options": [
+          "A. (a)(b)(c).",
+          "B. (b)(c)(a).",
+          "C. (b)(a)(c).",
+          "D. (c)(b)(a)."
+        ],
+        "question": "What is the chronological order of the following events according to this video?\n(a) The Pinkie Change.\n(b) The Shake Change.\n(c) The Shake Change.",
+        "question_id": "491-2",
+        "sub_category": "Magic Show",
+        "task_type": "Temporal Reasoning",
+        "url": "https://www.youtube.com/watch?v=dez7DLniEJA",
+        "videoID": "dez7DLniEJA",
+        "video_id": "491"
+      },
+      "question": "What is the chronological order of the following events according to this video?\n(a) The Pinkie Change.\n(b) The Shake Change.\n(c) The Shake Change.",
+      "question_id": "491-2",
+      "source_group": "youtube:dez7DLniEJA",
+      "source_url": "https://www.youtube.com/watch?v=dez7DLniEJA",
+      "stratum": "medium",
+      "task_type": "Temporal Reasoning",
+      "video_id": "dez7DLniEJA",
+      "video_relative_path": "videos/video_mme/dez7DLniEJA.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Knowledge",
+      "options": [
+        "A. The Parthenon Temple was completed, Pheidias left thanks to Athena's bless, Pheidias was accused of embezzlement, Pheidias accounted spending to prove his innocence.",
+        "B. Pheidias was accused of embezzlement, Pheidias accounted spending to prove his innocence, the Parthenon Temple was completed, Pheidias left thanks to Athena's bless.",
+        "C. The Parthenon Temple was completed, Pheidias was accused of embezzlement, Pheidias accounted spending to prove his innocence, Pheidias left thanks to Athena's bless.",
+        "D. The Parthenon Temple was completed, Pheidias left thanks to Athena's bless, Pheidias accounted spending to prove his innocence, Pheidias was accused of embezzlement."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Knowledge",
+        "duration": "medium",
+        "options": [
+          "A. The Parthenon Temple was completed, Pheidias left thanks to Athena's bless, Pheidias was accused of embezzlement, Pheidias accounted spending to prove his innocence.",
+          "B. Pheidias was accused of embezzlement, Pheidias accounted spending to prove his innocence, the Parthenon Temple was completed, Pheidias left thanks to Athena's bless.",
+          "C. The Parthenon Temple was completed, Pheidias was accused of embezzlement, Pheidias accounted spending to prove his innocence, Pheidias left thanks to Athena's bless.",
+          "D. The Parthenon Temple was completed, Pheidias left thanks to Athena's bless, Pheidias accounted spending to prove his innocence, Pheidias was accused of embezzlement."
+        ],
+        "question": "Which of the following events are in correct order?",
+        "question_id": "305-3",
+        "sub_category": "Humanity & History",
+        "task_type": "Temporal Reasoning",
+        "url": "https://www.youtube.com/watch?v=tuZcS2Flabw",
+        "videoID": "tuZcS2Flabw",
+        "video_id": "305"
+      },
+      "question": "Which of the following events are in correct order?",
+      "question_id": "305-3",
+      "source_group": "youtube:tuZcS2Flabw",
+      "source_url": "https://www.youtube.com/watch?v=tuZcS2Flabw",
+      "stratum": "medium",
+      "task_type": "Temporal Reasoning",
+      "video_id": "tuZcS2Flabw",
+      "video_relative_path": "videos/video_mme/tuZcS2Flabw.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Film & Television",
+      "options": [
+        "A. His motorcycle.",
+        "B. His jacket.",
+        "C. A box of roses.",
+        "D. The body of others."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Film & Television",
+        "duration": "medium",
+        "options": [
+          "A. His motorcycle.",
+          "B. His jacket.",
+          "C. A box of roses.",
+          "D. The body of others."
+        ],
+        "question": "Where does the terminator with sunglasses hide his gun?",
+        "question_id": "409-3",
+        "sub_category": "Movie & TV Show",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=uMIohuKRq58",
+        "videoID": "uMIohuKRq58",
+        "video_id": "409"
+      },
+      "question": "Where does the terminator with sunglasses hide his gun?",
+      "question_id": "409-3",
+      "source_group": "youtube:uMIohuKRq58",
+      "source_url": "https://www.youtube.com/watch?v=uMIohuKRq58",
+      "stratum": "medium",
+      "task_type": "Object Recognition",
+      "video_id": "uMIohuKRq58",
+      "video_relative_path": "videos/video_mme/uMIohuKRq58.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Life Record",
+      "options": [
+        "A. Car.",
+        "B. Interactive Laser.",
+        "C. Feather.",
+        "D. Ball."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Life Record",
+        "duration": "long",
+        "options": [
+          "A. Car.",
+          "B. Interactive Laser.",
+          "C. Feather.",
+          "D. Ball."
+        ],
+        "question": "Which is the most interesting toy for these cats based on the video?",
+        "question_id": "871-2",
+        "sub_category": "Pet & Animal",
+        "task_type": "Object Reasoning",
+        "url": "https://www.youtube.com/watch?v=ZkhAbUGoD18",
+        "videoID": "ZkhAbUGoD18",
+        "video_id": "871"
+      },
+      "question": "Which is the most interesting toy for these cats based on the video?",
+      "question_id": "871-2",
+      "source_group": "youtube:ZkhAbUGoD18",
+      "source_url": "https://www.youtube.com/watch?v=ZkhAbUGoD18",
+      "stratum": "long",
+      "task_type": "Object Reasoning",
+      "video_id": "ZkhAbUGoD18",
+      "video_relative_path": "videos/video_mme/ZkhAbUGoD18.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Knowledge",
+      "options": [
+        "A. Because his hand was deformed.",
+        "B. For public image.",
+        "C. Because such action can released stomach pain.",
+        "D. For warmth."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Knowledge",
+        "duration": "medium",
+        "options": [
+          "A. Because his hand was deformed.",
+          "B. For public image.",
+          "C. Because such action can released stomach pain.",
+          "D. For warmth."
+        ],
+        "question": "Why did the main character in the video put his hand in the coat?",
+        "question_id": "304-1",
+        "sub_category": "Humanity & History",
+        "task_type": "Action Reasoning",
+        "url": "https://www.youtube.com/watch?v=QTA8j5wSTx4",
+        "videoID": "QTA8j5wSTx4",
+        "video_id": "304"
+      },
+      "question": "Why did the main character in the video put his hand in the coat?",
+      "question_id": "304-1",
+      "source_group": "youtube:QTA8j5wSTx4",
+      "source_url": "https://www.youtube.com/watch?v=QTA8j5wSTx4",
+      "stratum": "medium",
+      "task_type": "Action Reasoning",
+      "video_id": "QTA8j5wSTx4",
+      "video_relative_path": "videos/video_mme/QTA8j5wSTx4.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Film & Television",
+      "options": [
+        "A. Whether the person in the blue shirt will ever get married.",
+        "B. Which person the man in the suit should choose as his best man.",
+        "C. Whether the man in the suit should get married.",
+        "D. How many times the man in the suit is getting married."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Film & Television",
+        "duration": "short",
+        "options": [
+          "A. Whether the person in the blue shirt will ever get married.",
+          "B. Which person the man in the suit should choose as his best man.",
+          "C. Whether the man in the suit should get married.",
+          "D. How many times the man in the suit is getting married."
+        ],
+        "question": "What are the people in the video arguing about?",
+        "question_id": "102-2",
+        "sub_category": "Movie & TV Show",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=0IdYJGBmguM",
+        "videoID": "0IdYJGBmguM",
+        "video_id": "102"
+      },
+      "question": "What are the people in the video arguing about?",
+      "question_id": "102-2",
+      "source_group": "youtube:0IdYJGBmguM",
+      "source_url": "https://www.youtube.com/watch?v=0IdYJGBmguM",
+      "stratum": "short",
+      "task_type": "Action Recognition",
+      "video_id": "0IdYJGBmguM",
+      "video_relative_path": "videos/video_mme/0IdYJGBmguM.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Film & Television",
+      "options": [
+        "A. drought.",
+        "B. Sandstorms.",
+        "C. Floods.",
+        "D. Snowstorms."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Film & Television",
+        "duration": "short",
+        "options": [
+          "A. drought.",
+          "B. Sandstorms.",
+          "C. Floods.",
+          "D. Snowstorms."
+        ],
+        "question": "According to the information presented in the video, what natural disaster did France experience that was identified as its worst ever?",
+        "question_id": "128-1",
+        "sub_category": "News Report",
+        "task_type": "Object Reasoning",
+        "url": "https://www.youtube.com/watch?v=EJ_yarUrgVQ",
+        "videoID": "EJ_yarUrgVQ",
+        "video_id": "128"
+      },
+      "question": "According to the information presented in the video, what natural disaster did France experience that was identified as its worst ever?",
+      "question_id": "128-1",
+      "source_group": "youtube:EJ_yarUrgVQ",
+      "source_url": "https://www.youtube.com/watch?v=EJ_yarUrgVQ",
+      "stratum": "short",
+      "task_type": "Object Reasoning",
+      "video_id": "EJ_yarUrgVQ",
+      "video_relative_path": "videos/video_mme/EJ_yarUrgVQ.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Sports Competition",
+      "options": [
+        "A. 7.",
+        "B. 6.",
+        "C. 8.",
+        "D. 5."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. 7.",
+          "B. 6.",
+          "C. 8.",
+          "D. 5."
+        ],
+        "question": "How many athletes can be seen crossing the finish line in the video?",
+        "question_id": "170-2",
+        "sub_category": "Athletics",
+        "task_type": "Counting Problem",
+        "url": "https://www.youtube.com/watch?v=E895PNqSgEI",
+        "videoID": "E895PNqSgEI",
+        "video_id": "170"
+      },
+      "question": "How many athletes can be seen crossing the finish line in the video?",
+      "question_id": "170-2",
+      "source_group": "youtube:E895PNqSgEI",
+      "source_url": "https://www.youtube.com/watch?v=E895PNqSgEI",
+      "stratum": "short",
+      "task_type": "Counting Problem",
+      "video_id": "E895PNqSgEI",
+      "video_relative_path": "videos/video_mme/E895PNqSgEI.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Sports Competition",
+      "options": [
+        "A. They are winning comfortably with plenty of time left.",
+        "B. They are losing and have little time to recover.",
+        "C. The game is tied and approaching the final moments.",
+        "D. They have a significant lead and are about to win."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. They are winning comfortably with plenty of time left.",
+          "B. They are losing and have little time to recover.",
+          "C. The game is tied and approaching the final moments.",
+          "D. They have a significant lead and are about to win."
+        ],
+        "question": "Judging by the score and time, what can be inferred about Qatar's performance in this match so far?",
+        "question_id": "158-3",
+        "sub_category": "Football",
+        "task_type": "Object Reasoning",
+        "url": "https://www.youtube.com/watch?v=uJFbOrNrL3w",
+        "videoID": "uJFbOrNrL3w",
+        "video_id": "158"
+      },
+      "question": "Judging by the score and time, what can be inferred about Qatar's performance in this match so far?",
+      "question_id": "158-3",
+      "source_group": "youtube:uJFbOrNrL3w",
+      "source_url": "https://www.youtube.com/watch?v=uJFbOrNrL3w",
+      "stratum": "short",
+      "task_type": "Object Reasoning",
+      "video_id": "uJFbOrNrL3w",
+      "video_relative_path": "videos/video_mme/uJFbOrNrL3w.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Life Record",
+      "options": [
+        "A. He doesn't have much money on him.",
+        "B. Compliance with the rules of the game.",
+        "C. He's trying to save money.",
+        "D. He likes dollar-store food."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Life Record",
+        "duration": "medium",
+        "options": [
+          "A. He doesn't have much money on him.",
+          "B. Compliance with the rules of the game.",
+          "C. He's trying to save money.",
+          "D. He likes dollar-store food."
+        ],
+        "question": "Why are people in the video buying food at the dollar store?",
+        "question_id": "538-1",
+        "sub_category": "Food",
+        "task_type": "Action Reasoning",
+        "url": "https://www.youtube.com/watch?v=uhYiRmGURwE",
+        "videoID": "uhYiRmGURwE",
+        "video_id": "538"
+      },
+      "question": "Why are people in the video buying food at the dollar store?",
+      "question_id": "538-1",
+      "source_group": "youtube:uhYiRmGURwE",
+      "source_url": "https://www.youtube.com/watch?v=uhYiRmGURwE",
+      "stratum": "medium",
+      "task_type": "Action Reasoning",
+      "video_id": "uhYiRmGURwE",
+      "video_relative_path": "videos/video_mme/uhYiRmGURwE.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Life Record",
+      "options": [
+        "A. Bhramari.",
+        "B. Markatasana.",
+        "C. Shavasana.",
+        "D. Anulom Vilom."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Life Record",
+        "duration": "medium",
+        "options": [
+          "A. Bhramari.",
+          "B. Markatasana.",
+          "C. Shavasana.",
+          "D. Anulom Vilom."
+        ],
+        "question": "What is the last move the man makes in the video?",
+        "question_id": "584-3",
+        "sub_category": "Exercise",
+        "task_type": "OCR Problems",
+        "url": "https://www.youtube.com/watch?v=lNvBXLbInXE",
+        "videoID": "lNvBXLbInXE",
+        "video_id": "584"
+      },
+      "question": "What is the last move the man makes in the video?",
+      "question_id": "584-3",
+      "source_group": "youtube:lNvBXLbInXE",
+      "source_url": "https://www.youtube.com/watch?v=lNvBXLbInXE",
+      "stratum": "medium",
+      "task_type": "OCR Problems",
+      "video_id": "lNvBXLbInXE",
+      "video_relative_path": "videos/video_mme/lNvBXLbInXE.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Film & Television",
+      "options": [
+        "A. Police Officer.",
+        "B. Journalist.",
+        "C. Doctor.",
+        "D. Lawyer."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Film & Television",
+        "duration": "long",
+        "options": [
+          "A. Police Officer.",
+          "B. Journalist.",
+          "C. Doctor.",
+          "D. Lawyer."
+        ],
+        "question": "What is Theresa Woo's profession?",
+        "question_id": "705-1",
+        "sub_category": "Movie & TV Show",
+        "task_type": "Attribute Perception",
+        "url": "https://www.youtube.com/watch?v=X6UqTmRAApw",
+        "videoID": "X6UqTmRAApw",
+        "video_id": "705"
+      },
+      "question": "What is Theresa Woo's profession?",
+      "question_id": "705-1",
+      "source_group": "youtube:X6UqTmRAApw",
+      "source_url": "https://www.youtube.com/watch?v=X6UqTmRAApw",
+      "stratum": "long",
+      "task_type": "Attribute Perception",
+      "video_id": "X6UqTmRAApw",
+      "video_relative_path": "videos/video_mme/X6UqTmRAApw.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Life Record",
+      "options": [
+        "A. 5.",
+        "B. 7.",
+        "C. 9.",
+        "D. 3."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Life Record",
+        "duration": "medium",
+        "options": [
+          "A. 5.",
+          "B. 7.",
+          "C. 9.",
+          "D. 3."
+        ],
+        "question": "When the motorcycle in the video leaves, how many people come out of the door?",
+        "question_id": "544-1",
+        "sub_category": "Fashion",
+        "task_type": "Counting Problem",
+        "url": "https://www.youtube.com/watch?v=_CqKv0Y1FB0",
+        "videoID": "_CqKv0Y1FB0",
+        "video_id": "544"
+      },
+      "question": "When the motorcycle in the video leaves, how many people come out of the door?",
+      "question_id": "544-1",
+      "source_group": "youtube:_CqKv0Y1FB0",
+      "source_url": "https://www.youtube.com/watch?v=_CqKv0Y1FB0",
+      "stratum": "medium",
+      "task_type": "Counting Problem",
+      "video_id": "_CqKv0Y1FB0",
+      "video_relative_path": "videos/video_mme/_CqKv0Y1FB0.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Knowledge",
+      "options": [
+        "A. Black.",
+        "B. White.",
+        "C. Dark blue.",
+        "D. Light blue."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Knowledge",
+        "duration": "medium",
+        "options": [
+          "A. Black.",
+          "B. White.",
+          "C. Dark blue.",
+          "D. Light blue."
+        ],
+        "question": "What color are the seats in the car?",
+        "question_id": "384-3",
+        "sub_category": "Technology",
+        "task_type": "Attribute Perception",
+        "url": "https://www.youtube.com/watch?v=ECgVLceb_LE",
+        "videoID": "ECgVLceb_LE",
+        "video_id": "384"
+      },
+      "question": "What color are the seats in the car?",
+      "question_id": "384-3",
+      "source_group": "youtube:ECgVLceb_LE",
+      "source_url": "https://www.youtube.com/watch?v=ECgVLceb_LE",
+      "stratum": "medium",
+      "task_type": "Attribute Perception",
+      "video_id": "ECgVLceb_LE",
+      "video_relative_path": "videos/video_mme/ECgVLceb_LE.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Multilingual",
+      "options": [
+        "A. By utilizing modular workstations that can be easily reconfigured for different car sizes and shapes.",
+        "B. By employing a universal robotic workforce capable of performing any task on any vehicle.",
+        "C. By implementing a cloud-based manufacturing system that can be remotely updated with new production protocols.",
+        "D. By focusing on standardized parts and components across all car models to minimize variations."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Multilingual",
+        "duration": "long",
+        "options": [
+          "A. By utilizing modular workstations that can be easily reconfigured for different car sizes and shapes.",
+          "B. By employing a universal robotic workforce capable of performing any task on any vehicle.",
+          "C. By implementing a cloud-based manufacturing system that can be remotely updated with new production protocols.",
+          "D. By focusing on standardized parts and components across all car models to minimize variations."
+        ],
+        "question": "How does the Factory 56's \"TecLine\" concept future-proof the production process for potential new car models?",
+        "question_id": "891-3",
+        "sub_category": "Multilingual",
+        "task_type": "Object Reasoning",
+        "url": "https://www.youtube.com/watch?v=uuCVnqV4cNc",
+        "videoID": "uuCVnqV4cNc",
+        "video_id": "891"
+      },
+      "question": "How does the Factory 56's \"TecLine\" concept future-proof the production process for potential new car models?",
+      "question_id": "891-3",
+      "source_group": "youtube:uuCVnqV4cNc",
+      "source_url": "https://www.youtube.com/watch?v=uuCVnqV4cNc",
+      "stratum": "long",
+      "task_type": "Object Reasoning",
+      "video_id": "uuCVnqV4cNc",
+      "video_relative_path": "videos/video_mme/uuCVnqV4cNc.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Sports Competition",
+      "options": [
+        "A. Men's high jump.",
+        "B. Women's high jump.",
+        "C. Women's long jump.",
+        "D. Men's long jump."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. Men's high jump.",
+          "B. Women's high jump.",
+          "C. Women's long jump.",
+          "D. Men's long jump."
+        ],
+        "question": "What is the competition event taking place in the video?",
+        "question_id": "168-3",
+        "sub_category": "Athletics",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=DK6bKtXUE1c",
+        "videoID": "DK6bKtXUE1c",
+        "video_id": "168"
+      },
+      "question": "What is the competition event taking place in the video?",
+      "question_id": "168-3",
+      "source_group": "youtube:DK6bKtXUE1c",
+      "source_url": "https://www.youtube.com/watch?v=DK6bKtXUE1c",
+      "stratum": "short",
+      "task_type": "Action Recognition",
+      "video_id": "DK6bKtXUE1c",
+      "video_relative_path": "videos/video_mme/DK6bKtXUE1c.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Knowledge",
+      "options": [
+        "A. Taking a shower with her sisters.",
+        "B. Combing her hair.",
+        "C. Exploring the countryside.",
+        "D. Teaching her skills to the villagers."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Knowledge",
+        "duration": "medium",
+        "options": [
+          "A. Taking a shower with her sisters.",
+          "B. Combing her hair.",
+          "C. Exploring the countryside.",
+          "D. Teaching her skills to the villagers."
+        ],
+        "question": "What was weaver doing when the cowherd saw her at the first time?",
+        "question_id": "306-2",
+        "sub_category": "Humanity & History",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=s_TGkDcjBqI",
+        "videoID": "s_TGkDcjBqI",
+        "video_id": "306"
+      },
+      "question": "What was weaver doing when the cowherd saw her at the first time?",
+      "question_id": "306-2",
+      "source_group": "youtube:s_TGkDcjBqI",
+      "source_url": "https://www.youtube.com/watch?v=s_TGkDcjBqI",
+      "stratum": "medium",
+      "task_type": "Action Recognition",
+      "video_id": "s_TGkDcjBqI",
+      "video_relative_path": "videos/video_mme/s_TGkDcjBqI.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Knowledge",
+      "options": [
+        "A. Green.",
+        "B. Black.",
+        "C. Yellow.",
+        "D. Gray."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Knowledge",
+        "duration": "short",
+        "options": [
+          "A. Green.",
+          "B. Black.",
+          "C. Yellow.",
+          "D. Gray."
+        ],
+        "question": "What's the color of the tape in the video?",
+        "question_id": "012-3",
+        "sub_category": "Literature & Art",
+        "task_type": "Attribute Perception",
+        "url": "https://www.youtube.com/watch?v=qvwfWyU9Gfc",
+        "videoID": "qvwfWyU9Gfc",
+        "video_id": "012"
+      },
+      "question": "What's the color of the tape in the video?",
+      "question_id": "012-3",
+      "source_group": "youtube:qvwfWyU9Gfc",
+      "source_url": "https://www.youtube.com/watch?v=qvwfWyU9Gfc",
+      "stratum": "short",
+      "task_type": "Attribute Perception",
+      "video_id": "qvwfWyU9Gfc",
+      "video_relative_path": "videos/video_mme/qvwfWyU9Gfc.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Knowledge",
+      "options": [
+        "A. Iceberg.",
+        "B. Moon.",
+        "C. Earth.",
+        "D. River."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Knowledge",
+        "duration": "short",
+        "options": [
+          "A. Iceberg.",
+          "B. Moon.",
+          "C. Earth.",
+          "D. River."
+        ],
+        "question": "Which of the following elements does not appear in the video?",
+        "question_id": "056-2",
+        "sub_category": "Geography",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=WmVLcj-XKnM",
+        "videoID": "WmVLcj-XKnM",
+        "video_id": "056"
+      },
+      "question": "Which of the following elements does not appear in the video?",
+      "question_id": "056-2",
+      "source_group": "youtube:WmVLcj-XKnM",
+      "source_url": "https://www.youtube.com/watch?v=WmVLcj-XKnM",
+      "stratum": "short",
+      "task_type": "Object Recognition",
+      "video_id": "WmVLcj-XKnM",
+      "video_relative_path": "videos/video_mme/WmVLcj-XKnM.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Knowledge",
+      "options": [
+        "A. The role of artificial intelligence in modern warfare.",
+        "B. The philosophical and scientific exploration of consciousness.",
+        "C. The economic impact of consciousness on global markets.",
+        "D. The history of consciousness in ancient civilizations."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Knowledge",
+        "duration": "long",
+        "options": [
+          "A. The role of artificial intelligence in modern warfare.",
+          "B. The philosophical and scientific exploration of consciousness.",
+          "C. The economic impact of consciousness on global markets.",
+          "D. The history of consciousness in ancient civilizations."
+        ],
+        "question": "What central theme is explored in the video?",
+        "question_id": "630-1",
+        "sub_category": "Biology & Medicine",
+        "task_type": "Information Synopsis",
+        "url": "https://www.youtube.com/watch?v=BjmPvovl-V4",
+        "videoID": "BjmPvovl-V4",
+        "video_id": "630"
+      },
+      "question": "What central theme is explored in the video?",
+      "question_id": "630-1",
+      "source_group": "youtube:BjmPvovl-V4",
+      "source_url": "https://www.youtube.com/watch?v=BjmPvovl-V4",
+      "stratum": "long",
+      "task_type": "Information Synopsis",
+      "video_id": "BjmPvovl-V4",
+      "video_relative_path": "videos/video_mme/BjmPvovl-V4.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Sports Competition",
+      "options": [
+        "A. 2.",
+        "B. 4.",
+        "C. 3.",
+        "D. 5."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Sports Competition",
+        "duration": "medium",
+        "options": [
+          "A. 2.",
+          "B. 4.",
+          "C. 3.",
+          "D. 5."
+        ],
+        "question": "How many attempts do it take for Phonzy to hit a 3-pointer in the first game?",
+        "question_id": "443-1",
+        "sub_category": "Basketball",
+        "task_type": "Counting Problem",
+        "url": "https://www.youtube.com/watch?v=cPlpZdGLa5A",
+        "videoID": "cPlpZdGLa5A",
+        "video_id": "443"
+      },
+      "question": "How many attempts do it take for Phonzy to hit a 3-pointer in the first game?",
+      "question_id": "443-1",
+      "source_group": "youtube:cPlpZdGLa5A",
+      "source_url": "https://www.youtube.com/watch?v=cPlpZdGLa5A",
+      "stratum": "medium",
+      "task_type": "Counting Problem",
+      "video_id": "cPlpZdGLa5A",
+      "video_relative_path": "videos/video_mme/cPlpZdGLa5A.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Knowledge",
+      "options": [
+        "A. Riding horses.",
+        "B. Boats.",
+        "C. Walking.",
+        "D. Faster cars."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Knowledge",
+        "duration": "medium",
+        "options": [
+          "A. Riding horses.",
+          "B. Boats.",
+          "C. Walking.",
+          "D. Faster cars."
+        ],
+        "question": "Which transportation is the quantum computer compared to in the video?",
+        "question_id": "383-2",
+        "sub_category": "Technology",
+        "task_type": "Object Reasoning",
+        "url": "https://www.youtube.com/watch?v=e3fz3dqhN44",
+        "videoID": "e3fz3dqhN44",
+        "video_id": "383"
+      },
+      "question": "Which transportation is the quantum computer compared to in the video?",
+      "question_id": "383-2",
+      "source_group": "youtube:e3fz3dqhN44",
+      "source_url": "https://www.youtube.com/watch?v=e3fz3dqhN44",
+      "stratum": "medium",
+      "task_type": "Object Reasoning",
+      "video_id": "e3fz3dqhN44",
+      "video_relative_path": "videos/video_mme/e3fz3dqhN44.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Film & Television",
+      "options": [
+        "A. The weather and the unstable economy.",
+        "B. Serious casualties.",
+        "C. Constant aftershocks.",
+        "D. There are not enough supplies."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Film & Television",
+        "duration": "medium",
+        "options": [
+          "A. The weather and the unstable economy.",
+          "B. Serious casualties.",
+          "C. Constant aftershocks.",
+          "D. There are not enough supplies."
+        ],
+        "question": "In the middle of the video, what are the difficulties of rebuilding after the earthquake?",
+        "question_id": "411-3",
+        "sub_category": "Documentary",
+        "task_type": "Information Synopsis",
+        "url": "https://www.youtube.com/watch?v=K759eXmaMTY",
+        "videoID": "K759eXmaMTY",
+        "video_id": "411"
+      },
+      "question": "In the middle of the video, what are the difficulties of rebuilding after the earthquake?",
+      "question_id": "411-3",
+      "source_group": "youtube:K759eXmaMTY",
+      "source_url": "https://www.youtube.com/watch?v=K759eXmaMTY",
+      "stratum": "medium",
+      "task_type": "Information Synopsis",
+      "video_id": "K759eXmaMTY",
+      "video_relative_path": "videos/video_mme/K759eXmaMTY.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Multilingual",
+      "options": [
+        "A. French frozen food production process.",
+        "B. French frozen food chefs.",
+        "C. French frozen food advantages and disadvantages.",
+        "D. The daily diet of French people and why French people like to eat frozen food."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Multilingual",
+        "duration": "long",
+        "options": [
+          "A. French frozen food production process.",
+          "B. French frozen food chefs.",
+          "C. French frozen food advantages and disadvantages.",
+          "D. The daily diet of French people and why French people like to eat frozen food."
+        ],
+        "question": "What title best summarizes this video?",
+        "question_id": "893-1",
+        "sub_category": "Multilingual",
+        "task_type": "Information Synopsis",
+        "url": "https://www.youtube.com/watch?v=WQn-c_4dVWs",
+        "videoID": "WQn-c_4dVWs",
+        "video_id": "893"
+      },
+      "question": "What title best summarizes this video?",
+      "question_id": "893-1",
+      "source_group": "youtube:WQn-c_4dVWs",
+      "source_url": "https://www.youtube.com/watch?v=WQn-c_4dVWs",
+      "stratum": "long",
+      "task_type": "Information Synopsis",
+      "video_id": "WQn-c_4dVWs",
+      "video_relative_path": "videos/video_mme/WQn-c_4dVWs.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Knowledge",
+      "options": [
+        "A. (a)(c)(b).",
+        "B. (c)(a)(b).",
+        "C. (c)(b)(a).",
+        "D. (a)(c)(b)."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Knowledge",
+        "duration": "medium",
+        "options": [
+          "A. (a)(c)(b).",
+          "B. (c)(a)(b).",
+          "C. (c)(b)(a).",
+          "D. (a)(c)(b)."
+        ],
+        "question": "What is the correct order in which the following events are presented in the video?\n(a) The nucleus is introduced.\n(b) Base pairing.\n(c) Cell division.",
+        "question_id": "321-2",
+        "sub_category": "Biology & Medicine",
+        "task_type": "Temporal Reasoning",
+        "url": "https://www.youtube.com/watch?v=7Hk9jct2ozY",
+        "videoID": "7Hk9jct2ozY",
+        "video_id": "321"
+      },
+      "question": "What is the correct order in which the following events are presented in the video?\n(a) The nucleus is introduced.\n(b) Base pairing.\n(c) Cell division.",
+      "question_id": "321-2",
+      "source_group": "youtube:7Hk9jct2ozY",
+      "source_url": "https://www.youtube.com/watch?v=7Hk9jct2ozY",
+      "stratum": "medium",
+      "task_type": "Temporal Reasoning",
+      "video_id": "7Hk9jct2ozY",
+      "video_relative_path": "videos/video_mme/7Hk9jct2ozY.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Sports Competition",
+      "options": [
+        "A. Intruding the jungle lane of enemies at the beginning of the game.",
+        "B. Avoiding battle until late stage.",
+        "C. Attacking enemies positively for more resources.",
+        "D. Attacking enemies as early as possible."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Sports Competition",
+        "duration": "long",
+        "options": [
+          "A. Intruding the jungle lane of enemies at the beginning of the game.",
+          "B. Avoiding battle until late stage.",
+          "C. Attacking enemies positively for more resources.",
+          "D. Attacking enemies as early as possible."
+        ],
+        "question": "What strategy should team FLY take?",
+        "question_id": "736-2",
+        "sub_category": "Esports",
+        "task_type": "Action Reasoning",
+        "url": "https://www.youtube.com/watch?v=-y1U0qk1vDs",
+        "videoID": "-y1U0qk1vDs",
+        "video_id": "736"
+      },
+      "question": "What strategy should team FLY take?",
+      "question_id": "736-2",
+      "source_group": "youtube:-y1U0qk1vDs",
+      "source_url": "https://www.youtube.com/watch?v=-y1U0qk1vDs",
+      "stratum": "long",
+      "task_type": "Action Reasoning",
+      "video_id": "-y1U0qk1vDs",
+      "video_relative_path": "videos/video_mme/-y1U0qk1vDs.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Film & Television",
+      "options": [
+        "A. A fork.",
+        "B. A pair of chopsticks.",
+        "C. A box of noodles.",
+        "D. A spoon."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Film & Television",
+        "duration": "short",
+        "options": [
+          "A. A fork.",
+          "B. A pair of chopsticks.",
+          "C. A box of noodles.",
+          "D. A spoon."
+        ],
+        "question": "Which item  does the man throw into the trash at the beginning of the video?",
+        "question_id": "103-1",
+        "sub_category": "Movie & TV Show",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=G267g0DpCVg",
+        "videoID": "G267g0DpCVg",
+        "video_id": "103"
+      },
+      "question": "Which item  does the man throw into the trash at the beginning of the video?",
+      "question_id": "103-1",
+      "source_group": "youtube:G267g0DpCVg",
+      "source_url": "https://www.youtube.com/watch?v=G267g0DpCVg",
+      "stratum": "short",
+      "task_type": "Object Recognition",
+      "video_id": "G267g0DpCVg",
+      "video_relative_path": "videos/video_mme/G267g0DpCVg.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Film & Television",
+      "options": [
+        "A. Christianity.",
+        "B. Islam.",
+        "C. Buddhism.",
+        "D. It's not mentioned in the video."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Film & Television",
+        "duration": "long",
+        "options": [
+          "A. Christianity.",
+          "B. Islam.",
+          "C. Buddhism.",
+          "D. It's not mentioned in the video."
+        ],
+        "question": "What religion can we infer from the video that the Amish practice?",
+        "question_id": "716-1",
+        "sub_category": "Documentary",
+        "task_type": "Attribute Perception",
+        "url": "https://www.youtube.com/watch?v=B9He5DVePvk",
+        "videoID": "B9He5DVePvk",
+        "video_id": "716"
+      },
+      "question": "What religion can we infer from the video that the Amish practice?",
+      "question_id": "716-1",
+      "source_group": "youtube:B9He5DVePvk",
+      "source_url": "https://www.youtube.com/watch?v=B9He5DVePvk",
+      "stratum": "long",
+      "task_type": "Attribute Perception",
+      "video_id": "B9He5DVePvk",
+      "video_relative_path": "videos/video_mme/B9He5DVePvk.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Knowledge",
+      "options": [
+        "A. It is derived from the Latin word for 'egg'.",
+        "B. It is a term used to describe a type of joint movement.",
+        "C. It refers to a type of bone tissue.",
+        "D. It indicates a condition related to the joints."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Knowledge",
+        "duration": "short",
+        "options": [
+          "A. It is derived from the Latin word for 'egg'.",
+          "B. It is a term used to describe a type of joint movement.",
+          "C. It refers to a type of bone tissue.",
+          "D. It indicates a condition related to the joints."
+        ],
+        "question": "What detail does the caption provide about the term \"synovial\" at the beginning of the video?",
+        "question_id": "022-2",
+        "sub_category": "Biology & Medicine",
+        "task_type": "Temporal Perception",
+        "url": "https://www.youtube.com/watch?v=n3IYmdy6d4Y",
+        "videoID": "n3IYmdy6d4Y",
+        "video_id": "022"
+      },
+      "question": "What detail does the caption provide about the term \"synovial\" at the beginning of the video?",
+      "question_id": "022-2",
+      "source_group": "youtube:n3IYmdy6d4Y",
+      "source_url": "https://www.youtube.com/watch?v=n3IYmdy6d4Y",
+      "stratum": "short",
+      "task_type": "Temporal Perception",
+      "video_id": "n3IYmdy6d4Y",
+      "video_relative_path": "videos/video_mme/n3IYmdy6d4Y.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Life Record",
+      "options": [
+        "A. The history of Chanel's fashion empire and its iconic designs.",
+        "B. The evolution of Louis Vuitton as a luxury brand in the fashion industry.",
+        "C. Gucci's rise and fall and rise again story recounted by those who lived through it.",
+        "D. The history of Prada's iconic fashion designs and their influence on the industry."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Life Record",
+        "duration": "long",
+        "options": [
+          "A. The history of Chanel's fashion empire and its iconic designs.",
+          "B. The evolution of Louis Vuitton as a luxury brand in the fashion industry.",
+          "C. Gucci's rise and fall and rise again story recounted by those who lived through it.",
+          "D. The history of Prada's iconic fashion designs and their influence on the industry."
+        ],
+        "question": "What is the main content of this video?",
+        "question_id": "842-3",
+        "sub_category": "Fashion",
+        "task_type": "Information Synopsis",
+        "url": "https://www.youtube.com/watch?v=CKYw_RG7i7w",
+        "videoID": "CKYw_RG7i7w",
+        "video_id": "842"
+      },
+      "question": "What is the main content of this video?",
+      "question_id": "842-3",
+      "source_group": "youtube:CKYw_RG7i7w",
+      "source_url": "https://www.youtube.com/watch?v=CKYw_RG7i7w",
+      "stratum": "long",
+      "task_type": "Information Synopsis",
+      "video_id": "CKYw_RG7i7w",
+      "video_relative_path": "videos/video_mme/CKYw_RG7i7w.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Knowledge",
+      "options": [
+        "A. Because Hamlet changed the content in the letter.",
+        "B. Because Claudius asked the English king to protect Hamlet during their journey.",
+        "C. Because the English king was unwilling to kill Hamlet.",
+        "D. Because Hamlet's friends chose to be killed instead of Hamlet."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Knowledge",
+        "duration": "medium",
+        "options": [
+          "A. Because Hamlet changed the content in the letter.",
+          "B. Because Claudius asked the English king to protect Hamlet during their journey.",
+          "C. Because the English king was unwilling to kill Hamlet.",
+          "D. Because Hamlet's friends chose to be killed instead of Hamlet."
+        ],
+        "question": "Why didn't the English king kill Hamlet?",
+        "question_id": "316-3",
+        "sub_category": "Literature & Art",
+        "task_type": "Action Reasoning",
+        "url": "https://www.youtube.com/watch?v=IaTaaNinolU",
+        "videoID": "IaTaaNinolU",
+        "video_id": "316"
+      },
+      "question": "Why didn't the English king kill Hamlet?",
+      "question_id": "316-3",
+      "source_group": "youtube:IaTaaNinolU",
+      "source_url": "https://www.youtube.com/watch?v=IaTaaNinolU",
+      "stratum": "medium",
+      "task_type": "Action Reasoning",
+      "video_id": "IaTaaNinolU",
+      "video_relative_path": "videos/video_mme/IaTaaNinolU.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Film & Television",
+      "options": [
+        "A. Build their village.",
+        "B. Rob something from people in the sky.",
+        "C. Protect their village from robbers.",
+        "D. Participate in the war."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Film & Television",
+        "duration": "long",
+        "options": [
+          "A. Build their village.",
+          "B. Rob something from people in the sky.",
+          "C. Protect their village from robbers.",
+          "D. Participate in the war."
+        ],
+        "question": "What do the people in the village do according to the video?",
+        "question_id": "693-1",
+        "sub_category": "Animation",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=dXUXfyiX2lA",
+        "videoID": "dXUXfyiX2lA",
+        "video_id": "693"
+      },
+      "question": "What do the people in the village do according to the video?",
+      "question_id": "693-1",
+      "source_group": "youtube:dXUXfyiX2lA",
+      "source_url": "https://www.youtube.com/watch?v=dXUXfyiX2lA",
+      "stratum": "long",
+      "task_type": "Action Recognition",
+      "video_id": "dXUXfyiX2lA",
+      "video_relative_path": "videos/video_mme/dXUXfyiX2lA.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Film & Television",
+      "options": [
+        "A. Near adulthood.",
+        "B. Kitten.",
+        "C. Indeterminable.",
+        "D. Senior cat."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Film & Television",
+        "duration": "short",
+        "options": [
+          "A. Near adulthood.",
+          "B. Kitten.",
+          "C. Indeterminable.",
+          "D. Senior cat."
+        ],
+        "question": "According to the video, what is the age range of the cat in the video?",
+        "question_id": "115-2",
+        "sub_category": "Documentary",
+        "task_type": "OCR Problems",
+        "url": "https://www.youtube.com/watch?v=W86cTIoMv2U",
+        "videoID": "W86cTIoMv2U",
+        "video_id": "115"
+      },
+      "question": "According to the video, what is the age range of the cat in the video?",
+      "question_id": "115-2",
+      "source_group": "youtube:W86cTIoMv2U",
+      "source_url": "https://www.youtube.com/watch?v=W86cTIoMv2U",
+      "stratum": "short",
+      "task_type": "OCR Problems",
+      "video_id": "W86cTIoMv2U",
+      "video_relative_path": "videos/video_mme/W86cTIoMv2U.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Life Record",
+      "options": [
+        "A. Find the crocodile.",
+        "B. Eat ice cream until see a red light.",
+        "C. Mini golf.",
+        "D. Tip the waiter."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Life Record",
+        "duration": "long",
+        "options": [
+          "A. Find the crocodile.",
+          "B. Eat ice cream until see a red light.",
+          "C. Mini golf.",
+          "D. Tip the waiter."
+        ],
+        "question": "Which challenges do they not complete during the trip?",
+        "question_id": "870-1",
+        "sub_category": "Travel",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=Fibq4aA-GVc",
+        "videoID": "Fibq4aA-GVc",
+        "video_id": "870"
+      },
+      "question": "Which challenges do they not complete during the trip?",
+      "question_id": "870-1",
+      "source_group": "youtube:Fibq4aA-GVc",
+      "source_url": "https://www.youtube.com/watch?v=Fibq4aA-GVc",
+      "stratum": "long",
+      "task_type": "Action Recognition",
+      "video_id": "Fibq4aA-GVc",
+      "video_relative_path": "videos/video_mme/Fibq4aA-GVc.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Life Record",
+      "options": [
+        "A. Driving a car.",
+        "B. Spraying perfume.",
+        "C. Drinking water.",
+        "D. Charging the cell phone."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Life Record",
+        "duration": "short",
+        "options": [
+          "A. Driving a car.",
+          "B. Spraying perfume.",
+          "C. Drinking water.",
+          "D. Charging the cell phone."
+        ],
+        "question": "What does the person in the video do after brushing his teeth?",
+        "question_id": "260-2",
+        "sub_category": "Daily Life",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=3E4Zca1p64s",
+        "videoID": "3E4Zca1p64s",
+        "video_id": "260"
+      },
+      "question": "What does the person in the video do after brushing his teeth?",
+      "question_id": "260-2",
+      "source_group": "youtube:3E4Zca1p64s",
+      "source_url": "https://www.youtube.com/watch?v=3E4Zca1p64s",
+      "stratum": "short",
+      "task_type": "Action Recognition",
+      "video_id": "3E4Zca1p64s",
+      "video_relative_path": "videos/video_mme/3E4Zca1p64s.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Artistic Performance",
+      "options": [
+        "A. They are of the same height.",
+        "B. It is unclear from the video.",
+        "C. The world's shortest woman is taller than the world's shortest man.",
+        "D. The world's shortest man is taller than the world's shortest woman."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Artistic Performance",
+        "duration": "short",
+        "options": [
+          "A. They are of the same height.",
+          "B. It is unclear from the video.",
+          "C. The world's shortest woman is taller than the world's shortest man.",
+          "D. The world's shortest man is taller than the world's shortest woman."
+        ],
+        "question": "Based on the video, which statement is true regarding the height comparison of the world's shortest man and shortest woman?",
+        "question_id": "204-3",
+        "sub_category": "Variety Show",
+        "task_type": "Attribute Perception",
+        "url": "https://www.youtube.com/watch?v=pcm_E7UoKLo",
+        "videoID": "pcm_E7UoKLo",
+        "video_id": "204"
+      },
+      "question": "Based on the video, which statement is true regarding the height comparison of the world's shortest man and shortest woman?",
+      "question_id": "204-3",
+      "source_group": "youtube:pcm_E7UoKLo",
+      "source_url": "https://www.youtube.com/watch?v=pcm_E7UoKLo",
+      "stratum": "short",
+      "task_type": "Attribute Perception",
+      "video_id": "pcm_E7UoKLo",
+      "video_relative_path": "videos/video_mme/pcm_E7UoKLo.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Film & Television",
+      "options": [
+        "A. Generate fire.",
+        "B. Make people invisible.",
+        "C. Generate electricity.",
+        "D. Seize superpowers from others."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Film & Television",
+        "duration": "long",
+        "options": [
+          "A. Generate fire.",
+          "B. Make people invisible.",
+          "C. Generate electricity.",
+          "D. Seize superpowers from others."
+        ],
+        "question": "In line with the video evidence, what is the function of the necklace that the girl stole from the museum?",
+        "question_id": "691-3",
+        "sub_category": "Animation",
+        "task_type": "Action Reasoning",
+        "url": "https://www.youtube.com/watch?v=lMxFbRc3Luk",
+        "videoID": "lMxFbRc3Luk",
+        "video_id": "691"
+      },
+      "question": "In line with the video evidence, what is the function of the necklace that the girl stole from the museum?",
+      "question_id": "691-3",
+      "source_group": "youtube:lMxFbRc3Luk",
+      "source_url": "https://www.youtube.com/watch?v=lMxFbRc3Luk",
+      "stratum": "long",
+      "task_type": "Action Reasoning",
+      "video_id": "lMxFbRc3Luk",
+      "video_relative_path": "videos/video_mme/lMxFbRc3Luk.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Film & Television",
+      "options": [
+        "A. Entrepreneur explains why local radio isn't dead.",
+        "B. A U.S. ship collides with a bridge.",
+        "C. Big wins and best moments at the 96th Oscars.",
+        "D. Newfoundland digs out after a snowstorm."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Film & Television",
+        "duration": "long",
+        "options": [
+          "A. Entrepreneur explains why local radio isn't dead.",
+          "B. A U.S. ship collides with a bridge.",
+          "C. Big wins and best moments at the 96th Oscars.",
+          "D. Newfoundland digs out after a snowstorm."
+        ],
+        "question": "Which of the following events did not appear in the news?",
+        "question_id": "729-1",
+        "sub_category": "News Report",
+        "task_type": "Information Synopsis",
+        "url": "https://www.youtube.com/watch?v=bBazRZOxl-k",
+        "videoID": "bBazRZOxl-k",
+        "video_id": "729"
+      },
+      "question": "Which of the following events did not appear in the news?",
+      "question_id": "729-1",
+      "source_group": "youtube:bBazRZOxl-k",
+      "source_url": "https://www.youtube.com/watch?v=bBazRZOxl-k",
+      "stratum": "long",
+      "task_type": "Information Synopsis",
+      "video_id": "bBazRZOxl-k",
+      "video_relative_path": "videos/video_mme/bBazRZOxl-k.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Multilingual",
+      "options": [
+        "A. A mirror.",
+        "B. A book.",
+        "C. A paper.",
+        "D. A card."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Multilingual",
+        "duration": "medium",
+        "options": [
+          "A. A mirror.",
+          "B. A book.",
+          "C. A paper.",
+          "D. A card."
+        ],
+        "question": "What does the girl take out from the envelop?",
+        "question_id": "597-1",
+        "sub_category": "Multilingual",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=5R64pAPUZmk",
+        "videoID": "5R64pAPUZmk",
+        "video_id": "597"
+      },
+      "question": "What does the girl take out from the envelop?",
+      "question_id": "597-1",
+      "source_group": "youtube:5R64pAPUZmk",
+      "source_url": "https://www.youtube.com/watch?v=5R64pAPUZmk",
+      "stratum": "medium",
+      "task_type": "Object Recognition",
+      "video_id": "5R64pAPUZmk",
+      "video_relative_path": "videos/video_mme/5R64pAPUZmk.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Sports Competition",
+      "options": [
+        "A. Ranking the top 15 football players for beginners to watch and learn from.",
+        "B. Discussing the 15 most complex football tactics used in professional matches.",
+        "C. Demonstrating the 15 easiest and most effective skill moves for beginner football players, ordered by difficulty.",
+        "D. Analyzing the 15 worst mistakes beginners make in football and how to avoid them."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Sports Competition",
+        "duration": "medium",
+        "options": [
+          "A. Ranking the top 15 football players for beginners to watch and learn from.",
+          "B. Discussing the 15 most complex football tactics used in professional matches.",
+          "C. Demonstrating the 15 easiest and most effective skill moves for beginner football players, ordered by difficulty.",
+          "D. Analyzing the 15 worst mistakes beginners make in football and how to avoid them."
+        ],
+        "question": "What is the topic of this video?",
+        "question_id": "452-1",
+        "sub_category": "Football",
+        "task_type": "Information Synopsis",
+        "url": "https://www.youtube.com/watch?v=Xim8-lUZnsA",
+        "videoID": "Xim8-lUZnsA",
+        "video_id": "452"
+      },
+      "question": "What is the topic of this video?",
+      "question_id": "452-1",
+      "source_group": "youtube:Xim8-lUZnsA",
+      "source_url": "https://www.youtube.com/watch?v=Xim8-lUZnsA",
+      "stratum": "medium",
+      "task_type": "Information Synopsis",
+      "video_id": "Xim8-lUZnsA",
+      "video_relative_path": "videos/video_mme/Xim8-lUZnsA.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Knowledge",
+      "options": [
+        "A. Planes invented by the Wright Brothers.",
+        "B. The structural difference between the planes created by Whitehead and planes created by the Wright Brothers.",
+        "C. Who invented the first plane.",
+        "D. How Whitehead and the Wright Brothers cooperated to invent the first motorized flight."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Knowledge",
+        "duration": "long",
+        "options": [
+          "A. Planes invented by the Wright Brothers.",
+          "B. The structural difference between the planes created by Whitehead and planes created by the Wright Brothers.",
+          "C. Who invented the first plane.",
+          "D. How Whitehead and the Wright Brothers cooperated to invent the first motorized flight."
+        ],
+        "question": "What is the video mainly about?",
+        "question_id": "601-1",
+        "sub_category": "Humanity & History",
+        "task_type": "Information Synopsis",
+        "url": "https://www.youtube.com/watch?v=TGom0uiW130",
+        "videoID": "TGom0uiW130",
+        "video_id": "601"
+      },
+      "question": "What is the video mainly about?",
+      "question_id": "601-1",
+      "source_group": "youtube:TGom0uiW130",
+      "source_url": "https://www.youtube.com/watch?v=TGom0uiW130",
+      "stratum": "long",
+      "task_type": "Information Synopsis",
+      "video_id": "TGom0uiW130",
+      "video_relative_path": "videos/video_mme/TGom0uiW130.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Sports Competition",
+      "options": [
+        "A. Number 13.",
+        "B. Number 32.",
+        "C. Number 17.",
+        "D. Number 5."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. Number 13.",
+          "B. Number 32.",
+          "C. Number 17.",
+          "D. Number 5."
+        ],
+        "question": "Which player finished the dunk?",
+        "question_id": "143-2",
+        "sub_category": "Basketball",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=PJHkIJZGwKA",
+        "videoID": "PJHkIJZGwKA",
+        "video_id": "143"
+      },
+      "question": "Which player finished the dunk?",
+      "question_id": "143-2",
+      "source_group": "youtube:PJHkIJZGwKA",
+      "source_url": "https://www.youtube.com/watch?v=PJHkIJZGwKA",
+      "stratum": "short",
+      "task_type": "Action Recognition",
+      "video_id": "PJHkIJZGwKA",
+      "video_relative_path": "videos/video_mme/PJHkIJZGwKA.mp4"
+    },
+    {
+      "answer_index": 0,
+      "domain": "Knowledge",
+      "options": [
+        "A. It is a news report that introduces the history behind Christmas decorations.",
+        "B. It is a documentary on the evolution of Christmas holiday recipes.",
+        "C. It is a travel vlog exploring Christmas markets around the world.",
+        "D. It is a tutorial on DIY Christmas ornament crafting."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Knowledge",
+        "duration": "short",
+        "options": [
+          "A. It is a news report that introduces the history behind Christmas decorations.",
+          "B. It is a documentary on the evolution of Christmas holiday recipes.",
+          "C. It is a travel vlog exploring Christmas markets around the world.",
+          "D. It is a tutorial on DIY Christmas ornament crafting."
+        ],
+        "question": "What is the genre of this video?",
+        "question_id": "001-2",
+        "sub_category": "Humanity & History",
+        "task_type": "Information Synopsis",
+        "url": "https://www.youtube.com/watch?v=fFjv93ACGo8",
+        "videoID": "fFjv93ACGo8",
+        "video_id": "001"
+      },
+      "question": "What is the genre of this video?",
+      "question_id": "001-2",
+      "source_group": "youtube:fFjv93ACGo8",
+      "source_url": "https://www.youtube.com/watch?v=fFjv93ACGo8",
+      "stratum": "short",
+      "task_type": "Information Synopsis",
+      "video_id": "fFjv93ACGo8",
+      "video_relative_path": "videos/video_mme/fFjv93ACGo8.mp4"
+    }
+  ],
+  "sampling": "SHA256 seeded video grouping; one original question per video; fixed stratum quotas",
+  "schema_version": 1,
+  "seed": 2027,
+  "source": {
+    "files": [
+      "videomme/test-00000-of-00001.parquet"
+    ],
+    "repo": "lmms-eval/Video-MME",
+    "revision": "ead1408f75b618502df9a1d8e0950166bf0a2a0b",
+    "split": "test"
+  },
+  "split": "development",
+  "video_validation_status": "pending"
+}

@@ -1,0 +1,10 @@
+name: explore_video_qa
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.10.21
+  - pip
+  - ffmpeg=9.0.1
+  - pip:
+      - -r requirements-runtime.lock.txt

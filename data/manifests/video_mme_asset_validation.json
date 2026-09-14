@@ -1,0 +1,1896 @@
+{
+  "checked_at_utc": "2026-09-14T14:11:41.289550+00:00",
+  "archive_path": "data/archives/video_mme_selected50.zip",
+  "archive_bytes": 4547476837,
+  "archive_sha256": "219f9524ddc737390c848fe640ed660720f8e738a0f630346a7b3bc6f8529321",
+  "transfer_sha256_match": true,
+  "development_manifest_sha256": "785004b81d10e8be73349f7a328cb79bf133aa6dacfb5340b538296585b8fa3b",
+  "annotation_original_field_matches": 50,
+  "order_matches": true,
+  "question_count": 50,
+  "unique_video_count": 50,
+  "strata": {
+    "short": 17,
+    "long": 16,
+    "medium": 17
+  },
+  "reserve_video_overlap": 0,
+  "zip_crc_all_files_passed": true,
+  "media_validation": "container metadata and source-PTS frame decode at start, midpoint, and near end; not full-stream decode",
+  "decoder": {
+    "pyav": "16.1.0",
+    "libraries": {
+      "libavutil": [
+        60,
+        8,
+        100
+      ],
+      "libavcodec": [
+        62,
+        11,
+        100
+      ],
+      "libavformat": [
+        62,
+        3,
+        100
+      ],
+      "libavdevice": [
+        62,
+        1,
+        100
+      ],
+      "libavfilter": [
+        11,
+        4,
+        100
+      ],
+      "libswscale": [
+        9,
+        1,
+        100
+      ],
+      "libswresample": [
+        6,
+        1,
+        100
+      ]
+    }
+  },
+  "official_video_hash_comparison": "not performed; no official per-video hashes provided",
+  "qa_calls_this_session": 0,
+  "files": [
+    {
+      "path": "data/videos/video_mme/8e05W-wi38g.mp4",
+      "bytes": 14833502,
+      "sha256": "114e054c5a9142042b7efc6d4be67c7eb21e87c89be4832d58d1dfd217e5557c",
+      "zip_crc32": "cebbad6d"
+    },
+    {
+      "path": "data/videos/video_mme/K7YNoRZMv2k.mp4",
+      "bytes": 153459824,
+      "sha256": "60bfadb09934a6ce2cc9f4c38b29a00a4fdf39d758b8041a8775cf07ef81487d",
+      "zip_crc32": "17fe4b47"
+    },
+    {
+      "path": "data/videos/video_mme/ZP-Y2S750KY.mp4",
+      "bytes": 148926701,
+      "sha256": "1909d7636c381a7569d0053971901e94051a4410f850a67265ef746ebebcb3ea",
+      "zip_crc32": "b4fd29de"
+    },
+    {
+      "path": "data/videos/video_mme/HiJb_2dvuHc.mp4",
+      "bytes": 7593753,
+      "sha256": "443832983a1e5ede297751fd3fa6aa08e4c6055077cacef8203990b879626666",
+      "zip_crc32": "cbcd56d0"
+    },
+    {
+      "path": "data/videos/video_mme/HwnB8aCn8yE.mp4",
+      "bytes": 3744854,
+      "sha256": "d0584b90a3b1f92cef1ed19e2cf3526091e4a32724bbb4fd97fd68b061616d26",
+      "zip_crc32": "28087c3e"
+    },
+    {
+      "path": "data/videos/video_mme/-XpJeDGh8No.mp4",
+      "bytes": 30743186,
+      "sha256": "e99bad4544a43973c6cc4b88125f7fb46a6a372131fafe885e4e602f25f1fc8e",
+      "zip_crc32": "55ccc435"
+    },
+    {
+      "path": "data/videos/video_mme/7TydWUguPRU.mp4",
+      "bytes": 234258314,
+      "sha256": "c0075f3deb56dbe22965dcb662ca07b63845e1fa3387c123f5ede83f6a22352b",
+      "zip_crc32": "36c7a855"
+    },
+    {
+      "path": "data/videos/video_mme/dez7DLniEJA.mp4",
+      "bytes": 30786775,
+      "sha256": "5224de5ccff5ea8504171aa33138a9a239fea305b38bda09f1e9d67672ec588e",
+      "zip_crc32": "0ea2850d"
+    },
+    {
+      "path": "data/videos/video_mme/tuZcS2Flabw.mp4",
+      "bytes": 16832511,
+      "sha256": "145298bcc39deae315c77cc7edb9347ff5b7ed87856ba04d9a9757161281fc3c",
+      "zip_crc32": "b6e9d481"
+    },
+    {
+      "path": "data/videos/video_mme/uMIohuKRq58.mp4",
+      "bytes": 42200242,
+      "sha256": "fb4fe273577b8e40ac3f3e124ca1308d31ea4d32501a04d68bbe2f22fa56b011",
+      "zip_crc32": "a48ce897"
+    },
+    {
+      "path": "data/videos/video_mme/ZkhAbUGoD18.mp4",
+      "bytes": 130937007,
+      "sha256": "9e0185b499baf1b0242598d111547238e79ac053419393cda653918ea6eae2b6",
+      "zip_crc32": "b34c18fa"
+    },
+    {
+      "path": "data/videos/video_mme/QTA8j5wSTx4.mp4",
+      "bytes": 31566294,
+      "sha256": "05b86d7d805c35b8262c46bfc01eecec3c058a91e2b2a2085f925082b0e129fd",
+      "zip_crc32": "688aaba5"
+    },
+    {
+      "path": "data/videos/video_mme/0IdYJGBmguM.mp4",
+      "bytes": 9794295,
+      "sha256": "78fd1a367ec6d074fdd2d78b757b0f24f57b6376edee5019ac38458029be924a",
+      "zip_crc32": "7e6b78fe"
+    },
+    {
+      "path": "data/videos/video_mme/EJ_yarUrgVQ.mp4",
+      "bytes": 14667630,
+      "sha256": "6334054ff03f4441e0b23b3fa7995003f584a0b212bab736271d7046ffdb9183",
+      "zip_crc32": "c5fd3024"
+    },
+    {
+      "path": "data/videos/video_mme/E895PNqSgEI.mp4",
+      "bytes": 4755177,
+      "sha256": "166e7d6b6864b74b7c2a669adc959a680b868f2c417b35f1f7aacada117ecc49",
+      "zip_crc32": "2a3718e3"
+    },
+    {
+      "path": "data/videos/video_mme/uJFbOrNrL3w.mp4",
+      "bytes": 19901182,
+      "sha256": "0d79bb761bdb7867ce5d38b6b4265f3c24adfda5b8781d4aa3e17de18135452d",
+      "zip_crc32": "5ee30a9a"
+    },
+    {
+      "path": "data/videos/video_mme/uhYiRmGURwE.mp4",
+      "bytes": 82397391,
+      "sha256": "b0d4ccd8ad5b8c7a751da8832bad2d6b5b0138015c46bfcc9189d29d9a90cb0d",
+      "zip_crc32": "351c126f"
+    },
+    {
+      "path": "data/videos/video_mme/lNvBXLbInXE.mp4",
+      "bytes": 21012858,
+      "sha256": "a7d291a6d8b79b813e7adbf876f5058099a536027674363f676b6dbdce04acc5",
+      "zip_crc32": "601615a4"
+    },
+    {
+      "path": "data/videos/video_mme/X6UqTmRAApw.mp4",
+      "bytes": 138633580,
+      "sha256": "a0ed8e368fc04760cad022ad049b96500c64d0e48f950d969028d79d0ab64f75",
+      "zip_crc32": "55955924"
+    },
+    {
+      "path": "data/videos/video_mme/_CqKv0Y1FB0.mp4",
+      "bytes": 10484541,
+      "sha256": "a5eec410e0643347b2232b9a861e99a4e72e97f7572e204cf3fd188e710d4b52",
+      "zip_crc32": "568abb5d"
+    },
+    {
+      "path": "data/videos/video_mme/ECgVLceb_LE.mp4",
+      "bytes": 76826301,
+      "sha256": "4e6cf3ecb3aaf978554fa8c3465458b4255e8d8c897f42e2453a61e28b980311",
+      "zip_crc32": "cf077f99"
+    },
+    {
+      "path": "data/videos/video_mme/uuCVnqV4cNc.mp4",
+      "bytes": 233097342,
+      "sha256": "a887697ce8f54975697fdf83d5a16ec4e557ef73c9e1024c01099826f8c11e63",
+      "zip_crc32": "6a415ac4"
+    },
+    {
+      "path": "data/videos/video_mme/DK6bKtXUE1c.mp4",
+      "bytes": 13059410,
+      "sha256": "d40622557a1fa27afe7d75831745a1ce08f4a0a75cf6908ef33b223d8bff1e31",
+      "zip_crc32": "6f9b85b7"
+    },
+    {
+      "path": "data/videos/video_mme/s_TGkDcjBqI.mp4",
+      "bytes": 15129278,
+      "sha256": "cbd42c60c4fa835ad8218c143b6c6bbc716f8ba983c2e697e72d2004762f440c",
+      "zip_crc32": "ca4ed07a"
+    },
+    {
+      "path": "data/videos/video_mme/qvwfWyU9Gfc.mp4",
+      "bytes": 1823921,
+      "sha256": "e1e9bcbe32bb9d9ceb2707ce1f323d4fd0735382eb086fe065b59f80d635294e",
+      "zip_crc32": "6ad130bc"
+    },
+    {
+      "path": "data/videos/video_mme/WmVLcj-XKnM.mp4",
+      "bytes": 20509465,
+      "sha256": "f71ac804a722db190430cf39bf363887ac419c3837531b396f0785a47b3e092d",
+      "zip_crc32": "e8b7eaf4"
+    },
+    {
+      "path": "data/videos/video_mme/BjmPvovl-V4.mp4",
+      "bytes": 173613738,
+      "sha256": "2a69e5342ae6e698f952770b0e4d398a15af631cabb623fb541dbc044c7ab97a",
+      "zip_crc32": "c682db84"
+    },
+    {
+      "path": "data/videos/video_mme/cPlpZdGLa5A.mp4",
+      "bytes": 59975676,
+      "sha256": "1a4aa5bb4fbb38a1d0b41a473f2efa2dd0b32d836d28bf06e32efdf98d25ea3a",
+      "zip_crc32": "335fffed"
+    },
+    {
+      "path": "data/videos/video_mme/e3fz3dqhN44.mp4",
+      "bytes": 48703834,
+      "sha256": "a95a0df49538482e49bf5314471f72075622f5b19b6618f268251c3ca6449404",
+      "zip_crc32": "60620a10"
+    },
+    {
+      "path": "data/videos/video_mme/K759eXmaMTY.mp4",
+      "bytes": 59708138,
+      "sha256": "40737590a6b572791746bea7a87ac80c270cdd0750e9aae65b1eeed08232c7c1",
+      "zip_crc32": "303ddfe0"
+    },
+    {
+      "path": "data/videos/video_mme/WQn-c_4dVWs.mp4",
+      "bytes": 270807423,
+      "sha256": "339fddbbd3dd9150295e60aa86c96aad4743155cc9b7c2a58e2d9d1245f986f7",
+      "zip_crc32": "b0074a6f"
+    },
+    {
+      "path": "data/videos/video_mme/7Hk9jct2ozY.mp4",
+      "bytes": 86663818,
+      "sha256": "f622e685e301c8b3be4a362c213b09fa77dd6c0446fcce1e98313e8664fdea28",
+      "zip_crc32": "4eb529dd"
+    },
+    {
+      "path": "data/videos/video_mme/-y1U0qk1vDs.mp4",
+      "bytes": 428155031,
+      "sha256": "22fc0f288e41cb5862c12be375b51a363df3053ff2a2480b9a41f0aeeb41dcaa",
+      "zip_crc32": "1f609dc5"
+    },
+    {
+      "path": "data/videos/video_mme/G267g0DpCVg.mp4",
+      "bytes": 9646690,
+      "sha256": "1351e1ccf56d2775042aaa583e43822ad0ad86f64cc926da4eb8a449f01d3bef",
+      "zip_crc32": "f0d6dc8e"
+    },
+    {
+      "path": "data/videos/video_mme/B9He5DVePvk.mp4",
+      "bytes": 189532388,
+      "sha256": "e8803d2a7b320ca6a44de7a0ad46d3d204df0986fc77d6c9a738dea77dadff14",
+      "zip_crc32": "30f3cf29"
+    },
+    {
+      "path": "data/videos/video_mme/n3IYmdy6d4Y.mp4",
+      "bytes": 7777291,
+      "sha256": "d1733577cda31a9fdd699aa4810e8f1f2d60f65f71471c36910cea7e7d46337c",
+      "zip_crc32": "ed583982"
+    },
+    {
+      "path": "data/videos/video_mme/CKYw_RG7i7w.mp4",
+      "bytes": 389265761,
+      "sha256": "6e22e304c0f489974e23f32be42706924bd3b5d546e8a0af8f67da951d7872d1",
+      "zip_crc32": "2b4b6c5a"
+    },
+    {
+      "path": "data/videos/video_mme/IaTaaNinolU.mp4",
+      "bytes": 15648764,
+      "sha256": "24364201fd2b19e66c2e7952f5310f108370c41cf65d7d7fd0f7c70e811c4992",
+      "zip_crc32": "7bbb7d52"
+    },
+    {
+      "path": "data/videos/video_mme/dXUXfyiX2lA.mp4",
+      "bytes": 145368678,
+      "sha256": "8f9744c42e8fa72bfa4027df141170c2269010ae6576efa6e82fc509f1c56271",
+      "zip_crc32": "0ca798e4"
+    },
+    {
+      "path": "data/videos/video_mme/W86cTIoMv2U.mp4",
+      "bytes": 6870243,
+      "sha256": "a2354cf27a77c0342bede01b2581d3b7741b27eeb94a6c41b2b3cb68a8b3c4fe",
+      "zip_crc32": "89a4c54d"
+    },
+    {
+      "path": "data/videos/video_mme/Fibq4aA-GVc.mp4",
+      "bytes": 460939867,
+      "sha256": "04bcde856def3a1739a57b03a89c1d6cb3b0da5f669640396ec039260cec1365",
+      "zip_crc32": "514ba287"
+    },
+    {
+      "path": "data/videos/video_mme/3E4Zca1p64s.mp4",
+      "bytes": 12569645,
+      "sha256": "992fd187115daf5a314a9bbe6c05ec5b02a0e6719a685895a9a2f8dfc983156b",
+      "zip_crc32": "945a603d"
+    },
+    {
+      "path": "data/videos/video_mme/pcm_E7UoKLo.mp4",
+      "bytes": 4507617,
+      "sha256": "6343f1a838e472af23d7fe02a217f2944fb8d1eccf17bf01bc22b2d7dabf9f60",
+      "zip_crc32": "afeead5c"
+    },
+    {
+      "path": "data/videos/video_mme/lMxFbRc3Luk.mp4",
+      "bytes": 137939384,
+      "sha256": "97ed18b2099624da26c59a2ff4048e6ae01f2b91b0d457138af217c5ad2605e1",
+      "zip_crc32": "6b644258"
+    },
+    {
+      "path": "data/videos/video_mme/bBazRZOxl-k.mp4",
+      "bytes": 153673574,
+      "sha256": "d4df4918794d49fa178958aa545cafc0723e43e3c105868bda8a7cdc42483831",
+      "zip_crc32": "67ffff70"
+    },
+    {
+      "path": "data/videos/video_mme/5R64pAPUZmk.mp4",
+      "bytes": 69229635,
+      "sha256": "1b42ce7bf2e6d7774eb0317e378547d95e887da9f5f656566fda419759263acb",
+      "zip_crc32": "b1d28a1d"
+    },
+    {
+      "path": "data/videos/video_mme/Xim8-lUZnsA.mp4",
+      "bytes": 52919401,
+      "sha256": "dbd26db55ab69a353af8ac6c59ec8dd7e007f89224c02a2e561ce9f66e1b18fd",
+      "zip_crc32": "77b9da0f"
+    },
+    {
+      "path": "data/videos/video_mme/TGom0uiW130.mp4",
+      "bytes": 249357732,
+      "sha256": "46de9dcfd3964fe6a47327f94b43583f2aefe7ffeeb914b4e2ee02dedc2fff47",
+      "zip_crc32": "694fd3aa"
+    },
+    {
+      "path": "data/videos/video_mme/PJHkIJZGwKA.mp4",
+      "bytes": 9006690,
+      "sha256": "f944a66bf1003f1f98b7c93aa6c63b60ca14d9bdb0bfa086b3b236385892f661",
+      "zip_crc32": "b4d69913"
+    },
+    {
+      "path": "data/videos/video_mme/fFjv93ACGo8.mp4",
+      "bytes": 17126035,
+      "sha256": "ba82f02cf6acc6a25c6efc4783fc2252c65afbedb8dbc4c7148af08834fdf999",
+      "zip_crc32": "373b2b99"
+    },
+    {
+      "path": "data/metadata/video_mme/selected50/annotations.jsonl",
+      "bytes": 25100,
+      "sha256": "672d95b153314a659cc68cd3ebd963d091d6472286cd56898e91e81b24a22b9f",
+      "zip_crc32": "53c36960"
+    },
+    {
+      "path": "data/metadata/video_mme/selected50/annotations.parquet",
+      "bytes": 18253,
+      "sha256": "a36e7fd8031a36096eba00bda20119f63a1fd8c10335fbc43767db859a0c6e7f",
+      "zip_crc32": "db673823"
+    },
+    {
+      "path": "data/metadata/video_mme/selected50/manifest.json",
+      "bytes": 11576,
+      "sha256": "46c2cf068656c7a282a8a0c71e7c6fe70d22e9f916e59c247ffe12230b61a326",
+      "zip_crc32": "7ea574d4"
+    },
+    {
+      "path": "data/metadata/video_mme/selected50/selection.csv",
+      "bytes": 7739,
+      "sha256": "52720e00623ced070f94034643282f0c1498c08ffe333b8198fe9b9c520ffc01",
+      "zip_crc32": "cc65a526"
+    },
+    {
+      "path": "data/metadata/video_mme/selected50/video_ids.txt",
+      "bytes": 600,
+      "sha256": "bd3fb07753dd8dd51e3fd2811393084cf8d612aac495e9454504799096240c29",
+      "zip_crc32": "7d638100"
+    }
+  ],
+  "videos": [
+    {
+      "question_id": "264-2",
+      "video_id": "8e05W-wi38g",
+      "stratum": "short",
+      "duration_seconds": 59.99332665999333,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "2997/100",
+      "declared_frames": 1798,
+      "time_base": "1/11988",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 29.996663329996665,
+          "actual_seconds": 29.996663329996665,
+          "pts": 359600
+        },
+        {
+          "requested_seconds": 58.99332665999333,
+          "actual_seconds": 59.02569235902569,
+          "pts": 707600
+        }
+      ]
+    },
+    {
+      "question_id": "844-1",
+      "video_id": "K7YNoRZMv2k",
+      "stratum": "long",
+      "duration_seconds": 1838.2,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30",
+      "declared_frames": 55146,
+      "time_base": "1/15360",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 919.1,
+          "actual_seconds": 919.1,
+          "pts": 14117376
+        },
+        {
+          "requested_seconds": 1837.2,
+          "actual_seconds": 1837.2,
+          "pts": 28219392
+        }
+      ]
+    },
+    {
+      "question_id": "872-2",
+      "video_id": "ZP-Y2S750KY",
+      "stratum": "long",
+      "duration_seconds": 1931.9967333333334,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 57902,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 965.9983666666667,
+          "actual_seconds": 965.9983666666667,
+          "pts": 28979951
+        },
+        {
+          "requested_seconds": 1930.9967333333334,
+          "actual_seconds": 1931.0291,
+          "pts": 57930873
+        }
+      ]
+    },
+    {
+      "question_id": "184-3",
+      "video_id": "HiJb_2dvuHc",
+      "stratum": "short",
+      "duration_seconds": 88.213125,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 2115,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 44.1065625,
+          "actual_seconds": 44.12741666666667,
+          "pts": 1059058
+        },
+        {
+          "requested_seconds": 87.213125,
+          "actual_seconds": 87.25383333333333,
+          "pts": 2094092
+        }
+      ]
+    },
+    {
+      "question_id": "004-3",
+      "video_id": "HwnB8aCn8yE",
+      "stratum": "short",
+      "duration_seconds": 97.12,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 2428,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 48.56,
+          "actual_seconds": 48.56,
+          "pts": 621568
+        },
+        {
+          "requested_seconds": 96.12,
+          "actual_seconds": 96.12,
+          "pts": 1230336
+        }
+      ]
+    },
+    {
+      "question_id": "395-2",
+      "video_id": "-XpJeDGh8No",
+      "stratum": "medium",
+      "duration_seconds": 690.5,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24",
+      "declared_frames": 16572,
+      "time_base": "1/12288",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 345.25,
+          "actual_seconds": 345.25,
+          "pts": 4242432
+        },
+        {
+          "requested_seconds": 689.5,
+          "actual_seconds": 689.5,
+          "pts": 8472576
+        }
+      ]
+    },
+    {
+      "question_id": "815-2",
+      "video_id": "7TydWUguPRU",
+      "stratum": "long",
+      "duration_seconds": 2498.162333333333,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 74870,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1249.0811666666666,
+          "actual_seconds": 1249.0811666666666,
+          "pts": 37472435
+        },
+        {
+          "requested_seconds": 2497.162333333333,
+          "actual_seconds": 2497.1947,
+          "pts": 74915841
+        }
+      ]
+    },
+    {
+      "question_id": "491-2",
+      "video_id": "dez7DLniEJA",
+      "stratum": "medium",
+      "duration_seconds": 874.248375,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 20961,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 437.1241875,
+          "actual_seconds": 437.14504166666666,
+          "pts": 10491481
+        },
+        {
+          "requested_seconds": 873.248375,
+          "actual_seconds": 873.2890833333333,
+          "pts": 20958938
+        }
+      ]
+    },
+    {
+      "question_id": "305-3",
+      "video_id": "tuZcS2Flabw",
+      "stratum": "medium",
+      "duration_seconds": 333.29129166666667,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 7991,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 166.64564583333333,
+          "actual_seconds": 166.6665,
+          "pts": 3999996
+        },
+        {
+          "requested_seconds": 332.29129166666667,
+          "actual_seconds": 332.332,
+          "pts": 7975968
+        }
+      ]
+    },
+    {
+      "question_id": "409-3",
+      "video_id": "uMIohuKRq58",
+      "stratum": "medium",
+      "duration_seconds": 527.5937333333334,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 15812,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 263.7968666666667,
+          "actual_seconds": 263.7968666666667,
+          "pts": 7913906
+        },
+        {
+          "requested_seconds": 526.5937333333334,
+          "actual_seconds": 526.6261,
+          "pts": 15798783
+        }
+      ]
+    },
+    {
+      "question_id": "871-2",
+      "video_id": "ZkhAbUGoD18",
+      "stratum": "long",
+      "duration_seconds": 1821.2333333333333,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30",
+      "declared_frames": 54637,
+      "time_base": "1/15360",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 910.6166666666667,
+          "actual_seconds": 910.6333333333333,
+          "pts": 13987328
+        },
+        {
+          "requested_seconds": 1820.2333333333333,
+          "actual_seconds": 1820.2333333333333,
+          "pts": 27958784
+        }
+      ]
+    },
+    {
+      "question_id": "304-1",
+      "video_id": "QTA8j5wSTx4",
+      "stratum": "medium",
+      "duration_seconds": 501.33416666666665,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 12020,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 250.66708333333332,
+          "actual_seconds": 250.66708333333332,
+          "pts": 6016010
+        },
+        {
+          "requested_seconds": 500.33416666666665,
+          "actual_seconds": 500.374875,
+          "pts": 12008997
+        }
+      ]
+    },
+    {
+      "question_id": "102-2",
+      "video_id": "0IdYJGBmguM",
+      "stratum": "short",
+      "duration_seconds": 88.92216666666667,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 2132,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 44.461083333333335,
+          "actual_seconds": 44.461083333333335,
+          "pts": 1067066
+        },
+        {
+          "requested_seconds": 87.92216666666667,
+          "actual_seconds": 87.962875,
+          "pts": 2111109
+        }
+      ]
+    },
+    {
+      "question_id": "128-1",
+      "video_id": "EJ_yarUrgVQ",
+      "stratum": "short",
+      "duration_seconds": 100.36,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 2509,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 50.18,
+          "actual_seconds": 50.2,
+          "pts": 642560
+        },
+        {
+          "requested_seconds": 99.36,
+          "actual_seconds": 99.36,
+          "pts": 1271808
+        }
+      ]
+    },
+    {
+      "question_id": "170-2",
+      "video_id": "E895PNqSgEI",
+      "stratum": "short",
+      "duration_seconds": 35.03333333333333,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30",
+      "declared_frames": 1051,
+      "time_base": "1/15360",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 17.516666666666666,
+          "actual_seconds": 17.533333333333335,
+          "pts": 269312
+        },
+        {
+          "requested_seconds": 34.03333333333333,
+          "actual_seconds": 34.03333333333333,
+          "pts": 522752
+        }
+      ]
+    },
+    {
+      "question_id": "158-3",
+      "video_id": "uJFbOrNrL3w",
+      "stratum": "short",
+      "duration_seconds": 79.44,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 1986,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 39.72,
+          "actual_seconds": 39.72,
+          "pts": 508416
+        },
+        {
+          "requested_seconds": 78.44,
+          "actual_seconds": 78.44,
+          "pts": 1004032
+        }
+      ]
+    },
+    {
+      "question_id": "538-1",
+      "video_id": "uhYiRmGURwE",
+      "stratum": "medium",
+      "duration_seconds": 703.4360666666666,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 21082,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 351.7180333333333,
+          "actual_seconds": 351.7180333333333,
+          "pts": 10551541
+        },
+        {
+          "requested_seconds": 702.4360666666666,
+          "actual_seconds": 702.4684333333333,
+          "pts": 21074053
+        }
+      ]
+    },
+    {
+      "question_id": "584-3",
+      "video_id": "lNvBXLbInXE",
+      "stratum": "medium",
+      "duration_seconds": 728.72,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 18218,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 364.36,
+          "actual_seconds": 364.36,
+          "pts": 4663808
+        },
+        {
+          "requested_seconds": 727.72,
+          "actual_seconds": 727.72,
+          "pts": 9314816
+        }
+      ]
+    },
+    {
+      "question_id": "705-1",
+      "video_id": "X6UqTmRAApw",
+      "stratum": "long",
+      "duration_seconds": 2536.7843333333335,
+      "width": 624,
+      "height": 352,
+      "codec": "h264",
+      "average_fps": "182466000/7610353",
+      "declared_frames": 60822,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1268.3921666666668,
+          "actual_seconds": 1268.4338333333333,
+          "pts": 30442412
+        },
+        {
+          "requested_seconds": 2535.7843333333335,
+          "actual_seconds": 2535.824958333333,
+          "pts": 60859799
+        }
+      ]
+    },
+    {
+      "question_id": "544-1",
+      "video_id": "_CqKv0Y1FB0",
+      "stratum": "medium",
+      "duration_seconds": 303.2,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 7580,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 151.6,
+          "actual_seconds": 151.6,
+          "pts": 1940480
+        },
+        {
+          "requested_seconds": 302.2,
+          "actual_seconds": 302.2,
+          "pts": 3868160
+        }
+      ]
+    },
+    {
+      "question_id": "384-3",
+      "video_id": "ECgVLceb_LE",
+      "stratum": "medium",
+      "duration_seconds": 319.7,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30",
+      "declared_frames": 9591,
+      "time_base": "1/15360",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 159.85,
+          "actual_seconds": 159.86666666666667,
+          "pts": 2455552
+        },
+        {
+          "requested_seconds": 318.7,
+          "actual_seconds": 318.7,
+          "pts": 4895232
+        }
+      ]
+    },
+    {
+      "question_id": "891-3",
+      "video_id": "uuCVnqV4cNc",
+      "stratum": "long",
+      "duration_seconds": 3029.96,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 75749,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1514.98,
+          "actual_seconds": 1515.0,
+          "pts": 19392000
+        },
+        {
+          "requested_seconds": 3028.96,
+          "actual_seconds": 3028.96,
+          "pts": 38770688
+        }
+      ]
+    },
+    {
+      "question_id": "168-3",
+      "video_id": "DK6bKtXUE1c",
+      "stratum": "short",
+      "duration_seconds": 55.52,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 1388,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 27.76,
+          "actual_seconds": 27.76,
+          "pts": 355328
+        },
+        {
+          "requested_seconds": 54.52,
+          "actual_seconds": 54.52,
+          "pts": 697856
+        }
+      ]
+    },
+    {
+      "question_id": "306-2",
+      "video_id": "s_TGkDcjBqI",
+      "stratum": "medium",
+      "duration_seconds": 309.26729166666667,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 7415,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 154.63364583333333,
+          "actual_seconds": 154.6545,
+          "pts": 3711708
+        },
+        {
+          "requested_seconds": 308.26729166666667,
+          "actual_seconds": 308.308,
+          "pts": 7399392
+        }
+      ]
+    },
+    {
+      "question_id": "012-3",
+      "video_id": "qvwfWyU9Gfc",
+      "stratum": "short",
+      "duration_seconds": 56.88,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 1422,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 28.44,
+          "actual_seconds": 28.44,
+          "pts": 364032
+        },
+        {
+          "requested_seconds": 55.88,
+          "actual_seconds": 55.88,
+          "pts": 715264
+        }
+      ]
+    },
+    {
+      "question_id": "056-2",
+      "video_id": "WmVLcj-XKnM",
+      "stratum": "short",
+      "duration_seconds": 118.07629166666666,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 2831,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 59.03814583333333,
+          "actual_seconds": 59.059,
+          "pts": 1417416
+        },
+        {
+          "requested_seconds": 117.07629166666666,
+          "actual_seconds": 117.117,
+          "pts": 2810808
+        }
+      ]
+    },
+    {
+      "question_id": "630-1",
+      "video_id": "BjmPvovl-V4",
+      "stratum": "long",
+      "duration_seconds": 2632.9219583333334,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 63127,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1316.4609791666667,
+          "actual_seconds": 1316.4818333333333,
+          "pts": 31595564
+        },
+        {
+          "requested_seconds": 2631.9219583333334,
+          "actual_seconds": 2631.962666666667,
+          "pts": 63167104
+        }
+      ]
+    },
+    {
+      "question_id": "443-1",
+      "video_id": "cPlpZdGLa5A",
+      "stratum": "medium",
+      "duration_seconds": 513.2,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 12830,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 256.6,
+          "actual_seconds": 256.6,
+          "pts": 3284480
+        },
+        {
+          "requested_seconds": 512.2,
+          "actual_seconds": 512.2,
+          "pts": 6556160
+        }
+      ]
+    },
+    {
+      "question_id": "383-2",
+      "video_id": "e3fz3dqhN44",
+      "stratum": "medium",
+      "duration_seconds": 1092.2912,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 32736,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 546.1456,
+          "actual_seconds": 546.1456,
+          "pts": 16384368
+        },
+        {
+          "requested_seconds": 1091.2912,
+          "actual_seconds": 1091.3235666666667,
+          "pts": 32739707
+        }
+      ]
+    },
+    {
+      "question_id": "411-3",
+      "video_id": "K759eXmaMTY",
+      "stratum": "medium",
+      "duration_seconds": 745.96,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 18649,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 372.98,
+          "actual_seconds": 373.0,
+          "pts": 4774400
+        },
+        {
+          "requested_seconds": 744.96,
+          "actual_seconds": 744.96,
+          "pts": 9535488
+        }
+      ]
+    },
+    {
+      "question_id": "893-1",
+      "video_id": "WQn-c_4dVWs",
+      "stratum": "long",
+      "duration_seconds": 2646.64,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 66166,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1323.32,
+          "actual_seconds": 1323.32,
+          "pts": 16938496
+        },
+        {
+          "requested_seconds": 2645.64,
+          "actual_seconds": 2645.64,
+          "pts": 33864192
+        }
+      ]
+    },
+    {
+      "question_id": "321-2",
+      "video_id": "7Hk9jct2ozY",
+      "stratum": "medium",
+      "duration_seconds": 439.32,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 10983,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 219.66,
+          "actual_seconds": 219.68,
+          "pts": 2811904
+        },
+        {
+          "requested_seconds": 438.32,
+          "actual_seconds": 438.32,
+          "pts": 5610496
+        }
+      ]
+    },
+    {
+      "question_id": "736-2",
+      "video_id": "-y1U0qk1vDs",
+      "stratum": "long",
+      "duration_seconds": 2408.808808808809,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "2997/100",
+      "declared_frames": 72192,
+      "time_base": "1/11988",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1204.4044044044044,
+          "actual_seconds": 1204.4044044044044,
+          "pts": 14438400
+        },
+        {
+          "requested_seconds": 2407.808808808809,
+          "actual_seconds": 2407.841174507841,
+          "pts": 28865200
+        }
+      ]
+    },
+    {
+      "question_id": "103-1",
+      "video_id": "G267g0DpCVg",
+      "stratum": "short",
+      "duration_seconds": 60.01829166666667,
+      "width": 1280,
+      "height": 676,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 1439,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 30.009145833333335,
+          "actual_seconds": 30.03,
+          "pts": 720720
+        },
+        {
+          "requested_seconds": 59.01829166666667,
+          "actual_seconds": 59.059,
+          "pts": 1417416
+        }
+      ]
+    },
+    {
+      "question_id": "716-1",
+      "video_id": "B9He5DVePvk",
+      "stratum": "long",
+      "duration_seconds": 2545.56,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 63639,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1272.78,
+          "actual_seconds": 1272.8,
+          "pts": 16291840
+        },
+        {
+          "requested_seconds": 2544.56,
+          "actual_seconds": 2544.56,
+          "pts": 32570368
+        }
+      ]
+    },
+    {
+      "question_id": "022-2",
+      "video_id": "n3IYmdy6d4Y",
+      "stratum": "short",
+      "duration_seconds": 94.969875,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 2277,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 47.4849375,
+          "actual_seconds": 47.50579166666667,
+          "pts": 1140139
+        },
+        {
+          "requested_seconds": 93.969875,
+          "actual_seconds": 94.01058333333333,
+          "pts": 2256254
+        }
+      ]
+    },
+    {
+      "question_id": "842-3",
+      "video_id": "CKYw_RG7i7w",
+      "stratum": "long",
+      "duration_seconds": 1987.7774583333332,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 47659,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 993.8887291666666,
+          "actual_seconds": 993.9095833333333,
+          "pts": 23853830
+        },
+        {
+          "requested_seconds": 1986.7774583333332,
+          "actual_seconds": 1986.8181666666667,
+          "pts": 47683636
+        }
+      ]
+    },
+    {
+      "question_id": "316-3",
+      "video_id": "IaTaaNinolU",
+      "stratum": "medium",
+      "duration_seconds": 477.74393333333336,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 14318,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 238.87196666666668,
+          "actual_seconds": 238.87196666666668,
+          "pts": 7166159
+        },
+        {
+          "requested_seconds": 476.74393333333336,
+          "actual_seconds": 476.7763,
+          "pts": 14303289
+        }
+      ]
+    },
+    {
+      "question_id": "693-1",
+      "video_id": "dXUXfyiX2lA",
+      "stratum": "long",
+      "duration_seconds": 1950.0416666666667,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24",
+      "declared_frames": 46801,
+      "time_base": "1/12288",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 975.0208333333334,
+          "actual_seconds": 975.0416666666666,
+          "pts": 11981312
+        },
+        {
+          "requested_seconds": 1949.0416666666667,
+          "actual_seconds": 1949.0416666666667,
+          "pts": 23949824
+        }
+      ]
+    },
+    {
+      "question_id": "115-2",
+      "video_id": "W86cTIoMv2U",
+      "stratum": "short",
+      "duration_seconds": 117.44,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 2936,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 58.72,
+          "actual_seconds": 58.72,
+          "pts": 751616
+        },
+        {
+          "requested_seconds": 116.44,
+          "actual_seconds": 116.44,
+          "pts": 1490432
+        }
+      ]
+    },
+    {
+      "question_id": "870-1",
+      "video_id": "Fibq4aA-GVc",
+      "stratum": "long",
+      "duration_seconds": 3506.4195833333333,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 84070,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1753.2097916666667,
+          "actual_seconds": 1753.2097916666667,
+          "pts": 42077035
+        },
+        {
+          "requested_seconds": 3505.4195833333333,
+          "actual_seconds": 3505.4602916666668,
+          "pts": 84131047
+        }
+      ]
+    },
+    {
+      "question_id": "260-2",
+      "video_id": "3E4Zca1p64s",
+      "stratum": "short",
+      "duration_seconds": 90.13170833333334,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 2161,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 45.06585416666667,
+          "actual_seconds": 45.086708333333334,
+          "pts": 1082081
+        },
+        {
+          "requested_seconds": 89.13170833333334,
+          "actual_seconds": 89.17241666666666,
+          "pts": 2140138
+        }
+      ]
+    },
+    {
+      "question_id": "204-3",
+      "video_id": "pcm_E7UoKLo",
+      "stratum": "short",
+      "duration_seconds": 84.0,
+      "width": 640,
+      "height": 360,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 2100,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 42.0,
+          "actual_seconds": 42.0,
+          "pts": 537600
+        },
+        {
+          "requested_seconds": 83.0,
+          "actual_seconds": 83.0,
+          "pts": 1062400
+        }
+      ]
+    },
+    {
+      "question_id": "691-3",
+      "video_id": "lMxFbRc3Luk",
+      "stratum": "long",
+      "duration_seconds": 2635.4244583333334,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 63187,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1317.7122291666667,
+          "actual_seconds": 1317.7330833333333,
+          "pts": 31625594
+        },
+        {
+          "requested_seconds": 2634.4244583333334,
+          "actual_seconds": 2634.465166666667,
+          "pts": 63227164
+        }
+      ]
+    },
+    {
+      "question_id": "729-1",
+      "video_id": "bBazRZOxl-k",
+      "stratum": "long",
+      "duration_seconds": 2756.866666666667,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30",
+      "declared_frames": 82706,
+      "time_base": "1/15360",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1378.4333333333334,
+          "actual_seconds": 1378.4333333333334,
+          "pts": 21172736
+        },
+        {
+          "requested_seconds": 2755.866666666667,
+          "actual_seconds": 2755.866666666667,
+          "pts": 42330112
+        }
+      ]
+    },
+    {
+      "question_id": "597-1",
+      "video_id": "5R64pAPUZmk",
+      "stratum": "medium",
+      "duration_seconds": 604.979375,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "24000/1001",
+      "declared_frames": 14505,
+      "time_base": "1/24000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 302.4896875,
+          "actual_seconds": 302.51054166666665,
+          "pts": 7260253
+        },
+        {
+          "requested_seconds": 603.979375,
+          "actual_seconds": 604.0200833333333,
+          "pts": 14496482
+        }
+      ]
+    },
+    {
+      "question_id": "452-1",
+      "video_id": "Xim8-lUZnsA",
+      "stratum": "medium",
+      "duration_seconds": 502.3351666666667,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 15055,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 251.16758333333334,
+          "actual_seconds": 251.18426666666667,
+          "pts": 7535528
+        },
+        {
+          "requested_seconds": 501.3351666666667,
+          "actual_seconds": 501.3675333333333,
+          "pts": 15041026
+        }
+      ]
+    },
+    {
+      "question_id": "601-1",
+      "video_id": "TGom0uiW130",
+      "stratum": "long",
+      "duration_seconds": 3169.04,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "25",
+      "declared_frames": 79226,
+      "time_base": "1/12800",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 1584.52,
+          "actual_seconds": 1584.52,
+          "pts": 20281856
+        },
+        {
+          "requested_seconds": 3168.04,
+          "actual_seconds": 3168.04,
+          "pts": 40550912
+        }
+      ]
+    },
+    {
+      "question_id": "143-2",
+      "video_id": "PJHkIJZGwKA",
+      "stratum": "short",
+      "duration_seconds": 31.2312,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 936,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 15.6156,
+          "actual_seconds": 15.6156,
+          "pts": 468468
+        },
+        {
+          "requested_seconds": 30.2312,
+          "actual_seconds": 30.263566666666666,
+          "pts": 907907
+        }
+      ]
+    },
+    {
+      "question_id": "001-2",
+      "video_id": "fFjv93ACGo8",
+      "stratum": "short",
+      "duration_seconds": 74.30756666666667,
+      "width": 1280,
+      "height": 720,
+      "codec": "h264",
+      "average_fps": "30000/1001",
+      "declared_frames": 2227,
+      "time_base": "1/30000",
+      "start_time": 0,
+      "sampled_frames": [
+        {
+          "requested_seconds": 0.0,
+          "actual_seconds": 0.0,
+          "pts": 0
+        },
+        {
+          "requested_seconds": 37.15378333333334,
+          "actual_seconds": 37.17046666666667,
+          "pts": 1115114
+        },
+        {
+          "requested_seconds": 73.30756666666667,
+          "actual_seconds": 73.33993333333333,
+          "pts": 2200198
+        }
+      ]
+    }
+  ]
+}

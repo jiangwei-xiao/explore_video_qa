@@ -1,0 +1,14 @@
+/data/archives/
+/data/videos/
+/data/cache/
+/models/
+/.venv*/
+/.cache/
+/outputs/
+/third_party/
+/docs/releated_work/pdfs/*.pdf
+*.zip
+*.part
+__pycache__/
+*.py[cod]
+/.pytest_cache/

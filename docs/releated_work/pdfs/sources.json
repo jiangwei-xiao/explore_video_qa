@@ -1,0 +1,57 @@
+[
+  {
+    "file": "AKS_CVPR2025.pdf",
+    "analysis": "../analyse/01_AKS_Adaptive_Keyframe_Sampling.md",
+    "source_url": "https://arxiv.org/pdf/2502.21271",
+    "arxiv_version": "2502.21271v1",
+    "versioned_url": "https://arxiv.org/pdf/2502.21271v1",
+    "pages": 12,
+    "bytes": 2332136,
+    "sha256": "d68bb12842473e87f5d68fc62b0fa5bc195acadd9dacc2fe139652c0ec70dcd7",
+    "checked_at_utc": "2026-09-14T14:11:41.289550+00:00"
+  },
+  {
+    "file": "MDP3_ICCV2025.pdf",
+    "analysis": "../analyse/02_MDP3_List-wise_Frame_Selection.md",
+    "source_url": "https://arxiv.org/pdf/2501.02885",
+    "arxiv_version": "2501.02885v2",
+    "versioned_url": "https://arxiv.org/pdf/2501.02885v2",
+    "pages": 26,
+    "bytes": 5062932,
+    "sha256": "9335427e5898e1c54d6e0ccc41bba0934bf0941cf87939f34a4185b76bfd1c9a",
+    "checked_at_utc": "2026-09-14T14:11:41.289550+00:00"
+  },
+  {
+    "file": "AIR_ICLR2026.pdf",
+    "analysis": "../analyse/03_AIR_Adaptive_Iterative_Reasoning.md",
+    "source_url": "https://arxiv.org/pdf/2510.04428",
+    "arxiv_version": "2510.04428v3",
+    "versioned_url": "https://arxiv.org/pdf/2510.04428v3",
+    "pages": 28,
+    "bytes": 15636460,
+    "sha256": "3b0c1aab99d2d03b3d13cb85c7b9a509e098d8e11d6d4f3a037434f39034751f",
+    "checked_at_utc": "2026-09-14T14:11:41.289550+00:00"
+  },
+  {
+    "file": "EFS_2026.pdf",
+    "analysis": "../analyse/04_EFS_Event_Anchored_Frame_Selection.md",
+    "source_url": "https://arxiv.org/pdf/2603.00983",
+    "arxiv_version": "2603.00983v1",
+    "versioned_url": "https://arxiv.org/pdf/2603.00983v1",
+    "pages": 14,
+    "bytes": 7055282,
+    "sha256": "5cb2088016cd123232fc25a3725b033f1f76278fcc6361bccc79247b82fd35b2",
+    "checked_at_utc": "2026-09-14T14:11:41.289550+00:00"
+  },
+  {
+    "file": "WFS-SB_CVPR2026.pdf",
+    "analysis": "../analyse/05_WFS-SB_Wavelet_Semantic_Boundary.md",
+    "source_url": "https://arxiv.org/pdf/2603.00512",
+    "arxiv_version": "2603.00512v2",
+    "versioned_url": "https://arxiv.org/pdf/2603.00512v2",
+    "pages": 15,
+    "bytes": 6974588,
+    "sha256": "75a3a98dcbd2187d482aacc1c8fa73aadd0ff8b8213b1914180ad1d16ebf29a4",
+    "checked_at_utc": "2026-09-14T14:11:41.289550+00:00"
+  }
+]

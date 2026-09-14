@@ -1,0 +1,502 @@
+[
+  {
+    "order": 1,
+    "question_id": "264-2",
+    "dataset_video_id": "264",
+    "video_id": "8e05W-wi38g",
+    "stratum": "short",
+    "file": "data/videos/video_mme/8e05W-wi38g.mp4",
+    "bytes": 14833502,
+    "chunk": 3
+  },
+  {
+    "order": 2,
+    "question_id": "844-1",
+    "dataset_video_id": "844",
+    "video_id": "K7YNoRZMv2k",
+    "stratum": "long",
+    "file": "data/videos/video_mme/K7YNoRZMv2k.mp4",
+    "bytes": 153459824,
+    "chunk": 10
+  },
+  {
+    "order": 3,
+    "question_id": "872-2",
+    "dataset_video_id": "872",
+    "video_id": "ZP-Y2S750KY",
+    "stratum": "long",
+    "file": "data/videos/video_mme/ZP-Y2S750KY.mp4",
+    "bytes": 148926701,
+    "chunk": 20
+  },
+  {
+    "order": 4,
+    "question_id": "184-3",
+    "dataset_video_id": "184",
+    "video_id": "HiJb_2dvuHc",
+    "stratum": "short",
+    "file": "data/videos/video_mme/HiJb_2dvuHc.mp4",
+    "bytes": 7593753,
+    "chunk": 9
+  },
+  {
+    "order": 5,
+    "question_id": "004-3",
+    "dataset_video_id": "004",
+    "video_id": "HwnB8aCn8yE",
+    "stratum": "short",
+    "file": "data/videos/video_mme/HwnB8aCn8yE.mp4",
+    "bytes": 3744854,
+    "chunk": 9
+  },
+  {
+    "order": 6,
+    "question_id": "395-2",
+    "dataset_video_id": "395",
+    "video_id": "-XpJeDGh8No",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/-XpJeDGh8No.mp4",
+    "bytes": 30743186,
+    "chunk": 18
+  },
+  {
+    "order": 7,
+    "question_id": "815-2",
+    "dataset_video_id": "815",
+    "video_id": "7TydWUguPRU",
+    "stratum": "long",
+    "file": "data/videos/video_mme/7TydWUguPRU.mp4",
+    "bytes": 234258314,
+    "chunk": 3
+  },
+  {
+    "order": 8,
+    "question_id": "491-2",
+    "dataset_video_id": "491",
+    "video_id": "dez7DLniEJA",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/dez7DLniEJA.mp4",
+    "bytes": 30786775,
+    "chunk": 6
+  },
+  {
+    "order": 9,
+    "question_id": "305-3",
+    "dataset_video_id": "305",
+    "video_id": "tuZcS2Flabw",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/tuZcS2Flabw.mp4",
+    "bytes": 16832511,
+    "chunk": 16
+  },
+  {
+    "order": 10,
+    "question_id": "409-3",
+    "dataset_video_id": "409",
+    "video_id": "uMIohuKRq58",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/uMIohuKRq58.mp4",
+    "bytes": 42200242,
+    "chunk": 16
+  },
+  {
+    "order": 11,
+    "question_id": "871-2",
+    "dataset_video_id": "871",
+    "video_id": "ZkhAbUGoD18",
+    "stratum": "long",
+    "file": "data/videos/video_mme/ZkhAbUGoD18.mp4",
+    "bytes": 130937007,
+    "chunk": 20
+  },
+  {
+    "order": 12,
+    "question_id": "304-1",
+    "dataset_video_id": "304",
+    "video_id": "QTA8j5wSTx4",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/QTA8j5wSTx4.mp4",
+    "bytes": 31566294,
+    "chunk": 13
+  },
+  {
+    "order": 13,
+    "question_id": "102-2",
+    "dataset_video_id": "102",
+    "video_id": "0IdYJGBmguM",
+    "stratum": "short",
+    "file": "data/videos/video_mme/0IdYJGBmguM.mp4",
+    "bytes": 9794295,
+    "chunk": 1
+  },
+  {
+    "order": 14,
+    "question_id": "128-1",
+    "dataset_video_id": "128",
+    "video_id": "EJ_yarUrgVQ",
+    "stratum": "short",
+    "file": "data/videos/video_mme/EJ_yarUrgVQ.mp4",
+    "bytes": 14667630,
+    "chunk": 6
+  },
+  {
+    "order": 15,
+    "question_id": "170-2",
+    "dataset_video_id": "170",
+    "video_id": "E895PNqSgEI",
+    "stratum": "short",
+    "file": "data/videos/video_mme/E895PNqSgEI.mp4",
+    "bytes": 4755177,
+    "chunk": 6
+  },
+  {
+    "order": 16,
+    "question_id": "158-3",
+    "dataset_video_id": "158",
+    "video_id": "uJFbOrNrL3w",
+    "stratum": "short",
+    "file": "data/videos/video_mme/uJFbOrNrL3w.mp4",
+    "bytes": 19901182,
+    "chunk": 16
+  },
+  {
+    "order": 17,
+    "question_id": "538-1",
+    "dataset_video_id": "538",
+    "video_id": "uhYiRmGURwE",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/uhYiRmGURwE.mp4",
+    "bytes": 82397391,
+    "chunk": 16
+  },
+  {
+    "order": 18,
+    "question_id": "584-3",
+    "dataset_video_id": "584",
+    "video_id": "lNvBXLbInXE",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/lNvBXLbInXE.mp4",
+    "bytes": 21012858,
+    "chunk": 11
+  },
+  {
+    "order": 19,
+    "question_id": "705-1",
+    "dataset_video_id": "705",
+    "video_id": "X6UqTmRAApw",
+    "stratum": "long",
+    "file": "data/videos/video_mme/X6UqTmRAApw.mp4",
+    "bytes": 138633580,
+    "chunk": 18
+  },
+  {
+    "order": 20,
+    "question_id": "544-1",
+    "dataset_video_id": "544",
+    "video_id": "_CqKv0Y1FB0",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/_CqKv0Y1FB0.mp4",
+    "bytes": 10484541,
+    "chunk": 6
+  },
+  {
+    "order": 21,
+    "question_id": "384-3",
+    "dataset_video_id": "384",
+    "video_id": "ECgVLceb_LE",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/ECgVLceb_LE.mp4",
+    "bytes": 76826301,
+    "chunk": 6
+  },
+  {
+    "order": 22,
+    "question_id": "891-3",
+    "dataset_video_id": "891",
+    "video_id": "uuCVnqV4cNc",
+    "stratum": "long",
+    "file": "data/videos/video_mme/uuCVnqV4cNc.mp4",
+    "bytes": 233097342,
+    "chunk": 16
+  },
+  {
+    "order": 23,
+    "question_id": "168-3",
+    "dataset_video_id": "168",
+    "video_id": "DK6bKtXUE1c",
+    "stratum": "short",
+    "file": "data/videos/video_mme/DK6bKtXUE1c.mp4",
+    "bytes": 13059410,
+    "chunk": 6
+  },
+  {
+    "order": 24,
+    "question_id": "306-2",
+    "dataset_video_id": "306",
+    "video_id": "s_TGkDcjBqI",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/s_TGkDcjBqI.mp4",
+    "bytes": 15129278,
+    "chunk": 15
+  },
+  {
+    "order": 25,
+    "question_id": "012-3",
+    "dataset_video_id": "012",
+    "video_id": "qvwfWyU9Gfc",
+    "stratum": "short",
+    "file": "data/videos/video_mme/qvwfWyU9Gfc.mp4",
+    "bytes": 1823921,
+    "chunk": 14
+  },
+  {
+    "order": 26,
+    "question_id": "056-2",
+    "dataset_video_id": "056",
+    "video_id": "WmVLcj-XKnM",
+    "stratum": "short",
+    "file": "data/videos/video_mme/WmVLcj-XKnM.mp4",
+    "bytes": 20509465,
+    "chunk": 17
+  },
+  {
+    "order": 27,
+    "question_id": "630-1",
+    "dataset_video_id": "630",
+    "video_id": "BjmPvovl-V4",
+    "stratum": "long",
+    "file": "data/videos/video_mme/BjmPvovl-V4.mp4",
+    "bytes": 173613738,
+    "chunk": 5
+  },
+  {
+    "order": 28,
+    "question_id": "443-1",
+    "dataset_video_id": "443",
+    "video_id": "cPlpZdGLa5A",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/cPlpZdGLa5A.mp4",
+    "bytes": 59975676,
+    "chunk": 6
+  },
+  {
+    "order": 29,
+    "question_id": "383-2",
+    "dataset_video_id": "383",
+    "video_id": "e3fz3dqhN44",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/e3fz3dqhN44.mp4",
+    "bytes": 48703834,
+    "chunk": 6
+  },
+  {
+    "order": 30,
+    "question_id": "411-3",
+    "dataset_video_id": "411",
+    "video_id": "K759eXmaMTY",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/K759eXmaMTY.mp4",
+    "bytes": 59708138,
+    "chunk": 10
+  },
+  {
+    "order": 31,
+    "question_id": "893-1",
+    "dataset_video_id": "893",
+    "video_id": "WQn-c_4dVWs",
+    "stratum": "long",
+    "file": "data/videos/video_mme/WQn-c_4dVWs.mp4",
+    "bytes": 270807423,
+    "chunk": 17
+  },
+  {
+    "order": 32,
+    "question_id": "321-2",
+    "dataset_video_id": "321",
+    "video_id": "7Hk9jct2ozY",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/7Hk9jct2ozY.mp4",
+    "bytes": 86663818,
+    "chunk": 3
+  },
+  {
+    "order": 33,
+    "question_id": "736-2",
+    "dataset_video_id": "736",
+    "video_id": "-y1U0qk1vDs",
+    "stratum": "long",
+    "file": "data/videos/video_mme/-y1U0qk1vDs.mp4",
+    "bytes": 428155031,
+    "chunk": 18
+  },
+  {
+    "order": 34,
+    "question_id": "103-1",
+    "dataset_video_id": "103",
+    "video_id": "G267g0DpCVg",
+    "stratum": "short",
+    "file": "data/videos/video_mme/G267g0DpCVg.mp4",
+    "bytes": 9646690,
+    "chunk": 8
+  },
+  {
+    "order": 35,
+    "question_id": "716-1",
+    "dataset_video_id": "716",
+    "video_id": "B9He5DVePvk",
+    "stratum": "long",
+    "file": "data/videos/video_mme/B9He5DVePvk.mp4",
+    "bytes": 189532388,
+    "chunk": 5
+  },
+  {
+    "order": 36,
+    "question_id": "022-2",
+    "dataset_video_id": "022",
+    "video_id": "n3IYmdy6d4Y",
+    "stratum": "short",
+    "file": "data/videos/video_mme/n3IYmdy6d4Y.mp4",
+    "bytes": 7777291,
+    "chunk": 12
+  },
+  {
+    "order": 37,
+    "question_id": "842-3",
+    "dataset_video_id": "842",
+    "video_id": "CKYw_RG7i7w",
+    "stratum": "long",
+    "file": "data/videos/video_mme/CKYw_RG7i7w.mp4",
+    "bytes": 389265761,
+    "chunk": 6
+  },
+  {
+    "order": 38,
+    "question_id": "316-3",
+    "dataset_video_id": "316",
+    "video_id": "IaTaaNinolU",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/IaTaaNinolU.mp4",
+    "bytes": 15648764,
+    "chunk": 9
+  },
+  {
+    "order": 39,
+    "question_id": "693-1",
+    "dataset_video_id": "693",
+    "video_id": "dXUXfyiX2lA",
+    "stratum": "long",
+    "file": "data/videos/video_mme/dXUXfyiX2lA.mp4",
+    "bytes": 145368678,
+    "chunk": 6
+  },
+  {
+    "order": 40,
+    "question_id": "115-2",
+    "dataset_video_id": "115",
+    "video_id": "W86cTIoMv2U",
+    "stratum": "short",
+    "file": "data/videos/video_mme/W86cTIoMv2U.mp4",
+    "bytes": 6870243,
+    "chunk": 17
+  },
+  {
+    "order": 41,
+    "question_id": "870-1",
+    "dataset_video_id": "870",
+    "video_id": "Fibq4aA-GVc",
+    "stratum": "long",
+    "file": "data/videos/video_mme/Fibq4aA-GVc.mp4",
+    "bytes": 460939867,
+    "chunk": 7
+  },
+  {
+    "order": 42,
+    "question_id": "260-2",
+    "dataset_video_id": "260",
+    "video_id": "3E4Zca1p64s",
+    "stratum": "short",
+    "file": "data/videos/video_mme/3E4Zca1p64s.mp4",
+    "bytes": 12569645,
+    "chunk": 2
+  },
+  {
+    "order": 43,
+    "question_id": "204-3",
+    "dataset_video_id": "204",
+    "video_id": "pcm_E7UoKLo",
+    "stratum": "short",
+    "file": "data/videos/video_mme/pcm_E7UoKLo.mp4",
+    "bytes": 4507617,
+    "chunk": 13
+  },
+  {
+    "order": 44,
+    "question_id": "691-3",
+    "dataset_video_id": "691",
+    "video_id": "lMxFbRc3Luk",
+    "stratum": "long",
+    "file": "data/videos/video_mme/lMxFbRc3Luk.mp4",
+    "bytes": 137939384,
+    "chunk": 11
+  },
+  {
+    "order": 45,
+    "question_id": "729-1",
+    "dataset_video_id": "729",
+    "video_id": "bBazRZOxl-k",
+    "stratum": "long",
+    "file": "data/videos/video_mme/bBazRZOxl-k.mp4",
+    "bytes": 153673574,
+    "chunk": 5
+  },
+  {
+    "order": 46,
+    "question_id": "597-1",
+    "dataset_video_id": "597",
+    "video_id": "5R64pAPUZmk",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/5R64pAPUZmk.mp4",
+    "bytes": 69229635,
+    "chunk": 3
+  },
+  {
+    "order": 47,
+    "question_id": "452-1",
+    "dataset_video_id": "452",
+    "video_id": "Xim8-lUZnsA",
+    "stratum": "medium",
+    "file": "data/videos/video_mme/Xim8-lUZnsA.mp4",
+    "bytes": 52919401,
+    "chunk": 18
+  },
+  {
+    "order": 48,
+    "question_id": "601-1",
+    "dataset_video_id": "601",
+    "video_id": "TGom0uiW130",
+    "stratum": "long",
+    "file": "data/videos/video_mme/TGom0uiW130.mp4",
+    "bytes": 249357732,
+    "chunk": 15
+  },
+  {
+    "order": 49,
+    "question_id": "143-2",
+    "dataset_video_id": "143",
+    "video_id": "PJHkIJZGwKA",
+    "stratum": "short",
+    "file": "data/videos/video_mme/PJHkIJZGwKA.mp4",
+    "bytes": 9006690,
+    "chunk": 13
+  },
+  {
+    "order": 50,
+    "question_id": "001-2",
+    "dataset_video_id": "001",
+    "video_id": "fFjv93ACGo8",
+    "stratum": "short",
+    "file": "data/videos/video_mme/fFjv93ACGo8.mp4",
+    "bytes": 17126035,
+    "chunk": 7
+  }
+]

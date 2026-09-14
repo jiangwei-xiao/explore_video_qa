@@ -1,0 +1,163 @@
+{
+  "checked_at_utc": "2026-09-14T14:34:32.072912+00:00",
+  "identity_scope": "SHA256 of local files; upstream LFS identity not verified",
+  "models": {
+    "llava": {
+      "path": "/home/models/lmms-lab/LLaVA-Video-7B-Qwen2",
+      "files": {
+        "added_tokens.json": {
+          "bytes": 100,
+          "mtime_ns": 1789382381110738467,
+          "sha256": "416774498bd7218f05be8c7faa0b375eccdcacf66cb5ab2766bdeff84e466cf5"
+        },
+        "config.json": {
+          "bytes": 3104,
+          "mtime_ns": 1789382381345332394,
+          "sha256": "b1b15dbc50d62a6dafd637b98f333e6e789913e1f374842838c461ae20a8880c"
+        },
+        "generation_config.json": {
+          "bytes": 248,
+          "mtime_ns": 1789382381612670131,
+          "sha256": "eea6735f058019c875227b53de54f34353f01bbdbb0e9d8fc6474567e1334c29"
+        },
+        "merges.txt": {
+          "bytes": 1671853,
+          "mtime_ns": 1789382382198492778,
+          "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5"
+        },
+        "model-00001-of-00004.safetensors": {
+          "bytes": 4877668032,
+          "mtime_ns": 1789384551191163751,
+          "sha256": "2625213dd97a944180a7ba6776501709f6094e9c07295101518d69ca8ccfb5ad"
+        },
+        "model-00002-of-00004.safetensors": {
+          "bytes": 4932751008,
+          "mtime_ns": 1789384113196656955,
+          "sha256": "bc4fadb1419522b41c58d36f46e29d6f0cba5fcb35b74c0d1887692852f3d98b"
+        },
+        "model-00003-of-00004.safetensors": {
+          "bytes": 4994571904,
+          "mtime_ns": 1789385133763577081,
+          "sha256": "94aca0e44c71e4640b40cdbadd995a234937168c72c552e0d2d13036ca96cc68"
+        },
+        "model-00004-of-00004.safetensors": {
+          "bytes": 1255812224,
+          "mtime_ns": 1789385200646834951,
+          "sha256": "3cbb8d7cfb44f868dd672a11b677dadcbde5428dc744a23f4393508aaeb1f22d"
+        },
+        "model.safetensors.index.json": {
+          "bytes": 80832,
+          "mtime_ns": 1789385134816766847,
+          "sha256": "2c5e4f760960cb00a85de88caf55a798eed0685773cdd9d04a6d4438238c134c"
+        },
+        "preprocessor_config.json": {
+          "bytes": 392,
+          "mtime_ns": 1789385135513502768,
+          "sha256": "055d8032c3be9a5c35cffc27cc5fce5b0891a5ad8a2bda82f9b98c59b2e9d592"
+        },
+        "special_tokens_map.json": {
+          "bytes": 367,
+          "mtime_ns": 1789385135994541058,
+          "sha256": "f4f79e08d97f4d1c87f8d89264f525c8789da3b73b3bb55d1e12f692f41a7b1b"
+        },
+        "tokenizer.json": {
+          "bytes": 7028015,
+          "mtime_ns": 1789385137627178961,
+          "sha256": "f7c9b2dba4a296b1aa76c16a34b8225c0c118978400d4bb66bff0902d702f5b8"
+        },
+        "tokenizer_config.json": {
+          "bytes": 1538,
+          "mtime_ns": 1789385138138366716,
+          "sha256": "b36d4cfd510e8942ba3a5f4733026c5f1697b2810331be4fc9459c672e451e6a"
+        },
+        "vocab.json": {
+          "bytes": 2776833,
+          "mtime_ns": 1789385143078874105,
+          "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+        }
+      }
+    },
+    "vision": {
+      "path": "/home/models/google/siglip-so400m-patch14-384",
+      "files": {
+        "config.json": {
+          "bytes": 576,
+          "mtime_ns": 1789385736960952358,
+          "sha256": "adc04928d8fd19a61822584fe0cf2e813e5ebac17f3e49fb1ea096860ae6457b"
+        },
+        "model.safetensors": {
+          "bytes": 3511950624,
+          "mtime_ns": 1789386445912127252,
+          "sha256": "ea2abad2b7f8a9c1aa5e49a244d5d57ffa71c56f720c94bc5d240ef4d6e1d94a"
+        },
+        "preprocessor_config.json": {
+          "bytes": 368,
+          "mtime_ns": 1789385737440132370,
+          "sha256": "f59da2f87c3cd079bd4f8f3037e81b277c60c498e279a8020331f67a5a3157e8"
+        },
+        "special_tokens_map.json": {
+          "bytes": 409,
+          "mtime_ns": 1789385738163257784,
+          "sha256": "2b6a1ff67a27e0df9ac0c7d93250fc0d87431c7b366b3d5669217104f9088a26"
+        },
+        "spiece.model": {
+          "bytes": 798330,
+          "mtime_ns": 1789385741254119278,
+          "sha256": "1e5036bed065526c3c212dfbe288752391797c4bb1a284aa18c9a0b23fcaf8ec"
+        },
+        "tokenizer.json": {
+          "bytes": 2399357,
+          "mtime_ns": 1789385742333398008,
+          "sha256": "c6e405cb7c670d56636a9402c81023a55bc6c3c53d89cf02b92f5c5005bfe920"
+        },
+        "tokenizer_config.json": {
+          "bytes": 711,
+          "mtime_ns": 1789385742846072514,
+          "sha256": "d6423dae508cc3a129d22ea443841c111832a1a73125b8f25ea8736951698bcb"
+        }
+      }
+    },
+    "blip": {
+      "path": "/home/models/Salesforce/blip-itm-base-coco",
+      "files": {
+        "config.json": {
+          "bytes": 4560,
+          "mtime_ns": 1789385246957113574,
+          "sha256": "3e6464c2ce7c54512ddb101c5e9a8e77f4c2d637be9e3d005667ccd4a34c6ef2"
+        },
+        "preprocessor_config.json": {
+          "bytes": 445,
+          "mtime_ns": 1789385247108914289,
+          "sha256": "0aa66e2e9ac3ea3b5cd4388c35072e22db4e1cc1f96c7872bed07749c712ade1"
+        },
+        "pytorch_model.bin": {
+          "bytes": 895139697,
+          "mtime_ns": 1789385583783753349,
+          "sha256": "017fb3e7f4e125f13a8a4717f1402dbe0d0bb877474b4a203db13a4447b0227f"
+        },
+        "special_tokens_map.json": {
+          "bytes": 125,
+          "mtime_ns": 1789385247665065096,
+          "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3"
+        },
+        "tokenizer.json": {
+          "bytes": 711396,
+          "mtime_ns": 1789385527619548707,
+          "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66"
+        },
+        "tokenizer_config.json": {
+          "bytes": 456,
+          "mtime_ns": 1789385528111804046,
+          "sha256": "86da6fdb761b02f73a05561aba71711c2d7c205fe1fd1744046173a410263925"
+        },
+        "vocab.txt": {
+          "bytes": 231508,
+          "mtime_ns": 1789385528634625558,
+          "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3"
+        }
+      }
+    }
+  },
+  "siglip_local_cache_key": "6720c10c815aa33f65e3e0c2d982d95eddebcf9d",
+  "siglip_repo_id": "google/siglip-so400m-patch14-384"
+}

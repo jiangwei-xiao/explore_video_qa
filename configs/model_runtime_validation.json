@@ -1,0 +1,67 @@
+{
+  "status": "real_video_runtime_acceptance_passed",
+  "completed_qa_calls": 1,
+  "full_baseline_run_completed": false,
+  "result_path": "outputs/acceptance/llava_264-2.json",
+  "result_sha256": "0156dc475e35cfbf23fe7b5530f37a5b31551c30d681355b1349e39bca8f890b",
+  "question_id": "264-2",
+  "source_commit": "bce12e479bc4dfee2b9c50c88137b01ff51bd483",
+  "model_inventory_sha256": "f0968110e910a11ad99dd5c27c39157e98691c1c5605ff3a2286ce9504cbc90f",
+  "manifest_sha256": "785004b81d10e8be73349f7a328cb79bf133aa6dacfb5340b538296585b8fa3b",
+  "protocol": "videoqa-llava-16-v1",
+  "environment": {
+    "name": "explore_video_qa",
+    "prefix": "/App/conda/envs/explore_video_qa",
+    "python": "3.10.21 | packaged by conda-forge | (main, Aug 21 2026, 22:42:31) [GCC 14.4.0]",
+    "torch": "2.6.0+cu124",
+    "transformers": "4.45.2"
+  },
+  "pixel_shape": [
+    16,
+    3,
+    384,
+    384
+  ],
+  "prefill_tokens": 3585,
+  "visual_tokens": 3360,
+  "raw_output": "A.",
+  "parsed_answer": "A",
+  "correct": true,
+  "generation_seconds": 0.9830766979139298,
+  "peak_allocated_gib": 19.292044162750244,
+  "checked_logit_steps": 3,
+  "loading_warning_count": 448,
+  "loading_warning_assessment": "Nested SigLIP meta-copy warnings retained in full record. No final meta parameters; five deterministic outer-checkpoint tensor slices match exactly; real-video generation has finite next-token logits. Not an exhaustive in-memory tensor comparison.",
+  "checkpoint_tensor_checks": [
+    {
+      "name": "model.embed_tokens.weight",
+      "elements_compared": 4096,
+      "exact_match": true
+    },
+    {
+      "name": "model.mm_projector.0.weight",
+      "elements_compared": 4096,
+      "exact_match": true
+    },
+    {
+      "name": "model.image_newline",
+      "elements_compared": 3584,
+      "exact_match": true
+    },
+    {
+      "name": "model.vision_tower.vision_tower.vision_model.encoder.layers.0.self_attn.q_proj.weight",
+      "elements_compared": 4096,
+      "exact_match": true
+    },
+    {
+      "name": "model.vision_tower.vision_tower.vision_model.encoder.layers.9.self_attn.q_proj.weight",
+      "elements_compared": 4096,
+      "exact_match": true
+    }
+  ],
+  "limits": [
+    "One development question, not an accuracy estimate",
+    "BLIP runtime and full baseline scheduler are not validated here",
+    "Local model SHA256 frozen; upstream LFS identity not compared"
+  ]
+}
