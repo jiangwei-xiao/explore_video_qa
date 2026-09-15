@@ -6,8 +6,9 @@
 - [研究与实验计划](docs/research/研究与实验计划.md)：当前方法设计。
 - [代码结构与运行入口](docs/development/代码结构与运行入口.md)：代码分工、后台运行和结果恢复。
 - [最新基线结果](docs/experiments/video_mme_50/2026-09-14/实验结果.md)：开发50题两组100条结果、准确率和性能。
+- [方法首版结果与复盘](docs/experiments/video_mme_50/2026-09-14/method_v1/实验结果.md)：四组消融/诊断、机制证据及下一轮建议。
 
-远端工作目录为 `/home/admin/projects/explore_video_qa`。开发50题的均匀／Top-K基线均为29/50（58.0%），完整结果和计时已保存；研究方法尚未运行。执行环境为 `conda activate explore_video_qa`。
+远端工作目录为 `/home/admin/projects/explore_video_qa`。两组基线均为58%；方法首版A/B/C/D分别为56%/60%/56%/56%，200条问答与100次分类已完成。完整方法尚无净提升，优化提案未执行。执行环境为 `conda activate explore_video_qa`。
 每次 Git 提交前必须 review 并确认。视频、模型、压缩包、缓存和下载PDF仅作本地资产，Git保留文档、清单与哈希。
 
 ## 目录约定

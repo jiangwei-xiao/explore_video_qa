@@ -1,5 +1,7 @@
 # 项目协作约定
 
+- 新增及后续修改代码须在接口定义处提供中文说明，在核心实现处解释关键约束，并在核心函数内部按“步骤1、步骤2……”标注数据流与执行顺序，便于阅读、维护和复盘；注释应解释输入输出、设计原因及计时/恢复边界。
+
 - 研究执行位置为远端容器 `/home/admin/projects/explore_video_qa`；共享模型在 `/home/models`，只读使用。
 - 本研究使用专用Conda环境 `explore_video_qa`（`/App/conda/envs/explore_video_qa`）。非交互任务显式指定该环境的Python；官方推理源码与入口已重新构建，旧会话代码不再是前置依赖，说明见 `docs/setup/LLaVA推理与环境.md`。
 - 先阅读 `docs/README.md`、`docs/research/研究与实验计划.md`、`docs/experiments/实验进展记录.md`。代码入口见 `docs/development/代码结构与运行入口.md`，历史迁移资料在 `docs/archive/`；相关工作解析中的固定四段／20秒窗口属于早期方案。

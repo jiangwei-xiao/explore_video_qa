@@ -1,0 +1,46 @@
+<!doctype html><meta charset="utf-8"><title>匿名证据复核</title>
+<style>body{font:16px sans-serif;margin:24px;background:#f5f5f5}article{background:white;padding:12px;border:1px solid #ccc}#frames{display:grid;grid-template-columns:repeat(4,minmax(220px,1fr));gap:10px}img{width:100%;max-height:300px;object-fit:contain}textarea{width:96%;height:60px}select,button{padding:8px;margin:5px}pre{white-space:pre-wrap}.initial{display:none;color:#555}body.revealed .initial{display:block}header{position:sticky;top:0;background:#f5f5f5;z-index:1;padding:8px}.warning{color:#852b00}@media(max-width:950px){#frames{grid-template-columns:repeat(2,minmax(180px,1fr))}}</style>
+<h1 id="title"></h1><pre id="question"></pre><p class="warning">先看问题和画面，再选择是否显示初审。此页不含方法名、预测或标准答案。未填写不代表同意初审；所有意见可导出JSON交回。已接触案例不能算完全盲审。</p>
+<details><summary>标签说明</summary>直接证据：提供答案所需信息；必要上下文：建立定位或关系；仅主题相关：题材有关但未指出答题信息；无关；不确定。相似帧不必然冗余，连续计数与时序可能必须保留。</details>
+<p>问题证据范围：<select id="scope"></select></p><textarea id="need" placeholder="你认为回答必须具备哪些证据？"></textarea><p class="initial" id="initialNeed"></p>
+<details><summary>原片视觉核查窗口（事后选取，不代表完整原片）</summary><div id="contexts"></div></details>
+<header><select id="group"></select><button id="reveal">显示助手初审</button><button id="save">导出本题复核JSON</button><span id="saved"></span></header>
+<p>这组证据是否足够：<select id="suff"></select></p><textarea id="groupNote" placeholder="这16帧整体缺少什么？"></textarea><p class="initial" id="groupInitial"></p><div id="frames"></div>
+<script>
+// 步骤1：载入匿名载荷；本页无远程请求，不把复核意见发送到服务器。
+const data=__AUDIT_DATA__, q=data.question, a=data.initial;
+const labels={'':'待判断',direct:'直接证据',context:'必要上下文',topic:'仅主题相关',irrelevant:'无关',uncertain:'不确定'};
+const suffs={'':'待判断',sufficient:'证据充分',partial:'部分充分',missing:'未找到关键证据',uncertain:'暂无法判断'};
+const key='videoqa-audit:'+data.protocol_sha256+':'+q.question_id;
+let state={question_id:q.question_id,protocol_sha256:data.protocol_sha256,initial_annotation_sha256:data.initial_annotation_sha256,reviewer:'user',initial_revealed:false,scope:'',need:'',groups:{}};
+for(const [alias,pts] of Object.entries(q.groups))state.groups[alias]={sufficiency:'',reason:'',frames:Object.fromEntries(pts.map(p=>[p,{label:'',reason:'',duplicate:'',new_information:''}]))};
+try{const old=JSON.parse(localStorage.getItem(key));if(old&&old.protocol_sha256===data.protocol_sha256)state=old;}catch(e){}
+// 旧草稿原样保留；混合初审版本不自动贴上新版本哈希，否则一致率会失真。
+if(state.initial_annotation_sha256!==data.initial_annotation_sha256){state.initial_annotation_sha256=null;state.version_warning='旧草稿缺少初审版本或初审已修订；保留意见，但不自动计算一致率。';const note=document.createElement('p');note.className='warning';note.textContent=state.version_warning;document.body.append(note);}
+function persist(){try{localStorage.setItem(key,JSON.stringify(state));document.querySelector('#saved').textContent='浏览器已暂存（仍需导出）';}catch(e){document.querySelector('#saved').textContent='浏览器无法暂存，请及时导出';}}
+function options(select,mapping,value){for(const [k,v] of Object.entries(mapping)){const o=document.createElement('option');o.value=k;o.textContent=v;select.append(o);}select.value=value;}
+document.querySelector('#title').textContent=q.question_id+' — 证据复核';
+document.querySelector('#question').textContent=q.question+'\n'+q.options.join('\n');
+const scope=document.querySelector('#scope');options(scope,{'':'待判断',single_moment:'单时刻',local_sequence:'局部连续事件',cross_time:'跨时间多事件',whole_video:'全片汇总',uncertain:'不确定'},state.scope||'');scope.onchange=()=>{state.scope=scope.value;persist();};
+document.querySelector('#need').value=state.need||'';document.querySelector('#need').oninput=e=>{state.need=e.target.value;persist();};document.querySelector('#initialNeed').textContent='助手题面初标：'+q.requirements.scope+'；'+q.requirements.need+(q.requirements.ambiguity?'；歧义：'+q.requirements.ambiguity:'');
+if(data.scope_review)document.querySelector('#initialNeed').textContent+='；看原片后的待确认修订：'+data.scope_review.suggested_scope+'；'+data.scope_review.reason;
+for(const path of data.context_pages){const a=document.createElement('a');a.href='../'+path;a.target='_blank';a.textContent=path;document.querySelector('#contexts').append(a,document.createElement('br'));}
+const chooser=document.querySelector('#group');options(chooser,Object.fromEntries(Object.keys(q.groups).sort().map(x=>[x,x])),Object.keys(q.groups).sort()[0]);
+const suff=document.querySelector('#suff');options(suff,suffs,'');
+// 步骤2：每组分别记录上下文价值和重复性；共享源帧不自动传播组级判断。
+function show(){const alias=chooser.value,g=state.groups[alias],root=document.querySelector('#frames');root.replaceChildren();suff.value=g.sufficiency;document.querySelector('#groupNote').value=g.reason;const priorGroup=a.groups?.[alias];document.querySelector('#groupInitial').textContent=priorGroup?(suffs[priorGroup.sufficiency]+'：'+priorGroup.reason):'助手尚未审核此组';
+q.groups[alias].forEach((pts,i)=>{const row=q.frames.find(f=>f.source_pts===pts),v=g.frames[pts],card=document.createElement('article');
+const title=document.createElement('p');title.textContent=(i+1)+' | '+row.timestamp_seconds.toFixed(3)+' 秒 | PTS '+pts;card.append(title);
+const img=document.createElement('img');img.src='../frames/'+q.question_id+'/'+pts+'.input.png';img.alt='384×384官方预处理视图';card.append(img);
+const link=document.createElement('a');link.href='../frames/'+q.question_id+'/'+pts+'.original.png';link.target='_blank';link.textContent='查看原始分辨率';card.append(link);
+const sel=document.createElement('select');options(sel,labels,v.label);sel.onchange=()=>{v.label=sel.value;persist();};card.append(sel);
+const note=document.createElement('textarea');note.placeholder='可见证据与理由';note.value=v.reason;note.oninput=()=>{v.reason=note.value;persist();};card.append(note);
+const dup=document.createElement('select');options(dup,{'':'重复性待判断',yes:'与本组画面重复',no:'不重复',uncertain:'重复性不确定'},v.duplicate);dup.onchange=()=>{v.duplicate=dup.value;persist();};card.append(dup);
+const added=document.createElement('textarea');added.placeholder='相对本组其他帧新增了什么信息？';added.value=v.new_information;added.oninput=()=>{v.new_information=added.value;persist();};card.append(added);
+const initial=document.createElement('p');initial.className='initial';const prior=a.groups?.[alias]?.overrides?.[pts]||a.frames?.[pts];initial.textContent=prior?labels[prior.label]+'：'+prior.reason+'；重复性：'+(a.groups?.[alias]?.redundancy?.[pts]?.reason||'待审'):'助手尚未审核';card.append(initial);root.append(card);});}
+chooser.onchange=show;suff.onchange=()=>{state.groups[chooser.value].sufficiency=suff.value;persist();};document.querySelector('#groupNote').oninput=e=>{state.groups[chooser.value].reason=e.target.value;persist();};
+document.querySelector('#reveal').onclick=()=>{state.initial_revealed=true;document.body.classList.add('revealed');persist();};
+// 步骤3：导出带协议哈希的追加式复核记录；不覆写助手初审。
+document.querySelector('#save').onclick=()=>{state.exported_at=new Date().toISOString();const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=q.question_id+'.review.json';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);};
+if(state.initial_revealed)document.body.classList.add('revealed');show();
+</script>

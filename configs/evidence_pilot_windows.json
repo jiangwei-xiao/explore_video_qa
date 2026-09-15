@@ -1,0 +1,9 @@
+[
+ {"question_id":"260-2","left":54,"right":64,"fps":2,"reason":"核对刷牙与喷雾的真实相邻动作"},
+ {"question_id":"395-2","left":265,"right":285,"fps":1,"reason":"核对目标怪物、红色书册和度假信息"},
+ {"question_id":"395-2","left":410,"right":426,"fps":1,"reason":"核对同一角色的海滨场景"},
+ {"question_id":"004-3","left":78,"right":91,"fps":1,"reason":"核对目标演化阶段名称与前后转换"},
+ {"question_id":"383-2","left":940,"right":948,"fps":2,"reason":"核对交通工具比喻与相邻动画变形"},
+ {"question_id":"538-1","left":8,"right":12,"fps":2,"reason":"核对购物规则文字出现区间"},
+ {"question_id":"012-3","left":14,"right":20,"fps":1,"reason":"核对胶带近景与颜色可见性"}
+]
