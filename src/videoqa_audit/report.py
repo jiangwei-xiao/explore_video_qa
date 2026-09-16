@@ -12,6 +12,12 @@ def csv_file(path, rows):
         writer=csv.DictWriter(stream,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
 
 
+def review_progress_line(question_rows):
+    """首批子表也显示真实全量进度，不能在后续审核后继续写死40题待审。"""
+    pending=sum(r['review_status']!='initial_reviewed' for r in question_rows)
+    return f'全量原帧初审进度：{len(question_rows)-pending}/{len(question_rows)}；待审{pending}题。下表仅列首批10题，全部300组见per_group.csv。'
+
+
 def export(out):
     """导出50题、300组、4800槽位及B/C、A/B追踪；保留审核覆盖率。"""
     out=Path(out);questions=read(out/'questions.json');outcomes=read(out/'outcomes.json')
@@ -73,7 +79,7 @@ def export(out):
     write(out/'mechanism_audit.json',stats)
     lines=['# 首批10题逐组初审数量','',
            '仅首批原帧图板初审，尚待用户校准；384输入仅关键帧抽查。直接+上下文不能简单称为全部合理帧，重复信息单列于CSV。',
-           '其余40题保持pending，不混入以下语义表。表中对错仍是原始计分，未调用模型。','']
+           review_progress_line(question_rows), '表中对错仍是原始计分，不混入人工修复诊断结果。','']
     for q in questions:
         if not q['pilot']:continue
         lines.extend([f'## {q["question_id"]}', '', q['question'],'',
