@@ -1,6 +1,7 @@
 /data/archives/
 /data/videos/
 /data/cache/
+/data/subtitles/
 /models/
 /.venv*/
 /.cache/
