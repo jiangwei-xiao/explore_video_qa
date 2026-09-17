@@ -16,40 +16,86 @@ from .common import ROOT, SOURCE_COMMIT, DEVELOPMENT_SHA256, read_json, sha256, 
 from .baseline_records import METHODS, check_recovery, result_path, validate_pair
 from .baseline_worker import worker_main
 
+# 数据集注册表：每项定义一次基线运行的题目范围与冻结条件。
+# development50 为默认项，行为与历史50题运行逐字段一致；full2700 为全量公开测试集。
+# manifest_sha256 在清单生成后冻结（scripts/build_video_mme_full_assets.py audit 阶段打印）。
+DATASETS = {
+    'development50': dict(
+        manifest_path='data/manifests/video_mme_development.json',
+        manifest_sha256=DEVELOPMENT_SHA256,
+        asset_audit_path='data/manifests/video_mme_asset_validation.json',
+        question_count=50, unique_video_count=50,
+        protocol_version='videomme50-baselines-v2-budgetcap',
+        scope='50-question development set; no application-cache hits; OS cache uncontrolled; resident-model E2E'),
+    'full2700': dict(
+        manifest_path='data/manifests/video_mme_full_2700.json',
+        manifest_sha256='eca56f202afcf3cf7e3e3d608be6f95ec1980a7967c117ff379832ce17f3bdd0',
+        asset_audit_path='data/manifests/video_mme_full_asset_audit.json',
+        question_count=2700, unique_video_count=900,
+        protocol_version='videomme-full-baselines-v2-budgetcap',
+        scope='full 2700-question public Video-MME test set; no application-cache hits; OS cache uncontrolled; resident-model E2E'),
+    # 2026-09-17 修订后的补跑集：r1 因 16 帧硬性预算暂停的 6 题（2 个短视频）。
+    # 行对象与 full2700 清单逐字段一致；预期与其 5388 个已完成结果合并为完整 5400。
+    'full2700_completion': dict(
+        manifest_path='data/manifests/video_mme_full_completion_6.json',
+        manifest_sha256='6ad2b2836ba566420db0c4afdbb91e60cc3cf2849df59386ff841cd343bd7ae8',
+        asset_audit_path='data/manifests/video_mme_full_asset_audit.json',
+        question_count=6, unique_video_count=2,
+        protocol_version='videomme-full-completion6-v1',
+        prior_smoke_result='excluded; 12 newly measured answers completing videomme_full_uniform_topk_20260916_r1 (5388/5400)',
+        scope='6-question completion of the full 2700-question run under the 2026-09-17 budget-cap amendment; '
+              'no application-cache hits; OS cache uncontrolled; resident-model E2E'),
+}
+
 
 def utc():
     return datetime.datetime.now(datetime.timezone.utc).isoformat()
 
 
-def protocol():
+def protocol(dataset):
+    """冻结本轮运行协议指纹；dataset 决定题目范围，其余条件两种数据集完全一致。"""
     files = sorted((ROOT / 'src/videoqa_runtime').glob('*.py')) + [ROOT / 'scripts/run_baselines.py', ROOT / 'scripts/summarize_baselines.py']
-    return dict(version='videomme50-baselines-v1', dataset_manifest_sha256=DEVELOPMENT_SHA256,
-                llava_source_commit=SOURCE_COMMIT, methods=list(METHODS), question_count=50,
-                candidate_fps=1, phase_seconds=0.25, frames=16, expected_visual_tokens=3360,
+    return dict(version=dataset['protocol_version'], dataset_manifest=dataset['manifest_path'],
+                dataset_manifest_sha256=dataset['manifest_sha256'], question_count=dataset['question_count'],
+                llava_source_commit=SOURCE_COMMIT, methods=list(METHODS),
+                candidate_fps=1, phase_seconds=0.25,
+                frame_budget=16,
+                frame_budget_semantics='maximum cap (2026-09-17 amendment): videos with fewer distinct '
+                                        'candidates use all of them; with >=16 candidates behavior is '
+                                        'identical to the original fixed budget',
+                visual_tokens_per_frame=210,
                 llava_dtype='bfloat16', llava_attention='sdpa', blip_dtype='float32', blip_batch_size=16,
                 max_new_tokens=8, seed=2027, cpu_threads=2, video_decode_threads=2,
                 cache_mode='no application cache; OS page cache uncontrolled',
                 method_order='zero-based even ordinal uniform-first, odd ordinal topk-first',
                 timing_scope='models resident; raw video open to parsed answer; no result writes inside interval',
-                prior_smoke_result='excluded; 100 newly measured answers', max_extra_retries=10,
+                prior_smoke_result=dataset.get('prior_smoke_result',
+                    f'excluded; {dataset["question_count"] * 2} newly measured answers'), max_extra_retries=10,
+                scope=dataset['scope'],
                 code_sha256={str(p.relative_to(ROOT)): sha256(p) for p in files},
                 model_inventory_sha256=sha256(ROOT / 'configs/local_model_inventory.json'),
                 environment_lock_sha256=sha256(ROOT / 'requirements-runtime.lock.txt'))
 
 
-def preflight(rows):
+def preflight(rows, dataset=None):
+    """运行前冻结条件核验：清单哈希、视频字节哈希、模型身份、包版本与BLIP输入长度。
+    步骤1 清单规模与唯一性；步骤2 清单文件哈希；步骤3 逐视频字节哈希；
+    步骤4 模型文件哈希；步骤5 包版本与离线配置；步骤6 BLIP问题Token上限。"""
     started = time.perf_counter()
-    if len(rows) != 50 or len({r['question_id'] for r in rows}) != 50 or len({r['video_id'] for r in rows}) != 50:
-        raise ValueError('Expected 50 distinct frozen questions/videos')
-    if sha256(ROOT / 'data/manifests/video_mme_development.json') != DEVELOPMENT_SHA256:
+    # 兼容研究方法既有的preflight(rows)调用；默认仍为冻结开发50题。
+    dataset = DATASETS['development50'] if dataset is None else dataset
+    expected = dataset['question_count']
+    if len(rows) != expected or len({r['question_id'] for r in rows}) != expected or len({r['video_id'] for r in rows}) != dataset['unique_video_count']:
+        raise ValueError(f'Expected {expected} distinct frozen questions on {dataset["unique_video_count"]} videos')
+    if sha256(ROOT / dataset['manifest_path']) != dataset['manifest_sha256']:
         raise ValueError('Frozen manifest changed')
-    audit = read_json(ROOT / 'data/manifests/video_mme_asset_validation.json')
+    audit = read_json(ROOT / dataset['asset_audit_path'])
     asset_map = {f['path']: f for f in audit['files']}
     for row in rows:
         path = 'data/' + row['video_relative_path']
         if sha256(ROOT / path) != asset_map[path]['sha256']:
             raise ValueError(f'Video bytes changed: {row["video_id"]}')
-    print('Preflight: all 50 video hashes match.', flush=True)
+    print(f'Preflight: all {len(asset_map)} video hashes match.', flush=True)
     inventory = read_json(ROOT / 'configs/local_model_inventory.json')
     for model_name, model in inventory['models'].items():
         for filename, expected in model['files'].items():
@@ -84,21 +130,23 @@ def available_gpus(requested):
     return selected, states
 
 
-def execute(run_id, requested_gpus, resume=False):
+def execute(run_id, requested_gpus, resume=False, dataset_name='development50'):
+    if dataset_name not in DATASETS:
+        raise ValueError(f'Unknown dataset: {dataset_name}')
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*', run_id):
         raise ValueError('Invalid run ID')
     run_dir = ROOT / 'outputs/baselines' / run_id
     run_dir.mkdir(parents=True, exist_ok=resume)
     with (run_dir / 'coordinator.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        _execute_locked(run_dir, requested_gpus, resume)
+        _execute_locked(run_dir, requested_gpus, resume, DATASETS[dataset_name])
 
 
-def _execute_locked(run_dir, requested_gpus, resume):
+def _execute_locked(run_dir, requested_gpus, resume, dataset):
     started = time.perf_counter()
     for directory in ('logs', 'workers', 'attempts', 'results/uniform', 'results/topk', 'code_snapshot'):
         (run_dir / directory).mkdir(parents=True, exist_ok=True)
-    spec = protocol()
+    spec = protocol(dataset)
     spec_path = run_dir / 'protocol.json'
     if resume:
         if read_json(spec_path) != spec:
@@ -112,14 +160,15 @@ def _execute_locked(run_dir, requested_gpus, resume):
         for name in ('llava_source_manifest.json', 'local_model_inventory.json', 'runtime_environment.json'):
             shutil.copy2(ROOT / 'configs' / name, run_dir / name)
     spec_hash = sha256(spec_path)
-    rows = read_json(ROOT / 'data/manifests/video_mme_development.json')['rows']
+    expected_results = dataset['question_count'] * len(METHODS)
+    rows = read_json(ROOT / dataset['manifest_path'])['rows']
     completed = check_recovery(run_dir, rows, spec_hash)
-    if len(completed) == 100:
-        print('All 100 results already complete; no generation repeated.', flush=True)
+    if len(completed) == expected_results:
+        print(f'All {expected_results} results already complete; no generation repeated.', flush=True)
         return
     write_json(run_dir / 'pid.json', dict(pid=os.getpid(), session_id=os.getsid(0), started_at_utc=utc(), executable=sys.executable))
     write_json(run_dir / 'status.json', dict(status='preflight', completed_results=len(completed), pid=os.getpid(), updated_at_utc=utc()))
-    verification = preflight(rows)
+    verification = preflight(rows, dataset)
     write_json(run_dir / 'preflight.json', verification)
     gpus, gpu_states = available_gpus(requested_gpus)
     owner_path = run_dir / 'owners.json'
@@ -128,7 +177,7 @@ def _execute_locked(run_dir, requested_gpus, resume):
         if any((qid, m) not in completed for m in METHODS) and gpu not in gpus:
             raise RuntimeError(f'Incomplete pair owns currently unavailable GPU {gpu}: {qid}')
     write_json(run_dir / 'gpu_allocation.json', dict(requested=requested_gpus, selected=gpus, before_launch=gpu_states))
-    durations = {v['video_id']: v['duration_seconds'] for v in read_json(ROOT / 'data/manifests/video_mme_asset_validation.json')['videos']}
+    durations = {v['video_id']: v['duration_seconds'] for v in read_json(ROOT / dataset['asset_audit_path'])['videos']}
     jobs = [dict(row=row, order=i, resumed=resume, video_sha256=verification['video_hashes'][row['video_id']]) for i, row in enumerate(rows)]
     ctx = mp.get_context('spawn')
     events, stop = ctx.Queue(), ctx.Event()
@@ -147,13 +196,13 @@ def _execute_locked(run_dir, requested_gpus, resume):
         if not force and time.perf_counter() - last_status < 10:
             return
         last_status = time.perf_counter()
-        record = dict(status=phase, completed_results=len(completed), expected_results=100,
+        record = dict(status=phase, completed_results=len(completed), expected_results=expected_results,
                       completed_by_method={m: sum(key[1] == m for key in completed) for m in METHODS},
                       extra_retries=extra_retries, active=active, progress=progress,
                       available_workers=len(gpus), elapsed_seconds=time.perf_counter() - started,
                       pid=os.getpid(), updated_at_utc=utc())
         write_json(run_dir / 'status.json', record)
-        print(f'[{phase}] {len(completed)}/100 results; retries={extra_retries}; active={len(active)}; elapsed={record["elapsed_seconds"]:.1f}s', flush=True)
+        print(f'[{phase}] {len(completed)}/{expected_results} results; retries={extra_retries}; active={len(active)}; elapsed={record["elapsed_seconds"]:.1f}s', flush=True)
 
     def event():
         while True:
@@ -246,7 +295,12 @@ def _execute_locked(run_dir, requested_gpus, resume):
             for p in processes.values():
                 if p.pid is not None:
                     p.join(timeout=1)
-        completed = check_recovery(run_dir, rows, spec_hash) if final_status == 'completed' else completed
+        # 在途任务退出后，暂停态也重新统计落盘结果；不确定生成仍保持暂停。
+        try:
+            completed = check_recovery(run_dir, rows, spec_hash)
+        except (ValueError, OSError) as recovery_error:
+            final_status = 'paused'
+            error = f'{error or ""}; final verification: {recovery_error}'
         phase = final_status
         publish(True)
         write_json(run_dir / 'execution.json', dict(status=final_status, error=error, started_at_utc=verification['checked_at_utc'],

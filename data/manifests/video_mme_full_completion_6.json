@@ -1,0 +1,238 @@
+{
+  "dataset": "video_mme",
+  "metadata_sha256": "7fffab8ed38ecc2f9f0eca4c44d8a11636f0ee96116ede83580c8b9ae0faf986",
+  "rows": [
+    {
+      "answer_index": 0,
+      "domain": "Sports Competition",
+      "options": [
+        "A. 3.",
+        "B. 4.",
+        "C. 5.",
+        "D. 6."
+      ],
+      "original": {
+        "answer": "A",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. 3.",
+          "B. 4.",
+          "C. 5.",
+          "D. 6."
+        ],
+        "question": "How many legends are featured in the video?",
+        "question_id": "133-1",
+        "sub_category": "Esports",
+        "task_type": "Counting Problem",
+        "url": "https://www.youtube.com/watch?v=uF3zNOthLAg",
+        "videoID": "uF3zNOthLAg",
+        "video_id": "133"
+      },
+      "question": "How many legends are featured in the video?",
+      "question_id": "133-1",
+      "source_group": "youtube:uF3zNOthLAg",
+      "source_url": "https://www.youtube.com/watch?v=uF3zNOthLAg",
+      "stratum": "short",
+      "task_type": "Counting Problem",
+      "video_id": "uF3zNOthLAg",
+      "video_relative_path": "videos/video_mme/uF3zNOthLAg.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Sports Competition",
+      "options": [
+        "A. The legend who is a wolf.",
+        "B. The legend with two weapons in hands.",
+        "C. The legend with red cloak.",
+        "D. No one is knocked down."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. The legend who is a wolf.",
+          "B. The legend with two weapons in hands.",
+          "C. The legend with red cloak.",
+          "D. No one is knocked down."
+        ],
+        "question": "Which legend is knocked down in the video?",
+        "question_id": "133-2",
+        "sub_category": "Esports",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=uF3zNOthLAg",
+        "videoID": "uF3zNOthLAg",
+        "video_id": "133"
+      },
+      "question": "Which legend is knocked down in the video?",
+      "question_id": "133-2",
+      "source_group": "youtube:uF3zNOthLAg",
+      "source_url": "https://www.youtube.com/watch?v=uF3zNOthLAg",
+      "stratum": "short",
+      "task_type": "Object Recognition",
+      "video_id": "uF3zNOthLAg",
+      "video_relative_path": "videos/video_mme/uF3zNOthLAg.mp4"
+    },
+    {
+      "answer_index": 3,
+      "domain": "Sports Competition",
+      "options": [
+        "A. Behind the nexus.",
+        "B. In the river.",
+        "C. On the mountain.",
+        "D. Near the turret."
+      ],
+      "original": {
+        "answer": "D",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. Behind the nexus.",
+          "B. In the river.",
+          "C. On the mountain.",
+          "D. Near the turret."
+        ],
+        "question": "Which location serves as the battleground in the fight?",
+        "question_id": "133-3",
+        "sub_category": "Esports",
+        "task_type": "Spatial Perception",
+        "url": "https://www.youtube.com/watch?v=uF3zNOthLAg",
+        "videoID": "uF3zNOthLAg",
+        "video_id": "133"
+      },
+      "question": "Which location serves as the battleground in the fight?",
+      "question_id": "133-3",
+      "source_group": "youtube:uF3zNOthLAg",
+      "source_url": "https://www.youtube.com/watch?v=uF3zNOthLAg",
+      "stratum": "short",
+      "task_type": "Spatial Perception",
+      "video_id": "uF3zNOthLAg",
+      "video_relative_path": "videos/video_mme/uF3zNOthLAg.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Sports Competition",
+      "options": [
+        "A. She wants to pick up gold.",
+        "B. She wants to ward grass.",
+        "C. She wants to slay an enemy.",
+        "D. She wants to meet her ally."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. She wants to pick up gold.",
+          "B. She wants to ward grass.",
+          "C. She wants to slay an enemy.",
+          "D. She wants to meet her ally."
+        ],
+        "question": "In the legend, when the character with a fox tail goes left, what is her intention or goal?",
+        "question_id": "134-1",
+        "sub_category": "Esports",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=6Z_XNM_iT4g",
+        "videoID": "6Z_XNM_iT4g",
+        "video_id": "134"
+      },
+      "question": "In the legend, when the character with a fox tail goes left, what is her intention or goal?",
+      "question_id": "134-1",
+      "source_group": "youtube:6Z_XNM_iT4g",
+      "source_url": "https://www.youtube.com/watch?v=6Z_XNM_iT4g",
+      "stratum": "short",
+      "task_type": "Action Recognition",
+      "video_id": "6Z_XNM_iT4g",
+      "video_relative_path": "videos/video_mme/6Z_XNM_iT4g.mp4"
+    },
+    {
+      "answer_index": 1,
+      "domain": "Sports Competition",
+      "options": [
+        "A. Haste.",
+        "B. Flash.",
+        "C. Exhaust.",
+        "D. Teleport."
+      ],
+      "original": {
+        "answer": "B",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. Haste.",
+          "B. Flash.",
+          "C. Exhaust.",
+          "D. Teleport."
+        ],
+        "question": "Which skill is used by the legend who slays the enemy?",
+        "question_id": "134-2",
+        "sub_category": "Esports",
+        "task_type": "Action Recognition",
+        "url": "https://www.youtube.com/watch?v=6Z_XNM_iT4g",
+        "videoID": "6Z_XNM_iT4g",
+        "video_id": "134"
+      },
+      "question": "Which skill is used by the legend who slays the enemy?",
+      "question_id": "134-2",
+      "source_group": "youtube:6Z_XNM_iT4g",
+      "source_url": "https://www.youtube.com/watch?v=6Z_XNM_iT4g",
+      "stratum": "short",
+      "task_type": "Action Recognition",
+      "video_id": "6Z_XNM_iT4g",
+      "video_relative_path": "videos/video_mme/6Z_XNM_iT4g.mp4"
+    },
+    {
+      "answer_index": 2,
+      "domain": "Sports Competition",
+      "options": [
+        "A. Sword.",
+        "B. Axe.",
+        "C. Gun.",
+        "D. Spear."
+      ],
+      "original": {
+        "answer": "C",
+        "domain": "Sports Competition",
+        "duration": "short",
+        "options": [
+          "A. Sword.",
+          "B. Axe.",
+          "C. Gun.",
+          "D. Spear."
+        ],
+        "question": "What type of weapon does the slain legend retrieve?",
+        "question_id": "134-3",
+        "sub_category": "Esports",
+        "task_type": "Object Recognition",
+        "url": "https://www.youtube.com/watch?v=6Z_XNM_iT4g",
+        "videoID": "6Z_XNM_iT4g",
+        "video_id": "134"
+      },
+      "question": "What type of weapon does the slain legend retrieve?",
+      "question_id": "134-3",
+      "source_group": "youtube:6Z_XNM_iT4g",
+      "source_url": "https://www.youtube.com/watch?v=6Z_XNM_iT4g",
+      "stratum": "short",
+      "task_type": "Object Recognition",
+      "video_id": "6Z_XNM_iT4g",
+      "video_relative_path": "videos/video_mme/6Z_XNM_iT4g.mp4"
+    }
+  ],
+  "sampling": "no sampling; all 2700 public test questions in parquet order",
+  "schema_version": 1,
+  "seed": null,
+  "source": {
+    "files": [
+      "videomme/test-00000-of-00001.parquet"
+    ],
+    "repo": "AI-ModelScope/Video-MME (mirror of lmms-lab/Video-MME)",
+    "revision": "master",
+    "split": "test"
+  },
+  "split": "full_test",
+  "video_validation_status": "verified",
+  "completion_of": "videomme_full_uniform_topk_20260916_r1",
+  "completion_reason": "16-frame budget amended to a maximum cap (2026-09-17); these videos yield 14 (uF3zNOthLAg) and 11 (6Z_XNM_iT4g) distinct 1FPS candidates",
+  "parent_manifest_sha256": "eca56f202afcf3cf7e3e3d608be6f95ec1980a7967c117ff379832ce17f3bdd0"
+}

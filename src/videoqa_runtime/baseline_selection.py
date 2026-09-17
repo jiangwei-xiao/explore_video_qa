@@ -11,11 +11,14 @@ class ProtocolError(ValueError):
 
 
 def select_topk(candidates, scores, count=16):
-    if len(candidates) != len(scores) or len(candidates) < count or count < 1:
-        raise ProtocolError('Invalid candidate/score lengths or insufficient candidates')
+    """Top-K选帧：count 为最大预算（2026-09-17 修订），候选不足时全部入选；
+    候选数≥预算时与原固定预算行为完全一致。"""
+    if len(candidates) != len(scores) or not candidates or count < 1:
+        raise ProtocolError('Invalid candidate/score lengths or empty candidates')
     if any(not math.isfinite(s) or not 0 <= s <= 1 for s in scores):
         raise ProtocolError('Non-finite or out-of-range BLIP score')
-    order = sorted(range(len(scores)), key=lambda i: (-scores[i], candidates[i]['source_pts'], candidates[i]['candidate_index']))[:count]
+    effective = min(count, len(candidates))
+    order = sorted(range(len(scores)), key=lambda i: (-scores[i], candidates[i]['source_pts'], candidates[i]['candidate_index']))[:effective]
     return sorted((candidates[i] for i in order), key=lambda r: (r['source_pts'], r['candidate_index']))
 
 
@@ -129,8 +132,9 @@ def prepare_selection(path, question, method, scorer, progress=None):
                 flush()
     if batch:
         flush()
-    if len(candidates) < 16:
-        raise ProtocolError('Fewer than 16 distinct candidates')
+    if not candidates:
+        # 2026-09-17 修订：16帧预算改为最大上限，候选不足时选帧函数取全部候选；空候选仍为协议错误
+        raise ProtocolError('No distinct candidate frames')
     start = time.perf_counter()
     selected = uniform_selection(candidates) if method == 'uniform' else select_topk(candidates, scores)
     timing['ranking_seconds'] = time.perf_counter() - start

@@ -13,7 +13,8 @@ def result_path(run_dir, method, qid):
     return Path(run_dir) / 'results' / method / f'{qid}.json'
 
 
-def validate_result(record, row, protocol_hash):
+def validate_result(record, row, protocol_hash, spec=None):
+    """按传入的运行协议校验帧预算；无spec时兼容旧调用及答案协议标记。"""
     if record['status'] != 'completed' or record['protocol_sha256'] != protocol_hash:
         raise ProtocolError('Result status/protocol mismatch')
     if record['question_id'] != row['question_id'] or record['video_id'] != row['video_id']:
@@ -28,11 +29,22 @@ def validate_result(record, row, protocol_hash):
     if [r['candidate_index'] for r in candidates] != list(range(len(candidates))):
         raise ProtocolError('Candidate IDs are not contiguous')
     expected = uniform_selection(candidates) if method == 'uniform' else select_topk(candidates, selection['scores'])
-    if selected != expected or len(selected) != 16 or len({r['source_pts'] for r in selected}) != 16:
+    # 2026-09-17 修订：16帧预算为最大上限；候选不足时选帧数 = min(16, 候选数)，视觉token随之按帧数计算
+    effective = min(16, len(candidates))
+    answer_protocol = answer.get('protocol', 'videoqa-llava-16-v1')
+    if spec is not None:
+        declared = 'videoqa-llava-16-cap-v1' if 'frame_budget' in spec else 'videoqa-llava-16-v1'
+        if answer_protocol != declared:
+            raise ProtocolError('Answer protocol differs from frozen run')
+    if answer_protocol not in ('videoqa-llava-16-v1', 'videoqa-llava-16-cap-v1'):
+        raise ProtocolError('Unknown answer protocol')
+    if answer_protocol == 'videoqa-llava-16-v1' and effective != 16:
+        raise ProtocolError('Historical fixed-16 protocol requires 16 frames')
+    if selected != expected or len(selected) != effective or len({r['source_pts'] for r in selected}) != effective:
         raise ProtocolError('Selection disagrees with the frozen rule')
-    if answer['pixel_shape'] != [16, 3, 384, 384] or answer['visual_tokens'] != 3360:
+    if answer['pixel_shape'] != [effective, 3, 384, 384] or answer['visual_tokens'] != effective * 210:
         raise ProtocolError('Visual input protocol mismatch')
-    if answer['prefill_tokens'] != answer['text_input_tokens'] - 1 + 3360:
+    if answer['prefill_tokens'] != answer['text_input_tokens'] - 1 + effective * 210:
         raise ProtocolError('Unexpected multimodal truncation')
     if answer['parsed_answer'] != parse_answer(answer['raw_output']):
         raise ProtocolError('Incorrect answer parsing')
@@ -55,9 +67,9 @@ def validate_result(record, row, protocol_hash):
     return True
 
 
-def validate_pair(records, row, protocol_hash):
+def validate_pair(records, row, protocol_hash, spec=None):
     for method in METHODS:
-        validate_result(records[method], row, protocol_hash)
+        validate_result(records[method], row, protocol_hash, spec)
     left, right = records['uniform'], records['topk']
     if left['physical_gpu'] != right['physical_gpu']:
         raise ProtocolError('The paired methods ran on different GPUs')
@@ -69,13 +81,15 @@ def validate_pair(records, row, protocol_hash):
 def check_recovery(run_dir, rows, protocol_hash):
     """Completed results win over an interrupted journal update; uncertain work stops."""
     by_id = {r['question_id']: r for r in rows}
+    path = Path(run_dir) / 'protocol.json'
+    spec = read_json(path) if path.exists() else None
     completed = set()
     for method in METHODS:
         for path in (Path(run_dir) / 'results' / method).glob('*.json'):
             record = read_json(path)
             if record['question_id'] not in by_id:
-                raise ProtocolError('Result is outside the frozen development set')
-            validate_result(record, by_id[record['question_id']], protocol_hash)
+                raise ProtocolError('Result is outside the frozen question manifest')
+            validate_result(record, by_id[record['question_id']], protocol_hash, spec)
             completed.add((record['question_id'], method))
     for path in (Path(run_dir) / 'attempts').glob('*/*.json'):
         attempt = read_json(path)

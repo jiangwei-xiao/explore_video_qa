@@ -115,6 +115,9 @@ class LlavaBackend:
 
     def answer(self, frames, timestamps, duration, question, options, before_generate=None, generation_state=None):
         answer_started = time.perf_counter()
+        # 变长输入仍必须逐帧对应；在任何分词、CUDA操作或生成前拒绝错配。
+        if len(frames) != len(timestamps):
+            raise ValueError('Frames and timestamps must have equal length')
         torch = self.torch
         from llava.constants import IMAGE_TOKEN_INDEX
         from llava.conversation import conv_templates
@@ -122,8 +125,10 @@ class LlavaBackend:
         from transformers import GenerationConfig
 
         message = question_text(question, options, duration, timestamps)
-        if len(frames) != 16:
-            raise ValueError('Exactly 16 input images required')
+        frame_count = len(frames)
+        if not 1 <= frame_count <= 16:
+            # 2026-09-17 修订：16帧预算改为最大上限（短视频可少于16帧，但至少1帧）
+            raise ValueError('Frame count must be between 1 and the 16-frame budget')
         conversation = copy.deepcopy(conv_templates['qwen_1_5'])
         conversation.append_message(conversation.roles[0], message)
         conversation.append_message(conversation.roles[1], None)
@@ -131,7 +136,7 @@ class LlavaBackend:
         input_ids = tokenizer_image_token(prompt, self.tokenizer, IMAGE_TOKEN_INDEX, return_tensors='pt').unsqueeze(0).cuda()
         if int((input_ids == IMAGE_TOKEN_INDEX).sum()) != 1:
             raise ValueError('Expected one video placeholder')
-        expected_visual_tokens = 16 * 14 * 15
+        expected_visual_tokens = frame_count * 14 * 15
         expected_prefill = input_ids.shape[1] - 1 + expected_visual_tokens
         context_limit = min(self.context, self.model.config.tokenizer_model_max_length)
         if expected_prefill + 8 > context_limit:
@@ -142,7 +147,7 @@ class LlavaBackend:
         video = self.processor.preprocess(frames, return_tensors='pt')['pixel_values'].to('cuda:0', torch.bfloat16)
         torch.cuda.synchronize()
         preprocessing_seconds = time.perf_counter() - started
-        if list(video.shape) != [16, 3, 384, 384] or not torch.isfinite(video).all():
+        if list(video.shape) != [frame_count, 3, 384, 384] or not torch.isfinite(video).all():
             raise ValueError('Invalid official video preprocessing result')
         measured = {'prefill_calls': 0, 'checked_logit_steps': 0}
 

@@ -28,8 +28,10 @@ def test_uniform_budget_and_round_to_even_ties():
     assert uniform_selection(list(range(6)), 3) == [0, 2, 5]
     result = uniform_selection(list(range(31)), 16)
     assert result == list(range(0, 31, 2))
+    # 2026-09-17 修订：16帧预算为最大上限——15个候选返回全部15帧，仅空候选报错
+    assert uniform_selection(list(range(15))) == list(range(15))
     with pytest.raises(ValueError):
-        uniform_selection(list(range(15)))
+        uniform_selection([])
 
 
 def test_options_are_not_duplicated_or_reordered():

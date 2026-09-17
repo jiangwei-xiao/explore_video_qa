@@ -31,6 +31,8 @@ def execution_protocol():
     cfg = read_json(ROOT / 'configs/method_v1.json')
     paths = [ROOT / 'src/videoqa_methods' / name for name in CORE_FILES]
     paths += [ROOT / 'scripts/run_method_experiments.py']
+    # 新运行冻结当前公共运行层；历史基线另核对其归档源码，不混用两个身份。
+    paths += sorted((ROOT / 'src/videoqa_runtime').glob('*.py'))
     return dict(version='videoqa-method-experiment-v1', config=cfg, scope_prompt=SCOPE_PROMPT,
                 execution_code_sha256={str(p.relative_to(ROOT)): sha256(p) for p in paths},
                 baseline_protocol_sha256=sha256(BASELINE / 'protocol.json'),
@@ -51,8 +53,10 @@ def verify_reference_and_baseline():
         raise RuntimeError('WFS reference identity mismatch')
     baseline = read_json(BASELINE / 'protocol.json')
     for name, digest in baseline['code_sha256'].items():
-        if sha256(ROOT / name) != digest:
-            raise RuntimeError(f'Frozen baseline execution code changed: {name}')
+        if sha256(BASELINE / 'code_snapshot' / name) != digest:
+            raise RuntimeError(f'Frozen baseline code snapshot changed: {name}')
+    if sha256(ROOT / 'configs/local_model_inventory.json') != baseline['model_inventory_sha256']:
+        raise RuntimeError('Model identity differs from the baseline')
     summary = read_json(BASELINE / 'summary.json')
     for name, digest in summary['result_sha256'].items():
         if sha256(BASELINE / name) != digest:

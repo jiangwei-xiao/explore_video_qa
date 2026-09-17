@@ -47,10 +47,13 @@ def index_video(video_path):
 
 
 def uniform_selection(candidates, count=16):
+    """均匀选帧：count 为最大预算（2026-09-17 修订），候选不足时取全部候选等间隔选取；
+    候选数≥预算时与原固定预算行为完全一致。"""
     import numpy as np
-    if len(candidates) < count or count < 1:
-        raise ValueError('Insufficient unique candidates for the fixed frame budget')
-    positions = np.rint(np.linspace(0, len(candidates) - 1, count)).astype(int).tolist()
+    if count < 1 or not candidates:
+        raise ValueError('Frame budget must be positive and candidates non-empty')
+    effective = min(count, len(candidates))
+    positions = np.rint(np.linspace(0, len(candidates) - 1, effective)).astype(int).tolist()
     return [candidates[i] for i in positions]
 
 

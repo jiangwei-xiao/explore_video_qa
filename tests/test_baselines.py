@@ -19,9 +19,16 @@ def test_invalid_scores_stop(scores):
         select_topk([dict(candidate_index=i, source_pts=i) for i in range(16)], scores)
 
 
-def test_short_pool_stops():
+def test_short_pool_returns_all_candidates_under_budget_cap():
+    """2026-09-17 修订：16帧预算为最大上限——候选不足时取全部候选，仅空候选池为协议错误。"""
+    from videoqa_runtime.video import uniform_selection
+    pool = [dict(candidate_index=i, source_pts=i) for i in range(3)]
+    assert len(uniform_selection(pool)) == 3
+    assert select_topk(pool, [.2, .9, .5]) == sorted(pool, key=lambda r: r['source_pts'])
     with pytest.raises(ProtocolError):
-        select_topk([dict(candidate_index=0, source_pts=0)], [.5])
+        select_topk([], [])
+    with pytest.raises(ValueError):
+        uniform_selection([])
 
 
 def test_uncertain_attempt_cannot_be_silently_retried(tmp_path):

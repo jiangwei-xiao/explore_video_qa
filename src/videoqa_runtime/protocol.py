@@ -1,7 +1,7 @@
 import math
 import re
 
-PROTOCOL_VERSION = 'videoqa-llava-16-v1'
+PROTOCOL_VERSION = 'videoqa-llava-16-cap-v1'  # 2026-09-17 修订：16帧预算改为最大上限
 
 
 def options_text(options):
@@ -20,15 +20,16 @@ def options_text(options):
 
 
 def question_text(question, options, duration, times):
-    if len(times) != 16 or len(set(times)) != 16 or list(times) != sorted(times):
-        raise ValueError('Expected 16 unique timestamps in chronological order')
+    # 2026-09-17 修订：16帧预算为最大上限；时间戳数量与实际选帧数一致（1..16）
+    if not 1 <= len(times) <= 16 or len(set(times)) != len(times) or list(times) != sorted(times):
+        raise ValueError('Expected 1-16 unique timestamps in chronological order')
     if not math.isfinite(duration) or duration <= 0 or any(not math.isfinite(t) or t < 0 or t >= duration for t in times):
         raise ValueError('Invalid duration or source timestamp')
     content = question + '\n' + '\n'.join(options)
     if any(token in content for token in ('<image>', '<im_start>', '<im_end>')):
         raise ValueError('Unexpected control token in dataset text')
     locations = ', '.join(f'{t:.2f}s' for t in times)
-    return (f'<image>\nThe video lasts for {duration:.2f} seconds, and 16 frames are sampled from it. '
+    return (f'<image>\nThe video lasts for {duration:.2f} seconds, and {len(times)} frames are sampled from it. '
             f'These frames are located at {locations}. Please answer the following question related to this video.\n'
             f'{question}\n{options_text(options)}\nAnswer with only the option letter (A, B, C, or D).')
 
