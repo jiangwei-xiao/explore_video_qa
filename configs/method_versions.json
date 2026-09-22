@@ -1,0 +1,372 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-09-22",
+  "current_frozen_method": "RD-1.2",
+  "naming_policy": {
+    "method": "FAMILY-major.minor",
+    "exploration": "PARENT-expNN",
+    "diagnostic": "PARENT-diagNN",
+    "run_example": "rd_1_2__videomme2700__20260922__r01",
+    "next_rd_1_2_exploration": "RD-1.2-exp03",
+    "next_id_is_reserved_not_executed": true,
+    "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
+  },
+  "entries": [
+    {
+      "id": "BASE-Uniform",
+      "family": "BASE",
+      "kind": "baseline",
+      "parent": null,
+      "description": "按候选时间位置均匀选择；实际帧预算由运行协议记录。",
+      "aliases": [
+        {
+          "label": "均匀采样",
+          "scope": "global"
+        },
+        {
+          "label": "均匀",
+          "scope": "global"
+        },
+        {
+          "label": "Uniform",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_full/2026-09-16/实验结果.md"
+    },
+    {
+      "id": "BASE-BLIP-TopK",
+      "family": "BASE",
+      "kind": "baseline",
+      "parent": null,
+      "description": "原问题BLIP全局Top-K；不附加MMR。",
+      "aliases": [
+        {
+          "label": "Top-K",
+          "scope": "global"
+        },
+        {
+          "label": "TopK",
+          "scope": "global"
+        },
+        {
+          "label": "BLIP Top-K",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_full/2026-09-16/实验结果.md"
+    },
+    {
+      "id": "SB-1.0",
+      "family": "SB",
+      "kind": "frozen_method",
+      "parent": null,
+      "description": "固定λ=0.5，不补查。",
+      "aliases": [
+        {
+          "label": "A",
+          "scope": "sb"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-14/method_v1/实验结果.md"
+    },
+    {
+      "id": "SB-1.1",
+      "family": "SB",
+      "kind": "frozen_method",
+      "parent": "SB-1.0",
+      "description": "问题自适应λ，不补查。",
+      "aliases": [
+        {
+          "label": "B",
+          "scope": "sb"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-14/method_v1/实验结果.md"
+    },
+    {
+      "id": "SB-1.2",
+      "family": "SB",
+      "kind": "frozen_method",
+      "parent": "SB-1.1",
+      "description": "自适应λ、条件补查、整段重选。",
+      "aliases": [
+        {
+          "label": "C",
+          "scope": "sb"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-14/method_v1/实验结果.md"
+    },
+    {
+      "id": "SB-1.3",
+      "family": "SB",
+      "kind": "frozen_method",
+      "parent": "SB-1.2",
+      "description": "局部受限重选，保护窗口外已选帧。",
+      "aliases": [
+        {
+          "label": "E",
+          "scope": "sb"
+        },
+        {
+          "label": "C-local",
+          "scope": "global"
+        },
+        {
+          "label": "C_local",
+          "scope": "global"
+        },
+        {
+          "label": "clocal",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-15/method_followups/实验结果.md"
+    },
+    {
+      "id": "SB-1.2-diag01",
+      "family": "SB",
+      "kind": "diagnostic",
+      "parent": "SB-1.2",
+      "description": "在SB-1.2实际扩充池中做Top-K，不独立产生补查位置。",
+      "aliases": [
+        {
+          "label": "D",
+          "scope": "sb"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-14/method_v1/实验结果.md",
+      "dependencies": [
+        "SB-1.2"
+      ]
+    },
+    {
+      "id": "SB-1.3-exp01",
+      "family": "SB",
+      "kind": "exploration",
+      "parent": "SB-1.3",
+      "description": "受限查询离线验证；编号归属当时工作阶段，选择侧实际基于SB-1.1。",
+      "aliases": [
+        {
+          "label": "Q",
+          "scope": "sb"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-15/method_followups/实验结果.md",
+      "selection_base": "SB-1.1",
+      "status": "not_integrated"
+    },
+    {
+      "id": "RB-1.0",
+      "family": "RB",
+      "kind": "frozen_method",
+      "parent": null,
+      "description": "Top-K区域边界取证，独立简化方法系列。",
+      "aliases": [
+        {
+          "label": "R",
+          "scope": "rb"
+        },
+        {
+          "label": "R区域边界取证",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-17/region_boundary_v1/实验结果.md"
+    },
+    {
+      "id": "RD-1.0",
+      "family": "RD",
+      "kind": "frozen_method",
+      "parent": null,
+      "description": "固定密度权重与视觉差异联合竞争。",
+      "aliases": [
+        {
+          "label": "密度v1",
+          "scope": "global"
+        },
+        {
+          "label": "检索密度v1",
+          "scope": "global"
+        },
+        {
+          "label": "Density-v1",
+          "scope": "global"
+        },
+        {
+          "label": "density_v1",
+          "scope": "global"
+        },
+        {
+          "label": "v1",
+          "scope": "rd"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-20/retrieval_density_v1/实验结果.md",
+      "additional_reports": [
+        "docs/experiments/video_mme_200/2026-09-20/density_extension/实验记录.md"
+      ],
+      "frozen_design": "docs/research/检索密度引导的条件补查与选帧框架.md"
+    },
+    {
+      "id": "RD-1.1",
+      "family": "RD",
+      "kind": "frozen_method",
+      "parent": "RD-1.0",
+      "description": "加入原种子视觉支持，按L×u竞争。",
+      "aliases": [
+        {
+          "label": "soft",
+          "scope": "rd"
+        },
+        {
+          "label": "软折中",
+          "scope": "global"
+        },
+        {
+          "label": "Density-soft",
+          "scope": "global"
+        },
+        {
+          "label": "density_soft",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_50/2026-09-20/density_soft/实验结果.md",
+      "additional_reports": [
+        "docs/experiments/video_mme_200/2026-09-20/density_extension/实验记录.md"
+      ]
+    },
+    {
+      "id": "RD-1.1-exp01",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.1",
+      "description": "P1跨区评分解耦：局部L×u，跨区w×u。",
+      "aliases": [
+        {
+          "label": "P1",
+          "scope": "rd"
+        }
+      ],
+      "report": "docs/experiments/video_mme_200/2026-09-21/priority_decoupling/验证记录.md",
+      "status": "diagnostic_only"
+    },
+    {
+      "id": "RD-1.1-exp02",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.1",
+      "description": "D1密度奖励递减，局部排序保持不变。",
+      "aliases": [
+        {
+          "label": "D1",
+          "scope": "rd"
+        }
+      ],
+      "report": "docs/experiments/video_mme_200/2026-09-22/density_reward_decay/验证记录.md",
+      "status": "adopted_in_RD-1.2"
+    },
+    {
+      "id": "RD-1.1-exp03",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.1",
+      "description": "E1离线：固定exp02配额，局部L×sqrt(u)重选。",
+      "aliases": [
+        {
+          "label": "E1",
+          "scope": "rd_offline"
+        },
+        {
+          "label": "E1离线",
+          "scope": "global"
+        },
+        {
+          "label": "E1离线诊断",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_200/2026-09-22/local_distance_scale/验证记录.md",
+      "dependencies": [
+        "RD-1.1-exp02"
+      ],
+      "status": "adopted_in_RD-1.2"
+    },
+    {
+      "id": "RD-1.2",
+      "family": "RD",
+      "kind": "frozen_method",
+      "parent": "RD-1.1",
+      "description": "正式两遍选择：重新计算递减密度预算，再固定配额局部距离重选。",
+      "aliases": [
+        {
+          "label": "E1",
+          "scope": "rd_formal"
+        },
+        {
+          "label": "E1正式版",
+          "scope": "global"
+        },
+        {
+          "label": "E1正式两遍流程",
+          "scope": "global"
+        },
+        {
+          "label": "RD-2P v1.0",
+          "scope": "global"
+        },
+        {
+          "label": "rd2p_v1_0",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_200/2026-09-22/density_e1/实验记录.md",
+      "adopted_explorations": [
+        "RD-1.1-exp02",
+        "RD-1.1-exp03"
+      ],
+      "legacy_registration": "configs/releases/rd2p_v1_0.json",
+      "status": "current_frozen_reference"
+    },
+    {
+      "id": "RD-1.2-exp01",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "description": "七题推广入口人工修复；两组粗候选，不是自动检测器。",
+      "aliases": [
+        {
+          "label": "推广入口人工修复",
+          "scope": "global"
+        },
+        {
+          "label": "七题推广入口人工修复",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_200/2026-09-22/entry_repair/诊断记录.md",
+      "status": "diagnostic_only"
+    },
+    {
+      "id": "RD-1.2-exp02",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "description": "64帧单帧推广资格识别，未接入正式选择。",
+      "aliases": [
+        {
+          "label": "单帧推广资格识别",
+          "scope": "global"
+        },
+        {
+          "label": "64帧推广识别",
+          "scope": "global"
+        }
+      ],
+      "report": "docs/experiments/video_mme_200/2026-09-22/promotion_probe/验证记录.md",
+      "status": "not_integrated"
+    }
+  ]
+}

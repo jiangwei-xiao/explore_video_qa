@@ -1,14 +1,16 @@
 # explore_video_qa
 
-长视频问答中的固定预算选帧研究：问题范围引导的片段预算竞争与有限局部补查。
+长视频问答中的固定预算选帧研究。当前冻结工作基准为RD-1.2（原RD-2P v1.0）；SB、RB与RD系列及探索版本统一登记，旧实现保留。
 
 - [文档索引](docs/README.md)：研究、环境、实验与相关工作入口。
+- [方法版本登记](docs/research/方法版本登记表.md)：统一名称、父版本、历史别名、探索与运行编号规则。
 - [研究与实验计划](docs/research/研究与实验计划.md)：当前方法设计。
 - [代码结构与运行入口](docs/development/代码结构与运行入口.md)：代码分工、后台运行和结果恢复。
-- [最新基线结果](docs/experiments/video_mme_50/2026-09-14/实验结果.md)：开发50题两组100条结果、准确率和性能。
+- [全量基线结果](docs/experiments/video_mme_full/2026-09-16/实验结果.md)：BASE-Uniform与BASE-BLIP-TopK的2700题结果。
+- [RD-1.2结果](docs/experiments/video_mme_200/2026-09-22/density_e1/实验记录.md)：开发200题、冻结登记及机制复盘。
 - [方法首版结果与复盘](docs/experiments/video_mme_50/2026-09-14/method_v1/实验结果.md)：四组消融/诊断、机制证据及下一轮建议。
 
-远端工作目录为 `/home/admin/projects/explore_video_qa`。两组基线均为58%；方法首版A/B/C/D分别为56%/60%/56%/56%，200条问答与100次分类已完成。完整方法尚无净提升，优化提案未执行。执行环境为 `conda activate explore_video_qa`。
+远端工作目录为 `/home/admin/projects/explore_video_qa`。开发200题RD-1.2为125/200；BASE-Uniform为123/200、BASE-BLIP-TopK为119/200、RD-1.0和RD-1.1各122/200。小幅净收益尚待扩大验证；入口资格探索RD-1.2-exp01/exp02不纳入冻结方法。执行环境为 `conda activate explore_video_qa`。历史SB首轮结果见对应报告，不与当前200题口径混用。
 每次 Git 提交前必须 review 并确认。视频、模型、压缩包、缓存和下载PDF仅作本地资产，Git保留文档、清单与哈希。
 
 ## 目录约定
