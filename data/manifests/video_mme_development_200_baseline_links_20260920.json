@@ -1,0 +1,2410 @@
+{
+  "manifest_sha256": "afc6637bf4a17c4fe750846a2ef77fdc6ae12ab096ec2d6e5aafe6ea5d258fd6",
+  "baseline_csv_sha256": "433f6dfd4e19d0075efa74062b189450a52b1b3e7ae86d975b661eb6b055ca6c",
+  "references": {
+    "001-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/001-2.json",
+        "sha256": "b19fe3f82b21a7ad6818e0f5dfc9aff00d01d80e20009f2d17d5dee30fd1963a",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/001-2.json",
+        "sha256": "525a6abb1b26c5c32bfdb4e1509b40d36869a26b516a9896dd05db57bff264e5",
+        "correct": true
+      }
+    },
+    "004-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/004-3.json",
+        "sha256": "36a327cfae46829e85472c1e3c6b4c86d06e71a49d13f25c6f2bb912db75aff5",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/004-3.json",
+        "sha256": "36c8e0fd2da20dda953d85a3e626c066bd02d751116ddc95a050f9e5486a6cf9",
+        "correct": false
+      }
+    },
+    "012-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/012-3.json",
+        "sha256": "3d20af9e5561b54ef1178bccca5ce8f8cfb44de805cc461ff9679b0e8d43e4bf",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/012-3.json",
+        "sha256": "d6e289913ec75351d1b1b7deb66c8f1f0a0ec4792fb0249e6b6a5f0e458db8a2",
+        "correct": false
+      }
+    },
+    "014-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/014-1.json",
+        "sha256": "2a3b170dd9c6365f664cc567d8e037b6c9cea84e2fa3af399268807d82955607",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/014-1.json",
+        "sha256": "a42a66f855399bbb47af07e4c07a1b30275fc9c60600cbebf1233d895d0ca38f",
+        "correct": true
+      }
+    },
+    "017-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/017-2.json",
+        "sha256": "7627b339e191402c7463c3d774c373649ffcafcf518e59eb3251a230ec7e1706",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/017-2.json",
+        "sha256": "3a3b72d18d1ec72a819e92a533aa9e119ea2fe1afb024194cca984b348c1ef9f",
+        "correct": false
+      }
+    },
+    "022-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/022-2.json",
+        "sha256": "b72fdc273a0154d91c065d50dfcd937eb2203dd139c3d31654d457b3bc2dbb9b",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/022-2.json",
+        "sha256": "1685a3501088a14d906d54d305d0e57e6140f2ef34e7e864098dfdb626a5316a",
+        "correct": true
+      }
+    },
+    "023-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/023-1.json",
+        "sha256": "ce161857ab74b4f634480e6b16beeeb6dc542e827a2e39b769334e82eb45c209",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/023-1.json",
+        "sha256": "219b8834899696054f3de7c8cc33215c60e3bfb71f742d67fc9b5fe10a2005cb",
+        "correct": true
+      }
+    },
+    "025-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/025-2.json",
+        "sha256": "ed6759bad2605d74342ce14c0a258d25c347bb6084f4cb9ec16d683780a1bac0",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/025-2.json",
+        "sha256": "c69243e82add7733b9cd72eb86c718a357e0c7b466a053e8af3c9a3bb4290296",
+        "correct": true
+      }
+    },
+    "046-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/046-3.json",
+        "sha256": "d5bd260999c784fc8f4c32bedeadcbc5377ee24041be5d2a660b5bb4763f633f",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/046-3.json",
+        "sha256": "4089c2ca75f7e3408bf5f21e00574a3be7876fb34026b4f0150756a1414c0c6a",
+        "correct": false
+      }
+    },
+    "050-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/050-1.json",
+        "sha256": "0d8942efb06ba363f4517a848248308396d7e43ba6631b57287cea1e1c1c740e",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/050-1.json",
+        "sha256": "2729e4cc4e2b2380617feb58d0547d634a734b2ecc579865301bf4f82715820d",
+        "correct": true
+      }
+    },
+    "052-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/052-2.json",
+        "sha256": "8caf515a4ce476d12dab1d64a8657289ec355a2a285ced1899b770dcbf3cd93d",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/052-2.json",
+        "sha256": "06c85066758d44a22eda9f80fc56258846ba32f352c2d16b79ac5a9e873ed6f2",
+        "correct": true
+      }
+    },
+    "054-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/054-3.json",
+        "sha256": "52ccba58e81efae6b9214361b30716f5f36fbc3a9e6c0fbedfeff0e8e32e00e3",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/054-3.json",
+        "sha256": "77f15c2b54729832a9b7b832e2202bdd73048ddfd9b8e01da53e17bc35bb57e2",
+        "correct": false
+      }
+    },
+    "056-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/056-2.json",
+        "sha256": "52a5ac23e799c88e1cbdc2b16823d77973fd156497297203e55f706d352177c6",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/056-2.json",
+        "sha256": "b36d2150930cefa24543b7653a79d20d5105923992c71343e1f52c32cebb9e10",
+        "correct": true
+      }
+    },
+    "062-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/062-3.json",
+        "sha256": "8964cdbc13478c9f69430bbb96049490d18de7c5bf3ad603fef2bf1d1e685172",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/062-3.json",
+        "sha256": "8b41a58d4ba49944cfbd5627202bad6def8994d09496d9faf082311a22a25b79",
+        "correct": true
+      }
+    },
+    "069-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/069-2.json",
+        "sha256": "e2057ebf161f0a28b1f80ce22ffba64856083d9a9a5ed53a497372874805f832",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/069-2.json",
+        "sha256": "45c5d7646a2c2bedfc45911a90c2b957f2b2ef72d4596821440cab50ea001cea",
+        "correct": true
+      }
+    },
+    "070-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/070-1.json",
+        "sha256": "ebb246a1f7b29365ee6fd68d5f14a0f7880e5245ebf88ce0e15443ef04aba8c5",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/070-1.json",
+        "sha256": "83e64332950d14d8acd990d9025a913679d2549ddf7e2dae6e052b3a77a3408c",
+        "correct": true
+      }
+    },
+    "077-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/077-2.json",
+        "sha256": "6a39de63dd8426ff1ae0052756da9190ab97f116ae0ed3f0cb3e49a40f5ead81",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/077-2.json",
+        "sha256": "ab082492281433cda75e9655215e1df0930d769732c15bce4e8bbbe5ccb79445",
+        "correct": false
+      }
+    },
+    "096-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/096-2.json",
+        "sha256": "1c5a46bc0b977311b097eb24cf0937b94c2aa8d4774ec43436db9d373ba5d027",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/096-2.json",
+        "sha256": "bd8e03163203e5f21dfc0dae902b01c963fffbec8d15b3d63995797d30cc047d",
+        "correct": true
+      }
+    },
+    "099-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/099-2.json",
+        "sha256": "68424d69790392425aaf3153b1dc72815aca2549dee0f886c7901b1537b751d7",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/099-2.json",
+        "sha256": "75b679889acaa4545144bf4994685322fd43c34d8ad7fd1d5e27582448a8d3f9",
+        "correct": true
+      }
+    },
+    "100-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/100-1.json",
+        "sha256": "5ba9706832e9d17920cf63459185239c7c2997fdbb64de18748ff99262243229",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/100-1.json",
+        "sha256": "41d9a1f79fb85ef34bad158e1fbff52ff5b8336204d258dd3ef05c1fa5850de0",
+        "correct": true
+      }
+    },
+    "102-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/102-2.json",
+        "sha256": "df36abeb250105a0b261308dc262a17d27fd03f7b7f2bb45c950baebadba9e51",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/102-2.json",
+        "sha256": "8e4bc8205c2ec51f383366469ca74325cc0d5169ecdce4f3c9e487062a7e0d7d",
+        "correct": true
+      }
+    },
+    "103-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/103-1.json",
+        "sha256": "b2102ffade1e9c673c41812b4ae959197d2e8c51beb23480262baf4c9f49979c",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/103-1.json",
+        "sha256": "eeb52c4db839624399801a44124a739d264de34809f99604e2b0e5d035024128",
+        "correct": false
+      }
+    },
+    "108-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/108-1.json",
+        "sha256": "e365732f7133d2d8a05a2972ba9c9c4dabf1a5bcc3c8ac9f3309ef920e799b67",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/108-1.json",
+        "sha256": "a5a03794ce84b2d2b77ca65bd4591dbbc979ecc5ad8b90e51471e73a3f31c19b",
+        "correct": true
+      }
+    },
+    "109-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/109-1.json",
+        "sha256": "981198150a67459cac2685086e82ba7fcbc3f9b7de6015df4e62b0b8a1a2e201",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/109-1.json",
+        "sha256": "caf1e16b5da801ae7a0fde688f6ce6eb0a704f6b2c29f19dc66d96e2a523d77f",
+        "correct": true
+      }
+    },
+    "113-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/113-2.json",
+        "sha256": "49906a1901fe295d9450bad8c836c56af841b60c7dcfe2fd7ab3efc911dd194c",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/113-2.json",
+        "sha256": "eb406f3d6baff56dfc91a619b9f92d81bcdef61a2b3434e66b0af7999b5b7bce",
+        "correct": false
+      }
+    },
+    "115-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/115-2.json",
+        "sha256": "c862a589f2bdf613f33a286cc427c77b9bbc2a3875f4104fe7c32d08d346c1a9",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/115-2.json",
+        "sha256": "b6195e1084120b4700942333f7cdd02b5027eb7aa401bdcfda64029bb47ec50f",
+        "correct": true
+      }
+    },
+    "118-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/118-2.json",
+        "sha256": "1d510e0bd8f9f904f5e24b848b02e6893fb4ef7f09d57a04e04b0d854da8a09d",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/118-2.json",
+        "sha256": "b3acdc3991ae23cae3b28ec47a72424ddd78b4964cb9de1b869ff979e7c619ec",
+        "correct": true
+      }
+    },
+    "128-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/128-1.json",
+        "sha256": "b9e4487575b3313050f1cd081ee06608485e98f1bf4a730f6189fe5557179e24",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/128-1.json",
+        "sha256": "b0a47294492b5ca750a710751eb4d2c9cecbdfea7d7994769bac38606b707b68",
+        "correct": false
+      }
+    },
+    "138-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/138-2.json",
+        "sha256": "4f559f2a7a52fcdf24759adfa5166684281c2c811fbe3fa4b93573f65007e7d3",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/138-2.json",
+        "sha256": "db7f1a5dceb17ca738dc33a7baa29dbf357fc7057b2eaeacb60e7eae5d7b8e2d",
+        "correct": true
+      }
+    },
+    "143-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/143-2.json",
+        "sha256": "c817a748ca447a8410b969f83fa88b4693082fc3b64f587d05d63e8fe39eb16c",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/143-2.json",
+        "sha256": "342c7fbae2b291b174466c6c426734ef0778d8523141b0b009357701ec12b58e",
+        "correct": true
+      }
+    },
+    "144-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/144-3.json",
+        "sha256": "67d70583d9e025633c97c9384d1d86266f9a122ce30fef99f1ff83676ddd0444",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/144-3.json",
+        "sha256": "0e7242a29dea5e585282fa7133f5a16440d400decdefe1474bca4ef6f8ff65f7",
+        "correct": true
+      }
+    },
+    "146-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/146-3.json",
+        "sha256": "2220ce34fb5e81f315d39362f62a2ccdbac85850f9c1f7c00d2f0f46b35f6224",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/146-3.json",
+        "sha256": "7af779ea7c26e8249665bca43fb128b1d5364c9ba3d44b58454ccd0e62969138",
+        "correct": true
+      }
+    },
+    "152-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/152-2.json",
+        "sha256": "5b87acae4277ea2125589c9a10db6c030ac71759941e0126d0f452cd8b8db7c2",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/152-2.json",
+        "sha256": "f9283048634803a6944749e04fef228f2ca0b25913e9464f6a33e60421fb28d9",
+        "correct": true
+      }
+    },
+    "156-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/156-2.json",
+        "sha256": "ef912562fa47eb088c523a7ef821c1662b951a77327f9c1a74fb77a2a31a90fb",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/156-2.json",
+        "sha256": "e482182607d4e7b2ae1bd521ba8e6428e32ab8fed609f4c60c48cfc7e31aaa2c",
+        "correct": false
+      }
+    },
+    "158-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/158-3.json",
+        "sha256": "1ca54c90040c6685478634b95cb2018dd4c939bf0a96b2d3a6baa8aba27b3eaf",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/158-3.json",
+        "sha256": "8c7a07560f0f901361a3990e323016ab047efcf4b59b76aab096272ea25dab7e",
+        "correct": false
+      }
+    },
+    "160-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/160-1.json",
+        "sha256": "cecef71c190f8664265ff55cc54f27d503a376c3c8750d814ffca485163a36c8",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/160-1.json",
+        "sha256": "abe56f17675274eee67e293d81ae43624c68fb110ab91d90fd10fba8daa2ab8d",
+        "correct": false
+      }
+    },
+    "161-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/161-1.json",
+        "sha256": "2fb68fc10cd2b2894b9db3f42ae905536c2f124b040842c19b7e4a27176ebb71",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/161-1.json",
+        "sha256": "438bc9da886c02fc603fcf41f2c7454c7e4db3b3863b0da5519b4d74b1b4a5c0",
+        "correct": false
+      }
+    },
+    "163-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/163-1.json",
+        "sha256": "dcece29e23c5374e6d44edcd745f94bca6753ac13ce9a4d7594fde1c0759c62d",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/163-1.json",
+        "sha256": "6196b2814fa319b5b1cc4e8774b4b1fe4f45dcfb1aef69128748945d554f0687",
+        "correct": true
+      }
+    },
+    "164-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/164-1.json",
+        "sha256": "3041bd4dee50e1354f2d59b9f8ef9b1076a0c4d05b9969fed04442a5d8b57d4d",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/164-1.json",
+        "sha256": "bf27b1a2b2031c7038393c44b6399bcf23e14169fe9692c9fc6a8e3892c19daf",
+        "correct": false
+      }
+    },
+    "166-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/166-3.json",
+        "sha256": "881f19591fb0783a877acfe58ae8f259de45c306e68c6f757df991402e99da52",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/166-3.json",
+        "sha256": "72822064880b0a2c946b29d6bed28883fed913b41f0ce84d3224bcf676a726e1",
+        "correct": false
+      }
+    },
+    "168-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/168-3.json",
+        "sha256": "df0b2c4822850e5fcb2c8019bb32d022c639824ab4fdc8282bd2eb0beef1712e",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/168-3.json",
+        "sha256": "1f51a4a8641bfe58a16be0813c753644767afc976129c6be176fffeb3c21c2f7",
+        "correct": true
+      }
+    },
+    "169-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/169-1.json",
+        "sha256": "6d01edfed55def2aa652ac79cf5b45f3df0951ba369cc6b8ef637c3fe6f49daa",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/169-1.json",
+        "sha256": "fba01886a38f9c6fc97ef61a78044dad381fce502b4475706cdfb3d361b0be71",
+        "correct": true
+      }
+    },
+    "170-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/170-2.json",
+        "sha256": "ba6a232aea34c2e0c4fa7a5ff580141911d6cc4353238df48a253de112c7a9fc",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/170-2.json",
+        "sha256": "24b39250a7a8786778e1b1690850883b6019813da18374b91947a2cfb4ac09e6",
+        "correct": false
+      }
+    },
+    "184-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/184-3.json",
+        "sha256": "5043e9e1f77409ada43a08c341605853fbbbce583c5e616e4dd30c7d9dd1c48c",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/184-3.json",
+        "sha256": "b79640a2e0512b58ed2341173afac394558f66d9d86a98084c4c2618508cb05b",
+        "correct": true
+      }
+    },
+    "187-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/187-1.json",
+        "sha256": "f8c564bf64a86639ff678489ae198cb42c6da8744e1c2c54a4382434e00bac0f",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/187-1.json",
+        "sha256": "ad6680dee6d8455723a621c5df86ab8751d9fab1622ad7aca4a85ed40424dfe5",
+        "correct": true
+      }
+    },
+    "190-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/190-1.json",
+        "sha256": "65faadb953f59f0c653b074040bb4633eb2d86b8c4b64fdfcb53fce379d08f0b",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/190-1.json",
+        "sha256": "847254a7e4bfbdbed41fb2b2c2bf7493e4ccc9fbf5302d621dd17f2d4fa06c0a",
+        "correct": true
+      }
+    },
+    "191-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/191-3.json",
+        "sha256": "80ded73740f8b25a81c147ecd5da6008f96c041e8722b6aeab06b0f2aa07c154",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/191-3.json",
+        "sha256": "c74ea31dd644660a7875694047ccf7fe71ab63c361187887e678930e00fe0269",
+        "correct": false
+      }
+    },
+    "193-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/193-1.json",
+        "sha256": "be2f7141fc35230f3349560316e3246bce540db7da25641797d04caca3dcbd1a",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/193-1.json",
+        "sha256": "f6e57b94542ad74e6bf08a840532b4ffc0042b035219cb0ccbc85f5b4dc34dd1",
+        "correct": false
+      }
+    },
+    "199-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/199-1.json",
+        "sha256": "713a1dbbb7276e4213acdc232b6721c6668f8a66f81211a954e4f25f79296c05",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/199-1.json",
+        "sha256": "9fb934d43063e312171e54b08405dfc9db9a322970d1fcac74ca9d2d981d1c3b",
+        "correct": false
+      }
+    },
+    "204-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/204-3.json",
+        "sha256": "5b929c0326f0508a7d5191b452959df400f5fd81a241e0bd5de0f9963617f8d6",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/204-3.json",
+        "sha256": "a8f7979b6d5d34fce145696dc805d064326e9eb114cfd1af5428cb495a27cd63",
+        "correct": false
+      }
+    },
+    "205-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/205-3.json",
+        "sha256": "64e49c815d754de7456680aa30e6003b073aa5dce007133eceadae863ac923d0",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/205-3.json",
+        "sha256": "4d7f6999a536e54020b0ae92c2891eba9815a4c3d51ad2218fafbc5d02d58676",
+        "correct": true
+      }
+    },
+    "220-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/220-2.json",
+        "sha256": "ace7c51fb90b494b826949971f5af25005de6526d35bbc7f7cdda999d6bf5ebb",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/220-2.json",
+        "sha256": "4c3f15e0ddf88fa65cd2ba98934b0a03895bad49716f4b5179804d6df444651b",
+        "correct": true
+      }
+    },
+    "221-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/221-3.json",
+        "sha256": "7512632e9da251ec3c6436134376cc70351269383bd7c9e82fbbdb178d7061cb",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/221-3.json",
+        "sha256": "48f81dcdf6e6740bbb54a78f1a5abf3ca023e9ac75a7744d79f5156ca6efa6f4",
+        "correct": true
+      }
+    },
+    "225-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/225-2.json",
+        "sha256": "24901d46ac44da841dc8b78d50952d0381d473d688b42a04c157ebda2a5b89cd",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/225-2.json",
+        "sha256": "7904826810c80d624d255c327ed31a402a90cff078cf8afc93af40f7d03543c9",
+        "correct": true
+      }
+    },
+    "226-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/226-3.json",
+        "sha256": "9f25cb459d5c3ca88dc8280d468b60aa5f222d7f7e8bf5e9df1007083906a814",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/226-3.json",
+        "sha256": "22d73d78422f924d2339a620a5be5abb118ed9cf5badaa5fefecca392e7a2e2c",
+        "correct": false
+      }
+    },
+    "241-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/241-1.json",
+        "sha256": "72db1a728e3cd64b7f067aeeecbf85fe5f5afb17ac1d04f36a907f876c1d60ac",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/241-1.json",
+        "sha256": "9a91e3c76a7af3e40691d7ff7c3298c3c5a9ff80e9c878166362e6c080be799c",
+        "correct": true
+      }
+    },
+    "257-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/257-3.json",
+        "sha256": "b5e0f8ed88a4878812a37c18c01e1c47c3b085a1d9071251edc3417909412247",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/257-3.json",
+        "sha256": "0a37779e7c8c1452f97a24c6a81f9cdd6d668eae733b62fc58255c4797870b37",
+        "correct": true
+      }
+    },
+    "260-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/260-2.json",
+        "sha256": "fd33fe15e34c285edc81415ea693f9db1d81ee6a25b5d184690ba4e1601185c6",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/260-2.json",
+        "sha256": "146bd5aeffa4facbb1cbebcbdd9dbd22318460a21f5efbe4f5ef8cfef36998be",
+        "correct": true
+      }
+    },
+    "264-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/264-2.json",
+        "sha256": "aa5a18f2df54608edabfc0fe38c589db549d621b2329b043fa9855c29fb0984a",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/264-2.json",
+        "sha256": "796cf3fab4b5b91c57acc0d13f64cb58151e1e6002537f8537a1c875ef5136ca",
+        "correct": true
+      }
+    },
+    "272-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/272-1.json",
+        "sha256": "d82e7025fc50db02339c63a79ef9541698b2e2c2cb6d0a9767e1d71505ab441f",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/272-1.json",
+        "sha256": "b7e8d4826179322b41c7dfeb4f30ecc4fe85cdae10c100b0e72eca13cc808a59",
+        "correct": true
+      }
+    },
+    "278-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/278-1.json",
+        "sha256": "b2adccc48229dc95e50a8b073aefd4cd24bb8c0528279f0ca89369ccc22df790",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/278-1.json",
+        "sha256": "edc93195429ac31915815bf4d15421e456cb55a783b769bf427d29df1eaf6115",
+        "correct": true
+      }
+    },
+    "283-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/283-3.json",
+        "sha256": "33269375f94fce323825dc2cc02d34c7f7fdd8afb8aebd34e31fedee44d8d116",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/283-3.json",
+        "sha256": "02a150b17523669f3b3700c9345e9b3c272892443e76787fd08565d411b559a8",
+        "correct": true
+      }
+    },
+    "284-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/284-3.json",
+        "sha256": "430bfd62cfb300911c3ac8fd33004e62dcf7816f3d0b3485433e1fc26d7df20f",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/284-3.json",
+        "sha256": "74a886af49122353b04bdd6271b6d57e76ac947e5307a35891c3aef42ef9ed86",
+        "correct": false
+      }
+    },
+    "289-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/289-3.json",
+        "sha256": "f09d7594a2eb68d879e160effd1019cf3e71eb45eff9db55accfe536b92225d1",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/289-3.json",
+        "sha256": "ed2a80fd4dd9ad223fe60a1bb65f3d836d230b61f2c01feb303f714437e95547",
+        "correct": true
+      }
+    },
+    "292-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/292-3.json",
+        "sha256": "765b0e081658ad06a5727d79440bd072836f78c9fc2320875abfd5e4e4254d7e",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/292-3.json",
+        "sha256": "64ce7eec89b7cbde0a60359acf9e27045c3b0193232847ee74308d3a73e33add",
+        "correct": true
+      }
+    },
+    "296-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/296-1.json",
+        "sha256": "7839b1a022e6ce9d1f5186fcf5b77df5e0b84b810cb5cc637dfe5cc7eac3b424",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/296-1.json",
+        "sha256": "044645426d6349cdab729f4504c951bd40830811dbc93d83f662973c5602696e",
+        "correct": true
+      }
+    },
+    "297-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/297-3.json",
+        "sha256": "ead9977e83111f2771b77ab46ea02e9c90d00b4a3f96a6430e7a300fc4ac5d8c",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/297-3.json",
+        "sha256": "3146db1943a8bf217946c3390b8b057cb73ce0168f0433da60089f6a30ee9a78",
+        "correct": false
+      }
+    },
+    "304-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/304-1.json",
+        "sha256": "015035808331d82f22f418a4f07266a378e614645e7e52762123af32d1183a54",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/304-1.json",
+        "sha256": "25d01b6796ab8a4090bafc91534abd039eaa8089b8f63c67f89fd87d2b7dc65f",
+        "correct": false
+      }
+    },
+    "305-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/305-3.json",
+        "sha256": "5c73fce6e5c28004ae1998844c3835dd2f0071102c6ab6aea384f6c731d0068b",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/305-3.json",
+        "sha256": "c2650da3949156ae3953c5f30386ce34921d589c9c64a4cfeb0ca5b4feb5d8a1",
+        "correct": true
+      }
+    },
+    "306-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/306-2.json",
+        "sha256": "1d5120d23625b3ce32cc208db222e6dad599a619b75782e3391471a52747050a",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/306-2.json",
+        "sha256": "7fed60a2b00b262fb360357b63736a047c1abc0df416cc0262b9e1ccf5dbb694",
+        "correct": false
+      }
+    },
+    "310-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/310-3.json",
+        "sha256": "ed43f810c1afa6696f0bb076e7ec7cdd8f7c467de1e456cc7aff7f9049393541",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/310-3.json",
+        "sha256": "771538128baef8396a00dfd8c0be32e728b6d9bfaf785cda7f616b87be4fbc0e",
+        "correct": false
+      }
+    },
+    "314-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/314-3.json",
+        "sha256": "429e03fae630c7c2671e73b93e3a7382387d4bc8e1630ce68284fc1c1ea62f71",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/314-3.json",
+        "sha256": "49ef62bfc0e751c5316dcf934d330114aa8508585a3450a1d0cd76f4e737eea5",
+        "correct": true
+      }
+    },
+    "316-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/316-3.json",
+        "sha256": "7c0f36c1b5464fa078b327e2ea6f9be8b2ff91942d30b6c0f3ef606953bb48de",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/316-3.json",
+        "sha256": "76eaa48028487c1166ea39ad75a05ec8dc6b5662cba5795a589b1b50a0f52c32",
+        "correct": false
+      }
+    },
+    "319-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/319-2.json",
+        "sha256": "b10556c2b595327364c6eea8304f85ff24a770c245899b71dc69071dbd095eaa",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/319-2.json",
+        "sha256": "544a435435ebebe1e762212cf9fed8ab969f9bc9b9ce900814caebca444f1a1b",
+        "correct": true
+      }
+    },
+    "321-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/321-2.json",
+        "sha256": "d1b078041705df8cd2f2433f63087a1d6f9f7a7c3585022b6c3c0ddc5a8e35d1",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/321-2.json",
+        "sha256": "815024097452808e825878c948f282b4d0c21d114e12da0d7f10352abace9fdc",
+        "correct": true
+      }
+    },
+    "322-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/322-3.json",
+        "sha256": "71d77262ed9d49cfd2895d968ec7c518f9d6a28396798e414fcd523122515322",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/322-3.json",
+        "sha256": "43911ed146aae3814197e725d5d63dff6fb0b968ae8d9958e1bc5d7b7bc34a5c",
+        "correct": true
+      }
+    },
+    "323-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/323-2.json",
+        "sha256": "0a21fd8e8ec9eaf49b32ed41ba0191aeb9a1c54522ef52f0796bb105cc6e81aa",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/323-2.json",
+        "sha256": "add3021076108812e84c96b6405d61e72caf797cee6bada0668389b016cdacb9",
+        "correct": false
+      }
+    },
+    "326-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/326-2.json",
+        "sha256": "8a3222328db421bfa275abebd5a7595ac52df07320fcf6941e089eac91c0a5b3",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/326-2.json",
+        "sha256": "e7e55671c9d7a3acd988117be198051505369c75e4e501c918becd2f233a4213",
+        "correct": false
+      }
+    },
+    "329-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/329-1.json",
+        "sha256": "57bdeb3e2b727fa2f747165b55c5e2220ea6cebbbd890252a8bb13bc2389cced",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/329-1.json",
+        "sha256": "64876fca13699d6c54ea7d584883558151513e3065d9a6619086f9f8c3f02145",
+        "correct": true
+      }
+    },
+    "338-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/338-1.json",
+        "sha256": "670429d58fad0cda65f9b3b14a795b4cba98242f55d096f46926ac5aedead23e",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/338-1.json",
+        "sha256": "f7bce7c494b3ca5e3c3028ef98f71497e057ef3a012da44a9800da9c59e6030c",
+        "correct": true
+      }
+    },
+    "343-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/343-2.json",
+        "sha256": "895277f9d00d1b11d857675b4c106328874de3809320642ed8177dc7613e4f00",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/343-2.json",
+        "sha256": "b4a7df3538f7dbd558293d14f3054280e6e21fef7bf73621ffbe50bc85dbe34f",
+        "correct": true
+      }
+    },
+    "347-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/347-1.json",
+        "sha256": "35405d249e0b35e278b3e7323dca47ad6a92813090c92bbd35038d6f7b93ce92",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/347-1.json",
+        "sha256": "e58b009b1c8f85ebd2a5111698481e01feb30f877d99f010fc01efd0ddfcd3f5",
+        "correct": true
+      }
+    },
+    "348-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/348-2.json",
+        "sha256": "c7c19611f183112398e77f8564bcd81c2e4a4a10c9eacb86fa30d1854126c774",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/348-2.json",
+        "sha256": "6ca2252d12675ca8a8f13f8d3fe96dd6c88d78d9dfda9e16a9f709348d0f8c85",
+        "correct": true
+      }
+    },
+    "349-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/349-3.json",
+        "sha256": "ce245a3c4d9040f3af3d169a9a95066b8989844c28e50d58a061340667aa3737",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/349-3.json",
+        "sha256": "2e66a9a1408eede4492e032e546bb7db898927ffa5cef60d5f01ccd85a66b659",
+        "correct": true
+      }
+    },
+    "351-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/351-1.json",
+        "sha256": "dd3ec172bbba9a358239c0e5f6dc35d2f75e413f432d041a39e38feffab2ca8b",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/351-1.json",
+        "sha256": "c71482a74504871b6b09b44b7c6d123ec7f155b11d2eb7684bf3a51d290ed1ce",
+        "correct": true
+      }
+    },
+    "355-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/355-3.json",
+        "sha256": "bac5034a196154721210f9f4ef5cfa42500cd6c2616d40a6cbf882a61b51b0b4",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/355-3.json",
+        "sha256": "9055c27e700d5596c757e26782ea13b16607aacca1b195d0cbe6b1c03acfd5ec",
+        "correct": true
+      }
+    },
+    "358-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/358-2.json",
+        "sha256": "278e9af8a043f8fcb0a09df330ed85636c838da3c9d3f07d821a867eec62536f",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/358-2.json",
+        "sha256": "804eab91c62794addb990d161503963317d8d9f1ecc1e24bd8ee14c99d25e0d3",
+        "correct": false
+      }
+    },
+    "383-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/383-2.json",
+        "sha256": "e67dac3bdfe6c822d7068c91bbf9afa73a4c41f3f1e3cc767d8a448dfa5180bb",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/383-2.json",
+        "sha256": "5b2e1ceafd97eff5383acf87aff6205d12ef7b2786d3aaedb3db330cd834db8c",
+        "correct": true
+      }
+    },
+    "384-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/384-3.json",
+        "sha256": "660664559a9c9920bfbe5f557f7395942be6224dfe51a3594994b90830b4dce2",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/384-3.json",
+        "sha256": "137ee4a94030eeb0172f295c8408a3a8a8fdfd7e4dd0b7301860848ebf1d8903",
+        "correct": true
+      }
+    },
+    "386-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/386-1.json",
+        "sha256": "44d6bd54a40630939babdcafad8309c954e745149d508b78e83cd65c90730188",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/386-1.json",
+        "sha256": "2bc0650d94e599771ef6d0d2707ad8a81f2340691d59885a25e9825a91b5e32c",
+        "correct": true
+      }
+    },
+    "393-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/393-2.json",
+        "sha256": "e1770b1e66ae3f07ced132e10a2ad9505e193ad2c34b92c93a54ed532724c6e2",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/393-2.json",
+        "sha256": "241cb43d60e036be9ba72f2ddf5f9b7b2706aafd67be746dbac0ee49fe365563",
+        "correct": false
+      }
+    },
+    "395-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/395-2.json",
+        "sha256": "a61aacc453f1e40e0e13ed4fe5e9239fb5813e216ea08f019d429c8cd033de88",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/395-2.json",
+        "sha256": "54d87899f4da4b9d8ad836fea8b8e640499839f3c4853aafa7bb7d7642f21a76",
+        "correct": false
+      }
+    },
+    "397-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/397-2.json",
+        "sha256": "bd235c93eb919c9386a5f2dd24d8cf2c9bcc7db2a11fcdc2b569d7e69dbd371e",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/397-2.json",
+        "sha256": "0ee9047027a980b8aa296b0e99b18f01a418052feddf1c5e14016e217285dc36",
+        "correct": true
+      }
+    },
+    "409-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/409-3.json",
+        "sha256": "697be3dad6ba8342e8800d9a660458e914ca1b9fbd1a583d11ca6b0cb49d0e88",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/409-3.json",
+        "sha256": "1d955c19e44e3751c9a673b88c8d363f4c4b2f533193b1ad1dc72dd7abf8f494",
+        "correct": true
+      }
+    },
+    "411-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/411-3.json",
+        "sha256": "e8f7a2376f300985062411c7f1b4d608e721188bcb1d8e3daf8e7dd01cb0c44d",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/411-3.json",
+        "sha256": "3f0fe5a9ad53c2d8919aeab6e9e41f2307e3d54affe099307803240da69d05c6",
+        "correct": true
+      }
+    },
+    "414-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/414-1.json",
+        "sha256": "61bd217d290b0ba50d61536905bbfbac487f6e0a4533f81d62e74cf7a2ef11bc",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/414-1.json",
+        "sha256": "375e9e636929bf092061e0111f960687fdaa28a210f7c04e17d970993017ed1a",
+        "correct": false
+      }
+    },
+    "422-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/422-2.json",
+        "sha256": "b01e7fd829a731ce706b624bc3b1518136474122c789aa31c0f036d71cf82433",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/422-2.json",
+        "sha256": "247ef0ea22ec5f8e870e1968d8739f44caa347c461a55231dd6449afda577cbc",
+        "correct": true
+      }
+    },
+    "425-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/425-2.json",
+        "sha256": "d5d4632e5e85d08a071e8e5bada48709bdf9452824fbc4d620dd1f6091968d54",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/425-2.json",
+        "sha256": "3a563926359366dd162254be444562ddc90146f4f8f8bce3fe34d0d36cb67ce1",
+        "correct": true
+      }
+    },
+    "426-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/426-1.json",
+        "sha256": "c02704ae0e29344468dad57042b3890433f2ff2526b72a376d2fc059ce467a35",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/426-1.json",
+        "sha256": "c249812ac2476d8e72360f655b88bd4675273a6773262fb777c820d0a0232b9d",
+        "correct": true
+      }
+    },
+    "430-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/430-2.json",
+        "sha256": "3ed66c84049b1c28195609f5c16a3cf0b59fa98a2269ab6f1ad538e4a71e3170",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/430-2.json",
+        "sha256": "cdb2fee500115fe9535bc23bc379b068068aae94a14e9f5de513fd4145862caf",
+        "correct": false
+      }
+    },
+    "432-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/432-1.json",
+        "sha256": "be37f9a6049c871ae62489b055529ce95a1fd3a6a8ffe898bca672d2e750a231",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/432-1.json",
+        "sha256": "1ef8cca19d396a202a7d22d9b50a4c1477ea5af9f1713f53492ba4ab5eb336a2",
+        "correct": true
+      }
+    },
+    "436-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/436-3.json",
+        "sha256": "333a1457340ff36143f40ccaf844d855d04a697043427fe54b630f424bbd6c25",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/436-3.json",
+        "sha256": "974a29f2ef7e6e127abef8f4faced3b8906f39e9bc288d5ce2f4c6b6806db03f",
+        "correct": true
+      }
+    },
+    "438-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/438-3.json",
+        "sha256": "82aa81a915c07e4c9cf820cd5a0d4b1f0587f9a09154c71d39ab2b50f519f6f3",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/438-3.json",
+        "sha256": "0ec13cdd761aae67426685b1d59676689649ddf826ec93a43099df13b2a262a8",
+        "correct": true
+      }
+    },
+    "441-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/441-2.json",
+        "sha256": "11ffc977dcda1d6605920dceed4febbaa6999567f87497600adcaa0b76a3dd84",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/441-2.json",
+        "sha256": "48ba2307c4b4b7061aa4a5b2d59abfe14b9bea5a9971f8ebe2cbc922e9199b84",
+        "correct": false
+      }
+    },
+    "443-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/443-1.json",
+        "sha256": "0e03da4aa913506b9644c85b87148590c0e0351e5ae812860fb2b38a327ca52b",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/443-1.json",
+        "sha256": "f32e4c2b5bd1dfc1538876da39ddac3a916e552977ee2c576bd19118ab67a6a3",
+        "correct": false
+      }
+    },
+    "448-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/448-2.json",
+        "sha256": "3311b8c6aadfee688ba6157d4c1b6c2e9a43807541fafbeaa0b51801a2e00969",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/448-2.json",
+        "sha256": "f0dae00933c6d9bc0ba58ac5655ee3cbcba7dbcd79ce2a094fdd098afebaadd6",
+        "correct": false
+      }
+    },
+    "452-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/452-1.json",
+        "sha256": "335e993c73643ed677a45cde1b3860c7d56dd55a30c39f4a086d5b2ed13f6947",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/452-1.json",
+        "sha256": "b17c5ff3e78fddcd9f0f36c78d029b6349a9e2f86f1a29ee6d4ce7a7b0e1078f",
+        "correct": true
+      }
+    },
+    "453-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/453-2.json",
+        "sha256": "34fab5f9557da6246773735708de8a93582849050d23074e1bd7eb8f56efcf0f",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/453-2.json",
+        "sha256": "17c53e6e790fccbe8c9cbaa1089ab84888584a9f58dffcb074d45eaf312ad6d4",
+        "correct": false
+      }
+    },
+    "467-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/467-2.json",
+        "sha256": "129317b418372961af28cf0bd5d28436ee56a5d4a79baec9586f57d6c7a05c8b",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/467-2.json",
+        "sha256": "1198cdbc9071baf08b360ace3cc2133bdc9188d826fb2567efdc0f995531e8cd",
+        "correct": true
+      }
+    },
+    "468-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/468-1.json",
+        "sha256": "c830b5626783b8772f870db03e7c6e80884f6fd41a1251d6feafeaef3469163b",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/468-1.json",
+        "sha256": "3e207c72f9f64195b2bf35dc5db489c9ce931f857f507a584c2ad88d7791e4ff",
+        "correct": true
+      }
+    },
+    "485-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/485-1.json",
+        "sha256": "f675c7eafebf6753900b26c43fc883808ed80a35737778a385a5704cb1a226fb",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/485-1.json",
+        "sha256": "7d0a1ed424801c4be2e45064f537a16962ea7904dc323432e5fbbee2205a666b",
+        "correct": false
+      }
+    },
+    "491-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/491-2.json",
+        "sha256": "be4dc28b8d58a5ddac07180c2f222347bee0fe7ca009f771d5f4e1e50d9f779e",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/491-2.json",
+        "sha256": "e134a70659603b2f9163357caf272a62ac69ac4f9ee7ab59ef9f459f8842c38d",
+        "correct": false
+      }
+    },
+    "494-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/494-3.json",
+        "sha256": "5715633cdbe38cb90e87b9984f31353a75ab3e31e031163a443848058fa346f9",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/494-3.json",
+        "sha256": "0d553b4e63e3c00ed8d28b9f1932aca575d5779cd0654605e4df9c9ca6f02e6e",
+        "correct": false
+      }
+    },
+    "498-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/498-3.json",
+        "sha256": "7e1c807649c80ada47bcb966f2bfd2a3964eb647ffe79b2ed47690ab36f5067e",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/498-3.json",
+        "sha256": "fe140412056c0a14962cf0a8bcc705de9d3ef15453cf67f997855c0677e39d63",
+        "correct": true
+      }
+    },
+    "500-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/500-3.json",
+        "sha256": "b906b5790227e752247983bfdad4b9d232c0432a84cf2d0f48325734908cef4c",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/500-3.json",
+        "sha256": "e9cc871d8ea17f75fe308b3336d20af32996bbb8041afae7a2740043aa9da9ba",
+        "correct": true
+      }
+    },
+    "506-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/506-3.json",
+        "sha256": "00d9231d29a32a55b34296abe4a1fda0e81b800cce1b8762ada098309785ad3b",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/506-3.json",
+        "sha256": "131810c12f271038d1e12df70c7b96f552c7f77523df25d9092ac6dec1a6bab4",
+        "correct": false
+      }
+    },
+    "507-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/507-1.json",
+        "sha256": "cc36c027b3bbd82f871f860727aa66520d0c5de942383bc8ffe5e71f84b4aed6",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/507-1.json",
+        "sha256": "be2a0a730e799364c795b72c37d20a75a5452d23f184fbdde4749f884df61aa2",
+        "correct": true
+      }
+    },
+    "517-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/517-1.json",
+        "sha256": "2e4fe4aab7d412334ef8086374332af02fd7ee887573a1637e685856365d3021",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/517-1.json",
+        "sha256": "0ca176e037d3c2d98b4118710a332ac6e91c78dbd88770969cbd82fe68bbbaf7",
+        "correct": false
+      }
+    },
+    "528-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/528-2.json",
+        "sha256": "106d49d5f58be17656edafcabe4046011d402736727997a28766e1c88954f8f2",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/528-2.json",
+        "sha256": "e1a1bf970eb767f14f4b935e01b1014cd8dd59218b0258c8433f940709341902",
+        "correct": true
+      }
+    },
+    "529-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/529-1.json",
+        "sha256": "2a90e4c8e28bfcf820ef48f22023b385b0416677901fc8aba24017ca5b307e9f",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/529-1.json",
+        "sha256": "791e0a3f80c4d2af15fc71c2a93457a9c89c773473838efe6ab618370a3ea0b5",
+        "correct": false
+      }
+    },
+    "534-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/534-2.json",
+        "sha256": "371e4a4e0ee0173a08a441bffbf5b80aaf4aaf9f7af6bae35c99ce8b688106e2",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/534-2.json",
+        "sha256": "c0d71443b3665b74dcd4b995ed9567438e1b9984a29f359844e249544a857704",
+        "correct": true
+      }
+    },
+    "538-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/538-1.json",
+        "sha256": "5f031e0bea2432ac72f401c6ca3e69470e1523efa7792e34c11f3dad909d87ec",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/538-1.json",
+        "sha256": "9bd73e9678ee906b0f19a363d6bd1cf501e984279f9c2a62f11332745c27662a",
+        "correct": true
+      }
+    },
+    "541-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/541-1.json",
+        "sha256": "a32dd9ed764d37278f3bc40873e12add0a80959661d94a45746e7217a6cbbec3",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/541-1.json",
+        "sha256": "fb149ebfbacc05d020949b4464ad74c6bd0041c4ee409dcf0ed735011ffa81df",
+        "correct": false
+      }
+    },
+    "542-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/542-2.json",
+        "sha256": "57657cc975ee292ebc980ca6a28e6c20aa44d9c956edd9ccf80a43548a949731",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/542-2.json",
+        "sha256": "9acc5dab4863f152f682f313a18223c2240c20a5a87380b11a15b3280724353a",
+        "correct": false
+      }
+    },
+    "544-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/544-1.json",
+        "sha256": "d979c54263b0694820e1667f892153e3c9a9f829564e88da227d81ae2c904309",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/544-1.json",
+        "sha256": "6342141cd0bdfb14209c16bb8d67f3b5c51f3ab393a97b18ca801e5c74513e09",
+        "correct": false
+      }
+    },
+    "550-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/550-3.json",
+        "sha256": "c9660301380d098d7f929db47871bd448ab86e6d0038369e61104daf75ec49ca",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/550-3.json",
+        "sha256": "9b51483260ec9e1b530a01562f279e978823ea3275aad4b529b7d7c56afe90f1",
+        "correct": false
+      }
+    },
+    "554-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/554-3.json",
+        "sha256": "21740598aa35a1a341c52d3a0f9f9e230c178a5b63963030349580036eb26cb4",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/554-3.json",
+        "sha256": "13f3a149d005e269903c7b881f52fbea31fc30f44ea94e740859da5bfdb9d79a",
+        "correct": false
+      }
+    },
+    "556-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/556-1.json",
+        "sha256": "7a0c18d22e2d3db9a263f7d02c90be3fa6febb41eb1a846ea7228782843a9f40",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/556-1.json",
+        "sha256": "5e9b03733f771b490323fd4a89acf5aca98d8972badb483a137efacba74be48f",
+        "correct": true
+      }
+    },
+    "566-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/566-3.json",
+        "sha256": "bc3c947ab2962fa8fd999ce59c578dc7c7fe0e847519490d626baec90919697c",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/566-3.json",
+        "sha256": "7a372de2be2588d83b212d7c16a3d5de3d92a365fef0eb922209a6d9b5378242",
+        "correct": true
+      }
+    },
+    "568-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/568-1.json",
+        "sha256": "a6c4eef20c4131684d8a12d0d5f7e5f86521df2b5d6b4926ffd4e9fe5f222faa",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/568-1.json",
+        "sha256": "4580b01ccd2444167b4d6254222f69d188e186b2ad7519a2b6055d0c1e9bf0d6",
+        "correct": true
+      }
+    },
+    "582-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/582-3.json",
+        "sha256": "2e4f1ed41076d6a6898d991f75210e55f085595414eda819e8941ab6149615ab",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/582-3.json",
+        "sha256": "8bb11e0f117956b5ffcd6a3721ae4c0f00753effb91e1992d5033525ee38dff9",
+        "correct": true
+      }
+    },
+    "584-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/584-3.json",
+        "sha256": "4c1c8d682f50cd1523f5cfede7540409d514fce38a672639d727c9615b0da2ed",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/584-3.json",
+        "sha256": "107054b1f776cfb0d40dc1a4aa45725546a5994d2fa945958a3b924777f68cfe",
+        "correct": true
+      }
+    },
+    "591-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/591-3.json",
+        "sha256": "e91d49e8610c70c9b135d2a475b473dcd8f250c0acb249097324cccd0b2bc289",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/591-3.json",
+        "sha256": "7bbc0a741800ba66fe1a4b4b8ac4f1361c33ae3ffd36b09e2cbe0d0242e9ffe9",
+        "correct": true
+      }
+    },
+    "597-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/597-1.json",
+        "sha256": "9d329a0e7e1cb6baf80dee63f31bde586539f24d47398f5ff9e62802c3b2a37c",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/597-1.json",
+        "sha256": "d4c5e2aa83bdefb17851e0c97921db362a4a9f92cc130a1092ebae63a95ec03f",
+        "correct": true
+      }
+    },
+    "601-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/601-1.json",
+        "sha256": "68ac4d4a0ca316ef2953269a2c0a24fba1e4ce92e52636adc6692fcc617fba83",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/601-1.json",
+        "sha256": "0eba1d1c2aebb035bfecdd8979d7c5e8d003d90c37ce58a2f88e48c4a3091bd4",
+        "correct": false
+      }
+    },
+    "602-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/602-3.json",
+        "sha256": "96dc6da311a111ee029a30e801fa9b3373231b3f76429fb1c8a4a1607a6ef6e3",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/602-3.json",
+        "sha256": "8dcb04c73ffda28a2d3c3ef52d4fddce4c60451aac5bd16b52533b9df5fda0d4",
+        "correct": true
+      }
+    },
+    "612-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/612-2.json",
+        "sha256": "0d0f7a4101eb8765deefea231c955ee68a61747c1e809d6c40ab303cb4913829",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/612-2.json",
+        "sha256": "ff6cc9db0b51d58b8bfb1380172911ff2471b0f102bd792e48123729c8947ee2",
+        "correct": true
+      }
+    },
+    "613-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/613-3.json",
+        "sha256": "c94cdbfa2caf2326a4fd20d7ecfafccc1e3f723ec2b4d1ad6569d2563b56ad00",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/613-3.json",
+        "sha256": "2787ce510872208fd5233a3e7fcffb0418aa51d43b0c05238221f51b527a78b3",
+        "correct": false
+      }
+    },
+    "630-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/630-1.json",
+        "sha256": "b047609de3d16cc8b53af82a4fb9acbca8a3049d04d5ef247c9cb6c91669e30c",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/630-1.json",
+        "sha256": "421c23d914ad824f156f563b3cb7b54e217c7830f55ca5bc52ada0393fd4a63d",
+        "correct": true
+      }
+    },
+    "632-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/632-3.json",
+        "sha256": "557abb58be90603f335709298e4af85372fcb37fe997ea73566e570bf58dcc0c",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/632-3.json",
+        "sha256": "995d0c94323db7337089dea90efc33cee5638b59ccde1a449ff91b01eff33dba",
+        "correct": false
+      }
+    },
+    "638-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/638-1.json",
+        "sha256": "1fbcca19c108cc2a6787bd061f93d7022b6fe715c8494ec25fb59e13495354e9",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/638-1.json",
+        "sha256": "c692e86294b85d32613df9a65fd923cb2be7b7a26cef1c0396e96eb946a896ad",
+        "correct": true
+      }
+    },
+    "640-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/640-2.json",
+        "sha256": "e02de49003958e9968edf0327eac78b0d2e4183d7366477702ce33c289600c2d",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/640-2.json",
+        "sha256": "812406ddcb0590544174dd9c408d162bdb4232be21a38700bf0de4749a8736c9",
+        "correct": true
+      }
+    },
+    "649-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/649-3.json",
+        "sha256": "6e1d05abd22e7f2380a30a9dd47fee868a55574e71ac430ff9c9bb97887c8ffb",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/649-3.json",
+        "sha256": "532f1e66bd03ab58b22e9bccfd9a260db3ce00b37173ce9aff43178d2b006b33",
+        "correct": true
+      }
+    },
+    "655-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/655-2.json",
+        "sha256": "0954c38906bcd7ab139bc2b604f6f002881766bfb091558b893c540cef7457bf",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/655-2.json",
+        "sha256": "cb936e8e6a19d77ffc37841c8770d63a3ab1907b9dc0dd4283c3a68118c8a642",
+        "correct": false
+      }
+    },
+    "662-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/662-3.json",
+        "sha256": "81087076643485ac85f911748aa244dc0b1f6b143bf35c08d07b8b2a276ed2cb",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/662-3.json",
+        "sha256": "b7daa1e9fdd32f18c505c2d5ced000b5c97796bab5b86c9d787beb866047ef3e",
+        "correct": true
+      }
+    },
+    "664-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/664-3.json",
+        "sha256": "5d3841f9ace6915089b2f30bf21384e1282eaf1d8d081bfc2564fb1cd7ec1dee",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/664-3.json",
+        "sha256": "75e18cbd8779a714e36f574a6bea4aabf723556643806b0d5ec12d84e16b0eac",
+        "correct": true
+      }
+    },
+    "667-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/667-3.json",
+        "sha256": "9830c36b6959ae60c626bf0fb605b97aab76d65b7e4f7b76d5b2e3214bb0af37",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/667-3.json",
+        "sha256": "d8de20ab7e51914cf986fcbf777c8bb95f7ebfaf5452b98894027460b96922b3",
+        "correct": false
+      }
+    },
+    "669-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/669-3.json",
+        "sha256": "cc2922202e5520a22ee7d867878fe070fc57c10adabb5bd4292b49dfccf2e80c",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/669-3.json",
+        "sha256": "8c985dfa8a915748278537eefce774852a2ab6e6c6c1c052d79fe04bf72d5b25",
+        "correct": false
+      }
+    },
+    "670-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/670-1.json",
+        "sha256": "0823a536a714c35e91aa475291a755d52179ed74a11ff2db018313135faf7062",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/670-1.json",
+        "sha256": "a4fdd997b648025de911f9aaaeda43dc1338d085887f79dd8cd0c0488a7c347e",
+        "correct": true
+      }
+    },
+    "682-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/682-2.json",
+        "sha256": "b24bd63f6718ebf0624cfe003f137d4296b1a7b206e65b0f75068d9d2f2abda6",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/682-2.json",
+        "sha256": "f491b5137c22c1a07a8b8b480d4467f658dc634c909ad50b7ccc4902b1350b8d",
+        "correct": false
+      }
+    },
+    "691-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/691-3.json",
+        "sha256": "41ad388afec1a1206df537f125473be7f95f2d53fdfe5db20e2c38036371c74a",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/691-3.json",
+        "sha256": "6e637f0bff3996738bd25e3f87d87eda5b52567f22b0681e45c527647897a613",
+        "correct": true
+      }
+    },
+    "692-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/692-1.json",
+        "sha256": "91a1395f880e2eb128841a41a2106a7914b1bc956b0fece00ea0cdf5e28b21f3",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/692-1.json",
+        "sha256": "0118ed4a8eecbfbcfc5325b955b55e454d4c86138a42cad7c0e84299e0dcb363",
+        "correct": false
+      }
+    },
+    "693-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/693-1.json",
+        "sha256": "6d2f835a2b2f431b95e6124912effe79fcd69b1fde11d49a3806de229b52e1e5",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/693-1.json",
+        "sha256": "e62b84604ad85c0ca9c560a5abee5605dbe63a1ba3a64feae519ff539913c950",
+        "correct": true
+      }
+    },
+    "704-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/704-3.json",
+        "sha256": "0128a62b35fa2d1b5fdbd69e1dd662403ce276feed7b11fc4544be3b0b1c04d5",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/704-3.json",
+        "sha256": "c84d71d279f0200eef5825c989b2ceb799ab5db48a9d48140982c7fb1e44efd9",
+        "correct": true
+      }
+    },
+    "705-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/705-1.json",
+        "sha256": "f86439254ade16767f4294b622d08368331b058dce5310f81163cab7731572aa",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/705-1.json",
+        "sha256": "52e6f8045812eb28f779e0eaf740ddc101e4c7da4f94d1ccfd9d1cc84200a868",
+        "correct": false
+      }
+    },
+    "716-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/716-1.json",
+        "sha256": "3475b7d4289e8965218fb3b8eb019a2ed28dbd14dc5a44067fc38e87e1518ec3",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/716-1.json",
+        "sha256": "61e4801e6e4e5917629f6a59d4cd48b3311479a910e39ddcad8c129579e9dd4f",
+        "correct": true
+      }
+    },
+    "724-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/724-3.json",
+        "sha256": "801a6b36aff53b8418f63549b89ec3eaa91c96d071a64bf5dd9c4511da658f42",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/724-3.json",
+        "sha256": "1491b541f401a27ccab3921d6eb9597fe99d0da8ff24d2c66bbbcaa6eb9b36ce",
+        "correct": false
+      }
+    },
+    "726-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/726-2.json",
+        "sha256": "0ae170849e0bccf3152683ba54fca49ce2a772fad5aaabc2a1cf75ef795d0d2c",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/726-2.json",
+        "sha256": "5da47d519f4a6c286dfb719f3db273e7d6f1a99dfce917fdc838eb3d9d12d3fc",
+        "correct": false
+      }
+    },
+    "729-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/729-1.json",
+        "sha256": "76576b4965dbe836bd802e10461c7a8238dd7fd69d77ef059021f78956b3978f",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/729-1.json",
+        "sha256": "5b9e378639a2d912c3d03f316bf482a00b87c8955b55fe7c5dc8b14d0925225a",
+        "correct": true
+      }
+    },
+    "736-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/736-2.json",
+        "sha256": "57b76216912d1bbcfaf5ae69e21933c1d0a8fe52cd3d23a328b0977558d67a17",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/736-2.json",
+        "sha256": "ef03d5dff0a0d4d232ac0c7d3ef4873fd9d0b6346109ebb34b53493a8d3c48c7",
+        "correct": false
+      }
+    },
+    "737-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/737-3.json",
+        "sha256": "b97149e114acc5a3f1a05c7e5e8fd66786abb0a62937beafa29b14dea6867ded",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/737-3.json",
+        "sha256": "357ad7e7980a116ec55e5132fc48b83a0fdd446242b8101cf2806115009ad82c",
+        "correct": true
+      }
+    },
+    "744-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/744-1.json",
+        "sha256": "0716e7245766cb3c32b1ea64d7123fe423b6731429f2c21a5b9fe0e9ab45461a",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/744-1.json",
+        "sha256": "5794ce9b7a030b5ea40f51810532299c00823f66ef202c1542e1b0eb590cda1c",
+        "correct": false
+      }
+    },
+    "751-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/751-2.json",
+        "sha256": "91e0ed9badf2a0e9bbfa5f7ed2f013af52b2fc44775c47c1ede07f03c2f3e43f",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/751-2.json",
+        "sha256": "81075d12dfbbe32294ebb278ada5606595981e14e14c55181c23cffea317ab43",
+        "correct": true
+      }
+    },
+    "753-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/753-3.json",
+        "sha256": "4785d9b28ee5cb93bf2272ebcacab83d948608e07e73231caf1cce9be69c29b5",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/753-3.json",
+        "sha256": "4a935ea4bdc2b59a6dd5fbd544f3dd364eebabeeb5df937d01b3c844d4db7767",
+        "correct": true
+      }
+    },
+    "755-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/755-1.json",
+        "sha256": "ec39d659bbc876af949565a18ea05fb7dd882f72d1e2db40dc5de4c06573e7a1",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/755-1.json",
+        "sha256": "c557a9702e705880fc525630a7fbff6aec402aac194eb20209ff33c982646964",
+        "correct": true
+      }
+    },
+    "757-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/757-3.json",
+        "sha256": "b992cd1e5e375aa753e119f20d044607fca064aee9d51f535f53b2d33562b54c",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/757-3.json",
+        "sha256": "32fa4ea0b358de66bf75ed446d81fd0087827dec67e6f06c747f2ddfaf8b6be9",
+        "correct": true
+      }
+    },
+    "781-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/781-1.json",
+        "sha256": "85945b01134be96f2d9973ffe22d257f976fdf443794e228cd763b92c66f5d6f",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/781-1.json",
+        "sha256": "097a6e59e0f45b68abba5c0807db689536cf14bd9924ec889071761018318cd1",
+        "correct": false
+      }
+    },
+    "785-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/785-2.json",
+        "sha256": "d6c72450e5c029f44e55ae7d2e44ee0b7d63acfe1681a8c40b844cfbf14de16d",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/785-2.json",
+        "sha256": "ca741b87d5d87bbd9a35fbe832aec38d2c5cff3c4a6c797e5903cf2f3d16091a",
+        "correct": true
+      }
+    },
+    "787-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/787-1.json",
+        "sha256": "f9633893996e7461ce095f1b4b8a83089ecb88d12ee9d45bf974b598ba28444d",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/787-1.json",
+        "sha256": "4fbcefac99b0a164e83e6d6bb1fa53c3dc7702f0d66f43a949dcb9330aefa249",
+        "correct": true
+      }
+    },
+    "789-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/789-2.json",
+        "sha256": "0175d8d28a22d6d85788dc5d9a494b91f7f6a70ab29c5304e2a5043a23d6836f",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/789-2.json",
+        "sha256": "84e5817450fe73016b08636f61e0e44be6afc857bfcf116594125f58dadc3e16",
+        "correct": false
+      }
+    },
+    "795-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/795-1.json",
+        "sha256": "b48aa161c79691bb271020bcbbd03813d20461728a73ea2f757bb6abe58f8c49",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/795-1.json",
+        "sha256": "763395307c3d0234b58c20bd6c44e875c32a511860e287476ac0ffafce5476e0",
+        "correct": false
+      }
+    },
+    "798-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/798-3.json",
+        "sha256": "cd395ebf9c2c6876b1f1bde9521d8f174304e1c9578eb8fc0eba8e54ca2d4e6f",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/798-3.json",
+        "sha256": "36fbdd52a07405d51d8483c18915da682818ee13b037264084cdb14e1da84326",
+        "correct": false
+      }
+    },
+    "807-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/807-2.json",
+        "sha256": "3b4626cc1e8b791cfc3b7de639e10d29e7e0d7b30a8177996ada717afcf29cca",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/807-2.json",
+        "sha256": "ef8302e7fcdfb9b5264de297df429eddfc4360e4292b1f00b3e1ba3265fb9b31",
+        "correct": false
+      }
+    },
+    "809-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/809-3.json",
+        "sha256": "dd1e097a18abeba25ef8c9505af12ed04f049de18ca8a249ba084a00eca4a03b",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/809-3.json",
+        "sha256": "22da905144c893f74acad6c212256fc32dc4e441a3a4a0d1e7e2032811a40ac8",
+        "correct": false
+      }
+    },
+    "811-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/811-2.json",
+        "sha256": "d43a0b1a0b2a673add2a1db61c244806020b3ecb9c65cf52aa4b292af1924af1",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/811-2.json",
+        "sha256": "efac7707e196d43baa537df977c923d3e793f2e716459f1c938f7b6f3f254959",
+        "correct": false
+      }
+    },
+    "815-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/815-2.json",
+        "sha256": "58369835f26222eb0035bfe39bfa1561b3d34d0a3b7c8753cca985fb07fe731c",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/815-2.json",
+        "sha256": "56c5257a1f8dd34da69ff5e0978b459bbca3e7ec1b70cfcc7c8d37862751db4a",
+        "correct": false
+      }
+    },
+    "816-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/816-3.json",
+        "sha256": "9a804110353ca0499fe9093fc9ee13951a57d0c370495c2a98a950210d583bd2",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/816-3.json",
+        "sha256": "53eefc7718dc282239d50a80f1778e9f5a135b6de2391afe4d2e87c0f9bc7933",
+        "correct": true
+      }
+    },
+    "817-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/817-3.json",
+        "sha256": "340174d8c2290406914ea64003eb01947f32da36c04c16d6bf41afe8d347194b",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/817-3.json",
+        "sha256": "834601d4a6d1063f8f7257e56bb5f30b38ee018defa1973c9dad809e2681ca46",
+        "correct": true
+      }
+    },
+    "819-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/819-1.json",
+        "sha256": "2014f622348e271e72738ab30aeaf42a91eb94b5973e201ffa2554ed9394da5b",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/819-1.json",
+        "sha256": "d589b08dcc0b3ad8ef30d711944ef995bef1ff901b3f1b4333286dc81e58bda7",
+        "correct": false
+      }
+    },
+    "821-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/821-3.json",
+        "sha256": "774b19d40d710eb3ce0380143358c112c337e85ee816ba0bbd282721b58cf41f",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/821-3.json",
+        "sha256": "6bb17ce4c002e0476a41f6b2fa2b1a465053b8c8976928fca3a4fda6291f4794",
+        "correct": false
+      }
+    },
+    "824-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/824-2.json",
+        "sha256": "bf9cce162573e5c27ca09bb42849225de1a8c41047f48fff42d268170b55ed42",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/824-2.json",
+        "sha256": "a24c82f0b33d48da440c7f77b58b72f54687818a75893cd7cf255579f41cd17e",
+        "correct": true
+      }
+    },
+    "826-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/826-1.json",
+        "sha256": "060b74a2196fadf8c29066a5c17660bea0030c677795cefb1f4e75f0c866dd21",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/826-1.json",
+        "sha256": "f72b84cd50b8c401f3072932f7ff9e1a1b7f68df2771017455c1fce31981381f",
+        "correct": true
+      }
+    },
+    "833-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/833-3.json",
+        "sha256": "dadf217301cccbbf3325301fe414b0614e6c13b500638d3832e0464d046a1e28",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/833-3.json",
+        "sha256": "4c088a4b92da4f8fb435fe6a6ccbc2b5beaab6b615c80df9fd97219d13d213d2",
+        "correct": true
+      }
+    },
+    "840-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/840-2.json",
+        "sha256": "5c42193698957879c0ca583356430121b8c6894293da1f0209694803e97553d7",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/840-2.json",
+        "sha256": "00dd69b6974ae3091e685dbcb906cdbbc9000942e942acd57ac4d3ed029312ef",
+        "correct": false
+      }
+    },
+    "842-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/842-3.json",
+        "sha256": "d6b973b48482eb9fc86f16abfbaf025c8c166f266ae367553653baef36e976a4",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/842-3.json",
+        "sha256": "ce4e3147933740467609e4b2a6bcdfde4620504bcd317ee8a7d4ca09754a9386",
+        "correct": true
+      }
+    },
+    "844-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/844-1.json",
+        "sha256": "440249ccab2620a652ce33fcb9ca17af869eb6a24e4e672ac32e7145d8f7c872",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/844-1.json",
+        "sha256": "88fe225d0e18cc5741e4c41227e638a7eba51a35c0723d7f657c3df6103f55b4",
+        "correct": false
+      }
+    },
+    "847-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/847-1.json",
+        "sha256": "91c99a837cd35a0bee00102a24027d7b9d5d855e6bf2a7f0f340ecabd206913b",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/847-1.json",
+        "sha256": "f5ad6596576f117e264028b985bdb472c3fab6e9584ad9deed5482f79e24ab42",
+        "correct": true
+      }
+    },
+    "863-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/863-2.json",
+        "sha256": "e330117161e803a3916edebb732bed8fb1d836c3f6069de41afd42c064af56f3",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/863-2.json",
+        "sha256": "5daae404ddbb24af735e11ed8281ceb838db6549e22d5b009c6692352122eb8a",
+        "correct": true
+      }
+    },
+    "870-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/870-1.json",
+        "sha256": "07b17dbe646816c1086673bc7e33936118024b01bb3d8715fc924ea78623be88",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/870-1.json",
+        "sha256": "1b6300c92d667e481fb113d266bfe948f5ce9c6011a87b9fa4a0e23febff9ad7",
+        "correct": false
+      }
+    },
+    "871-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/871-2.json",
+        "sha256": "924be56ce4739c4cc9d233c94f291592871d3f4310ee55588106e70f93ed2dc0",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/871-2.json",
+        "sha256": "adbb8455928a002558cad71fbe6643853ca492d43a35c9066a3ee3e5207a318e",
+        "correct": false
+      }
+    },
+    "872-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/872-2.json",
+        "sha256": "250edc7951add1ec57bbae18449cd39039b335d4f5033aae4ad4e44394605ba7",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/872-2.json",
+        "sha256": "a6ac6ada856fcb68bc4106c956d2fdb3446c64291b4d6e113cf4bdf777bb5085",
+        "correct": true
+      }
+    },
+    "873-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/873-2.json",
+        "sha256": "3ce54440428b8144ff633c187a8ae897d53bf5d6b7bab117ab0c84d59ef50a06",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/873-2.json",
+        "sha256": "997b5d9a451813e2f59173dcbe246a51fd5fed75d84bbcdf39dfdf52784c96ac",
+        "correct": true
+      }
+    },
+    "880-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/880-3.json",
+        "sha256": "81250c4d3fbffe5cd3f5ca47ef146da60343a2ef234d1f9a84f1e9971e70e7b3",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/880-3.json",
+        "sha256": "add63f5be657c055eea4451dceb6ddd1baa90d6044d632bf65a3a7e7ebccc842",
+        "correct": false
+      }
+    },
+    "881-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/881-2.json",
+        "sha256": "03142c609c443e24eb6bd573c29a62a00b52d7c68c23f77b3f1decd5ada80330",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/881-2.json",
+        "sha256": "a63cf601482a34fb33e863760e158f202a7144d5a00519fd7e8bd8f7043ec528",
+        "correct": true
+      }
+    },
+    "883-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/883-2.json",
+        "sha256": "358c1427900f6516cde62528556a8cc4d565fcffe0f12bbc782bcd2de6e90268",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/883-2.json",
+        "sha256": "7551d3ab708f3f28403542ca7337103fba535504eeeb7e985bd17d0c2b11b071",
+        "correct": false
+      }
+    },
+    "891-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/891-3.json",
+        "sha256": "bc5753dc0fd3798f56fe0e62bb304639f3d49c98c67ca36c4f4d554fbd3788d5",
+        "correct": true
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/891-3.json",
+        "sha256": "a9db522638a1eeda5e96242d8c86ebf7e73bd4655e54a44881bf422fdceeca22",
+        "correct": true
+      }
+    },
+    "893-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/893-1.json",
+        "sha256": "d3e553bd019b077baa3161089e9d5e5c23f1243fcefb5d0d2b2072d1580f2369",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/893-1.json",
+        "sha256": "44c0b7b291de6ba69e43b713495b931ef1ee04bb952a3df8c7c2e254d8c164d9",
+        "correct": true
+      }
+    },
+    "894-2": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/894-2.json",
+        "sha256": "cf4c4918feafa17ba815fd6b9cb93739594aadac5d73db8b7c4577f9f7428d06",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/894-2.json",
+        "sha256": "8c3cafe99b40d54ea1fb52a70e1473bfeb3115e369a90c6ca5eb39aa05d4420a",
+        "correct": false
+      }
+    },
+    "895-1": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/895-1.json",
+        "sha256": "e6ae99ec7808bc6d6f507eb92ae8f81120a8058c159c6c613bf401c215de2c58",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/895-1.json",
+        "sha256": "e613bf7dbb069df8a0085c4d849fbeaacb1422f14c15db3ee6ca324dd4aeb4ad",
+        "correct": false
+      }
+    },
+    "896-3": {
+      "uniform": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/uniform/896-3.json",
+        "sha256": "b0e89209ed2658738c972ee3a37c60e98db4925a5fd8f9811bf1e23f1d757f7e",
+        "correct": false
+      },
+      "topk": {
+        "path": "outputs/baselines/videomme_full_uniform_topk_20260916_r1/results/topk/896-3.json",
+        "sha256": "2eddbee0f2fba66ca96bb02a82d37a8bd9c8e9b4a413460b55b8529fdaba52c4",
+        "correct": false
+      }
+    }
+  },
+  "old_videos": 50,
+  "new_videos": 150,
+  "unique_videos": 200,
+  "reserve_overlap": 0
+}
