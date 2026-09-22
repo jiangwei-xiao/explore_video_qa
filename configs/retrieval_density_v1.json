@@ -1,0 +1,13 @@
+{
+  "version": "retrieval-density-v1",
+  "seed_budget": 16,
+  "frame_budget": 16,
+  "core_gap_seconds": "2",
+  "window_radius_seconds": "4",
+  "refinement_min_core_seeds": 3,
+  "coarse_fps": 1,
+  "phase_fraction": "1/4",
+  "fine_fps": 2,
+  "blip_batch_size": 16,
+  "seed": 2027
+}
