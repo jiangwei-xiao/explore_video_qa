@@ -1,0 +1,30 @@
+{
+  "protocol_id": "lmms-videomme-reference-v1",
+  "model_profile": "LLaVA-Video-7B-Qwen2",
+  "lmms_eval_commit": "bb1ebe76e7a942386c25c4664f902e0e59e8a401",
+  "task_reference_commit": "a424fc4528ecbe57edc93413826a2f2b8bb2c203",
+  "llava_source_commit": "bce12e479bc4dfee2b9c50c88137b01ff51bd483",
+  "model_loader": "llava_qwen",
+  "conversation_template": "qwen_1_5",
+  "dtype": "bfloat16",
+  "attention": "sdpa",
+  "preserve_checkpoint_visual_config": true,
+  "visual_size": [384, 384],
+  "visual_tokens_per_frame": 210,
+  "frame_budget": 16,
+  "uniform_source_domain": "original source frames",
+  "uniform_rule": "linspace(0,N_source-1,min(16,N_source),dtype=int)",
+  "extra_time_instruction": false,
+  "subtitles": false,
+  "audio": false,
+  "generation": {
+    "max_new_tokens": 16,
+    "temperature": 0,
+    "top_p": 1.0,
+    "num_beams": 1,
+    "do_sample": false
+  },
+  "seed": 2027,
+  "comparison_scope": "Reference task plus official model configuration, not a claim of exact author-run reproduction",
+  "unresolved_author_run_fields": ["complete 16-frame launch command", "exact dependency/model revision inventory", "per-question baseline predictions"]
+}
