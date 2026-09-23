@@ -6,6 +6,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 当前同协议三组结果 | [LMMs-Eval全量对照](experiments/video_mme_full/2026-09-23/lmms_methods/实验结果.md) | 均匀/Top-K/RD-1.2为60.15%/58.59%/60.59%；RD相对均匀净+12、区间含0，相对Top-K净+54 |
 | 当前参考协议均匀基线 | [LMMs-Eval全量均匀结果](experiments/video_mme_full/2026-09-23/lmms_uniform/实验结果.md) | 1624/2700（60.15%）；后续同协议比较，不能与旧RD成绩直接相减 |
 | 当前基线对齐 | [LMMs-Eval桥接结果](experiments/video_mme_full/2026-09-23/lmms_bridge/实验结果.md) | 900视频与20次诊断完成；同帧旧6/10、新7/10，仅004-3变化；不是全量成绩 |
 | 全量RD-1.2与跨模型阶段 | [2026-09-23全量阶段结果](experiments/video_mme_full/2026-09-22/rd12_qwen/实验结果.md) | LLaVA 1592/2700（58.96%），均匀/Top-K 1572/1557；Qwen-FA2合成验收通过，后续全量暂缓，优先协议对齐与桥接 |
