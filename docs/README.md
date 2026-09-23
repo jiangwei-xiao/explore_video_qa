@@ -6,6 +6,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 全量RD-1.2与跨模型阶段 | [2026-09-23全量阶段结果](experiments/video_mme_full/2026-09-22/rd12_qwen/实验结果.md) | LLaVA 1592/2700（58.96%），均匀/Top-K 1572/1557；Qwen三组尚未执行，整轮未完成 |
 | 统一命名与谱系 | [方法版本登记](research/方法版本登记表.md) | BASE/SB/RB/RD、冻结版本、exp/diag、旧别名及运行命名规则 |
 | RD-1.2-exp01 | [入口人工修复诊断](experiments/video_mme_200/2026-09-22/entry_repair/诊断记录.md) | 七题粗候选诊断，不是自动算法或新问答成绩 |
 | RD-1.2-exp02 | [单帧推广资格探针](experiments/video_mme_200/2026-09-22/promotion_probe/验证记录.md) | 64次辅助分类，未通过硬剔除门槛，不纳入RD-1.2 |
