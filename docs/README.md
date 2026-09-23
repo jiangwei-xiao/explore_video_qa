@@ -6,6 +6,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 当前阶段定位 | [2700题统计与窗口/补查/选择初审](experiments/video_mme_full/2026-09-23/stage_analysis/阶段定位分析.md) | 全量配对、18题有界初审、4处窗口外见证及反例；零新增模型调用，不直接调参 |
 | 当前同协议三组结果 | [LMMs-Eval全量对照](experiments/video_mme_full/2026-09-23/lmms_methods/实验结果.md) | 均匀/Top-K/RD-1.2为60.15%/58.59%/60.59%；RD相对均匀净+12、区间含0，相对Top-K净+54 |
 | 当前参考协议均匀基线 | [LMMs-Eval全量均匀结果](experiments/video_mme_full/2026-09-23/lmms_uniform/实验结果.md) | 1624/2700（60.15%）；后续同协议比较，不能与旧RD成绩直接相减 |
 | 当前基线对齐 | [LMMs-Eval桥接结果](experiments/video_mme_full/2026-09-23/lmms_bridge/实验结果.md) | 900视频与20次诊断完成；同帧旧6/10、新7/10，仅004-3变化；不是全量成绩 |
