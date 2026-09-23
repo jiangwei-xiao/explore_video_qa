@@ -1,5 +1,7 @@
 # 相关工作
 
+2026-09-23补充：[LLaVA＋Video-MME＋16帧结果核对](LLaVA_16帧_VideoMME结果核对.md)，区分LLaVA-Video与OneVision、默认方法与评分器消融，避免把8/32/64帧收益混用。
+
 2026-09-14：依据现有中文解析提供的arXiv链接下载PDF，文件名保持原解析中的相对链接不变。目录已统一为 `related_work/`，中文解析位于 `analysis/`，原文位于 `pdfs/`。
 
 | 工作 | 中文解析 | 本地PDF | 实际下载版本 |
