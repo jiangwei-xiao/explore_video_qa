@@ -55,3 +55,21 @@ class Budget32Tests(unittest.TestCase):
         self.assertIsNone(reusable_rgb_hashes([export],[dict(b,source_pts=51)]))
         bad=dict(selection=dict(selected_frames=[a]),rgb_sha256=['hash-b'])
         with self.assertRaises(AssertionError):reusable_rgb_hashes([export,bad],[a])
+
+    def test_preparation_accounting_closes_visual_frame_counts(self):
+        import json
+        import tempfile
+        from pathlib import Path
+        from videoqa_budget32.report import preparation_accounting
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);(root/'selection_checkpoints').mkdir();(root/'selection_workers').mkdir()
+            text=json.dumps(dict(new_count=1,timings={'fine_decode_seconds':0.},recovered_new_decode_assets=True))
+            for i in range(2700):(root/'selection_checkpoints'/f'{i}.json').write_text(text)
+            for name in ('selection_protocol.json','selection_summary.json'):(root/name).write_text('{}')
+            counts=root/'selection_workers/0_counts.json'
+            counts.write_text(json.dumps(dict(visual_frames=2700,visual_batches=169,itm_frames=0)))
+            result=preparation_accounting(root)
+            self.assertEqual(result['successful_visual_frames'],2700)
+            self.assertEqual(result['recovered_decode_questions'],2700)
+            counts.write_text(json.dumps(dict(visual_frames=2699,visual_batches=169,itm_frames=0)))
+            with self.assertRaises(AssertionError):preparation_accounting(root)

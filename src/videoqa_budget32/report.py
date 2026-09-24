@@ -9,6 +9,38 @@ from videoqa_runtime.baseline_report import wilson,distribution
 from .selection import OLD_QWEN,METHODS
 
 
+def preparation_accounting(run):
+    """接口：区分正式特征、准备中止与恢复；合成调用不计入数据视觉次数。"""
+    run=Path(run)
+    # 步骤1：成功准备的全部新增帧必须与实际视觉计数闭合，真实题ITM应为0。
+    checks=[read_json(p) for p in (run/'selection_checkpoints').glob('*.json')]
+    counts=[read_json(p) for p in (run/'selection_workers').glob('*_counts.json')]
+    smoke=run/'strict_fp32_recovery_acceptance.json'
+    if smoke.exists():counts.append(read_json(smoke)['data_visual_counts'])
+    assert len(checks)==2700 and counts
+    visual_frames=sum(c['visual_frames'] for c in counts)
+    assert visual_frames==sum(c['new_count'] for c in checks)
+    assert sum(c['itm_frames'] for c in counts)==0
+    # 步骤2：保留中止前完整记录作为成本下界，不伪造被中止进程的精确调用数。
+    attempts=[]
+    for path in sorted((run/'selection_attempts').glob('*/intervention.json')):
+        item=read_json(path);old=[read_json(p) for p in (path.parent/'selection_checkpoints').glob('*.json')]
+        item.update(record_path=str(path.relative_to(run)),record_sha256=sha256(path),
+            completed_question_seconds_sum=sum(c['seconds'] for c in old),
+            completed_visual_frames_lower_bound=sum(c['new_count'] for c in old),
+            last_observed_selection_seconds=read_json(path.parent/'selection_status.json')['seconds'],
+            interrupted_inflight_visual_calls='not exactly recorded; not included in lower bound')
+        attempts.append(item)
+    return dict(successful_visual_frames=visual_frames,successful_visual_batches=sum(c['visual_batches'] for c in counts),
+        selection_protocol_sha256=sha256(run/'selection_protocol.json'),
+        selection_summary_sha256=sha256(run/'selection_summary.json'),
+        data_itm_frames=0,recovered_decode_questions=sum(c.get('recovered_new_decode_assets',False) for c in checks),
+        per_question_timings={k:distribution([c['timings'][k] for c in checks]) for k in checks[0]['timings']},
+        preparation_interventions=attempts,
+        precision_comparison_file='tf32_recovery_comparison.json' if (run/'tf32_recovery_comparison.json').exists() else None,
+        limitation='Recovery timings exclude cached decode work; prior attempt costs are separate, not raw-video E2E')
+
+
 def summarize(run):
     """接口：全量完整配对后统计，离线诊断不附加任何历史预测。"""
     from .run import validate
@@ -66,7 +98,9 @@ def summarize(run):
         for a,b in pairs}
     summary=dict(status='completed',accuracy=accuracy,comparisons=comparisons,performance=performance,issues=issues,
         common_32_count=len(common),boundary_question_ids=sorted(ids-common),new_answer_calls={m:2700 for m in METHODS},
-        failures=[str(p.relative_to(run)) for p in (run/'failures').glob('*.json')],utc=utc(),
+        failures=[str(p.relative_to(run)) for p in (run/'failures').glob('*.json')],
+        failure_scope='Worker exception records only; preparation interventions are separately reported',
+        preparation=preparation_accounting(run),utc=utc(),
         limitations=['M32/K32 changes seeds, windows and refinement, not only final budget',
             'Cached coarse assets: timings are not independent raw-video E2E',
             'Fixed-old-pool M16/K32 has zero answers and no diagnostic accuracy'])
