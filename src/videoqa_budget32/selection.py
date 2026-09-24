@@ -16,6 +16,29 @@ OLD_QWEN = ROOT/'outputs/full_videoqa/uniform_topk_rd12__qwen25vl__lmms_ref_v1__
 METHODS = ('BASE-Uniform', 'BASE-BLIP-TopK', 'RD-1.2')
 
 
+def configure_visual_precision(torch):
+    """接口：复现旧LLaVA常驻进程给BLIP设置的严格FP32环境，不依赖默认值。"""
+    # 步骤1：模型独立加载后不再继承LLaVA设置，因此必须显式关闭两类TF32。
+    torch.manual_seed(2027)
+    torch.backends.cuda.matmul.allow_tf32=False
+    torch.backends.cudnn.allow_tf32=False
+    return dict(seed=2027,matmul_allow_tf32=False,cudnn_allow_tf32=False,feature_dtype='float32')
+
+
+def reusable_rgb_hashes(exports,frames):
+    """接口：仅按精确源身份复用已验证像素指纹，不复用预测或数值特征。"""
+    # 步骤1：不同方法中同一源帧必须具有相同RGB；候选ID不作为跨池身份。
+    bank={}
+    for item in exports:
+        assert len(item['selection']['selected_frames'])==len(item['rgb_sha256'])
+        for f,h in zip(item['selection']['selected_frames'],item['rgb_sha256']):
+            key=(f['source_frame_index'],f['source_pts'])
+            assert bank.setdefault(key,h)==h
+    # 步骤2：全部源帧已有哈希时才复用，否则调用方重新精确解码整组。
+    keys=[(f['source_frame_index'],f['source_pts']) for f in frames]
+    return [bank[k] for k in keys] if all(k in bank for k in keys) else None
+
+
 def config(budget=32, seeds=32):
     """接口：只覆盖本轮M/K，其他冻结参数保持原样。"""
     result = read_json(ROOT/'configs/retrieval_density_v1.json')
@@ -111,6 +134,8 @@ def select_question(run, row, scorer):
     """接口：复用粗资产、重新执行2FPS补查与纯视觉计算，冻结三方法RGB身份。"""
     from PIL import Image
     from videoqa_methods.density_pipeline import decode_regions
+    assert scorer.torch.backends.cuda.matmul.allow_tf32 is False
+    assert scorer.torch.backends.cudnn.allow_tf32 is False
     run=Path(run); qid=row['question_id']; dest=run/'selection_checkpoints'/(qid+'.json')
     if dest.exists():
         saved=read_json(dest)
@@ -122,8 +147,24 @@ def select_question(run, row, scorer):
     n=old['initial_count']; coarse=old['candidates'][:n]; coarse_features=features[:n].copy()
     plan=build_regions(coarse,old['initial_scores'],old['video'],config()); assert plan==report['plan']
     timing=dict(coarse_asset_read_seconds=time.perf_counter()-started)
-    # 步骤1：新增解码仅使用本轮窗口，旧补查特征不复用。
-    added,assets,refinement,dt=decode_regions(old['video'],coarse,plan,config(),run/'fine_assets'/qid)
+    # 步骤1：恢复仅复用本轮已验证的新解码PNG，不复用旧16帧补查或不符精度的特征。
+    attempt=run/'selection_attempts/tf32_default';prior_exports=[]
+    recovered_decode=(attempt/'selection_checkpoints'/(qid+'.json')).exists()
+    if recovered_decode:
+        previous=read_json(attempt/'selection_checkpoints'/(qid+'.json'))
+        for rel,h in previous['files'].items():assert sha256(attempt/rel)==h
+        previous_pool=read_json(attempt/'pools'/(qid+'.json'))
+        assert previous_pool['video']==old['video'] and previous_pool['plan']==plan
+        assert previous_pool['initial_count']==n and previous_pool['candidates'][:n]==coarse
+        assert previous_pool['initial_scores']==old['initial_scores']
+        added=previous_pool['candidates'][n:];assets=previous_pool['new_assets'];refinement=previous_pool['refinement']
+        for asset in assets:assert sha256(asset['path'])==asset['sha256']
+        dt=dict(fine_decode_seconds=0.,fine_rgb_seconds=0.,fine_asset_seconds=0.)
+        prior_exports=[read_json(attempt/'selections'/m/(qid+'.json')) for m in METHODS]
+        assert all(item['question_id']==qid and item['video_id']==row['video_id'] and
+                   item['selection']['video']==old['video'] for item in prior_exports)
+    else:
+        added,assets,refinement,dt=decode_regions(old['video'],coarse,plan,config(),run/'fine_assets'/qid)
     timing.update(dt); blocks=[coarse_features]; pre=forward=0.; begin=time.perf_counter()
     for offset in range(0,len(assets),16):
         images=[]
@@ -149,13 +190,18 @@ def select_question(run, row, scorer):
     for method,frames in chosen.items():
         for frame in frames: assert int(pts[frame['source_frame_index']])==frame['source_pts']
         selection=dict(video=old['video'],selected_frames=frames);validate_frames(selection)
-        images,hashes=FrameProvider(selection).decode()
-        for image in images:image.close()
+        hashes=reusable_rgb_hashes(prior_exports,frames);reused_rgb=hashes is not None
+        if hashes is None:
+            images,hashes=FrameProvider(selection).decode()
+            for image in images:image.close()
         path=run/'selections'/method/(qid+'.json')
         durable(path,dict(question_id=qid,video_id=row['video_id'],method=method,selection=selection,rgb_sha256=hashes,
-            source_hashes=sources,source_video_sha256=index['source_video_sha256'],configuration='M32/K32' if method==METHODS[2] else 'K32'))
+            source_hashes=sources,source_video_sha256=index['source_video_sha256'],configuration='M32/K32' if method==METHODS[2] else 'K32',
+            rgb_hashes_reused_from_attempt=str(attempt) if reused_rgb else None))
         files[str(path.relative_to(run))]=sha256(path)
     # 步骤3：仅完整选择落检查点；本阶段没有真实生成，不占问答预算。
     result=dict(question_id=qid,files=files,sources=sources,timings=timing,seconds=time.perf_counter()-started,
-        new_count=len(added),new_itm_calls=0,utc=utc())
+        new_count=len(added),new_itm_calls=0,recovered_new_decode_assets=recovered_decode,
+        prior_attempt_checkpoint_sha256=sha256(attempt/'selection_checkpoints'/(qid+'.json')) if recovered_decode else None,
+        visual_precision=dict(matmul_allow_tf32=False,cudnn_allow_tf32=False,feature_dtype='float32'),utc=utc())
     durable(dest,result);return result

@@ -9,7 +9,7 @@ import time
 import traceback
 from videoqa_runtime.common import ROOT,read_json,sha256,offline_environment
 from videoqa_full.state import durable,exclusive,rows,utc
-from .selection import select_question,precheck,config
+from .selection import select_question,precheck,config,configure_visual_precision
 
 
 def selection_worker(run,gpu,jobs,events,stop):
@@ -21,9 +21,10 @@ def selection_worker(run,gpu,jobs,events,stop):
             import torch
             from videoqa_methods.density_pipeline import DensityScorer
             torch.set_num_threads(2);torch.set_num_interop_threads(1)
+            precision=configure_visual_precision(torch)
             scorer=DensityScorer(read_json(ROOT/'configs/local_model_inventory.json')['models']['blip']['path'])
             check=scorer.synthetic_acceptance()
-            durable(run/'selection_workers'/f'{gpu}_{os.getpid()}.json',dict(gpu=gpu,pid=os.getpid(),synthetic=check))
+            durable(run/'selection_workers'/f'{gpu}_{os.getpid()}.json',dict(gpu=gpu,pid=os.getpid(),synthetic=check,visual_precision=precision))
             # 步骤1：合成调用另记，真实题仅纯视觉，不计算新ITM。
             scorer.counts=dict(itm_batches=0,itm_frames=0,visual_batches=0,visual_frames=0)
             while not stop.is_set():
@@ -45,7 +46,8 @@ def select_all(run):
     run=Path(run)
     with exclusive(run/'selection.lock'):
         summary=read_json(run/'precheck_summary.json');assert summary['status']=='passed'
-        identity=dict(config=config(),precheck_sha256=sha256(run/'precheck_summary.json'),
+        identity=dict(config=config(),visual_precision=dict(matmul_allow_tf32=False,cudnn_allow_tf32=False,feature_dtype='float32'),
+            precheck_sha256=sha256(run/'precheck_summary.json'),
             code={str(p.relative_to(ROOT)):sha256(p) for p in [ROOT/'src/videoqa_budget32'/n for n in ('selection.py','frames.py','driver.py')]+
                 [ROOT/'src/videoqa_methods/density_pipeline.py',ROOT/'src/videoqa_audit/density_reward_decay.py',ROOT/'src/videoqa_audit/local_distance_scale.py']})
         if (run/'selection_protocol.json').exists():assert read_json(run/'selection_protocol.json')==identity

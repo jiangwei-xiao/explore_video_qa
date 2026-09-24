@@ -3,7 +3,7 @@ import unittest
 from unittest.mock import patch
 import numpy as np
 from videoqa_budget32.frames import padded_count,validate_frames,native_frames
-from videoqa_budget32.selection import two_pass
+from videoqa_budget32.selection import two_pass,configure_visual_precision,reusable_rgb_hashes
 
 
 class Budget32Tests(unittest.TestCase):
@@ -39,3 +39,19 @@ class Budget32Tests(unittest.TestCase):
                 result=two_pass(pool,np.empty((0,768)),{'frame_budget':32})
                 self.assertEqual(result[0],[1]);self.assertEqual(second.call_args.args[-1],quota)
                 self.assertEqual(first.call_args.args[-1]['frame_budget'],32)
+
+    def test_visual_precision_does_not_depend_on_defaults(self):
+        from types import SimpleNamespace as NS
+        seeds=[];torch=NS(manual_seed=seeds.append,backends=NS(cuda=NS(matmul=NS(allow_tf32=True)),cudnn=NS(allow_tf32=True)))
+        result=configure_visual_precision(torch)
+        self.assertEqual(seeds,[2027]);self.assertFalse(torch.backends.cuda.matmul.allow_tf32)
+        self.assertFalse(torch.backends.cudnn.allow_tf32);self.assertEqual(result['feature_dtype'],'float32')
+
+    def test_rgb_recovery_uses_source_identity_not_candidate_id(self):
+        a=dict(candidate_index=0,source_frame_index=5,source_pts=50)
+        b=dict(candidate_index=90,source_frame_index=5,source_pts=50)
+        export=dict(selection=dict(selected_frames=[a]),rgb_sha256=['hash-a'])
+        self.assertEqual(reusable_rgb_hashes([export],[b]),['hash-a'])
+        self.assertIsNone(reusable_rgb_hashes([export],[dict(b,source_pts=51)]))
+        bad=dict(selection=dict(selected_frames=[a]),rgb_sha256=['hash-b'])
+        with self.assertRaises(AssertionError):reusable_rgb_hashes([export,bad],[a])
