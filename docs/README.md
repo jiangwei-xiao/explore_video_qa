@@ -6,7 +6,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
-| Qwen32帧扩展 | [执行协议与阶段验收](experiments/video_mme_full/2026-09-24/qwen32/执行协议.md) | 严格FP32选择准备及21条先行验收通过，8100次正式问答后台执行中；全量成绩待完成 |
+| Qwen32帧扩展 | [六组结果与三环节分析](experiments/video_mme_full/2026-09-24/qwen32/实验结果.md) · [协议](experiments/video_mme_full/2026-09-24/qwen32/执行协议.md) | 8100条完成；均匀/Top-K/RD为60.89%/61.11%/61.85%，24题有界初审与零问答旧池诊断完成 |
 | Qwen全量与跨模型结果 | [Qwen三策略与六组对照](experiments/video_mme_full/2026-09-23/qwen_lmms/实验结果.md) | 均匀/Top-K/RD为58.11%/59.04%/59.89%；8100新答案验收通过，RD相对均匀净+48、相对Top-K净+23 |
 | 当前阶段定位 | [2700题统计与窗口/补查/选择初审](experiments/video_mme_full/2026-09-23/stage_analysis/阶段定位分析.md) | 全量配对、18题有界初审、4处窗口外见证及反例；零新增模型调用，不直接调参 |
 | 当前同协议三组结果 | [LMMs-Eval全量对照](experiments/video_mme_full/2026-09-23/lmms_methods/实验结果.md) | 均匀/Top-K/RD-1.2为60.15%/58.59%/60.59%；RD相对均匀净+12、区间含0，相对Top-K净+54 |

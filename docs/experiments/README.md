@@ -4,6 +4,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
+| Qwen32三策略／全量2700题／2026-09-24 | [固定配置与验收](video_mme_full/2026-09-24/qwen32/执行协议.md) | [8100条结果与三环节分析](video_mme_full/2026-09-24/qwen32/实验结果.md) | `uniform_topk_rd12__qwen25vl__lmms_ref_v1__videomme2700__k32_20260924__r01` |
 | RD-1.2／开发200题／2026-09-22 | [固定两遍流程](video_mme_200/2026-09-22/density_e1/实验记录.md) | [125/200与版本冻结](video_mme_200/2026-09-22/density_e1/实验记录.md) | `density_e1_200_20260922_r1` |
 | RD-1.2-exp02／2026-09-22 | [单帧能力边界](video_mme_200/2026-09-22/promotion_probe/验证记录.md) | [64次辅助识别](video_mme_200/2026-09-22/promotion_probe/验证记录.md) | `promotion_probe64_20260922_r1` |
 | RD-1.2-exp01／2026-09-22 | [七题粗候选诊断](video_mme_200/2026-09-22/entry_repair/诊断记录.md) | [人工入口修复](video_mme_200/2026-09-22/entry_repair/诊断记录.md) | `entry_repair7_20260922_r1` |
