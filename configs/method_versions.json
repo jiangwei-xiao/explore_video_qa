@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp05",
+    "next_rd_1_2_exploration": "RD-1.2-exp07",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -388,6 +388,28 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
       "status": "development_200_evaluated_not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp05",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp04"],
+      "description": "仅将第一遍支持度统一为第二遍已有的相对ITM加权种子支持；密度奖励和两遍差异尺度不变。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
+      "status": "offline_only_not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp06",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp04"],
+      "description": "仅对相邻原窗口间隙中的粗帧施加线性时间归属支持，两遍均乘同一T，不合入exp05。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
+      "status": "development_200_running"
     }
   ]
 }
