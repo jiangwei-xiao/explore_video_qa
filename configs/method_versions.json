@@ -409,7 +409,7 @@
       "description": "仅对相邻原窗口间隙中的粗帧施加线性时间归属支持，两遍均乘同一T，不合入exp05。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
-      "status": "development_200_running"
+      "status": "development_200_evaluated_not_integrated"
     }
   ]
 }
