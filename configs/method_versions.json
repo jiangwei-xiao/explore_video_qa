@@ -387,7 +387,7 @@
       "description": "两遍选择共享全局粗候选资格；补查仍局部，原预算公式与exp03局部支持公式不变。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
-      "status": "development_200_running"
+      "status": "development_200_evaluated_not_integrated"
     }
   ]
 }
