@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp04",
+    "next_rd_1_2_exploration": "RD-1.2-exp05",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -377,6 +377,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
       "status": "development_200_evaluated_not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp04",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp03"],
+      "description": "两遍选择共享全局粗候选资格；补查仍局部，原预算公式与exp03局部支持公式不变。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
+      "status": "development_200_running"
     }
   ]
 }
