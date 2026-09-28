@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-22",
+  "updated_on": "2026-09-28",
   "current_frozen_method": "RD-1.2",
   "naming_policy": {
     "method": "FAMILY-major.minor",
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp03",
+    "next_rd_1_2_exploration": "RD-1.2-exp04",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -367,6 +367,16 @@
       ],
       "report": "docs/experiments/video_mme_200/2026-09-22/promotion_probe/验证记录.md",
       "status": "not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp03",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "description": "固定原窗口、候选池、锚点及配额，仅在第二遍按相对ITM加权种子视觉支持。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
+      "status": "development_200_running"
     }
   ]
 }
