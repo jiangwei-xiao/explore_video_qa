@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "kind": "development_candidate_snapshot",
+  "method_id": "RD-1.2-exp07",
+  "description": "固定局部选择前缀，以实际粗观测覆盖的DP目标联合分配帧预算",
+  "model": "Qwen2.5-VL-7B-Instruct",
+  "evaluation_protocol": "lmms-videomme-reference-v1",
+  "configuration": {
+    "seed_budget": 32,
+    "frame_budget": 32,
+    "max_new_tokens": 16
+  },
+  "scope": "Video-MME frozen development200; repeatedly used for exploration",
+  "dataset_manifest": "data/manifests/video_mme_development_200_20260920.json",
+  "dataset_manifest_sha256": "afc6637bf4a17c4fe750846a2ef77fdc6ae12ab096ec2d6e5aafe6ea5d258fd6",
+  "run_directory": "outputs/diagnostics/rd12_exp07__qwen__dev200__k32__20260928_r1",
+  "source_code_commit": "0233afb",
+  "protocol_sha256": "3dd5f8c04712d755add6ade78315ecfc7c883ef02caa147ae9606f43b0a76dda",
+  "method_code_sha256": {
+    "src/videoqa_methods/coarse_eligibility.py": "ece49575aa6ce0db30d0093ff24c24f409b2a065f4a887e7d467c820c6cfc3e6",
+    "src/videoqa_methods/weighted_seed_support.py": "f611da8d36fc9d7d07842e67cbbf446f1d5c61813a44e01d78094dd1c0f2b657",
+    "src/videoqa_methods/prefix_coverage_budget.py": "b0ff097fe4b3fd288259068a255022c60c1ff223820f060e3a907999288b1c68",
+    "scripts/prepare_prefix_coverage.py": "e0672fbc8d4e205750698a063e010d463e9c0deaa02b389467a4f975a9fc2580"
+  },
+  "method_code_snapshot": "outputs/diagnostics/rd12_exp07__qwen__dev200__k32__20260928_r1/method_code_snapshot",
+  "frozen_artifacts": "outputs/diagnostics/rd12_exp07__qwen__dev200__k32__20260928_r1/frozen_artifacts.json",
+  "frozen_artifacts_sha256": "da0127642f258add3edbea089c304cbdbc8ce89402f0c69f457355eb737599c1",
+  "completion_audit": "outputs/diagnostics/rd12_exp07__qwen__dev200__k32__20260928_r1/final_completion_audit.json",
+  "completion_audit_sha256": "82cd6ae0d27e1f7a52682e75163d0b45dd7c87cdbc12b5ef6e6e213969d7f745",
+  "results": {
+    "correct": 136,
+    "n": 200,
+    "uniform_correct": 130,
+    "delta_percentage_points": 3,
+    "paired_bootstrap_95_percentage_points": [
+      -3,
+      9
+    ]
+  },
+  "limitations": [
+    "Development point estimate reaches target; not a full-dataset result",
+    "No statistically established superiority over Uniform",
+    "Repeated development use and version selection require independent confirmation",
+    "Does not replace the frozen RD-1.2 reference"
+  ],
+  "frozen_at_utc": "2026-09-28T05:25:29.895657+00:00"
+}

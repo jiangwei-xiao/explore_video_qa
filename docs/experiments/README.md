@@ -4,6 +4,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
+| RD-1.2探索／Qwen32开发200题／2026-09-28 | [规则与逐阶段边界](video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md) | [exp07为136/200与全部分支记录](video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md) | `rd12_exp07__qwen__dev200__k32__20260928_r1`；此前对照各自保留 |
 | Qwen32三策略／全量2700题／2026-09-24 | [固定配置与验收](video_mme_full/2026-09-24/qwen32/执行协议.md) | [8100条结果与三环节分析](video_mme_full/2026-09-24/qwen32/实验结果.md) | `uniform_topk_rd12__qwen25vl__lmms_ref_v1__videomme2700__k32_20260924__r01` |
 | RD-1.2／开发200题／2026-09-22 | [固定两遍流程](video_mme_200/2026-09-22/density_e1/实验记录.md) | [125/200与版本冻结](video_mme_200/2026-09-22/density_e1/实验记录.md) | `density_e1_200_20260922_r1` |
 | RD-1.2-exp02／2026-09-22 | [单帧能力边界](video_mme_200/2026-09-22/promotion_probe/验证记录.md) | [64次辅助识别](video_mme_200/2026-09-22/promotion_probe/验证记录.md) | `promotion_probe64_20260922_r1` |
