@@ -420,7 +420,8 @@
       "description": "局部选择前缀不变，以实际粗帧视觉覆盖乘原密度权重为目标，用DP分配预算。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md",
-      "status": "development_candidate_target_met",
+      "status": "full_evaluated_positive_below_target",
+      "full_report": "docs/experiments/video_mme_full/2026-09-30/exp07/实验结果与定位分析.md",
       "release_manifest": "configs/releases/rd_1_2_exp07_qwen32_dev200_20260928.json"
     }
   ]
