@@ -161,7 +161,7 @@ def prepare(run, allowed):
             for row in data:
                 p = BASE/'results'/m/(row['question_id']+'.json'); sources[str(p)] = sha256(p)
         # 步骤3：新增适配层及固定算法单独快照，不改历史协议。
-        code = dict(base['code_sha256'])
+        code = dict(devspec['code_sha256'])
         for n in ['src/videoqa_budget32/prefix_full.py','scripts/run_prefix_coverage_full.py'] + list(read_json(RELEASE)['method_code_sha256']):
             code[n] = sha256(ROOT/n)
         for n,h in code.items():
@@ -211,7 +211,12 @@ def execute(run):
             c = read_json(p); assert c['status'] == 'completed'; pinned[p.stem] = c['gpu']
         for p in (run/'results'/METHOD).glob('*.json'):
             assert p.stem in new; validate(run,byid[p.stem],METHOD,spec); done.add(p.stem)
-        if done == new: return
+        if done == new:
+            if not (run/'execution.json').exists():
+                durable(run/'execution.json',dict(status='completed',new_answer_calls=2500,
+                    actual_gpus=sorted(set(pinned.values())),wall_seconds=None,
+                    recovered_completion=True,limitation='Original coordinator wall time unavailable',utc=utc()))
+            return
         required = {g for q,g in pinned.items() if q not in done}
         while True:
             try: gpus,states = available_gpus(spec['allowed_gpus'])
