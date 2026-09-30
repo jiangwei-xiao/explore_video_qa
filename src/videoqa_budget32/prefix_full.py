@@ -162,7 +162,7 @@ def prepare(run, allowed):
                 p = BASE/'results'/m/(row['question_id']+'.json'); sources[str(p)] = sha256(p)
         # 步骤3：新增适配层及固定算法单独快照，不改历史协议。
         code = dict(devspec['code_sha256'])
-        for n in ['src/videoqa_budget32/prefix_full.py','scripts/run_prefix_coverage_full.py'] + list(read_json(RELEASE)['method_code_sha256']):
+        for n in ['src/videoqa_budget32/prefix_full.py','scripts/run_prefix_coverage_full.py','scripts/render_prefix_full_cases.py'] + list(read_json(RELEASE)['method_code_sha256']):
             code[n] = sha256(ROOT/n)
         for n,h in code.items():
             assert sha256(ROOT/n) == h
@@ -346,7 +346,27 @@ def summarize(run):
         synthetic_generations=read_json(run/'synthetic_acceptance.json')['synthetic_calls_started']+sum(read_json(p)['synthetic_generations'] for p in (run/'workers').glob('*.json')),
         failures=[str(p.relative_to(run)) for p in (run/'failures').glob('*.json')],
         limitations=['Repeated development selection; remaining data not entirely unseen','200 imported answers plus 2500 new; no best-of-runs','Cached selection/decoding QA, not raw-video end-to-end'],utc=utc())
-    durable(run/'summary.json',summary); return summary
+    durable(run/'summary.json',summary)
+    # 步骤4：自动生成可读统计，不把尚未执行的人工差异审核写成已完成。
+    lines = ['# exp07 Qwen32全量结果','',
+        '来源：200条冻结开发答案＋2500条新回答。主分母2700；人工案例解释需另行审核。','',
+        '| 方法 | 全量 | 短 | 中 | 长 | 开发200 | 其余2500 | 开发视频外2100 |',
+        '|---|---:|---:|---:|---:|---:|---:|---:|']
+    for m,groups in tables.items():
+        a = groups['all2700']; cols = [f"{a['all']['correct']}/2700 ({100*a['all']['accuracy']:.3f}%)"]
+        cols += [str(a[t]['correct']) for t in ('short','medium','long')]
+        cols += [str(groups[t]['all']['correct']) for t in ('development200','other2500','outside_development_videos2100')]
+        lines.append('| '+m+' | '+' | '.join(cols)+' |')
+    lines += ['','## 配对差值','']
+    for m,pair in pairs.items():
+        a = pair['all2700']; lo,hi = a['stratified_video_cluster_bootstrap_95']
+        lines.append(f"- 相对{m}：{a['difference_pp']:+.3f}个百分点；新增正确{len(a['cells']['left_only'])}、退化{len(a['cells']['right_only'])}；视频簇95%区间[{lo:+.3f},{hi:+.3f}]。")
+    lines += ['','## 验证边界','',
+        '开发集已用于多轮版本选择，其他全量案例也曾被观察，不称完全盲测。当前冻结方法不因全量得分自动调整。',
+        '完整分组、题型、共同32帧子集及性能见summary.json；全部答案来源见per_question.json；机制指标见stage_analysis.json。',
+        '正式恢复验收以completion_audit.json为准；此统计生成本身不证明后续审计已完成。']
+    (run/'report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    return summary
 
 
 def audit(run):

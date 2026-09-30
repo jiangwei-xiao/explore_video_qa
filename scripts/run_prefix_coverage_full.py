@@ -36,7 +36,9 @@ def main():
                 try: subprocess.run(cmd,check=True,cwd=ROOT)
                 except BaseException as exc:
                     durable(run/'pipeline_status.json',dict(stage=stage,status='paused',error=repr(exc),utc=utc())); raise
-            durable(run/'pipeline_status.json',dict(status='completed',utc=utc()))
+            durable(run/'pipeline_status.json',dict(stage='case_assets',status='running',utc=utc()))
+            subprocess.run(['/App/conda/envs/explore_video_qa/bin/python',str(ROOT/'scripts/render_prefix_full_cases.py'),'--run',str(run)],check=True,cwd=ROOT)
+            durable(run/'pipeline_status.json',dict(status='completed',case_review='pending_human_or_AI_review',utc=utc()))
     # 步骤2：单阶段入口可审计恢复，禁止跳过准备指纹或重新生成已完成答案。
     elif args.stage == 'selection': full.selection_all(run)
     elif args.stage == 'synthetic':
