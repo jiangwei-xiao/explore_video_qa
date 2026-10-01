@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp13",
+    "next_rd_1_2_exploration": "RD-1.2-exp14",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -500,6 +500,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-02/relevance_coverage/实验结果.md",
       "status": "development_200_small_gain_candidate_not_full_validated"
+    },
+    {
+      "id": "RD-1.2-exp13",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07", "RD-1.2-exp12"],
+      "description": "固定exp12区内加权覆盖与局部前缀，仅按区域原种子平均ITM相对强度缩放预算效用；保护锚点不变。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-02/seed_strength/执行协议.md",
+      "status": "development_200_authorized_preparing"
     }
   ]
 }
