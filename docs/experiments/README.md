@@ -37,4 +37,4 @@
 
 2026-10-02新增：[exp11帧组完成与diag02匹配控制](video_mme_200/2026-10-02/seed_bundles/执行协议.md) · [结果](video_mme_200/2026-10-02/seed_bundles/实验结果.md)：diag02为129/200、exp11为128/200，未达全量门槛，保留记录不合入。
 
-2026-10-02新增：[exp12原问题加权覆盖预算](video_mme_200/2026-10-02/relevance_coverage/执行协议.md)：局部前缀固定的预算单因素，200题离线完成，问答待执行。
+2026-10-02新增：[exp12原问题加权覆盖预算](video_mme_200/2026-10-02/relevance_coverage/执行协议.md) · [结果](video_mme_200/2026-10-02/relevance_coverage/实验结果.md)：138/200，对exp07净+2，未达全量优先门槛，保留小幅正向候选。
