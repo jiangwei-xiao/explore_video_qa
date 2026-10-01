@@ -509,8 +509,8 @@
       "dependencies": ["RD-1.2-exp07", "RD-1.2-exp12"],
       "description": "固定exp12区内加权覆盖与局部前缀，仅按区域原种子平均ITM相对强度缩放预算效用；保护锚点不变。",
       "aliases": [],
-      "report": "docs/experiments/video_mme_200/2026-10-02/seed_strength/执行协议.md",
-      "status": "development_200_authorized_preparing"
+      "report": "docs/experiments/video_mme_200/2026-10-02/seed_strength/实验结果.md",
+      "status": "development_200_evaluated_no_increment_over_exp12"
     }
   ]
 }
