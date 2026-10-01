@@ -4,6 +4,8 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
+| RD-1.2-diag01／Qwen32开发200题／2026-10-01 | [入口独立对照协议](video_mme_200/2026-10-01/option_rank/执行协议.md) | 待执行；不改exp07 | `option_rank_dev200_20261001_r1` |
+| 定位文本与四路检索探针／2026-10-01 | [九题协议](video_mme_full/2026-10-01/query_input_probe/执行协议.md) | [定位结果与边界](video_mme_full/2026-10-01/query_input_probe/结果与后续诊断.md) | `query_input_pilot9_20261001_r1`及两阶段逐选项控制 |
 | exp07／Qwen32全量2700题／2026-09-30 | [固定协议](video_mme_full/2026-09-30/exp07/执行协议.md) | [1692正确与定位分析](video_mme_full/2026-09-30/exp07/实验结果与定位分析.md) | `rd12_exp07__qwen32__videomme2700__20260930_r1`；200导入＋2500新回答 |
 | RD-1.2探索／Qwen32开发200题／2026-09-28 | [规则与逐阶段边界](video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md) | [exp07为136/200与全部分支记录](video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md) | `rd12_exp07__qwen__dev200__k32__20260928_r1`；此前对照各自保留 |
 | Qwen32三策略／全量2700题／2026-09-24 | [固定配置与验收](video_mme_full/2026-09-24/qwen32/执行协议.md) | [8100条结果与三环节分析](video_mme_full/2026-09-24/qwen32/实验结果.md) | `uniform_topk_rd12__qwen25vl__lmms_ref_v1__videomme2700__k32_20260924__r01` |

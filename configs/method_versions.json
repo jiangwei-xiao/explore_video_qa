@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-09-28",
+  "updated_on": "2026-10-01",
   "current_frozen_method": "RD-1.2",
   "naming_policy": {
     "method": "FAMILY-major.minor",
@@ -423,6 +423,16 @@
       "status": "full_evaluated_positive_below_target",
       "full_report": "docs/experiments/video_mme_full/2026-09-30/exp07/实验结果与定位分析.md",
       "release_manifest": "configs/releases/rd_1_2_exp07_qwen32_dev200_20260928.json"
+    },
+    {
+      "id": "RD-1.2-diag01",
+      "family": "RD",
+      "kind": "diagnostic",
+      "parent": "RD-1.2",
+      "description": "入口独立对照：原题加每个原选项四路BLIP，最佳查询内名次融合，直接选择最多32粗帧；不含RD窗口、补查或预算机制。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-01/option_rank/执行协议.md",
+      "status": "development_200_preparing_not_integrated"
     }
   ]
 }
