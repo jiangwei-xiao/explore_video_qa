@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp10",
+    "next_rd_1_2_exploration": "RD-1.2-exp11",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -456,6 +456,17 @@
       "report": "docs/experiments/video_mme_200/2026-10-01/joint_seed_exp09/实验结果.md",
       "status": "development_200_candidate_pending_independent_validation",
       "release_manifest": "configs/releases/rd_1_2_exp09_qwen32_dev200_20261001.json"
+    },
+    {
+      "id": "RD-1.2-exp10",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07"],
+      "description": "exp07原问题入口与前缀DP不变，严格恒定RGB帧不得作为种子或最终选择项，覆盖参照不变。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-01/constant_frame_exp10/执行协议.md",
+      "status": "development_200_authorized_preparing"
     }
   ]
 }
