@@ -465,8 +465,8 @@
       "dependencies": ["RD-1.2-exp07"],
       "description": "exp07原问题入口与前缀DP不变，严格恒定RGB帧不得作为种子或最终选择项，覆盖参照不变。",
       "aliases": [],
-      "report": "docs/experiments/video_mme_200/2026-10-01/constant_frame_exp10/执行协议.md",
-      "status": "development_200_authorized_preparing"
+      "report": "docs/experiments/video_mme_200/2026-10-01/constant_frame_exp10/实验结果.md",
+      "status": "development_200_evaluated_not_integrated"
     }
   ]
 }
