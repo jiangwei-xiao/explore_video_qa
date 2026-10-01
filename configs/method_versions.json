@@ -520,8 +520,8 @@
       "dependencies": ["RD-1.2-exp09", "RD-1.2-exp12"],
       "description": "冻结exp09五视角入口、补查池与局部前缀，仅采用exp12原问题加权粗参考预算；不合入exp13。",
       "aliases": [],
-      "report": "docs/experiments/video_mme_200/2026-10-02/joint_relevance/执行协议.md",
-      "status": "development_200_authorized_preparing"
+      "report": "docs/experiments/video_mme_200/2026-10-02/joint_relevance/实验结果.md",
+      "status": "development_200_evaluated_no_increment_over_exp09"
     },
     {
       "id": "RD-1.2-exp15",
