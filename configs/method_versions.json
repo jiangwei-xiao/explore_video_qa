@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp09",
+    "next_rd_1_2_exploration": "RD-1.2-exp10",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -444,6 +444,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-01/option_seed_exp08/实验结果.md",
       "status": "development_200_evaluated_not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp09",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07", "RD-1.2-exp08"],
+      "description": "原题独立排名与四条候选描述排名共同提议Top-M种子，其余条件补查、原问题支持及前缀DP不变。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-01/joint_seed_exp09/执行协议.md",
+      "status": "development_200_preparing_not_integrated"
     }
   ]
 }
