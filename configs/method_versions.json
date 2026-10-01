@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-01",
+  "updated_on": "2026-10-02",
   "current_frozen_method": "RD-1.2",
   "naming_policy": {
     "method": "FAMILY-major.minor",
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp11",
+    "next_rd_1_2_exploration": "RD-1.2-exp12",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -467,6 +467,28 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-01/constant_frame_exp10/实验结果.md",
       "status": "development_200_evaluated_not_integrated"
+    },
+    {
+      "id": "RD-1.2-diag02",
+      "family": "RD",
+      "kind": "diagnostic",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07"],
+      "description": "同一冻结池及保护锚点下，原粗帧视觉覆盖的单位成本单帧贪心，作为帧组完成项的求解器匹配控制。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-02/seed_bundles/执行协议.md",
+      "status": "development_200_authorized_preparing"
+    },
+    {
+      "id": "RD-1.2-exp11",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07", "RD-1.2-diag02"],
+      "description": "原Top32多位置提出两/三帧组，归一化原粗帧覆盖加状态对完成，按新增唯一帧成本贪心竞争。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-02/seed_bundles/执行协议.md",
+      "status": "development_200_authorized_preparing"
     }
   ]
 }
