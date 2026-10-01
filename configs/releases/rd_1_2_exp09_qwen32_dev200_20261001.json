@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "kind": "development_candidate_snapshot",
+  "method_id": "RD-1.2-exp09",
+  "model": "Qwen2.5-VL-7B-Instruct",
+  "evaluation_protocol": "lmms-videomme-reference-v1",
+  "configuration": {
+    "seed_budget": 32,
+    "frame_budget": 32,
+    "max_new_tokens": 16
+  },
+  "scope": "Repeatedly explored Video-MME development200; no full-dataset validation for this candidate",
+  "source_code_commit": "f48a9f5",
+  "dataset_manifest": "data/manifests/video_mme_development_200_20260920.json",
+  "dataset_manifest_sha256": "afc6637bf4a17c4fe750846a2ef77fdc6ae12ab096ec2d6e5aafe6ea5d258fd6",
+  "selection_run": "outputs/methods/rd12_exp09__qwen32__dev200__20261001_r1",
+  "qa_run": "outputs/diagnostics/rd12_exp09__qwen32__dev200__20261001_r1",
+  "selection_protocol_sha256": "b2647df346b5689c2f87110a1994f2918a10f2fbb7e7c634d3b75ede7ae07e77",
+  "qa_protocol_sha256": "0bf1d800933604d7161c78b0413c0410dc9c7e684dc7596ab25091f8e098f7bc",
+  "method_code_sha256": {
+    "scripts/run_joint_seed_experiment.py": "5d38d5b1585805f501ba4816dd8acc3a1c6a858fc827f8af917da85a905766c4",
+    "src/videoqa_methods/option_seed_entry.py": "568fe3a499812f536ebbf05d278b0f32fe2dac115c40f19a35b99c69d17f3fab",
+    "src/videoqa_methods/joint_seed_entry.py": "c44e7d8ce98ed72be079f9871d8f41443c9bf9ba8ca8acdb19454d4c4b87e856",
+    "src/videoqa_audit/joint_query_views.py": "e105ed2961a57b5e5913de750b8fa6fde415e746122ea98f8a9eb45a32c4455e",
+    "src/videoqa_audit/option_rank_selection.py": "b8571e343697cfef7771ce1a5f99778e311668895ab9bfa15114453c597b5868",
+    "src/videoqa_audit/option_coarse_replay.py": "911c6e961e507fed5d045e6d4cdfed20f0ad47dcad934b769a36c4cabc7ef60d",
+    "src/videoqa_methods/density_pipeline.py": "3d8aa58392c798cbef02db6b3dbf3a7b842c1b02f5687f3ee5184abdaf2a5027",
+    "src/videoqa_methods/model_ops.py": "3767ef1212895e8255244b60b6d974b321b2a3c89fc8c77b31f84a2d2f556b95",
+    "src/videoqa_methods/density_selection.py": "488d0a9dece03aebbb64016fa7e9df7545fab26be24240f82e7a28a7c9629344",
+    "src/videoqa_methods/prefix_coverage_budget.py": "b0ff097fe4b3fd288259068a255022c60c1ff223820f060e3a907999288b1c68",
+    "src/videoqa_methods/weighted_seed_support.py": "f611da8d36fc9d7d07842e67cbbf446f1d5c61813a44e01d78094dd1c0f2b657",
+    "src/videoqa_methods/coarse_eligibility.py": "ece49575aa6ce0db30d0093ff24c24f409b2a065f4a887e7d467c820c6cfc3e6",
+    "src/videoqa_budget32/prefix_full.py": "03ab6046d372ec16d3705d483e4d0a9860c0ae20ef928b179062b1c17b70b9e1"
+  },
+  "frozen_artifacts": "outputs/methods/rd12_exp09__qwen32__dev200__20261001_r1/frozen_artifacts.json",
+  "frozen_artifacts_sha256": "2429a00fa4c9ca46c50f6508929fcab90f91066189777424fe8d096c0c003aef",
+  "frozen_primary_files": 14147,
+  "selection_audit_sha256": "fce00e7d010baa01e3543938946c0873dd9bdbc6b38fb54c38e579db13df1009",
+  "qa_completion_audit_sha256": "93534b8b4567ce618efee5f938584da612607b65fca8e06394b1adf27371b692",
+  "results": {
+    "correct": 137,
+    "n": 200,
+    "uniform_correct": 130,
+    "exp07_correct": 136,
+    "delta_uniform_pp": 3.5,
+    "delta_exp07_pp": 0.5,
+    "bootstrap_uniform_95_pp": [
+      -2,
+      9
+    ],
+    "bootstrap_exp07_95_pp": [
+      -3.5,
+      4.5
+    ]
+  },
+  "limitations": [
+    "Small development-point improvement, not confirmed superiority",
+    "Does not replace RD-1.2 or the full-evaluated exp07 candidate",
+    "No automatic full evaluation or further query-view/weight search"
+  ]
+}

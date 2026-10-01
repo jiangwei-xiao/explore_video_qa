@@ -453,8 +453,9 @@
       "dependencies": ["RD-1.2-exp07", "RD-1.2-exp08"],
       "description": "原题独立排名与四条候选描述排名共同提议Top-M种子，其余条件补查、原问题支持及前缀DP不变。",
       "aliases": [],
-      "report": "docs/experiments/video_mme_200/2026-10-01/joint_seed_exp09/执行协议.md",
-      "status": "development_200_preparing_not_integrated"
+      "report": "docs/experiments/video_mme_200/2026-10-01/joint_seed_exp09/实验结果.md",
+      "status": "development_200_candidate_pending_independent_validation",
+      "release_manifest": "configs/releases/rd_1_2_exp09_qwen32_dev200_20261001.json"
     }
   ]
 }
