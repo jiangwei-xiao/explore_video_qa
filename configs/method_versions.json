@@ -531,8 +531,8 @@
       "dependencies": ["RD-1.2-exp12"],
       "description": "固定exp12粗细池与预算目标，每个原几何核心保护一个最高分种子；其余沿用支持乘差异，并以核心锚点数作为DP配额下界。",
       "aliases": [],
-      "report": "docs/experiments/video_mme_200/2026-10-02/core_anchor/执行协议.md",
-      "status": "development_200_authorized_preparing"
+      "report": "docs/experiments/video_mme_200/2026-10-02/core_anchor/实验结果.md",
+      "status": "development_200_evaluated_proxy_gain_accuracy_unchanged"
     }
   ]
 }
