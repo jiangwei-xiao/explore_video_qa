@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp16",
+    "next_rd_1_2_exploration": "RD-1.2-exp17",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -533,6 +533,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-02/core_anchor/实验结果.md",
       "status": "development_200_evaluated_proxy_gain_accuracy_unchanged"
+    },
+    {
+      "id": "RD-1.2-exp16",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp12"],
+      "description": "只将种子支持L的帧间表征替换为恢复的BLIP官方ITC视觉投影；D、覆盖仍使用原CLS，exp12目标与原池不变。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-02/projected_support/执行协议.md",
+      "status": "development_200_authorized_preparing"
     }
   ]
 }
