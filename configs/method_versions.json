@@ -442,8 +442,8 @@
       "dependencies": ["RD-1.2-exp07", "RD-1.2-diag01"],
       "description": "仅替换种子集合为四选项查询内最佳名次Top-M，原问题区内锚点与支持、条件补查、局部前缀及DP不变。",
       "aliases": [],
-      "report": "docs/experiments/video_mme_200/2026-10-01/option_seed_exp08/执行协议.md",
-      "status": "development_200_preparing_not_integrated"
+      "report": "docs/experiments/video_mme_200/2026-10-01/option_seed_exp08/实验结果.md",
+      "status": "development_200_evaluated_not_integrated"
     }
   ]
 }
