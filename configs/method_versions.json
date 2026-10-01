@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp14",
+    "next_rd_1_2_exploration": "RD-1.2-exp15",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -511,6 +511,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-02/seed_strength/实验结果.md",
       "status": "development_200_evaluated_no_increment_over_exp12"
+    },
+    {
+      "id": "RD-1.2-exp14",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp09", "RD-1.2-exp12"],
+      "description": "冻结exp09五视角入口、补查池与局部前缀，仅采用exp12原问题加权粗参考预算；不合入exp13。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-02/joint_relevance/执行协议.md",
+      "status": "development_200_authorized_preparing"
     }
   ]
 }
