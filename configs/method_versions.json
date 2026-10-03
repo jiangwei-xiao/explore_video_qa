@@ -580,6 +580,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/bounded_supplement/实验记录.md",
       "status": "development_200_evaluated_negative_not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp20",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp12"],
+      "description": "exp12条件补查消融：只移除细帧，保留原粗池、种子、窗口、评分、粗参考与密度，重算原局部前缀和加权覆盖DP；预算上限32。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-03/coarse_only_ablation/实验记录.md",
+      "status": "offline_prepared_ablation"
     }
   ]
 }
