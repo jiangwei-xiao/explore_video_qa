@@ -591,6 +591,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/coarse_only_ablation/实验记录.md",
       "status": "development_200_ablation_completed_small_negative"
+    },
+    {
+      "id": "RD-1.2-exp21",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp12"],
+      "description": "固定exp12 M32/K32窗口、池、密度、锚点与配额；原窗外正ITM粗帧按4秒时间抑制提议至多4个，仅扩展局部支持集合后按原规则重选。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-03/external_support/实验记录.md",
+      "status": "offline_development_200_prepared"
     }
   ]
 }
