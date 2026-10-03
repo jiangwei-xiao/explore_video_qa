@@ -499,7 +499,9 @@
       "description": "固定exp07全部局部前缀，仅将粗参考覆盖权重改为区内原问题ITM归一化，密度权重和精确DP不变。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-02/relevance_coverage/实验结果.md",
-      "status": "development_200_small_gain_candidate_not_full_validated"
+      "status": "full_preflight_passed_formal_entry_pending",
+      "full_protocol": "docs/experiments/video_mme_full/2026-10-03/exp12/执行协议.md",
+      "release_manifest": "configs/releases/rd_1_2_exp12_qwen32_dev200_20261002.json"
     },
     {
       "id": "RD-1.2-exp13",

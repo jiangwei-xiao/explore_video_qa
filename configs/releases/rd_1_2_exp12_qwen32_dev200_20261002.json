@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "kind": "development_candidate_snapshot",
+  "method_id": "RD-1.2-exp12",
+  "description": "固定exp07局部前缀，以区内原问题ITM归一化评价粗观测覆盖，仅改变DP预算曲线",
+  "model": "Qwen2.5-VL-7B-Instruct",
+  "evaluation_protocol": "lmms-videomme-reference-v1",
+  "configuration": {"seed_budget": 32, "frame_budget": 32, "max_new_tokens": 16},
+  "scope": "Frozen development200, repeatedly observed; full generalization remains unverified",
+  "dataset_manifest": "data/manifests/video_mme_development_200_20260920.json",
+  "dataset_manifest_sha256": "afc6637bf4a17c4fe750846a2ef77fdc6ae12ab096ec2d6e5aafe6ea5d258fd6",
+  "run_directory": "outputs/diagnostics/rd12_exp12__qwen32__dev200__20261002_r1",
+  "source_code_commit": "f11dff9",
+  "protocol_sha256": "965f8abea96383dfb2137c3336bd34db19a4cc4fd9942a05fb7ff94cc6595487",
+  "method_code_sha256": {
+    "src/videoqa_methods/relevance_coverage_budget.py": "6d862422e03c409936ac8c6794a1e8d042364efa7346bd1d5866c0f5e965b8ed",
+    "src/videoqa_methods/prefix_coverage_budget.py": "b0ff097fe4b3fd288259068a255022c60c1ff223820f060e3a907999288b1c68",
+    "scripts/analyze_relevance_coverage.py": "b83ca03486e1b2afffaf1cc136a923b7c4ca995dbc553f2df814f4b625c5e68b"
+  },
+  "method_code_snapshot": "outputs/analysis/relevance_coverage_dev200_20261002_r1/code_snapshot",
+  "frozen_artifacts": "outputs/methods/rd12_exp12__qwen32__dev200__20261002_r1/frozen_artifacts.json",
+  "frozen_artifacts_sha256": "e7ba0da542b749ce63501d9b2195d5256f8081691325da74fd9c8ad167f3b51a",
+  "results": {"n": 200, "correct": 138, "reference_exp07_correct": 136, "uniform_correct": 130},
+  "full_preflight": "outputs/full_videoqa/rd12_exp12__qwen32__videomme2700__20261003_r1/preflight.json",
+  "full_preflight_sha256": "45b03dd66b0dd33f365027996be236c80c456b6ffdcf17a545ac3039f0d3c40f",
+  "note": "Release pointer registered 2026-10-03; original development artifacts and method bytes remain unchanged"
+}
