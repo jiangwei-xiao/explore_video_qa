@@ -590,7 +590,7 @@
       "description": "exp12条件补查消融：只移除细帧，保留原粗池、种子、窗口、评分、粗参考与密度，重算原局部前缀和加权覆盖DP；预算上限32。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/coarse_only_ablation/实验记录.md",
-      "status": "offline_prepared_ablation"
+      "status": "development_200_ablation_completed_small_negative"
     }
   ]
 }
