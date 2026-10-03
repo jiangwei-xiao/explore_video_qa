@@ -554,7 +554,7 @@
       "description": "原问题入口与池不变，每区保护原锚点，至多四步原选项序数覆盖后接原视觉前缀及覆盖DP；严格数字计数和事件引用排列回退。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/local_option_evidence/实验结果与局部原型.md",
-      "status": "development_200_offline_validated_qa_planned"
+      "status": "development_200_evaluated_small_gain_not_full_prioritized"
     }
   ]
 }
