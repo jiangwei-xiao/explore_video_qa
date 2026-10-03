@@ -601,7 +601,7 @@
       "description": "固定exp12 M32/K32窗口、池、密度、锚点与配额；原窗外正ITM粗帧按4秒时间抑制提议至多4个，仅扩展局部支持集合后按原规则重选。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/external_support/实验记录.md",
-      "status": "offline_development_200_prepared"
+      "status": "development_200_evaluated_no_net_gain_not_integrated"
     }
   ]
 }
