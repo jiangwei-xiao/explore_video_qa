@@ -15,12 +15,15 @@ from render_rd_failure_panel import render
 PANEL = ['819-1', '191-3', '409-3', '397-2']
 
 
-def contexts(directory):
+def contexts(directory, windows=None):
     """接口：仅检查明确列出的粗候选区间；稀疏预览不能证明首次事件或全片证据不存在。"""
     from PIL import Image, ImageDraw
     # 步骤1：范围来自既有定位或首轮图板缺口，不增加采样、不计算任何分数。
-    windows = [('819-1', 0, 120, 5), ('191-3', 0, 32, 1),
-               ('409-3', 72, 86, 1), ('397-2', 250, 440, 5)]
+    if windows is None:
+        windows = [('819-1', 0, 120, 5), ('191-3', 0, 32, 1),
+                   ('409-3', 72, 86, 1), ('397-2', 250, 440, 5)]
+    assert all(0 <= left < right and isinstance(stride, int) and stride > 0
+               for _, left, right, stride in windows), '核查范围和粗候选步长必须有效'
     for q, left, right, stride in windows:
         pool = read_json(BASE / 'pools' / (q + '.json'))
         trace = read_json(FULL / 'traces' / (q + '.json'))
