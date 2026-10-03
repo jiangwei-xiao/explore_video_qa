@@ -565,7 +565,7 @@
       "description": "固定exp17全部局部前缀与候选，仅将预算目标中的区域密度倍率改为1；原密度仍用于上游补查，不均分帧数。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/equal_region_budget/实验记录.md",
-      "status": "development_200_offline_validated_qa_planned"
+      "status": "development_200_evaluated_negative_not_integrated"
     },
     {
       "id": "RD-1.2-exp19",
