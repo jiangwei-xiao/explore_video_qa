@@ -555,6 +555,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/local_option_evidence/实验结果与局部原型.md",
       "status": "development_200_evaluated_small_gain_not_full_prioritized"
+    },
+    {
+      "id": "RD-1.2-exp18",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp17"],
+      "description": "固定exp17全部局部前缀与候选，仅将预算目标中的区域密度倍率改为1；原密度仍用于上游补查，不均分帧数。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-03/equal_region_budget/实验记录.md",
+      "status": "development_200_offline_validated_qa_planned"
     }
   ]
 }
