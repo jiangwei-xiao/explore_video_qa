@@ -5,6 +5,7 @@
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
 | RD-1.2-exp18／Qwen32开发200题／2026-10-03 | [等权区域预算协议](video_mme_200/2026-10-03/equal_region_budget/实验记录.md) | 离线验收完成，问答待执行 | `rd12_exp18__qwen32__dev200__20261003_r1` |
+| RD-1.2-exp19／Qwen32开发200题／2026-10-03 | [有界补充规则与风险](video_mme_200/2026-10-03/bounded_supplement/实验记录.md) | 离线选择与正式RGB准备完成；尚无问答成绩 | `rd12_exp19__qwen32__dev200__20261003_r2` |
 | RD-1.2-exp17／Qwen32开发200题／2026-10-03 | [局部原型与问答协议](video_mme_200/2026-10-03/local_option_evidence/实验结果与局部原型.md) | [137正确、得失与预算问题](video_mme_200/2026-10-03/local_option_evidence/实验结果与局部原型.md) | `rd12_exp17__qwen32__dev200__20261003_r1` |
 | RD-1.2-exp09／Qwen32开发200题／2026-10-01 | [五路完整验证协议](video_mme_200/2026-10-01/joint_seed_exp09/执行协议.md) | [137正确与开发候选边界](video_mme_200/2026-10-01/joint_seed_exp09/实验结果.md) | `rd12_exp09__qwen32__dev200__20261001_r1` |
 | RD-1.2-exp08／Qwen32开发200题／2026-10-01 | [完整入口替换协议](video_mme_200/2026-10-01/option_seed_exp08/执行协议.md) | [133正确与固定案例](video_mme_200/2026-10-01/option_seed_exp08/实验结果.md) | `rd12_exp08__qwen32__dev200__20261001_r1` |

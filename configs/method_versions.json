@@ -566,6 +566,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/equal_region_budget/实验记录.md",
       "status": "development_200_offline_validated_qa_planned"
+    },
+    {
+      "id": "RD-1.2-exp19",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07"],
+      "description": "保护exp07主体与原锚点，按原题加选项的正log-odds增量乘局部差异提出粗帧，以最小原覆盖损失完成至多四次替换。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-03/bounded_supplement/实验记录.md",
+      "status": "development_200_offline_validated_qa_planned"
     }
   ]
 }
