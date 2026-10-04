@@ -57,6 +57,12 @@ def export(q):
 def main():
     """接口：离线重放、输入冻结、先行5题、最多200题；异常停止，不自动扩展。"""
     with exclusive(RUN/'run.lock'):
+        qa=ROOT/'outputs/diagnostics'/NAME
+        report_script=ROOT/'scripts/recover_temporal_mixture_report.py'
+        # 已完成问答只恢复报告；未完成运行仍由下方原指纹检查保护，不重启生成。
+        if (qa/'completion_audit.json').exists() and read_json(qa/'completion_audit.json')['status']=='passed':
+            subprocess.run([PYTHON,str(report_script)],check=True)
+            return
         summary=read_json(SOURCE/'summary.json')
         if summary['questions']!=200 or summary['new_model_calls']!=0:raise ValueError('准备分母错误')
         for path,digest in summary['sources'].items():
@@ -65,7 +71,7 @@ def main():
         if METHOD not in {r['id'] for r in read_json(ROOT/'configs/method_versions.json')['entries']}:
             raise ValueError('方法未登记')
         sources=dict(summary['sources'])
-        for p in [Path(__file__),SOURCE/'summary.json',ROOT/'scripts/report_external_support.py']:
+        for p in [Path(__file__),SOURCE/'summary.json',ROOT/'scripts/report_external_support.py',report_script]:
             sources[str(p)]=sha256(p)
         spec=dict(method=METHOD,question_ids=ids,sources=sources,max_qa_calls=200,
             allowed_gpus=list(map(str,range(8))),
@@ -102,17 +108,14 @@ def main():
         mp=directory/'selection_manifest.json'
         if mp.exists() and read_json(mp)!=manifest:raise ValueError('输入清单变化')
         if not mp.exists():durable(mp,manifest)
-        qa=ROOT/'outputs/diagnostics'/NAME
         development.prepare(qa,directory,spec['allowed_gpus'])
         # 步骤3：后台执行器管理空闲GPU、先行验收、原始返回检查点及安全恢复。
         durable(RUN/'status.json',dict(status='qa',pid=os.getpid(),sid=os.getsid(0),utc=utc()))
         subprocess.run([PYTHON,str(ROOT/'scripts/run_frozen_development.py'),'--run-id',NAME,'--stage','qa','--resume'],check=True)
         if read_json(qa/'completion_audit.json')['status']!='passed':raise ValueError('完成审计未通过')
         durable(RUN/'status.json',dict(status='completed',pid=os.getpid(),sid=os.getsid(0),utc=utc()))
-        # 步骤4：复用已验收的exp12配对报告，只配置运行身份，不重复模型生成。
-        import report_external_support as report
-        report.NAME=NAME;report.METHOD=METHOD;report.RUN=qa;report.COORD=RUN
-        report.main(False)
+        # 步骤4：参考任务解析依赖正式Qwen环境，不能在仅有解码依赖的CPU环境汇总。
+        subprocess.run([PYTHON,str(report_script)],check=True)
 
 
 if __name__=='__main__':
