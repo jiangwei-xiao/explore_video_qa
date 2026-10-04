@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-02",
+  "updated_on": "2026-10-04",
   "current_frozen_method": "RD-1.2",
   "naming_policy": {
     "method": "FAMILY-major.minor",
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp17",
+    "next_rd_1_2_exploration": "RD-1.2-exp24",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -623,7 +623,17 @@
       "description": "M64/K32定位提议与最终预算解耦；允许区域零配额，正配额才保护锚点，保持原L×sqrt差异前缀及原问题加权覆盖。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-04/seed64_optional_budget/实验记录.md",
-      "status": "development_200_features_prepared_audited_qa_pending"
+      "status": "development_200_evaluated_negative_not_integrated"
+    },
+    {
+      "id": "REF-WFS-SB",
+      "family": "REF",
+      "kind": "external_reference",
+      "parent": null,
+      "description": "第三方WFS-SB发布选帧的本机同协议参考；发布提交与预算由运行协议冻结，不属于RD探索或本项目方法提升。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-04/wfs_reference/实验记录.md",
+      "status": "released_inputs_audited_development_qa_pending"
     }
   ]
 }
