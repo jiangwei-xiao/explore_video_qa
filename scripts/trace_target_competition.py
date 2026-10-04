@@ -17,17 +17,21 @@ from videoqa_methods.weighted_seed_support import weighted_support
 CURRENT = ROOT / 'outputs/full_videoqa/rd12_exp12__qwen32__videomme2700__20261003_r1'
 TARGETS = {'409-3': [77, 80], '556-1': [42], '395-2': [276],
            '584-3': [582], '807-2': [1646], '383-2': [944]}
+CONTROL_TARGETS = {'538-1': [9, 10, 11], '705-1': [2383],
+                   '893-1': [699, 704, 706], '305-3': [198, 199],
+                   '170-2': [10], '191-3': [6, 17, 28]}
 
 
-def main(run):
-    """接口：固定七个已有目标的全部前缀步骤，追踪支持种子与去重参照。
+def main(run, panel='initial'):
+    """接口：复算首批或完整十二题面板，追踪支持种子与去重参照。
 
     目标只用于诊断，不进入选择规则；当前指标描述数值竞争，不解释语义关系。
     """
     sources = {str(Path(__file__)): sha256(__file__)}
     records = []
     # 步骤1：只加载历史池、特征和exp12轨迹，绑定全部读取来源。
-    for q, targets in TARGETS.items():
+    targets_by_question = TARGETS if panel == 'initial' else {**TARGETS, **CONTROL_TARGETS}
+    for q, targets in targets_by_question.items():
         pool_path = BASE / 'pools' / (q + '.json')
         trace_path = CURRENT / 'traces' / (q + '.json')
         feature_path = BASE / 'features' / (q + '.npy')
@@ -97,4 +101,6 @@ def main(run):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--run', required=True, type=Path)
-    main(parser.parse_args().run)
+    parser.add_argument('--panel', choices=['initial', 'all'], default='initial')
+    args = parser.parse_args()
+    main(args.run, args.panel)
