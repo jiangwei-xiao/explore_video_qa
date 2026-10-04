@@ -602,6 +602,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-03/external_support/实验记录.md",
       "status": "development_200_evaluated_no_net_gain_not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp22",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp12", "BASE-Uniform"],
+      "description": "均匀与exp12冻结源帧各占1/2时间分布质量；按CDF分位点选择最多32个有序唯一源帧。不按答案路由，不保证保留原RD全部锚点。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-04/temporal_mixture/实验记录.md",
+      "status": "development_200_protocol_frozen_pending_qa"
     }
   ]
 }
