@@ -613,6 +613,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-04/temporal_mixture/实验记录.md",
       "status": "development_200_evaluated_negative_not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp23",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp12"],
+      "description": "M64/K32定位提议与最终预算解耦；允许区域零配额，正配额才保护锚点，保持原L×sqrt差异前缀及原问题加权覆盖。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-04/seed64_optional_budget/实验记录.md",
+      "status": "implementation_and_pool_metadata_verified_features_pending"
     }
   ]
 }
