@@ -633,7 +633,7 @@
       "description": "第三方WFS-SB发布选帧的本机同协议参考；发布提交与预算由运行协议冻结，不属于RD探索或本项目方法提升。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-04/wfs_reference/实验记录.md",
-      "status": "released_inputs_audited_development_qa_pending"
+      "status": "released_reference_development_200_evaluated"
     }
   ]
 }
