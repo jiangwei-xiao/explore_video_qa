@@ -26,6 +26,21 @@ from .exp07_budget16 import SOURCE, HISTORY, selection_from_prefix
 METHODS = ('BASE-Uniform','BASE-BLIP-TopK','RD-1.2','RD-1.2-exp07','RD-1.2-exp12')
 LPY = '/App/conda/envs/explore_video_qa_lmms/bin/python'
 EXP07 = ROOT/'outputs/full_videoqa/exp07_budget16__videomme2700__20261005_r1'
+_CPU_TOOLS = None
+
+
+def initialize_cpu_tools(root):
+    """接口：主线程预加载懒导入组件，避免Transformers首次并行导入竞态。"""
+    global _CPU_TOOLS
+    import torch
+    from transformers import AutoTokenizer
+    from llava.model.multimodal_encoder.siglip_encoder import SigLipImageProcessor
+    from videoqa_lmms_bridge.llava_adapter import tensor_hash
+    # 步骤1：仅加载Tokenizer/CPU预处理器，不加载模型或执行前向。
+    pre=read_json(Path(root)/'preflight.json')
+    tokenizer=AutoTokenizer.from_pretrained(pre['model_path'],local_files_only=True)
+    _CPU_TOOLS=(torch,tokenizer,SigLipImageProcessor(),tensor_hash)
+    prepared_prompt(rows()[0],tokenizer)
 
 
 def input_groups(items):
@@ -107,12 +122,9 @@ def prepare_one(root,row):
     for m,ids in [(METHODS[2],rd),(METHODS[3],e07),(METHODS[4],e12)]:
         selections[m]=dict(video=pool['video'],selected_frames=[pool['candidates'][i] for i in ids])
     # 步骤3：CPU官方预处理与Token核验；相同源帧只复用已核验内容，分组不接触答案。
-    import torch
-    from transformers import AutoTokenizer
-    from llava.model.multimodal_encoder.siglip_encoder import SigLipImageProcessor
-    from videoqa_lmms_bridge.llava_adapter import tensor_hash
-    pre=read_json(root/'preflight.json');tokenizer=AutoTokenizer.from_pretrained(pre['model_path'],local_files_only=True)
-    processor=SigLipImageProcessor();prompt,tokens=prepared_prompt(row,tokenizer);items={};bank={}
+    if _CPU_TOOLS is None:raise ValueError('CPU components must be initialized before parallel preparation')
+    torch,tokenizer,processor,tensor_hash=_CPU_TOOLS
+    pre=read_json(root/'preflight.json');prompt,tokens=prepared_prompt(row,tokenizer);items={};bank={}
     for method,selection in selections.items():
         validate_frames(selection,8);key=digest(source_key(selection))
         if key not in bank:
@@ -165,6 +177,7 @@ def prepare(root,gpus):
             if sha256(p)!=item['sha256']:raise ValueError('Model changed')
         import torch
         torch.set_num_threads(2)
+        initialize_cpu_tools(root)
         results=[]
         with ThreadPoolExecutor(max_workers=8) as executor:
             for r in executor.map(lambda row:prepare_one(root,row),rows()):
