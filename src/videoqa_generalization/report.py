@@ -101,5 +101,19 @@ def summarize(root):
         for ref,comparisons in report['paired'].items():
             c=comparisons['all2700']; lo,hi=c['stratified_video_cluster_bootstrap_95']
             lines.append(f'- 对{ref}：{c["difference_pp"]:+.3f}个百分点，区间[{lo:.3f},{hi:.3f}]；新增正确{len(c["cells"]["left_only"])}、退化{len(c["cells"]["right_only"])}。')
-    (root/'report.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    lines+=['','## 结果来源与边界','',
+        f'运行目录：`{root.relative_to(ROOT)}`。完整官方题型、子集、配对题号、性能与调用审计见该目录`summary.json`及各阶段`completion_audit.json`。',
+        '两组exp12各2700次新回答；WFS为200条已核验导入和2500条新回答。两模型M16源帧及RGB逐题一致，合成和历史导入成本另列。',
+        '数据已被观察，比较属于探索性验证；公开WFS选帧不等于完整论文复现。缓存资产下的耗时不作为独立原片端到端性能。',
+        '本轮结果据实结束，不自动调参、增加问答或启动LLaVA32。']
+    text='\n'.join(lines)+'\n'
+    (root/'report.md').write_text(text,encoding='utf-8')
+    # 步骤4：全量审计闭合后才归档派生报告，既有文档若内容不同则停止覆盖。
+    archive=ROOT/'docs/experiments/video_mme_full/2026-10-05/exp12_generalization/实验结果.md'
+    if archive.exists() and archive.read_text(encoding='utf-8')!=text:
+        raise ValueError('Existing archived report differs; manual review required')
+    archive.parent.mkdir(parents=True,exist_ok=True)
+    archive.write_text(text,encoding='utf-8')
+    durable(root/'report_archive.json',dict(path=str(archive.relative_to(ROOT)),sha256=sha256(archive),
+        generated_from=str(root/'summary.json'),source_sha256=sha256(root/'summary.json'),utc=utc()))
     return result
