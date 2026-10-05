@@ -72,6 +72,8 @@ def main():
             durable(root/'pipeline_status.json',dict(status='completed',new_answer_calls=7900,utc=utc()))
     elif args.stage=='prepare':prepare_inputs(root)
     elif args.stage=='synthetic_qwen':
+        from videoqa_generalization.run import verify_wfs_inputs
+        verify_wfs_inputs(root)
         from videoqa_budget32 import run as qrun
         qrun.GPUS=tuple(args.gpus)
         run=root/'synthetic/qwen'

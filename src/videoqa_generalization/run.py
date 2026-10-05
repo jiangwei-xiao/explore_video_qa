@@ -112,6 +112,26 @@ def import_wfs(run, spec):
         max_new_calls=2500, imported_calls_not_new=True))
 
 
+def verify_wfs_inputs(root):
+    """接口：所有正式模型加载前核验WFS200导入条件，避免到第三阶段才发现不可复用。"""
+    from videoqa_budget32.run import validate as validate_old
+    root=Path(root); old_spec=read_json(WFS_DEV/'protocol.json'); base=read_json(BASE/'protocol.json')
+    # 步骤1：完整问答协议和依赖必须与本轮Qwen源配置相同，逐题原账本已有返回。
+    for field in ['model','environment','framework','profile']:
+        if old_spec[field]!=base[field]: raise ValueError('Reference import protocol differs: '+field)
+    data={r['question_id']:r for r in rows()}; records={}
+    for row in read_json(DEV)['rows']:
+        q=row['question_id']; old=validate_old(WFS_DEV,data[q],'REF-WFS-SB',old_spec)
+        item=read_json(root/'inputs/wfs'/(q+'.json'))
+        if old['selection']!=item['selection'] or old['rgb_sha256']!=item['rgb_sha256']:
+            raise ValueError('Reference import input differs')
+        for folder in ['results','calls','raw_generations']:
+            path=WFS_DEV/folder/'REF-WFS-SB'/(q+'.json'); records[str(path)]=sha256(path)
+    # 步骤2：冻结600份来源，恢复时内容必须相同；尚不在正式账本伪造新调用。
+    frozen(root/'wfs_import_preflight.json',dict(status='passed',importable_questions=200,
+        new_generations=0,sources=records,source_protocol_sha256=sha256(WFS_DEV/'protocol.json')))
+
+
 def validate(run, row, spec):
     """接口：逐题输入、原任务计分、生成账本核验；导入答案与新调用分别审核。"""
     run = Path(run); method = spec['methods'][0]; q = row['question_id']
