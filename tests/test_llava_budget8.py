@@ -43,3 +43,15 @@ def test_pipeline_stage_order_and_explicit_resume():
     commands=module.pipeline_commands('frozen',['0','1'])
     assert [s for s,_ in commands]==['prepare','synthetic','answer','audit','report']
     assert all(c[-1]=='--resume' for _,c in commands)
+
+
+def test_duration_repair_does_not_mutate_frozen_spec():
+    """历史统计只包含文件大小和路径，排序兼容不能改写冻结协议或预算。"""
+    path=Path(__file__).resolve().parents[1]/'scripts/resume_llava8_after_pilot.py'
+    spec=importlib.util.spec_from_file_location('llava8_repair',path);module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    original=dict(video_stats={'v':dict(path='v.mp4',bytes=4)},max_calls=11932,methods=list(experiment.METHODS))
+    adapted=module.duration_compatible(original,{'v':42.25})
+    assert 'duration_seconds' not in original['video_stats']['v']
+    assert adapted['video_stats']['v']['duration_seconds']==42.25
+    assert adapted['max_calls']==11932 and adapted['methods']==original['methods']
+    with pytest.raises(ValueError):module.duration_compatible(original,{'v':0})
