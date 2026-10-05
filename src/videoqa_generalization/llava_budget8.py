@@ -8,7 +8,7 @@ import queue
 import shutil
 import time
 import traceback
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
 import numpy as np
 from videoqa_runtime.common import ROOT, read_json, sha256, offline_environment
 from videoqa_full.state import durable, exclusive, rows, pilot_ids, utc, digest, invoke_once
@@ -33,6 +33,8 @@ def initialize_cpu_tools(root):
     """接口：主线程预加载懒导入组件，避免Transformers首次并行导入竞态。"""
     global _CPU_TOOLS
     import torch
+    torch.set_num_threads(2)
+    torch.set_num_interop_threads(1)
     from transformers import AutoTokenizer
     from llava.model.multimodal_encoder.siglip_encoder import SigLipImageProcessor
     from videoqa_lmms_bridge.llava_adapter import tensor_hash
@@ -41,6 +43,11 @@ def initialize_cpu_tools(root):
     tokenizer=AutoTokenizer.from_pretrained(pre['model_path'],local_files_only=True)
     _CPU_TOOLS=(torch,tokenizer,SigLipImageProcessor(),tensor_hash)
     prepared_prompt(rows()[0],tokenizer)
+
+
+def prepare_job(job):
+    """接口：可序列化的CPU任务，独立进程避免PyAV/解释器在线程池中的争用。"""
+    return prepare_one(*job)
 
 
 def input_groups(items):
@@ -175,12 +182,11 @@ def prepare(root,gpus):
             if i%50==0:durable(root/'input_status.json',dict(status='hashing',completed=i,total=900,utc=utc()))
         for p,item in model_files.items():
             if sha256(p)!=item['sha256']:raise ValueError('Model changed')
-        import torch
-        torch.set_num_threads(2)
-        initialize_cpu_tools(root)
         results=[]
-        with ThreadPoolExecutor(max_workers=8) as executor:
-            for r in executor.map(lambda row:prepare_one(root,row),rows()):
+        # spawn隔离解码器及懒导入状态；每进程CPU/解码各2线程，准备仍为零模型调用。
+        with ProcessPoolExecutor(max_workers=8,mp_context=mp.get_context('spawn'),
+                initializer=initialize_cpu_tools,initargs=(str(root),)) as executor:
+            for r in executor.map(prepare_job,[(str(root),row) for row in rows()]):
                 results.append(r);durable(root/'input_status.json',dict(status='preparing',completed=len(results),total=2700,
                     elapsed_seconds=time.perf_counter()-started,utc=utc()))
         # 步骤2：准备完成后锁定每个唯一输入的主记录；代码/环境指纹在GPU前冻结。
