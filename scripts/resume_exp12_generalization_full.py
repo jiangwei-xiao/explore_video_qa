@@ -10,7 +10,22 @@ sys.path.insert(0,str(ROOT/'src'))
 from videoqa_runtime.common import read_json,sha256
 from videoqa_full.state import durable,exclusive,utc
 from videoqa_generalization.inputs import frozen
-from videoqa_generalization.run import QPY,LPY,verify
+from videoqa_generalization.run import QPY,LPY,verify,audit
+
+
+def completed_resume(root):
+    """接口：已完成任务只核验原始文件，跳过准备、模型加载及人工报告重写。"""
+    folders=['results','calls','raw_generations']
+    before={str(p):sha256(p) for stage in ['qwen16','llava16','wfs32'] for folder in folders
+            for p in (root/stage/folder).glob('*/*.json')}
+    # 步骤1：调用现有完成审计；缺失或不确定记录直接停止，不进入新生成。
+    for stage in ['qwen16','llava16','wfs32']:audit(root/stage)
+    after={str(p):sha256(p) for stage in ['qwen16','llava16','wfs32'] for folder in folders
+           for p in (root/stage/folder).glob('*/*.json')}
+    # 步骤2：总共23900文件保持不变，人工归档报告不参与自动重写。
+    if before!=after:raise ValueError('Completed resume changed generation files')
+    durable(root/'recovery/completed_resume.json',dict(status='passed',unchanged_files=len(before),
+        extra_generations=0,preparation_replayed=False,report_rewritten=False,utc=utc()))
 
 
 def remaining_commands(run_id, gpus):
@@ -30,6 +45,8 @@ def main():
         raise ValueError('Invalid GPU scope')
     root=ROOT/'outputs/full_videoqa'/args.run_id
     with exclusive(root/'pipeline.lock'):
+        if read_json(root/'pipeline_status.json')['status']=='completed':
+            completed_resume(root);return
         # 步骤1：保留暂停原因与原始准备成本，已完成组所有生成文件作为恢复对照。
         spec=verify(root/'qwen16');accepted=read_json(root/'qwen16/completion_audit.json')
         if accepted['status']!='passed' or accepted['new_calls']!=2700 or accepted['extra_generations']!=0:
