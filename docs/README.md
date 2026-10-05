@@ -8,6 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| exp07双模型16帧等权对照 | [完整结果](experiments/video_mme_full/2026-10-05/exp07_budget16/实验结果.md) · [协议](experiments/video_mme_full/2026-10-05/exp07_budget16/执行协议.md) | Qwen/LLaVA为60.33%/62.22%，对均匀+2.22/+2.07个百分点；对exp12小幅正增益但区间均含0，3806新问答＋1594导入验收完成 |
 | exp12跨模型跨预算及参考验证 | [完整结果](experiments/video_mme_full/2026-10-05/exp12_generalization/实验结果.md) · [协议](experiments/video_mme_full/2026-10-05/exp12_generalization/执行协议.md) | 7900新问答＋200导入完成；16帧对均匀有正向点估计，WFS32较exp12高0.74个百分点、区间含0，不宣称领先 |
 | exp12全量与有界复核 | [结果与定位分析](experiments/video_mme_full/2026-10-03/exp12/实验结果与定位分析.md) | Qwen32为1710/2700（63.33%），对均匀+2.44个百分点；对exp07净+18但区间含0，11题初审，不自动升级默认版本 |
 | exp07全量与定位 | [全量结果和后续方向](experiments/video_mme_full/2026-09-30/exp07/实验结果与定位分析.md) | Qwen32为1692/2700（62.67%），对均匀+1.78个百分点；9题初审与局部前缀可达性诊断完成，未达3–5个百分点目标 |
