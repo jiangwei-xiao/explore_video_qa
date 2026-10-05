@@ -2,12 +2,13 @@
 
 > 命名维护（2026-09-22）：现行统一名称见登记表；SB旧组别A/B/C/D/E、RB旧称R、RD旧称v1/soft/P1/D1/E1按所属阶段映射，不将答案字母作方法名替换。见[方法版本登记](research/方法版本登记表.md)。
 
-当前阶段（2026-10-05）：冻结工作基准仍为RD-1.2；当前最好全量候选exp12在Qwen32下为1710/2700（63.33%，对均匀+2.44个百分点），尚未达到3–5个百分点目标。跨预算/模型验证完成：exp12 Qwen16/LLaVA16为59.89%/61.63%，同协议WFS公开选帧Qwen32为64.07%；结果及不确定性见[本轮全量验证](experiments/video_mme_full/2026-10-05/exp12_generalization/实验结果.md)。方法优化继续暂停，阶段认识见[自主优化复盘](experiments/video_mme_200/2026-10-03/research_reset/阶段复盘.md)。
+当前阶段（2026-10-06）：冻结工作基准仍为RD-1.2；Qwen32最好候选exp12为1710/2700（63.33%，对均匀+2.44个百分点），尚未达到该工作点3–5个百分点目标。新增LLaVA8验证：exp07/exp12为59.63%/59.41%，对均匀+3.67/+3.44个百分点，两版差值区间含0，见[八帧全量结果](experiments/video_mme_full/2026-10-05/llava8/实验结果.md)。此前exp12 Qwen16/LLaVA16为59.89%/61.63%，WFS公开选帧Qwen32为64.07%，见[跨配置验证](experiments/video_mme_full/2026-10-05/exp12_generalization/实验结果.md)。统一review后再讨论优化，阶段认识见[自主优化复盘](experiments/video_mme_200/2026-10-03/research_reset/阶段复盘.md)。
 
 历史阶段（2026-09-22）：冻结工作基准为**RD-1.2（旧称RD-2P v1.0，检索密度引导的两遍选帧）**，开发200题125/200（62.5%）；BASE-Uniform/BASE-BLIP-TopK/RD-1.0/RD-1.1分别123/119/122/122题正确。取得小幅净收益，稳定优势尚待验证。统一ID及谱系见[方法版本登记](research/方法版本登记表.md)，规则与结果见[RD-1.2正式记录](experiments/video_mme_200/2026-09-22/density_e1/实验记录.md)。原设计、基线与旧实现全部保留。
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| LLaVA八帧五策略全量 | [完整结果](experiments/video_mme_full/2026-10-05/llava8/实验结果.md) · [协议](experiments/video_mme_full/2026-10-05/llava8/执行协议.md) | exp07/12对均匀+3.67/+3.44个百分点；11932唯一问答＋1568共享结果、19合成，独立及完成恢复审计通过，两版差值区间含0 |
 | exp07双模型16帧等权对照 | [完整结果](experiments/video_mme_full/2026-10-05/exp07_budget16/实验结果.md) · [协议](experiments/video_mme_full/2026-10-05/exp07_budget16/执行协议.md) | Qwen/LLaVA为60.33%/62.22%，对均匀+2.22/+2.07个百分点；对exp12小幅正增益但区间均含0，3806新问答＋1594导入验收完成 |
 | exp12跨模型跨预算及参考验证 | [完整结果](experiments/video_mme_full/2026-10-05/exp12_generalization/实验结果.md) · [协议](experiments/video_mme_full/2026-10-05/exp12_generalization/执行协议.md) | 7900新问答＋200导入完成；16帧对均匀有正向点估计，WFS32较exp12高0.74个百分点、区间含0，不宣称领先 |
 | exp12全量与有界复核 | [结果与定位分析](experiments/video_mme_full/2026-10-03/exp12/实验结果与定位分析.md) | Qwen32为1710/2700（63.33%），对均匀+2.44个百分点；对exp07净+18但区间含0，11题初审，不自动升级默认版本 |
