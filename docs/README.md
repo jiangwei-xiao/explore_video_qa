@@ -8,6 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 夜间入口与时间对照 | [ITC入口](experiments/video_mme_full/2026-10-07/itc_entry/定位验证.md) · [exp25时间目标](experiments/video_mme_full/2026-10-07/temporal_coverage/实验记录.md) · [exp26联合重复度](experiments/video_mme_full/2026-10-07/visual_temporal/执行与验证.md) | ITC可达68→56、时间目标丢船图均未问答；exp26开发130/200，对父新增5/退化13，不全量；目标继续、无新全量增益 |
 | exp24独立视觉表征 | [竞争对照与停止结论](experiments/video_mme_full/2026-10-07/exp24_visual_state/实验记录.md) | 规范428真实＋4合成视觉前向、0QA；主对照1/3排序反转，物体状态有局部线索、船图保护风险，未进入开发/全量；调试成本单列 |
 | BLIP空间状态诊断 | [实测与接入判断](experiments/video_mme_full/2026-10-06/coverage_objective_review/参考选帧与下一阶段决策.md#空间状态诊断实测2026-10-06) | 30真实BLIP配对＋4合成、0QA；接口对齐，3有效对照无独立排序增量，409对照标签错误保留，暂不接入 |
 | 参考选帧与下一阶段决策 | [WFS对照与状态表征方案](experiments/video_mme_full/2026-10-06/coverage_objective_review/参考选帧与下一阶段决策.md) | 2700题双向得失、16题事后初审；035单区32名额仍遗漏逐行过程，优先输入层表征诊断，0新模型调用 |

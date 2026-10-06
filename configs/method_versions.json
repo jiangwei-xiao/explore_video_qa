@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp25",
+    "next_rd_1_2_exploration": "RD-1.2-exp27",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -635,6 +635,28 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_full/2026-10-07/exp24_visual_state/实验记录.md",
       "status": "bounded_visual_representation_pilot_not_passed_no_qa"
+    },
+    {
+      "id": "RD-1.2-exp25",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp12"],
+      "description": "固定exp12上游，以原题ITM加权观测时间平方量化构造前缀及预算曲线；205条件离线，保留序列也损失船图，不问答。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_full/2026-10-07/temporal_coverage/实验记录.md",
+      "status": "bounded_temporal_objective_not_passed_no_qa"
+    },
+    {
+      "id": "RD-1.2-exp26",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp12"],
+      "description": "仅将段内D改为同参照cos正值乘4秒Laplace时间核；原L、平方根、加权视觉覆盖、密度与正配额DP不变。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_full/2026-10-07/visual_temporal/执行与验证.md",
+      "status": "development_200_evaluated_negative_not_integrated"
     },
     {
       "id": "REF-WFS-SB",
