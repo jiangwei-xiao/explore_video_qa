@@ -8,6 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 覆盖目标复盘与下一步定位 | [定位与候选能力方案](experiments/video_mme_full/2026-10-06/coverage_objective_review/定位与候选方案.md) | 两组2700题、75事实、12题有界事后初审；统一权重不立项，局部证据状态信号待定，0新模型调用 |
 | LLaVA八帧五策略全量 | [完整结果](experiments/video_mme_full/2026-10-05/llava8/实验结果.md) · [协议](experiments/video_mme_full/2026-10-05/llava8/执行协议.md) | exp07/12对均匀+3.67/+3.44个百分点；11932唯一问答＋1568共享结果、19合成，独立及完成恢复审计通过，两版差值区间含0 |
 | exp07双模型16帧等权对照 | [完整结果](experiments/video_mme_full/2026-10-05/exp07_budget16/实验结果.md) · [协议](experiments/video_mme_full/2026-10-05/exp07_budget16/执行协议.md) | Qwen/LLaVA为60.33%/62.22%，对均匀+2.22/+2.07个百分点；对exp12小幅正增益但区间均含0，3806新问答＋1594导入验收完成 |
 | exp12跨模型跨预算及参考验证 | [完整结果](experiments/video_mme_full/2026-10-05/exp12_generalization/实验结果.md) · [协议](experiments/video_mme_full/2026-10-05/exp12_generalization/执行协议.md) | 7900新问答＋200导入完成；16帧对均匀有正向点估计，WFS32较exp12高0.74个百分点、区间含0，不宣称领先 |
