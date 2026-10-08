@@ -4,6 +4,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
+| exp28条件合并／双配置开发200题／2026-10-08夜间 | [执行协议](video_mme_200/2026-10-08/conditional_merge/执行协议.md) | [130/119，停止不全量；exp07共同失败复盘](video_mme_200/2026-10-08/conditional_merge/实验结果与夜间复盘.md) | `rd12_exp28_conditional_merge_20261008_r1`；279新答＋121导入；`exp07_cross_config_failures_20261008_r1`零问答分析 |
 | exp27区域补查职责解耦／双配置开发200题／2026-10-08 | [执行协议](video_mme_200/2026-10-08/region_scope/执行协议.md) | [Qwen136、LLaVA126，与exp07持平](video_mme_200/2026-10-08/region_scope/实验结果与职责复盘.md) | `rd12_exp27_region_scope_20261008_r1`；77新答＋323导入 |
 | exp07单预算与内部设计审计／2026-10-08 | [执行协议](video_mme_full/2026-10-08/framework_contraction/执行协议.md) | [8100项等价与内部耦合判断](video_mme_full/2026-10-08/framework_contraction/审计结果与收缩建议.md) | `rd12_exp07_contraction_20261008_r1`；0模型调用 |
 | RD-1.2-exp22／Qwen32开发200题／2026-10-04 | [固定等权融合协议与结果](video_mme_200/2026-10-04/temporal_mixture/实验记录.md) | 132/200，对exp12净−6，不开展全量或比例搜索 | `rd12_exp22__qwen32__dev200__20261004_r1` |

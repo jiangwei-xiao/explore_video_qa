@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-08",
+  "updated_on": "2026-10-09",
   "current_frozen_method": "RD-1.2",
   "naming_policy": {
     "method": "FAMILY-major.minor",
@@ -678,7 +678,7 @@
       "description": "沿用exp27细池，只合并满足3种子补查条件且扩窗重叠的核心；未触发核心独立，最近原核心唯一归属，保持exp07局部规则与等权覆盖DP。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-08/conditional_merge/实验结果与夜间复盘.md",
-      "status": "fixed_candidate_preparing_dual_development_with_conditional_qwen32_full"
+      "status": "dual_development_negative_stopped_no_full_not_integrated"
     },
     {
       "id": "REF-WFS-SB",
