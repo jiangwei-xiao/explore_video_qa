@@ -4,6 +4,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
+| exp07单预算与内部设计审计／2026-10-08 | [执行协议](video_mme_full/2026-10-08/framework_contraction/执行协议.md) | [8100项等价与内部耦合判断](video_mme_full/2026-10-08/framework_contraction/审计结果与收缩建议.md) | `rd12_exp07_contraction_20261008_r1`；0模型调用 |
 | RD-1.2-exp22／Qwen32开发200题／2026-10-04 | [固定等权融合协议与结果](video_mme_200/2026-10-04/temporal_mixture/实验记录.md) | 132/200，对exp12净−6，不开展全量或比例搜索 | `rd12_exp22__qwen32__dev200__20261004_r1` |
 | RD-1.2-exp18／Qwen32开发200题／2026-10-03 | [等权区域预算协议与结果](video_mme_200/2026-10-03/equal_region_budget/实验记录.md) | 130/200，对exp17净−7，不开展全量 | `rd12_exp18__qwen32__dev200__20261003_r1` |
 | RD-1.2-exp19／Qwen32开发200题／2026-10-03 | [有界补充规则与结果](video_mme_200/2026-10-03/bounded_supplement/实验记录.md) | 131/200，对exp07净−5，停止该分支、不全量 | `rd12_exp19__qwen32__dev200__20261003_r2` |
