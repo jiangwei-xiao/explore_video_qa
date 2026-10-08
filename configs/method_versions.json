@@ -667,7 +667,7 @@
       "description": "仅由至少3种子的原核心窗口并集执行2FPS补查；原选择组织、锚点、密度、支持及exp07等权覆盖DP不变，单预算K。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-08/region_scope/实验结果与职责复盘.md",
-      "status": "offline_5400_passed_review_gate_passed_development_pending"
+      "status": "dual_development_200_completed_equal_exp07_simplification_candidate"
     },
     {
       "id": "REF-WFS-SB",
