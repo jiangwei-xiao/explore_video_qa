@@ -74,9 +74,11 @@ def cpu_identity(profile,tools,images,row):
     if profile=='qwen32':
         prompt=processor.apply_chat_template([dict(role='system',content='You are a helpful assistant.'),
             dict(role='user',content=[dict(type='video'),dict(type='text',text=context)])],tokenize=False,add_generation_prompt=True)
-        x=processor(text=[prompt],videos=[np.stack([np.asarray(im.convert('RGB')) for im in images])],
+        texts=[prompt]
+        x=processor(text=texts,videos=[np.stack([np.asarray(im.convert('RGB')) for im in images])],
             fps=2.0,images_kwargs={'size':dict(shortest_edge=100352,longest_edge=602112)},truncation=False,return_tensors='pt')
-        return dict(prompt=prompt,input_token_ids=x['input_ids'][0].tolist(),
+        # 官方处理器原地展开视频占位符；保存展开后的文本，与真实generate观测一致。
+        return dict(prompt=texts[0],input_token_ids=x['input_ids'][0].tolist(),
             pixel_sha256=tensor_hash(x['pixel_values_videos']),video_grid_thw=x['video_grid_thw'].tolist())
     from llava.conversation import conv_templates
     from llava.mm_utils import tokenizer_image_token

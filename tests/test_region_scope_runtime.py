@@ -41,3 +41,22 @@ def test_complete_raw_return_only_recovers_postprocessing(tmp_path,monkeypatch):
     recover(tmp_path,dict(question_id='q'),dict(profile='llava8'))
     assert count==['q'] and read_json(call)['status']=='completed'
     assert len(list((tmp_path/'calls'/METHOD).glob('*.json')))==1
+
+
+def test_cpu_qwen_identity_records_processor_expanded_prompt(monkeypatch):
+    import torch
+    from PIL import Image
+    import videoqa_audit.region_scope_runtime as runtime
+    class Task:
+        def videomme_doc_to_text(self,doc,kwargs):return 'question'
+    class Processor:
+        def apply_chat_template(self,*args,**kwargs):return 'short video placeholder'
+        def __call__(self,**kwargs):
+            kwargs['text'][0]='expanded video placeholders'
+            return dict(input_ids=torch.tensor([[1,2,3]]),pixel_values_videos=torch.zeros(1,3),video_grid_thw=torch.tensor([[1,2,2]]))
+    monkeypatch.setattr(runtime,'load_task',lambda:Task())
+    monkeypatch.setattr(runtime,'task_doc',lambda row:{})
+    image=Image.new('RGB',(2,2),'white')
+    try:value=runtime.cpu_identity('qwen32',(Processor(),None),[image],{})
+    finally:image.close()
+    assert value['prompt']=='expanded video placeholders' and value['input_token_ids']==[1,2,3]
