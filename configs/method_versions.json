@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp28",
+    "next_rd_1_2_exploration": "RD-1.2-exp29",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -668,6 +668,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-08/region_scope/实验结果与职责复盘.md",
       "status": "dual_development_200_completed_equal_exp07_simplification_candidate"
+    },
+    {
+      "id": "RD-1.2-exp28",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07", "RD-1.2-exp27"],
+      "description": "沿用exp27细池，只合并满足3种子补查条件且扩窗重叠的核心；未触发核心独立，最近原核心唯一归属，保持exp07局部规则与等权覆盖DP。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-08/conditional_merge/实验结果与夜间复盘.md",
+      "status": "fixed_candidate_preparing_dual_development_with_conditional_qwen32_full"
     },
     {
       "id": "REF-WFS-SB",
