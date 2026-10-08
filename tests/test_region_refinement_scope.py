@@ -25,6 +25,9 @@ def make_pool(seed_times=(2.25,3.25,4.25,10.25),fine=(7.75,10.75),sparse=False):
         maps=[]
         for target in refinement_targets(region,video,cfg) if region['refine'] else []:
             possible=[r for r in rows if Fraction(r['timestamp_seconds'])>=target]
+            if not possible:
+                maps.append(dict(target_fraction=str(target),status='no_source_in_window'))
+                continue
             frame=min(possible,key=lambda r:r['source_pts'])
             maps.append(dict(target_fraction=str(target),status='added' if frame['candidate_index']>=n else 'duplicate_source',
                              candidate_index=frame['candidate_index'],source_pts=frame['source_pts'],source_frame_index=frame['source_frame_index']))
@@ -78,4 +81,30 @@ def test_reused_mapping_keeps_parent_and_global_identity():
             del m['candidate_index'];del m['source_pts'];del m['source_frame_index']
     new,nf,_=restrict_refinement_pool(p,f,4)
     assert new['original_candidate_indices']==[i+100 for i in new['parent_candidate_indices']]
+    assert np.array_equal(nf,f[new['parent_candidate_indices']])
+
+
+def test_video_end_clipping_preserves_last_legal_fine_frame():
+    p,f=make_pool(seed_times=(2.25,16.25,17.25,18.25),fine=(18.75,))
+    windows=refinement_windows(p['plan'],p['video'],4)
+    assert windows[0]['right_fraction']=='19'
+    new,_,_=restrict_refinement_pool(p,f,4)
+    assert new['candidates'][-1]['timestamp_seconds']==18.75
+    assert all(Fraction(t)<=19 for r in new['refinement'] for t in r['targets'])
+
+
+def test_short_pool_has_distinct_seed_and_actual_frame_counts_without_padding():
+    p,f=make_pool(seed_times=tuple(0.25+i for i in range(19)),fine=(0.75,))
+    new,nf,_=restrict_refinement_pool(p,f,32)
+    selected,trace=select_exp07(new,nf,32)
+    assert len(selected)==len(set(selected))==20
+    assert trace['budget_contract']==dict(frame_budget=32,seed_count=19,actual_frame_count=20)
+
+
+def test_disjoint_trigger_windows_remain_separate_and_keep_exact_features():
+    p,f=make_pool(seed_times=(0.25,1.25,2.25,15.25,16.25,17.25),fine=(1.75,16.75))
+    windows=refinement_windows(p['plan'],p['video'],6)
+    assert len(windows)==2 and Fraction(windows[0]['right_fraction'])<Fraction(windows[1]['left_fraction'])
+    new,nf,_=restrict_refinement_pool(p,f,6)
+    assert [c['timestamp_seconds'] for c in new['candidates'][new['initial_count']:]]==[1.75,16.75]
     assert np.array_equal(nf,f[new['parent_candidate_indices']])
