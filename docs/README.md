@@ -8,6 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 问题条件状态表征 | [先行对照与边界](experiments/video_mme_full/2026-10-09/task_state/验证记录.md) | 501真实帧、8空白基线、4合成prefill，QA0；银行内保留计时/具名动作但丢叉子，不扩200题或全量 |
 | 可见文字状态与局部诊断 | [试点及画面复核](experiments/video_mme_200/2026-10-09/text_state/实验记录.md) | exp29/30/31有界试点；误识字与关系损失限制，022-1真实计时图局部诊断不作为方法成绩 |
 | exp28条件合并与exp07统一复盘 | [夜间结果与复盘](experiments/video_mme_200/2026-10-08/conditional_merge/实验结果与夜间复盘.md) · [协议](experiments/video_mme_200/2026-10-08/conditional_merge/执行协议.md) | 开发130/119，对exp07净−6/−7，停止不全量；四配置563共同失败及八题实际画面复核，保留精简与状态验证方向 |
 | exp27区域补查职责解耦 | [结果与职责复盘](experiments/video_mme_200/2026-10-08/region_scope/实验结果与职责复盘.md) · [协议](experiments/video_mme_200/2026-10-08/region_scope/执行协议.md) | 两配置开发136/126正确，与exp07持平；5400项离线选择，77新问答＋323输入核验导入，保留简化候选，无新全量成绩 |
