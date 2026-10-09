@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp29",
+    "next_rd_1_2_exploration": "RD-1.2-exp32",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -679,6 +679,39 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-08/conditional_merge/实验结果与夜间复盘.md",
       "status": "dual_development_negative_stopped_no_full_not_integrated"
+    },
+    {
+      "id": "RD-1.2-exp29",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07"],
+      "description": "冻结exp07上游、锚点和配额，仅对有可靠OCR文字的候选用视觉余弦乘文字集合Jaccard计算局部重复度；无字候选沿用视觉D。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-09/text_state/实验记录.md",
+      "status": "raw_ocr_state_pilot_not_passed_no_qa"
+    },
+    {
+      "id": "RD-1.2-exp30",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07", "RD-1.2-exp29"],
+      "description": "复用原OCR，只以相邻唯一粗观测复现确认词；细帧需两侧粗词共现，抑制细采样确认偏置。原锚点、支持和exp07配额固定，采用有方向的视觉乘词集合重复度。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-09/text_state/实验记录.md",
+      "status": "confirmed_ocr_state_pilot_preparing"
+    },
+    {
+      "id": "RD-1.2-exp31",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07", "RD-1.2-exp29"],
+      "description": "固定exp07主体、锚点及配额，文字重复信号仅竞争一处原局部前缀末位，全题至多替一帧；OCR未重算，不保证末位语义冗余。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-10-09/text_state/实验记录.md",
+      "status": "bounded_text_state_pilot_prepared_pending_diagnostic"
     },
     {
       "id": "REF-WFS-SB",
