@@ -30,11 +30,15 @@ def review(root):
             # 步骤2：精确目标只是路径诊断；其他已选同类状态另列，不直接判定语义损失。
             targets=[]
             for index in TARGETS.get(q,[]):
-                a=next(r for r in before['regions'] if index in r['members']);b=next(r for r in trace['regions'] if index in r['members'])
+                a=next(r for r in before['regions'] if index in r['members'])
+                # 有界替换只记录提议，不重排完整前缀；不能把父位置冒充新排序。
+                b=next((r for r in trace.get('regions',[]) if index in r['members']),None)
                 ka=before['region_budgets'][str(a['region_id'])]
                 pos=lambda r:r['prefix'].index(index)+1 if index in r['prefix'] else None
                 targets.append(dict(candidate_index=index,frame=pool['candidates'][index],tokens=after['states'][index],
-                    parent_position=pos(a),new_position=pos(b),quota=ka,parent_selected=pos(a) is not None and pos(a)<=ka,
+                    parent_position=pos(a),new_position=pos(b) if b is not None else None,quota=ka,
+                    new_position_kind='reranked_prefix' if b is not None else 'bounded_replacement_not_reranked',
+                    parent_selected=pos(a) is not None and pos(a)<=ka,
                     new_selected=index in after['selected_indices']))
             selected_words=[dict(frame=f,tokens=after['states'][f['candidate_index']]) for f in after['selection']['selected_frames']]
             item=dict(question_id=q,profile=profile,targets=targets,selected_words=selected_words,
