@@ -700,7 +700,7 @@
       "description": "复用原OCR，只以相邻唯一粗观测复现确认词；细帧需两侧粗词共现，抑制细采样确认偏置。原锚点、支持和exp07配额固定，采用有方向的视觉乘词集合重复度。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-09/text_state/实验记录.md",
-      "status": "confirmed_ocr_state_pilot_preparing"
+      "status": "confirmed_ocr_pilot_with_local_positive_diagnostic_not_development_approved"
     },
     {
       "id": "RD-1.2-exp31",
@@ -711,7 +711,7 @@
       "description": "固定exp07主体、锚点及配额，文字重复信号仅竞争一处原局部前缀末位，全题至多替一帧；OCR未重算，不保证末位语义冗余。",
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-09/text_state/实验记录.md",
-      "status": "bounded_text_state_pilot_prepared_pending_diagnostic"
+      "status": "bounded_raw_ocr_pilot_diagnostic_cancelled_no_development"
     },
     {
       "id": "REF-WFS-SB",
