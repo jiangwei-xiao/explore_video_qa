@@ -7,7 +7,7 @@
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp32",
+    "next_rd_1_2_exploration": "RD-1.2-exp33",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -712,6 +712,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-09/text_state/实验记录.md",
       "status": "bounded_raw_ocr_pilot_diagnostic_cancelled_no_development"
+    },
+    {
+      "id": "RD-1.2-exp32",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp07"],
+      "description": "固定exp07原池、支持、锚点与配额，仅以完整公开选项词组在OCR中的首次覆盖比例减弱局部视觉重复惩罚；不生成证据说明或使用标准答案，无命中时退化原输入。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_full/2026-10-10/literal_options/验证记录.md",
+      "status": "literal_pilot_positive_diagnostic_development_inputs_preparing_no_new_accuracy"
     },
     {
       "id": "REF-WFS-SB",
