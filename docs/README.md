@@ -8,6 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| BLIP评分器全量对照 | [执行协议](experiments/video_mme_full/2026-10-14/scorer_comparison/执行协议.md) | Qwen32/LLaVA8，S2 ITM＋纯视觉前端，六组最多16200新QA；接入、下载和控制验收阶段，尚无新成绩 |
 | 完整选项词组覆盖 | [试点及开发准备](experiments/video_mme_full/2026-10-10/literal_options/验证记录.md) | exp32：复用OCR的八题试点；007配对纠错/584保持，开发200题准备与问答协调器后台接续，尚无总体成绩 |
 | 锚点条件选项支持 | [完整池与银行对照](experiments/video_mme_full/2026-10-09/option_support/验证记录.md) | 2337真实辅助输入＋4合成，最终QA0；银行改善未保持，时序/上下文风险，结束固定规则不开发/全量 |
 | 问题条件状态表征 | [先行对照与边界](experiments/video_mme_full/2026-10-09/task_state/验证记录.md) | 501真实帧、8空白基线、4合成prefill，QA0；银行内保留计时/具名动作但丢叉子，不扩200题或全量 |
