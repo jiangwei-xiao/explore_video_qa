@@ -28,7 +28,7 @@ def worker(root,stage,gpu,jobs,events,stop):
     try:
         # 步骤1：在子进程导入模型，防止主进程CUDA状态跨spawn继承。
         if stage in ('coarse','refine'):
-            from .preparation import initialize_scorer,coarse_one,refine_one
+            from .preparation import initialize_scorer,coarse_video,refine_one
             initialize_scorer(root,gpu,stage)
         else:
             from .runtime import qa_initialize,process_question
@@ -37,18 +37,20 @@ def worker(root,stage,gpu,jobs,events,stop):
         while not stop.is_set():
             row=jobs.get()
             if row is None:break
-            active=row['question_id']
-            events.put(dict(type='active',gpu=gpu,question_id=row['question_id']))
+            members=row if isinstance(row,list) else [row]
+            active=members[0]['question_id']
+            events.put(dict(type='active',gpu=gpu,question_id=active))
             # 步骤2：整个视频题目任务不跨卡，同题不同方法共享一个GPU和进程。
-            if stage=='coarse':coarse_one(root,row)
+            if stage=='coarse':coarse_video(root,members)
             elif stage=='refine':refine_one(root,row)
             else:process_question(run,row,backend,adapter,gpu,spec)
-            events.put(dict(type='completed',gpu=gpu,question_id=row['question_id']))
+            events.put(dict(type='completed',gpu=gpu,question_ids=[r['question_id'] for r in members]))
             active=None
         if stage in ('coarse','refine'):
             from . import preparation
             durable(root/'worker_totals'/(stage+'_'+gpu+'_'+str(os.getpid())+'.json'),
                 dict(stage=stage,gpu=gpu,model_calls=preparation._SCORER.counts,
+                     peak_allocated_gib=preparation._SCORER.torch.cuda.max_memory_allocated()/2**30,
                      wall_seconds=time.perf_counter()-started,utc=utc()))
     except BaseException as exc:
         stop.set();traceback.print_exc()
@@ -109,7 +111,14 @@ def run_stage(root,stage,gpus):
         for g in actual:
             if g in busy:continue
             q=next((q for q in pending if q not in pinned or pinned[q]==g),None)
-            if q is not None:pending.remove(q);busy.add(g);jobs[g].put(bank[q])
+            if q is not None:
+                pending.remove(q);busy.add(g)
+                if stage=='coarse':
+                    group=[r for r in data if r['video_id']==bank[q]['video_id'] and r['question_id'] not in done]
+                    for r in group:
+                        if r['question_id'] in pending:pending.remove(r['question_id'])
+                    jobs[g].put(group)
+                else:jobs[g].put(bank[q])
     with exclusive(root/'locks'/(stage+'.lock')):
         try:
             # 步骤1：所有常驻模型与合成验收成功后，再进入固定先行批次。
@@ -126,7 +135,7 @@ def run_stage(root,stage,gpus):
                         if len(ready)==len(actual):schedule();refill()
                     elif event['type']=='active':active[g]=event['question_id']
                     elif event['type']=='completed':
-                        done.add(event['question_id']);busy.remove(g);active.pop(g,None)
+                        done.update(event['question_ids']);busy.remove(g);active.pop(g,None)
                         if phase=='pilot' and not pending and not busy:schedule()
                         refill()
                 for g,child in children.items():

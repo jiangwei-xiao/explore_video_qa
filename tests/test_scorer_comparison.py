@@ -184,3 +184,31 @@ def test_proxy_missing_witness_not_silently_removed():
     pool,_=toy_pool()
     with pytest.raises(ValueError,match='missing'):
         witness_status(pool,[],[99999])
+
+
+def test_shared_real_video_decode_matches_independent_scans(tmp_path,monkeypatch):
+    """接口：真实视频解码＋假前向，与三个独立扫描的候选/分数/特征完全一致，模型调用0。"""
+    from videoqa_full.state import rows,durable
+    from videoqa_runtime.common import read_json
+    from videoqa_scorer_comparison import preparation as prep
+    class Scorer:
+        def __init__(self):
+            self.counts=dict(itm_batches=0,itm_frames=0,visual_batches=0,visual_frames=0)
+            self.torch=SimpleNamespace(cuda=SimpleNamespace(reset_peak_memory_stats=lambda:None,max_memory_allocated=lambda:0))
+        def tokenize(self,text):return {'input_ids':np.ones((1,len(text)))}
+        def score_batch_features(self,encoded,images):
+            self.counts['itm_batches']+=1;self.counts['itm_frames']+=len(images)
+            vectors=normalize_cls([[np.asarray(im)[0,0,0]+1.,np.asarray(im)[0,0,1]+1.,1.] for im in images])
+            values=[float(v[0]) for v in vectors]
+            return values,vectors,0.,0.
+    data=rows()[:3];a=tmp_path/'shared';b=tmp_path/'single'
+    durable(a/'preflight.json',{'synthetic_test':True});durable(b/'preflight.json',{'synthetic_test':True})
+    fake=Scorer();monkeypatch.setattr(prep,'_SCORER',fake);prep.coarse_video(a,data)
+    count=dict(fake.counts)
+    for row in data:prep.coarse_one(b,row)
+    assert fake.counts['itm_frames']==2*count['itm_frames']
+    for row in data:
+        q=row['question_id']
+        assert read_json(a/'coarse/pools'/(q+'.json'))==read_json(b/'coarse/pools'/(q+'.json'))
+        assert np.array_equal(np.load(a/'coarse/features'/(q+'.npy')),np.load(b/'coarse/features'/(q+'.npy')))
+    assert len(list((a/'shared_decode').glob('*.json')))==1

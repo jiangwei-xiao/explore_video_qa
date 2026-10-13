@@ -181,7 +181,7 @@ def persist_group(run,row,spec,group,answer,gpu,timings,imported=False):
             imported=imported,historical_sources=group['historical_sources'],
             correct=answer['parsed_answer']=='ABCD'[row['answer_index']],
             timings=timings if method==group['representative'] and not imported else {},
-            timing_kind='historical_verified_reference' if imported else 'physical_primary' if method==group['representative'] else 'same_input_reference',utc=utc()))
+            timing_kind='historical_verified_reference' if imported else 'restored_after_raw_return' if timings.get('recovered_postprocessing') else 'physical_primary' if method==group['representative'] else 'same_input_reference',utc=utc()))
 
 
 def import_answers(run,spec):

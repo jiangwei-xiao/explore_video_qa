@@ -173,6 +173,68 @@ def coarse_one(root,row):
     checkpoint(root,'coarse',q,sources,[pp,fp],dict(timing=timing))
 
 
+def coarse_video(root,video_rows):
+    """接口：同视频三题共享一次有界解码，每题仍独立完整官方batch16 ITM前向。
+
+    只共享源RGB读取，不拆分或缓存模型内部计算。共享解码成本按视频保存，
+    不为三题分别伪造原视频独立E2E；恢复仅评分未完成题。
+    """
+    from fractions import Fraction
+    from videoqa_runtime.baseline_selection import iter_candidate_frames
+    root=Path(root);pending=[];old={};sources={}
+    if len({r['video_id'] for r in video_rows})!=1:raise ValueError('Mixed videos in one decode task')
+    # 步骤1：候选/视频身份先绑定；每个原问题各自编码，绝不跨问题复用分数。
+    for row in video_rows:
+        q=row['question_id'];p=BASE/'pools'/(q+'.json')
+        sources[q]={str(p):sha256(p),'preflight':sha256(root/'preflight.json')}
+        if completed(root,'coarse',q,sources[q]):continue
+        pending.append(row);old[q]=read_json(p)
+    if not pending:return
+    if len(pending)==1:return coarse_one(root,pending[0])
+    first=old[pending[0]['question_id']];n=first['initial_count']
+    if any(x['video']!=first['video'] or x['candidates'][:x['initial_count']]!=first['candidates'][:n] for x in old.values()):
+        raise ValueError('Questions do not share exact frozen initial source identity')
+    encoded={r['question_id']:_SCORER.tokenize(r['question']) for r in pending}
+    scores={r['question_id']:[] for r in pending};vectors={q:[] for q in scores}
+    costs={q:dict(preprocess_seconds=0.,forward_seconds=0.,itm_batches=0,itm_frames=0) for q in scores}
+    start=time.perf_counter();decode_seconds=rgb_seconds=0.;metadata={};frames=[];images=[]
+    iterator=iter_candidate_frames(first['video']['path'],metadata)
+    def flush():
+        """步骤2：同一组RGB依次走各问题官方完整前向，正式批次大小仍是16。"""
+        try:
+            for q in scores:
+                values,f,pre,forward=_SCORER.score_batch_features(encoded[q],images)
+                scores[q].extend(values);vectors[q].append(f);costs[q]['preprocess_seconds']+=pre
+                costs[q]['forward_seconds']+=forward;costs[q]['itm_batches']+=1;costs[q]['itm_frames']+=len(images)
+        finally:
+            for image in images:image.close()
+            images.clear()
+    while True:
+        t=time.perf_counter()
+        try:frame,source=next(iterator)
+        except StopIteration:
+            decode_seconds+=time.perf_counter()-t;break
+        decode_seconds+=time.perf_counter()-t;frames.append(frame);t=time.perf_counter()
+        images.append(source.to_image());rgb_seconds+=time.perf_counter()-t
+        if len(images)==16:flush()
+    if images:flush()
+    metadata['duration_fraction']=first['video']['duration_fraction']
+    if metadata!=first['video'] or frames!=first['candidates'][:n]:raise ValueError('Shared decode source identity changed')
+    shared=root/'shared_decode'/(pending[0]['video_id']+'_'+str(os.getpid())+'.json')
+    durable(shared,dict(video_id=pending[0]['video_id'],question_ids=list(scores),
+        decode_seconds=decode_seconds,rgb_seconds=rgb_seconds,wall_seconds=time.perf_counter()-start,
+        candidate_count=n,model_calculation_shared=False,cost_scope='shared video decoding; per-question ITM unchanged'))
+    # 步骤3：每题独立池、特征和完成检查点；任何未落盘题可恢复纯评分，不触发QA。
+    for q in scores:
+        pp=root/'coarse/pools'/(q+'.json');fp=root/'coarse/features'/(q+'.npy')
+        durable(pp,dict(video=metadata,candidates=frames,initial_count=n,initial_scores=scores[q],
+            blip_question_tokens=int(encoded[q]['input_ids'].shape[1]),scorer_id='S2-BLIP-2-ITM',
+            feature_backbone='Salesforce/blip2-itm-vit-g',feature_type='pure_vision_CLS_L2'))
+        save_array(fp,np.concatenate(vectors[q],axis=0))
+        checkpoint(root,'coarse',q,sources[q],[pp,fp],dict(timing=costs[q],
+            shared_decode_record=str(shared.relative_to(root)),shared_decode_sha256=sha256(shared)))
+
+
 def select_pool(pool,features,k):
     """接口：共享exp07前缀构造exp12，唯一差别仍为粗参考覆盖加权。"""
     a,trace=select_exp07(pool,features,k);b,weighted=select_relevance_coverage(pool,features,trace)
@@ -241,6 +303,10 @@ def mixed_diagnostics(root):
             if dest.exists():
                 saved=read_json(dest)
                 if saved['pool_sha256']!=sha256(pp):raise ValueError('Mixed source changed')
+                if sha256(root/saved['feature_file'])!=saved['feature_sha256']:raise ValueError('Mixed feature changed')
+                keys=source_keys(read_json(pp)['candidates'])
+                for key,feature in zip(keys,np.load(root/saved['feature_file'],allow_pickle=False)):
+                    bank[key]=feature
                 continue
             pool=read_json(pp);features=[];missing=[]
             for i,key in enumerate(source_keys(pool['candidates'])):
@@ -258,10 +324,13 @@ def mixed_diagnostics(root):
                     for im in images:im.close()
                 for i,feature in zip(order,v):features[i]=feature;bank[source_keys([pool['candidates'][i]])[0]]=feature
                 timing.append(dict(indices=order,rgb_sha256=rgb,preprocess_seconds=pre,forward_seconds=forward))
-            selections,trace=select_pool(pool,np.stack(features),k)
+            all_features=np.stack(features);selections,trace=select_pool(pool,all_features,k)
+            feature_path=root/'mixed_features'/profile/(q+'.npy');feature_sha=save_array(feature_path,all_features)
             durable(dest,dict(question_id=q,profile=profile,pool_sha256=sha256(pp),
                 source_pool_sha256=sha256(BASE/'pools'/(q+'.json')),source_features_sha256=sha256(BASE/'features'/(q+'.npy')),
                 selected_source_keys={m:source_keys(f) for m,f in selections.items()},trace=trace,
+                feature_file=str(feature_path.relative_to(root)),feature_sha256=feature_sha,
                 newly_encoded_S1_visual_frames=len(missing),costs=timing,new_itm=0,new_QA=0))
+    records=[read_json(root/'mixed_diagnostic'/p/(r['question_id']+'.json')) for p in PROFILES for r in dev]
     durable(root/'mixed_diagnostic/summary.json',dict(status='completed',questions_per_profile=200,
-        new_QA=0,new_S1_ITM=0,new_S1_visual_frames=0 if scorer is None else scorer.counts['visual_frames'],utc=utc()))
+        new_QA=0,new_S1_ITM=0,new_S1_visual_frames=sum(r['newly_encoded_S1_visual_frames'] for r in records),utc=utc()))
