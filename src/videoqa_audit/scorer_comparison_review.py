@@ -62,10 +62,20 @@ def render(root):
     root=Path(root);panel=freeze_panel(root);bank={r['question_id']:r for r in rows()};records=[];plots=[]
     page=['<!doctype html><html lang="zh"><meta charset="utf-8"><title>BLIP前端全量有界复核</title>',
         '<style>body{font:16px/1.6 sans-serif;max-width:1400px;margin:auto;padding:20px}.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}img{max-width:100%}details{margin:12px 0}</style>',
-        '<h1>BLIP前端全量有界复核</h1><p>最多12题、事后审核，尚未进行实际画面初审。图板为完整原RGB等比缩略，不冒充官方预处理后的可见性。点击可放大；必要文字/动作应核查原帧与模型输入。分数曲线使用各模型原生概率，不作为跨模型相同证据置信度。</p>']
+        '<h1>BLIP前端全量有界复核</h1><p>最多12题、事后审核。图板为完整原RGB等比缩略，不冒充官方预处理后的可见性。点击可放大；必要文字/动作应核查原帧与模型输入。分数曲线使用各模型原生概率，不作为跨模型相同证据置信度。</p>']
+    findings=read_json(root/'review/findings.json') if (root/'review/findings.json').exists() else None
+    if findings:
+        page+=['<p>初审范围、实际处理器视图和未解决项：<a href="findings.json">完整初审记录</a>。这不是全部图板或原片的逐帧标注。</p>']
     for q in panel['question_ids']:
         row=bank[q];page+=['<h2>'+q+'</h2><p>'+html.escape(row['question'])+'</p>',
             '<p>'+html.escape(' / '.join(row['options']))+'</p>']
+        # 步骤1：初审结论和图板分开保存；仅展示实际已审核项，不自动填充语义判断。
+        if findings:
+            note=next((x for x in findings['cases'] if x['question_id']==q),None)
+            if note:
+                paragraphs=''.join('<p>'+html.escape(k+': '+str(note[k]))+'</p>'
+                    for k in ('profile','qwen32','llava8','observation','cause_status') if k in note)
+                page+=['<details><summary>展开实际画面初审</summary>'+paragraphs+'</details>']
         for profile in PROFILES:
             page+=['<h3>'+profile+'</h3>'];plot=score_plot(root,profile,q);plots.append(plot)
             page+=['<a href="'+plot['path']+'"><img loading="lazy" src="'+plot['path']+'"></a>']
@@ -83,4 +93,6 @@ def render(root):
         page+=['<details><summary>标准答案</summary>'+'ABCD'[row['answer_index']]+'</details>']
     page+=['</html>'];(root/'review/index.html').write_text('\n'.join(page),encoding='utf-8')
     value=dict(question_ids=panel['question_ids'],boards=records,plots=plots,
-        new_model_calls=0,status='pending_actual_frame_review',utc=utc());durable(root/'review/manifest.json',value);return value
+        new_model_calls=0,status='bounded_actual_frame_review_completed' if findings else 'pending_actual_frame_review',
+        findings_sha256=sha256(root/'review/findings.json') if findings else None,
+        utc=utc());durable(root/'review/manifest.json',value);return value
