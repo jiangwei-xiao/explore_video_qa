@@ -18,7 +18,9 @@ def main():
     """接口：只观察已确认的主PID，检查点到齐后执行只读核验；终止不触发重启。"""
     p=argparse.ArgumentParser();p.add_argument('--run-id',required=True);a=p.parse_args()
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_.-]*',a.run_id):raise ValueError('Invalid run ID')
-    root=ROOT/'outputs/full_videoqa'/a.run_id;finished=set();pid=read_json(root/'launcher.json')['pid']
+    root=ROOT/'outputs/full_videoqa'/a.run_id;finished=set()
+    launcher=root/'operational_recovery/launcher.json'
+    pid=read_json(launcher if launcher.exists() else root/'launcher.json')['pid']
     commands=[('coarse',root/'stage_completion/coarse.json',[PYTHON,str(ROOT/'scripts/audit_scorer_comparison.py'),'--run-id',a.run_id,'--stage','coarse']),
         ('qwen32',root/'stage_completion/refine.json',[PYTHON,str(ROOT/'scripts/audit_scorer_comparison.py'),'--run-id',a.run_id,'--stage','qwen32']),
         ('llava8',root/'stage_completion/refine.json',[PYTHON,str(ROOT/'scripts/audit_scorer_comparison.py'),'--run-id',a.run_id,'--stage','llava8']),
