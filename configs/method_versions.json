@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-09",
+  "updated_on": "2026-10-15",
   "current_frozen_method": "RD-1.2",
   "naming_policy": {
     "method": "FAMILY-major.minor",
     "exploration": "PARENT-expNN",
     "diagnostic": "PARENT-diagNN",
     "run_example": "rd_1_2__videomme2700__20260922__r01",
-    "next_rd_1_2_exploration": "RD-1.2-exp33",
+    "next_rd_1_2_exploration": "RD-1.2-exp34",
     "next_id_is_reserved_not_executed": true,
     "rule": "Canonical IDs are immutable; experiment statuses do not change IDs; datasets/run repeats do not create method versions."
   },
@@ -723,6 +723,17 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_full/2026-10-10/literal_options/验证记录.md",
       "status": "literal_pilot_positive_diagnostic_development_inputs_preparing_no_new_accuracy"
+    },
+    {
+      "id": "RD-1.2-exp33",
+      "family": "RD",
+      "kind": "exploration",
+      "parent": "RD-1.2",
+      "dependencies": ["RD-1.2-exp12"],
+      "description": "固定exp12最终输入，保护已选种子和区域锚点，仅为缺少直接邻帧的已选粗帧提出原0.5秒后继；相对视觉连续性通过后按原ITM优先，最多替换后一个槽位。",
+      "aliases": [],
+      "report": "docs/experiments/cross_dataset/2026-10-15/adjacent_context/实验结果.md",
+      "status": "stopped_offline_evidence_loss_no_qa"
     },
     {
       "id": "REF-WFS-SB",
