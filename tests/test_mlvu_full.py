@@ -41,11 +41,17 @@ def test_observer_task_binding_is_private(profile):
 
 
 def test_long_pts_and_json_roundtrip():
+    """超32位PTS与九小时非均匀时间轴保持真实时间；短源池不复制凑预算。"""
+    # 步骤1：原点超过有符号32位，故意让中间帧远离平均FPS推算的位置。
     video = dict(start_pts=2**31+100, time_base='1', duration_fraction='32551', duration_seconds=32551.)
     pts = np.asarray([2**31+100, 2**31+200, 2**31+32650], dtype=np.int64)
     frames = native_frames(pts, video, 3); selection = dict(video=video, selected_frames=frames)
     assert source_order(selection) == json.loads(json.dumps(source_order(selection)))
     assert frames[-1]['source_pts'] > 2**31 and frames[-1]['timestamp_seconds'] == 32550.
+    # 步骤2：逐帧检查真实时间和编号，而不是只核查首尾；预算上限不改变源身份。
+    assert [f['timestamp_seconds'] for f in frames] == [0., 100., 32550.]
+    assert [f['source_frame_index'] for f in frames] == [0, 1, 2]
+    assert native_frames(pts, video, 8) == frames
 
 
 def test_macro_not_overall_accuracy():
