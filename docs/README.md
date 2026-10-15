@@ -8,7 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
-| MLVU BLIP-1全量 | [执行协议](experiments/mlvu_dev/2026-10-14/blip1/执行协议.md) | 七类2174题，LLaVA8/Qwen32四策略；官方映射、10800控制、CPU输入及7次合成通过，完整索引与后台流水线准备中，暂无正式成绩 |
+| MLVU BLIP-1全量 | [执行协议](experiments/mlvu_dev/2026-10-14/blip1/执行协议.md) | 七类2174题；全片索引、1415260粗评分位置及17392份选择核验通过，LLaVA8四组已完成，Qwen32后台进行中，八组统一成绩待完成后发布 |
 | BLIP评分器全量对照 | [完整结果与选帧复核](experiments/video_mme_full/2026-10-14/scorer_comparison/实验结果.md) · [协议](experiments/video_mme_full/2026-10-14/scorer_comparison/执行协议.md) | 六组16200结果完成，13929新QA＋2271核验引用；S2−S1为−0.33至+0.15个百分点、六区间均含0，保留S1；12题有界初审与零生成恢复通过 |
 | 完整选项词组覆盖 | [试点及开发准备](experiments/video_mme_full/2026-10-10/literal_options/验证记录.md) | exp32：复用OCR的八题试点；007配对纠错/584保持，开发200题准备与问答协调器后台接续，尚无总体成绩 |
 | 锚点条件选项支持 | [完整池与银行对照](experiments/video_mme_full/2026-10-09/option_support/验证记录.md) | 2337真实辅助输入＋4合成，最终QA0；银行改善未保持，时序/上下文风险，结束固定规则不开发/全量 |
