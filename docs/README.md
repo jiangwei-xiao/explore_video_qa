@@ -8,6 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 单帧邻接上下文诊断 | [结果与下一步边界](experiments/cross_dataset/2026-10-15/frame_group_diagnostic/实验结果与结论.md) · [协议](experiments/cross_dataset/2026-10-15/frame_group_diagnostic/执行协议.md) | 五组三条件15真实＋5合成；三个错例T独有纠正、两个正确对照保持、O全部复现；达到自动候选设计门槛，未启动算法小测 |
 | 双数据集选择复盘 | [计分、路径与初审结论](experiments/cross_dataset/2026-10-15/selection_review/实验结果与下一阶段判断.md) · [协议](experiments/cross_dataset/2026-10-15/selection_review/执行协议.md) | 9748主配置＋5400项16帧补充，0模型调用；MLVU标点归一化后LLaVA8两版65.85/65.82 M-Avg；12题未支持单一新公式，小测210/200清单已冻结、未生成 |
 | MLVU BLIP-1全量 | [全量结果与验收](experiments/mlvu_dev/2026-10-14/blip1/实验结果.md) · [协议](experiments/mlvu_dev/2026-10-14/blip1/执行协议.md) | 八组各2174题完成；LLaVA8 exp07 M-Avg63.62%，对均匀/Top-K +7.43/+2.18 pp；Qwen32 exp12 67.44%，对均匀+7.74 pp但未超过Top-K67.78%；16029新QA，实际恢复0新增 |
 | BLIP评分器全量对照 | [完整结果与选帧复核](experiments/video_mme_full/2026-10-14/scorer_comparison/实验结果.md) · [协议](experiments/video_mme_full/2026-10-14/scorer_comparison/执行协议.md) | 六组16200结果完成，13929新QA＋2271核验引用；S2−S1为−0.33至+0.15个百分点、六区间均含0，保留S1；12题有界初审与零生成恢复通过 |
