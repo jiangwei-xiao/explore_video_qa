@@ -10,6 +10,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 帧组事实提取能力诊断 | [能力结论与边界](experiments/cross_dataset/2026-10-16/evidence_observation/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/evidence_observation/执行协议.md) | 12题24组、120辅助＋4合成、最终QA0；严格JSON0/24，内容另有错帧/限定遗漏，固定观察器未通过；不接选择层，主线文档已更新 |
 | exp34低损失替换 | [结果与复核](experiments/cross_dataset/2026-10-16/exp34_low_loss/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/exp34_low_loss/执行协议.md) | 9748项离线、四格820条小测完成；494新QA＋326引用，exp34相对exp33净−1/0/−1/+1题；覆盖指标改善但无统一准确率收益，不全量 |
 | exp33固定版双数据集小测 | [结果与复核](experiments/cross_dataset/2026-10-16/exp33_development/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/exp33_development/执行协议.md) | 820结果＝625新QA＋195核验引用，合成8；对exp12，Video-MME LLaVA8/Qwen32净−1/−3，MLVU净+2/+3；无统一收益，不启动全量，替换损失评估留待讨论 |
 | exp33单次邻接修复 | [离线结果与停止依据](experiments/cross_dataset/2026-10-15/adjacent_context/实验结果.md) · [协议](experiments/cross_dataset/2026-10-15/adjacent_context/执行协议.md) | 9748项改变7338项，自动复现D1/D3已验证T；012-3移除清晰灰色胶带近景，保护门槛失败；新QA/合成均0，未启动四组小测 |
