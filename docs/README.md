@@ -8,6 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| exp34低损失替换 | [执行协议](experiments/cross_dataset/2026-10-16/exp34_low_loss/执行协议.md) | 固定exp33邻接提议，只优化删除位置；9748项离线重放完成，原触发不变，5887项换了删除对象，已列75事实无完整见证损失警报；四格小测输入准备中，尚无精度结论 |
 | exp33固定版双数据集小测 | [结果与复核](experiments/cross_dataset/2026-10-16/exp33_development/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/exp33_development/执行协议.md) | 820结果＝625新QA＋195核验引用，合成8；对exp12，Video-MME LLaVA8/Qwen32净−1/−3，MLVU净+2/+3；无统一收益，不启动全量，替换损失评估留待讨论 |
 | exp33单次邻接修复 | [离线结果与停止依据](experiments/cross_dataset/2026-10-15/adjacent_context/实验结果.md) · [协议](experiments/cross_dataset/2026-10-15/adjacent_context/执行协议.md) | 9748项改变7338项，自动复现D1/D3已验证T；012-3移除清晰灰色胶带近景，保护门槛失败；新QA/合成均0，未启动四组小测 |
 | 单帧邻接上下文诊断 | [结果与下一步边界](experiments/cross_dataset/2026-10-15/frame_group_diagnostic/实验结果与结论.md) · [协议](experiments/cross_dataset/2026-10-15/frame_group_diagnostic/执行协议.md) | 五组三条件15真实＋5合成；三个错例T独有纠正、两个正确对照保持、O全部复现；达到自动候选设计门槛，未启动算法小测 |
