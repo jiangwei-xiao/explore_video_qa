@@ -1,6 +1,8 @@
 """exp33固定选择的四单元问答：允许已知证据风险，严格冻结输入与一次生成。"""
 from concurrent.futures import ProcessPoolExecutor
+from contextlib import contextmanager
 import copy
+import fcntl
 import multiprocessing as mp
 import os
 from pathlib import Path
@@ -30,6 +32,16 @@ FILES=tuple(dict.fromkeys(('src/videoqa_audit/adjacent_context_development.py','
     'src/videoqa_audit/frame_group_diagnostic.py','src/videoqa_mlvu/backends.py','src/videoqa_mlvu/data.py',
     'src/videoqa_scorer_comparison/runtime.py','src/videoqa_budget32/frames.py','src/videoqa_audit/cross_dataset_review.py')+QA_FILES))
 _TOOLS=None
+
+
+@contextmanager
+def cache_lock(path):
+    """接口：共享身份缓存等待已有计算完成；与防重复启动的非阻塞排他锁职责不同。"""
+    # 步骤1：不同单元可以请求同一视频/模型缓存，不能把正常等待当成运行失败。
+    path=Path(path);path.parent.mkdir(parents=True,exist_ok=True)
+    with path.open('a') as stream:
+        fcntl.flock(stream.fileno(),fcntl.LOCK_EX)
+        yield
 
 
 def unit_path(root,dataset,profile):
@@ -67,7 +79,7 @@ def check_partition(dataset,profile,items):
 def preflight(root):
     """接口：记录本轮带风险小测授权并验证旧离线产物；不改旧失败门槛。"""
     root=Path(root);root.mkdir(parents=True,exist_ok=True);offline_environment()
-    with exclusive(root/'preflight.lock'):
+    with cache_lock(root/'preflight.lock'):
         path=root/'preflight.json'
         if path.exists():
             spec=read_json(path)
@@ -94,7 +106,7 @@ def model_identity(root,profile):
     """接口：每模型只校验一次完整权重/环境，两个数据集共享只读身份检查点。"""
     from videoqa_lmms_bridge.common import framework_identity
     root=Path(root);path=root/'model_identity'/(profile+'.json')
-    with exclusive(path.with_suffix('.lock')):
+    with cache_lock(path.with_suffix('.lock')):
         if path.exists():
             s=read_json(path)
             if environment(PYTHONS[profile])!=s['environment']:raise ValueError('QA environment changed')
@@ -118,7 +130,7 @@ def model_identity(root,profile):
 def video_identity(root,dataset,row,selection):
     """接口：同一源视频跨预算只哈希一次；后续逐题核验stat与实际源RGB。"""
     root=Path(root);video=Path(selection['video']['path']);path=root/'video_identity'/(digest(str(video))+'.json')
-    with exclusive(path.with_suffix('.lock')):
+    with cache_lock(path.with_suffix('.lock')):
         if path.exists():
             value=read_json(path);st=video.stat()
             if (st.st_size,st.st_mtime_ns)!=(value['bytes'],value['mtime_ns']):raise ValueError('Video stat changed')

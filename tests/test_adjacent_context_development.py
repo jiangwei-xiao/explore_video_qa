@@ -101,3 +101,15 @@ def test_qwen_odd_frame_padding_uses_actual_count(monkeypatch,encoded,valid):
     if valid:dev.validate_answer(item,answer,'mlvu','qwen32')
     else:
         with pytest.raises(ValueError,match='padding'):dev.validate_answer(item,answer,'mlvu','qwen32')
+
+
+def test_shared_cache_waits_for_existing_writer(tmp_path):
+    import threading
+    entered=threading.Event();started=threading.Event()
+    def request():
+        started.set()
+        with dev.cache_lock(tmp_path/'same.lock'):entered.set()
+    with dev.cache_lock(tmp_path/'same.lock'):
+        thread=threading.Thread(target=request);thread.start();assert started.wait(2)
+        assert not entered.wait(.1)
+    assert entered.wait(2);thread.join(2);assert not thread.is_alive()
