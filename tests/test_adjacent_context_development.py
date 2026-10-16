@@ -113,3 +113,17 @@ def test_shared_cache_waits_for_existing_writer(tmp_path):
         thread=threading.Thread(target=request);thread.start();assert started.wait(2)
         assert not entered.wait(.1)
     assert entered.wait(2);thread.join(2);assert not thread.is_alive()
+
+
+def test_no_idle_gpu_is_wait_not_coordinator_failure(monkeypatch):
+    import videoqa_runtime.baseline_run as base
+    def unavailable(gpus):raise RuntimeError('No requested GPU is currently idle')
+    monkeypatch.setattr(base,'available_gpus',unavailable)
+    assert dev.idle_worker_gpus()==[]
+
+
+def test_gpu_query_errors_are_not_swallowed(monkeypatch):
+    import videoqa_runtime.baseline_run as base
+    def broken(gpus):raise RuntimeError('Driver unavailable')
+    monkeypatch.setattr(base,'available_gpus',broken)
+    with pytest.raises(RuntimeError,match='Driver unavailable'):dev.idle_worker_gpus()

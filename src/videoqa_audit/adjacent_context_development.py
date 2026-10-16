@@ -480,9 +480,18 @@ def prepare_all(root):
     durable(root/'input_plan.json',dict(protocols=protocols,new_calls=625,imports=195,method_results=820,max_synthetic_calls=8,utc=utc()))
 
 
+def idle_worker_gpus():
+    """接口：没有空闲卡是正常等待状态，驱动或查询异常仍然抛出，不能静默忽略。"""
+    from videoqa_runtime.baseline_run import available_gpus
+    # 步骤1：只转换资源不足这一已知状态，保留其他异常供调用方停止核查。
+    try:return available_gpus(list(map(str,range(8))))[0]
+    except RuntimeError as error:
+        if str(error)=='No requested GPU is currently idle':return []
+        raise
+
+
 def execute_all(root):
     """接口：后台自动分配空闲卡，最多四单元各2卡；完成恢复只审计不重新加载。"""
-    from videoqa_runtime.baseline_run import available_gpus
     root=Path(root);preflight(root)
     if (root/'PAUSE.json').exists():raise RuntimeError('Paused experiment requires raw-state review before any resume')
     frozen=read_json(root/'input_plan.json')
@@ -503,7 +512,7 @@ def execute_all(root):
                     for child,handle,_ in active.values():child.wait();handle.close()
                     raise RuntimeError('Cell manager failed; no automatic retry')
             if (root/'PAUSE.json').exists():raise RuntimeError('Experiment paused')
-            free,_=available_gpus(list(map(str,range(8))));used={g for _,_,gs in active.values() for g in gs};free=[g for g in free if g not in used]
+            free=idle_worker_gpus() if pending else [];used={g for _,_,gs in active.values() for g in gs};free=[g for g in free if g not in used]
             for cell in list(pending):
                 if not free:break
                 run=unit_path(root,*cell);previous=run/'gpu_assignment.json'
