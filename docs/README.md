@@ -8,6 +8,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| exp33固定版双数据集小测 | [执行协议](experiments/cross_dataset/2026-10-16/exp33_development/执行协议.md) | 新阶段允许已知证据风险，冻结原exp33选择；820结果预计194父版引用＋1诊断引用＋625新QA，完整输入核验后后台执行，尚无本阶段准确率 |
 | exp33单次邻接修复 | [离线结果与停止依据](experiments/cross_dataset/2026-10-15/adjacent_context/实验结果.md) · [协议](experiments/cross_dataset/2026-10-15/adjacent_context/执行协议.md) | 9748项改变7338项，自动复现D1/D3已验证T；012-3移除清晰灰色胶带近景，保护门槛失败；新QA/合成均0，未启动四组小测 |
 | 单帧邻接上下文诊断 | [结果与下一步边界](experiments/cross_dataset/2026-10-15/frame_group_diagnostic/实验结果与结论.md) · [协议](experiments/cross_dataset/2026-10-15/frame_group_diagnostic/执行协议.md) | 五组三条件15真实＋5合成；三个错例T独有纠正、两个正确对照保持、O全部复现；达到自动候选设计门槛，未启动算法小测 |
 | 双数据集选择复盘 | [计分、路径与初审结论](experiments/cross_dataset/2026-10-15/selection_review/实验结果与下一阶段判断.md) · [协议](experiments/cross_dataset/2026-10-15/selection_review/执行协议.md) | 9748主配置＋5400项16帧补充，0模型调用；MLVU标点归一化后LLaVA8两版65.85/65.82 M-Avg；12题未支持单一新公式，小测210/200清单已冻结、未生成 |
