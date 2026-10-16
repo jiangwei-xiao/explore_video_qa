@@ -743,8 +743,8 @@
       "dependencies": ["RD-1.2-exp12", "RD-1.2-exp33"],
       "description": "固定exp12输入及exp33的邻接触发、请求帧与补入帧；只按等权粗帧视觉覆盖损失，在未保护的已选帧中决定删除对象。",
       "aliases": [],
-      "report": "docs/experiments/cross_dataset/2026-10-16/exp34_low_loss/执行协议.md",
-      "status": "fixed_offline_complete_development_inputs_preparing_no_new_accuracy"
+      "report": "docs/experiments/cross_dataset/2026-10-16/exp34_low_loss/实验结果.md",
+      "status": "fixed_development_completed_no_unified_gain_no_full_test"
     },
     {
       "id": "REF-WFS-SB",
