@@ -10,6 +10,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 单帧事实最小接口 | [结果与边界](experiments/cross_dataset/2026-10-18/single_frame_facts/实验结果.md) · [协议](experiments/cross_dataset/2026-10-18/single_frame_facts/执行协议.md) | 48辅助＋2合成、QA0；有效40/48，陈述正确率81.73%、操作性召回43.18%，未过门槛；文字有增量、物体/状态未突破，停止固定接口 |
 | 帧组事实提取能力诊断 | [能力结论与边界](experiments/cross_dataset/2026-10-16/evidence_observation/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/evidence_observation/执行协议.md) | 12题24组、120辅助＋4合成、最终QA0；严格JSON0/24，内容另有错帧/限定遗漏，固定观察器未通过；不接选择层，主线文档已更新 |
 | exp34低损失替换 | [结果与复核](experiments/cross_dataset/2026-10-16/exp34_low_loss/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/exp34_low_loss/执行协议.md) | 9748项离线、四格820条小测完成；494新QA＋326引用，exp34相对exp33净−1/0/−1/+1题；覆盖指标改善但无统一准确率收益，不全量 |
 | exp33固定版双数据集小测 | [结果与复核](experiments/cross_dataset/2026-10-16/exp33_development/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/exp33_development/执行协议.md) | 820结果＝625新QA＋195核验引用，合成8；对exp12，Video-MME LLaVA8/Qwen32净−1/−3，MLVU净+2/+3；无统一收益，不启动全量，替换损失评估留待讨论 |
