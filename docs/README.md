@@ -10,6 +10,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 独立数据集合价值学习 | [执行协议](experiments/nextqa/2026-10-19/set_value_learning/执行协议.md) · [主线工作文档](research/RD主线收束与下一阶段推进.md) | NExT-QA 600训练/200验证、四个K8候选；只训练轻量集合头，当前准备中，尚无新QA或收益结论 |
 | 单帧事实最小接口 | [结果与边界](experiments/cross_dataset/2026-10-18/single_frame_facts/实验结果.md) · [协议](experiments/cross_dataset/2026-10-18/single_frame_facts/执行协议.md) | 48辅助＋2合成、QA0；有效40/48，陈述正确率81.73%、操作性召回43.18%，未过门槛；文字有增量、物体/状态未突破，停止固定接口 |
 | 帧组事实提取能力诊断 | [能力结论与边界](experiments/cross_dataset/2026-10-16/evidence_observation/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/evidence_observation/执行协议.md) | 12题24组、120辅助＋4合成、最终QA0；严格JSON0/24，内容另有错帧/限定遗漏，固定观察器未通过；不接选择层，主线文档已更新 |
 | exp34低损失替换 | [结果与复核](experiments/cross_dataset/2026-10-16/exp34_low_loss/实验结果.md) · [协议](experiments/cross_dataset/2026-10-16/exp34_low_loss/执行协议.md) | 9748项离线、四格820条小测完成；494新QA＋326引用，exp34相对exp33净−1/0/−1/+1题；覆盖指标改善但无统一准确率收益，不全量 |
