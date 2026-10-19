@@ -142,6 +142,31 @@ def test_data_transition_refuses_missing_live_process(tmp_path):
         runtime.wait_data_and_run(tmp_path,99999999)
 
 
+def test_sequential_media_preserves_exact_source_and_never_seeks(monkeypatch):
+    import av
+    from PIL import Image
+    from fractions import Fraction
+    from types import SimpleNamespace
+    from videoqa_set_value.media import SequentialFrameProvider
+    class Container:
+        def __init__(self):self.streams=SimpleNamespace(video=[SimpleNamespace(time_base=Fraction(1,10),start_time=0,codec_context=SimpleNamespace(thread_count=None))])
+        def __enter__(self):return self
+        def __exit__(self,*args):pass
+        def seek(self,*args,**kwargs):raise AssertionError('Random seek must not be called')
+        def decode(self,stream):
+            for i in range(5):yield SimpleNamespace(pts=i,to_image=lambda v=i:Image.new('RGB',(4,4),(v,0,0)))
+    monkeypatch.setattr(av,'open',lambda path:Container())
+    video=dict(path='fake.mp4',time_base='1/10',start_pts=0,duration_fraction='1',duration_seconds=1.)
+    frames=[dict(source_pts=i,source_frame_index=i,timestamp_seconds=i/10) for i in (1,4)]
+    provider=SequentialFrameProvider(dict(video=video,selected_frames=frames));ims,hashes=provider.decode()
+    try:assert [im.getpixel((0,0))[0] for im in ims]==[1,4] and len(hashes)==2
+    finally:
+        for im in ims:im.close()
+    frames[0]['source_frame_index']=0
+    with pytest.raises(ValueError,match='source index changed'):
+        SequentialFrameProvider(dict(video=video,selected_frames=frames)).decode()
+
+
 def test_fixed_training_then_validation_prediction_needs_no_validation_answers(tmp_path):
     """只用人工数值fixture验收数据流，不能当作真实学习收益或模型调用。"""
     from videoqa_set_value.learner import fit

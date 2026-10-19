@@ -61,6 +61,13 @@ def preflight(root):
         environments=dict(prepare=environment(PREP_PYTHON),llava=environment(QA_PYTHON)),
         teacher=dict(model=MODEL,dtype='BF16',attention='SDPA',frame_budget=8,visual_tokens=1680,max_new_tokens=16,seed=2027),
         maximum_real_generations=3200,maximum_synthetic_generations=8,validation_prediction_before_generation=True,utc=utc())
+    if (root/'preparation_reuse.json').exists():
+        receipt=read_json(root/'preparation_reuse.json')
+        if sha256(Path(receipt['parent_run'])/'protocol.json')!=receipt['parent_protocol_sha256']:
+            raise ValueError('Parent preparation identity changed')
+        if read_json(Path(receipt['parent_run'])/'protocol.json')['models']!=models:
+            raise ValueError('Imported BLIP model identity differs')
+        value['preparation_reuse_sha256']=sha256(root/'preparation_reuse.json')
     durable(root/'protocol.json',value);return value
 
 
@@ -68,6 +75,8 @@ def verify(root,full=False):
     """接口：恢复不接受输入/权重/代码漂移；完整哈希用于最终验收。"""
     root=Path(root);p=read_json(root/'protocol.json')
     if sha256(root/'manifest.json')!=p['manifest_sha256']:raise ValueError('Manifest changed')
+    if p.get('preparation_reuse_sha256') is not None and sha256(root/'preparation_reuse.json')!=p['preparation_reuse_sha256']:
+        raise ValueError('Preparation reuse receipt changed')
     for name,fp in p['code'].items():
         if sha256(ROOT/name)!=fp:raise ValueError('Frozen code changed: '+name)
     for path,descriptor in {**p['models'],**p['video_stats']}.items():
@@ -80,6 +89,25 @@ def verify(root,full=False):
         raise ValueError('Frozen framework/task changed')
     if full:verify_prepared_assets(root)
     return p
+
+
+def compare_parent_preparation(root):
+    """接口：技术读帧修正必须保持父准备的源选择/RGB/表示；失败在首个教师前暂停。"""
+    root=Path(root)
+    if not (root/'preparation_reuse.json').exists():return
+    receipt=read_json(root/'preparation_reuse.json');parent=Path(receipt['parent_run']);checked=[];error=0.
+    for q,fp in receipt['parent_completed_selections'].items():
+        if sha256(parent/'selection_checkpoints'/(q+'.json'))!=fp:raise ValueError('Parent checkpoint changed')
+        for m in METHODS:
+            a=read_json(parent/'selections'/m/(q+'.json'));b=read_json(root/'selections'/m/(q+'.json'))
+            keys=lambda item:[(f['source_pts'],f['source_frame_index'],f['rgb_sha256']) for f in item['frames']]
+            if keys(a)!=keys(b):raise ValueError('Sequential decoder changes an existing source/RGB input: '+q)
+        with np.load(parent/'value_features'/(q+'.npz'),allow_pickle=False) as a,np.load(root/'value_features'/(q+'.npz'),allow_pickle=False) as b:
+            error=max(error,max(float(np.max(np.abs(a[m]-b[m]))) for m in METHODS))
+        if error>1e-6:raise ValueError('Parent frozen representation differs')
+        checked.append(q)
+    durable(root/'parent_preparation_control.json',dict(questions=len(checked),method_inputs=len(checked)*4,
+        source_order_and_rgb_exact=True,maximum_feature_abs_error=error,new_teacher_generations=0,utc=utc()))
 
 
 def verify_prepared_assets(root):
@@ -382,6 +410,7 @@ def run(root):
                 for _,p,log in children:p.wait();log.close()
                 children=[]
                 checkpoints={r['question_id']:sha256(root/'selection_checkpoints'/(r['question_id']+'.json')) for r in public_rows(root)}
+                compare_parent_preparation(root)
                 durable(root/'selections_complete.json',dict(checkpoints=checkpoints,utc=utc()))
             if not (root/'inputs_complete.json').exists():
                 with (root/'freeze_inputs.log').open('a') as log:

@@ -76,6 +76,7 @@ def report(root):
             target.append(call['answer']['observed'])
             if path.parent.name in METHODS:parse_errors[split]+=call['answer']['parsed_answer'] is None
     blip=[read_json(p) for p in (root/'blip_calls').glob('*/*.json')]
+    reuse=read_json(root/'preparation_reuse.json') if (root/'preparation_reuse.json').exists() else {'imported_blip_batches':0}
     groups=Counter(r['task_type'] for r in rows);by_task={}
     for task,n in groups.items():
         ids=[i for i,r in enumerate(rows) if r['task_type']==task]
@@ -99,6 +100,7 @@ def report(root):
             output_tokens=sum(len(x['generated_token_ids']) for x in teacher_cost),
             peak_allocated_gib=max(x['peak_allocated_gib'] for x in teacher_cost),
             blip_batches=len(blip),blip_frames=sum(x['frames'] for x in blip),
+            imported_blip_batches=reuse['imported_blip_batches'],new_blip_batches=len(blip)-reuse['imported_blip_batches'],
             blip_forward_seconds=sum(x['forward_seconds'] for x in blip),
             training_seconds=training['training_seconds'],physical_parse_failures=parse_errors),
         provenance=dict(manifest_sha256=sha256(root/'manifest.json'),predictions_sha256=sha256(root/'validation_predictions.json'),

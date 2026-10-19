@@ -16,7 +16,8 @@ from videoqa_methods.density_selection import build_regions
 from videoqa_methods.budget_contract import budget_config,select_exp07
 from videoqa_methods.relevance_coverage_budget import select_relevance_coverage
 from videoqa_runtime.baseline_selection import select_topk
-from videoqa_budget32.frames import FrameProvider,native_frames,validate_frames
+from videoqa_budget32.frames import native_frames,validate_frames
+from videoqa_set_value.media import SequentialFrameProvider as FrameProvider
 from videoqa_set_value.data import METHODS
 from videoqa_set_value.learner import extract_set_features
 
