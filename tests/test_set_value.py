@@ -196,3 +196,11 @@ def test_fixed_training_then_validation_prediction_needs_no_validation_answers(t
     assert all(p['chosen_method']==METHODS[0] for p in predictions['predictions'])
     assert fit(tmp_path)==training and runtime.sha256(tmp_path/'head/checkpoint.pt')==checkpoint
     assert predict_validation(tmp_path)==predictions
+
+
+@pytest.mark.parametrize('raw,expected',[('E','E'),('(E)','E'),(' E. ','E'),('A because',None),('',None),('F',None)])
+def test_independent_audit_parser_matches_frozen_scope(raw,expected):
+    import runpy
+    from videoqa_runtime.common import ROOT
+    module=runpy.run_path(str(ROOT/'scripts/audit_set_value_learning.py'),run_name='set_value_audit_parser_test')
+    assert module['option'](raw)==expected
