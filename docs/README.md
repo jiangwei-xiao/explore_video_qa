@@ -10,6 +10,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
+| 独立长视频集合监督 | [固定协议](experiments/longvideo_reason/2026-10-19/set_value_trial/执行协议.md) · [实施与资产进展](experiments/longvideo_reason/2026-10-19/set_value_trial/实施与资产进展.md) | 固定八包/800训练+400验证，先导200后条件性一次充分训练；资产下载中、当前新QA0，原NExT-QA验证封存 |
 | 训练监督画面敏感性 | [完成结果与判断](experiments/nextqa/2026-10-19/supervision_quality/实验结果.md) · [协议](experiments/nextqa/2026-10-19/supervision_quality/执行协议.md) | 120题/600条件完成；原图105、灰图69、异视频58，视觉贡献明确；L/R后偏好9→14题、银行上界108→110，优先改善独立监督场景 |
 | 集合价值训练充分性诊断 | [结果](experiments/nextqa/2026-10-19/set_value_trainability/实验结果.md) · [协议](experiments/nextqa/2026-10-19/set_value_trainability/执行协议.md) | 180步拟合通过；视频五折523/600持平训练折参照，偏好44.50%；停止本轮，原200题封存、新增大模型调用0 |
 | 独立数据集合价值学习 | [结果与停止结论](experiments/nextqa/2026-10-19/set_value_learning/实验结果.md) · [主线工作文档](research/RD主线收束与下一阶段推进.md) | NExT-QA 600训练/200验证；学习160、均匀162，偏好42.11%（19题）；2607真实＋8合成，结束固定头，不扩大原基准 |
