@@ -10,7 +10,7 @@
 
 | 分类 | 入口 | 内容 |
 |---|---|---|
-| 训练监督画面敏感性 | [执行协议](experiments/nextqa/2026-10-19/supervision_quality/执行协议.md) · [主线](research/RD主线收束与下一阶段推进.md) | 120输入冻结，599唯一调用上限；55题/275条件完成、O复现55/55，剩余65题后台等待原GPU4—7，尚无完整结论 |
+| 训练监督画面敏感性 | [完成结果与判断](experiments/nextqa/2026-10-19/supervision_quality/实验结果.md) · [协议](experiments/nextqa/2026-10-19/supervision_quality/执行协议.md) | 120题/600条件完成；原图105、灰图69、异视频58，视觉贡献明确；L/R后偏好9→14题、银行上界108→110，优先改善独立监督场景 |
 | 集合价值训练充分性诊断 | [结果](experiments/nextqa/2026-10-19/set_value_trainability/实验结果.md) · [协议](experiments/nextqa/2026-10-19/set_value_trainability/执行协议.md) | 180步拟合通过；视频五折523/600持平训练折参照，偏好44.50%；停止本轮，原200题封存、新增大模型调用0 |
 | 独立数据集合价值学习 | [结果与停止结论](experiments/nextqa/2026-10-19/set_value_learning/实验结果.md) · [主线工作文档](research/RD主线收束与下一阶段推进.md) | NExT-QA 600训练/200验证；学习160、均匀162，偏好42.11%（19题）；2607真实＋8合成，结束固定头，不扩大原基准 |
 | 单帧事实最小接口 | [结果与边界](experiments/cross_dataset/2026-10-18/single_frame_facts/实验结果.md) · [协议](experiments/cross_dataset/2026-10-18/single_frame_facts/执行协议.md) | 48辅助＋2合成、QA0；有效40/48，陈述正确率81.73%、操作性召回43.18%，未过门槛；文字有增量、物体/状态未突破，停止固定接口 |
