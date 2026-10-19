@@ -6,7 +6,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
-| 训练监督画面敏感性／2026-10-19 | [执行协议](nextqa/2026-10-19/supervision_quality/执行协议.md) | 实施准备，120视频/五条件，上限600诊断问答 | `supervision_quality__nextqa120__llava8__20261019_r1` |
+| 训练监督画面敏感性／2026-10-19 | [执行协议](nextqa/2026-10-19/supervision_quality/执行协议.md) | 55/120题、275条件完成，等待原GPU4—7；尚无完整结论 | `supervision_quality__nextqa120__llava8__20261019_r1`；599唯一调用上限 |
 | 集合价值训练充分性／2026-10-19 | [执行协议](nextqa/2026-10-19/set_value_trainability/执行协议.md) | [拟合通过，折外523/600无净收益；停止](nextqa/2026-10-19/set_value_trainability/实验结果.md) | `set_value_trainability__nextqa600__20261019_r1`；新增大模型调用0 |
 | NExT-QA集合价值学习／2026-10-19 | [执行协议](nextqa/2026-10-19/set_value_learning/执行协议.md) | [学习160/200、均匀162，停止固定头](nextqa/2026-10-19/set_value_learning/实验结果.md) | `set_value_learning__nextqa800__llava8__20261019_r2`；r1仅失败准备，QA0 |
 | exp28条件合并／双配置开发200题／2026-10-08夜间 | [执行协议](video_mme_200/2026-10-08/conditional_merge/执行协议.md) | [130/119，停止不全量；exp07共同失败复盘](video_mme_200/2026-10-08/conditional_merge/实验结果与夜间复盘.md) | `rd12_exp28_conditional_merge_20261008_r1`；279新答＋121导入；`exp07_cross_config_failures_20261008_r1`零问答分析 |
