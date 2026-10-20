@@ -1,0 +1,50 @@
+{
+  "task": "rd_evidence_consolidation_v1",
+  "new_model_calls": 0,
+  "reference_rows": [
+    {"method":"AKS","reporter":"WFS-SB authors reproduction","paper":"WFS-SB_CVPR2026.pdf","page":6,"table":"Table 1","profile":"llava8","dataset":"videomme","base":56.2,"score":60.1,"anchor":"AKS†7B856.260.1+3.957.464.2+6.8","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"AKS","reporter":"WFS-SB authors reproduction","paper":"WFS-SB_CVPR2026.pdf","page":6,"table":"Table 1","profile":"llava8","dataset":"mlvu","base":57.4,"score":64.2,"anchor":"AKS†7B856.260.1+3.957.464.2+6.8","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"AKS","reporter":"WFS-SB authors reproduction","paper":"WFS-SB_CVPR2026.pdf","page":6,"table":"Table 1","profile":"qwen32","dataset":"videomme","base":61.2,"score":64.0,"anchor":"AKS†7B3261.264.0+2.859.767.2+7.5","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"AKS","reporter":"WFS-SB authors reproduction","paper":"WFS-SB_CVPR2026.pdf","page":6,"table":"Table 1","profile":"qwen32","dataset":"mlvu","base":59.7,"score":67.2,"anchor":"AKS†7B3261.264.0+2.859.767.2+7.5","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"MDP³","reporter":"A.I.R. authors reproduction","paper":"AIR_ICLR2026.pdf","page":8,"table":"Table 1","profile":"qwen32","dataset":"videomme","base":60.8,"score":63.8,"anchor":"+MDP3†7B3263.865.766.260.0","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"MDP³","reporter":"A.I.R. authors reproduction","paper":"AIR_ICLR2026.pdf","page":8,"table":"Table 1","profile":"qwen32","dataset":"mlvu","base":59.3,"score":66.2,"anchor":"+MDP3†7B3263.865.766.260.0","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"A.I.R.","reporter":"original authors","paper":"AIR_ICLR2026.pdf","page":20,"table":"Table 11","profile":"qwen32","dataset":"videomme","base":60.8,"score":65.0,"anchor":"+Ours≤3265.066.367.561.4","budget_policy":"at_most_32_plus_auxiliary_VLM_analysis","score_version":"author_reported"},
+    {"method":"A.I.R.","reporter":"original authors","paper":"AIR_ICLR2026.pdf","page":20,"table":"Table 11","profile":"qwen32","dataset":"mlvu","base":59.3,"score":67.5,"anchor":"+Ours≤3265.066.367.561.4","budget_policy":"at_most_32_plus_auxiliary_VLM_analysis","score_version":"author_reported"},
+    {"method":"WFS-SB","reporter":"original authors","paper":"WFS-SB_CVPR2026.pdf","page":6,"table":"Table 1","profile":"llava8","dataset":"videomme","base":56.2,"score":61.7,"anchor":"WFS-SB†7B856.261.7+5.557.466.9+9.5","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"WFS-SB","reporter":"original authors","paper":"WFS-SB_CVPR2026.pdf","page":6,"table":"Table 1","profile":"llava8","dataset":"mlvu","base":57.4,"score":66.9,"anchor":"WFS-SB†7B856.261.7+5.557.466.9+9.5","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"WFS-SB","reporter":"original authors","paper":"WFS-SB_CVPR2026.pdf","page":6,"table":"Table 1","profile":"qwen32","dataset":"videomme","base":61.2,"score":64.4,"anchor":"WFS-SB†7B3261.264.4+3.259.770.4+10.7","budget_policy":"fixed","score_version":"author_reported"},
+    {"method":"WFS-SB","reporter":"original authors","paper":"WFS-SB_CVPR2026.pdf","page":6,"table":"Table 1","profile":"qwen32","dataset":"mlvu","base":59.7,"score":70.4,"anchor":"WFS-SB†7B3261.264.4+3.259.770.4+10.7","budget_policy":"fixed","score_version":"author_reported"}
+  ],
+  "original_paper_gaps": [
+    {"method":"AKS","paper":"AKS_CVPR2025.pdf","pages":[5,8],"profiles":["llava8","qwen32"],"datasets":["videomme","mlvu"],"reason":"本地固定原文主实验为LLaVA-Video64/Qwen2-VL32，消融LLaVA-Video16/32/64；没有本任务的LLaVA-Video8或Qwen2.5-VL32对应实验，MLVU未作为其本轮实验基准。所需工作点的AKS数字来自WFS作者复测。"},
+    {"method":"MDP³","paper":"MDP3_ICCV2025.pdf","pages":[6,16],"profiles":["llava8","qwen32"],"datasets":["videomme","mlvu"],"reason":"原文主要后端为VILA、MiniCPM、LLaVA-OneVision和Ovis2，128均匀候选选8帧；不将OneVision8当作LLaVA-Video8，也不将AIR作者的Qwen2.5-VL复测归给MDP原作者。"},
+    {"method":"A.I.R.","paper":"AIR_ICLR2026.pdf","pages":[8,20],"profiles":["llava8"],"datasets":["videomme","mlvu"],"reason":"原文8帧后端为LLaVA-OneVision，不是本项目LLaVA-Video。"}
+  ],
+  "claim_matrix": [
+    {"id":"C01","component":"整体效果","claim":"同协议固定预算下，两版RD在已有主要工作点高于均匀。","status":"已有直接支持","evidence":["docs/experiments/video_mme_full/2026-10-05/llava8/实验结果.md","docs/experiments/video_mme_full/2026-10-03/exp12/实验结果与定位分析.md","docs/experiments/mlvu_dev/2026-10-14/blip1/实验结果.md"],"boundary":"MLVU主指标M-Avg，标点归一化另列；不能据此推出所有配置都高于Top-K或参考方法。","gap":"完整框架的收益不能自动拆给每个模块。"},
+    {"id":"C02","component":"定位与候选组织","claim":"全局粗候选可竞争，避免把窗口外已扫描画面永久排除。","status":"限定条件下支持","evidence":["src/videoqa_methods/coarse_eligibility.py","docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md"],"boundary":"exp04开发结果包含固定父版下的资格变化，不能将其与后续预算贡献合并宣称单模块全量收益。","gap":"独立全量作用尚未证明；拥有资格不等于识别必要证据。"},
+    {"id":"C03","component":"条件补查","claim":"条件2 FPS补查能产生稳定的独立净收益。","status":"尚缺证据","evidence":["docs/experiments/video_mme_200/2026-10-03/coarse_only_ablation/实验记录.md","docs/experiments/video_mme_200/2026-10-08/region_scope/实验结果与职责复盘.md"],"boundary":"exp20只在Qwen32开发200题137对父138，区间含0；exp27为范围收缩而非关闭补查，两配置开发持平不能证明全量等价。","gap":"缺少相同父版在LLaVA8/Qwen32上的全量关闭细池对照。"},
+    {"id":"C04","component":"局部次序与预算","claim":"DP精确优化固定局部前缀和正配额约束下的覆盖代理目标。","status":"已有直接支持","evidence":["src/videoqa_methods/prefix_coverage_budget.py","src/videoqa_methods/relevance_coverage_budget.py","docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md"],"boundary":"不是任意帧子集或问答准确率的最优性保证；MDP³已有DP思想，不能宣称首次使用DP选帧。","gap":"数学与实现边界已有证据，问答贡献须另作预算组件消融。"},
+    {"id":"C05","component":"局部次序与预算","claim":"评价实际将被输入的局部前缀，比第一遍代理配额更有利于回答。","status":"限定条件下支持","evidence":["docs/experiments/video_mme_200/2026-09-28/rd12_refinement/定位与验证记录.md","docs/experiments/video_mme_200/2026-10-03/equal_region_budget/实验记录.md"],"boundary":"exp07对同父exp04开发136对133；全量RD-1.2对exp07同时存在候选域变化，不能作为纯预算对照。exp18父版是exp17，不能冒充exp07/12的密度消融。","gap":"缺同一池、锚点和局部前缀，仅恢复第一遍参考配额的全量对照。"},
+    {"id":"C06","component":"覆盖权重","claim":"exp12可推荐为统一论文候选，但未在每个配置胜过exp07或Top-K。","status":"限定条件下支持","evidence":["docs/experiments/cross_dataset/2026-10-15/selection_review/实验结果与下一阶段判断.md","docs/experiments/video_mme_full/2026-10-05/exp07_budget16/实验结果.md"],"boundary":"Video-MME四工作点两版差值区间含0；MLVU Qwen32 exp12对exp07+1.71 pp区间不含0，对Top-K仍为−0.34 pp且区间含0。","gap":"主版本推荐是已有探索结果上的研究决策，不能当作新独立验证或总体最优证明。"},
+    {"id":"C07","component":"成本","claim":"当前RD具有整体速度、低成本或边缘部署优势。","status":"尚缺证据","evidence":["docs/experiments/video_mme_full/2026-10-03/exp12/实验结果与定位分析.md","docs/experiments/mlvu_dev/2026-10-14/blip1/实验结果.md"],"boundary":"已有大量计时来自共享资产/缓存流水线；WFS作者A800测量与本机4090不可直接相除。均匀不承担BLIP成本。","gap":"缺同条件独立原片E2E；本轮不追加成本实验，只限制论文表述。"},
+    {"id":"C08","component":"价值代理","claim":"视觉相似度、覆盖或教师答对标签可以直接解释为答案证据价值。","status":"存在反例","evidence":["docs/experiments/cross_dataset/2026-10-15/selection_review/实验结果与下一阶段判断.md","docs/experiments/cross_dataset/2026-10-16/exp34_low_loss/实验结果.md","docs/experiments/longvideo_reason/2026-10-20/pilot_cpu_trainability/实验结果与决策.md"],"boundary":"线索在场仍可能答错，覆盖改善并不稳定改善回答，固定表示小头拟合后仍未建立迁移收益。","gap":"论文应将这些量作为选择代理，不作事实充分性承诺。"}
+  ],
+  "candidate_contributions": [
+    {"id":"P01","statement":"在完整粗扫描资格上组织检索局部增强，再在固定最终预算内保留跨位置信息。","distinction":"WFS主要在1 FPS候选内做分段/预算/MMR；RD允许条件局部回源采样并保留全局粗候选。AIR也已有局部密采，RD的差别是此处不依赖辅助VLM生成；不能宣称局部密采首创。","status":"整体效果成立，候选增强的独立作用待补证"},
+    {"id":"P02","statement":"以确定的实际局部前缀覆盖曲线评价配额，精确选择受约束的区域预算组合。","distinction":"区别于WFS先按段重要性softmax分配，再局部MMR；区别于MDP³条件DPP序列目标。DP和覆盖概念本身并非新颖性。","status":"目标和受限最优性可解释，预算组件的全量问答贡献待补证"},
+    {"id":"P03","statement":"在冻结问答后端下跨数据集、模型和预算验证选帧收益，并报告相关性加权覆盖的适用边界。","distinction":"属于经验验证与可复算性贡献，不能单独代替方法创新；公开源帧跨后端复用减少输入身份混淆。","status":"已有结果支持，对Top-K和参考工作仍有明确局限"}
+  ],
+  "followups": [
+    {"priority":1,"name":"同父exp12关闭新增细帧的全量消融","question":"条件补查是否为完整框架提供独立净收益，是否值得承担其规则和成本？","parent":"RD-1.2-exp12","intervention":"从冻结合法池移除初始粗候选之后的细帧，以粗特征前缀重算同一局部次序、加权覆盖曲线和DP；种子、原区域、粗资格、锚点及其他规则不变。","coupled_changes":"细池变化自然引起局部序列、配额和实际短池帧数变化；衡量整个候选增强模块的净作用，不能解释成每张细帧的独立价值。","dataset":"Video-MME全2700题","profiles":["llava8","qwen32"],"method_results":5400,"maximum_new_final_qa":5400,"new_blip_or_visual_calls":0,"reuse":"复用两预算原始粗候选、分数与特征、exp12答案；Qwen32已有exp20开发200答案只有完整实际输入身份一致才导入，不预先保证比例。","short_pool":"主分母保留2700；另报各方法实际帧数及共同满预算子集，绝不重复帧凑预算。","expected_time":"复用资产后约2–4小时，以输入核验与实际空闲卡更新，不据吞吐改条件。","positive":"若配对结果支持净贡献，可保留条件补查为有证据的组件，并列出受益/退化及成本。","negative":"若接近0或退化，则降级为可选候选增强，不把复杂补查机制作为主要贡献；不按单个题目添加例外。","status":"proposal_only_not_executed"},
+    {"priority":2,"name":"固定最终局部前缀，恢复第一遍参考配额","question":"依据实际局部前缀覆盖评价预算，是否比第一遍代理配额更有问答价值？","parent":"RD-1.2-exp12","intervention":"固定完整池、窗口、锚点和exp12局部前缀，使用同源exp07轨迹中冻结reference_quotas截取相同局部前缀；只替换配额决定，不回放另一套局部选择器。","coupled_changes":"各区输入帧和时间伙伴自然变化；这是预算评价组件的对照，不是证明DP求解器本身提升准确率。","dataset":"Video-MME全2700题","profiles":["llava8","qwen32"],"method_results":5400,"maximum_new_final_qa":5400,"new_blip_or_visual_calls":0,"reuse":"K8轨迹已有reference_quotas；K32从同源exp07轨迹读取。准备时须全量核对候选源身份、共同前缀、正配额、容量和预算闭合；缺失或不一致则停止，不能换成任意均分规则。","short_pool":"沿用父输入实际预算和合法源池，不改变候选资格。","expected_time":"复用资产后约1.5–3小时；本轮仅估算，不启动。","positive":"若净收益及机制证据支持，预算目标可成为主要方法贡献；仍只宣称固定前缀族内优化。","negative":"若收益不足，则不把前缀覆盖DP作为已验证核心突破；维持整体框架描述，重新评估复杂度是否必要。","status":"proposal_only_not_executed"}
+  ],
+  "main_version_recommendation": {
+    "method":"RD-1.2-exp12",
+    "role":"统一论文候选，不改当前冻结工作基准RD-1.2，也不宣称统一胜出",
+    "reason":"在Video-MME和MLVU的Qwen32点估计均优于exp07，MLVU差值有配对区间支持；LLaVA8两版接近，Video-MME四工作点两版区间均含0。exp12沿用同一机制/参数规则，没有额外融合阈值；exp07作为等权覆盖对照完整保留。",
+    "limitations":"exp07在较紧预算的Video-MME点估计更高；MLVU Qwen32 exp12仍未高于Top-K。推荐由已观察的探索结果形成，不是独立确认性择模结果。"
+  },
+  "stage_decision":"全量收益明确，但关键机制证据不足：先review最小补实验，再确定论文主张",
+  "automatic_experiments_authorized":false
+}

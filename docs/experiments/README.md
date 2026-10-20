@@ -6,6 +6,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
+| RD成果证据收束／2026-10-20 | [只读协议](cross_dataset/2026-10-20/evidence_consolidation/执行协议.md) | [全量主表、贡献/缺口与两项补证建议](cross_dataset/2026-10-20/evidence_consolidation/研究证据与后续投入.md) | `rd_evidence_consolidation__20261020_r2`；32成绩/110子集/44配对/22文献数值及缺测，新增模型0 |
 | 长视频先导CPU五折／2026-10-20 | [固定197/194协议](longvideo_reason/2026-10-20/pilot_cpu_trainability/执行协议.md) | [折外129/197低于最好固定136；阶段收束](longvideo_reason/2026-10-20/pilot_cpu_trainability/实验结果与决策.md) | `longvideo_pilot_trainability__197cv194__20261020_r1`；五折拟合、1280CPU更新、生成0；194题127低于最好固定135 |
 | 独立长视频集合监督／2026-10-19 | [固定协议](longvideo_reason/2026-10-19/set_value_trial/执行协议.md) | [先导定量通过、画面8/12未达门；停止未训练](longvideo_reason/2026-10-19/set_value_trial/实验结果与决策.md) | `set_value_longvideo__llava8__train800_val400__20261019_r1`；1096真实/104共享、4合成，600追加及400验证未执行 |
 | 训练监督画面敏感性／2026-10-19 | [执行协议](nextqa/2026-10-19/supervision_quality/执行协议.md) | [视觉贡献明确，真实偏好9→14/120；停止固定诊断](nextqa/2026-10-19/supervision_quality/实验结果.md) | `supervision_quality__nextqa120__llava8__20261019_r2`；599真实＋1共享/8合成，含r1的55题 |
