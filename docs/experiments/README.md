@@ -6,7 +6,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
-| 独立长视频集合监督／2026-10-19 | [固定协议](longvideo_reason/2026-10-19/set_value_trial/执行协议.md) | [固定资产全部到齐，统一资格检查中；尚无先导/训练成绩](longvideo_reason/2026-10-19/set_value_trial/实施与资产进展.md) | `set_value_longvideo__llava8__train800_val400__20261019_r1`；固定八包800+400，先导门后条件接续，新QA当前0 |
+| 独立长视频集合监督／2026-10-19 | [固定协议](longvideo_reason/2026-10-19/set_value_trial/执行协议.md) | [1200清单已冻结，先导输入准备中；尚无教师/训练成绩](longvideo_reason/2026-10-19/set_value_trial/实施与资产进展.md) | `set_value_longvideo__llava8__train800_val400__20261019_r1`；固定八包800+400，先导门后条件接续，新QA当前0 |
 | 训练监督画面敏感性／2026-10-19 | [执行协议](nextqa/2026-10-19/supervision_quality/执行协议.md) | [视觉贡献明确，真实偏好9→14/120；停止固定诊断](nextqa/2026-10-19/supervision_quality/实验结果.md) | `supervision_quality__nextqa120__llava8__20261019_r2`；599真实＋1共享/8合成，含r1的55题 |
 | 集合价值训练充分性／2026-10-19 | [执行协议](nextqa/2026-10-19/set_value_trainability/执行协议.md) | [拟合通过，折外523/600无净收益；停止](nextqa/2026-10-19/set_value_trainability/实验结果.md) | `set_value_trainability__nextqa600__20261019_r1`；新增大模型调用0 |
 | NExT-QA集合价值学习／2026-10-19 | [执行协议](nextqa/2026-10-19/set_value_learning/执行协议.md) | [学习160/200、均匀162，停止固定头](nextqa/2026-10-19/set_value_learning/实验结果.md) | `set_value_learning__nextqa800__llava8__20261019_r2`；r1仅失败准备，QA0 |
