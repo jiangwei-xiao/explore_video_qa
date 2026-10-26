@@ -1,5 +1,5 @@
 """组件消融的输入冻结、双控制共享问答与后台调度；生成严格记账并可恢复后处理。"""
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ProcessPoolExecutor
 from fractions import Fraction
 from pathlib import Path
 import contextlib
@@ -26,6 +26,7 @@ QA_FILES = ('src/videoqa_generalization/component_ablation_runtime.py',
     'src/videoqa_full/qwen_backend.py', 'src/videoqa_runtime/llava_backend.py',
     'src/videoqa_lmms_bridge/common.py', 'src/videoqa_lmms_bridge/llava_adapter.py',
     'src/videoqa_full/state.py', 'src/videoqa_audit/region_scope_runtime.py')
+_PREPARE = None
 
 
 def processed_matches(profile, expected, observed):
@@ -102,6 +103,72 @@ def cpu_identity(profile, tools, images, row):
     return identity(profile, tools, images, row)
 
 
+def initialize_prepare(root,profile,binding_sha):
+    """接口：每CPU进程独立初始化官方处理器，隔离GIL/懒导入，禁用GPU。"""
+    global _PREPARE
+    os.environ.update(CUDA_VISIBLE_DEVICES='',OMP_NUM_THREADS='2',MKL_NUM_THREADS='2',OPENBLAS_NUM_THREADS='2')
+    offline_environment();root=Path(root)
+    _PREPARE=dict(root=root,run=root/'qa'/profile,profile=profile,binding_sha=binding_sha,
+        offline=read_json(root/'offline_summary.json'),source_spec=read_json(study.PARENTS[profile]/'protocol.json'),
+        tools=cpu_tools(profile),dev={r['question_id'] for r in read_json(study.DEV)['rows']})
+    load_task()
+
+
+def prepare_one(row):
+    """接口：逐题两控制的同一官方CPU路径；仅改变执行隔离，不改变像素或选帧。"""
+    if _PREPARE is None:raise ValueError('CPU processor initializer missing')
+    root,run,profile,binding_sha,offline,source_spec,tools,dev=(
+        _PREPARE[k] for k in ('root','run','profile','binding_sha','offline','source_spec','tools','dev'))
+    q=row['question_id'];items={};bank={};dest=run/'inputs'/(q+'.json')
+    # 步骤1完整且来源一致的条目直接复用，不重复解码和预处理。
+    if dest.exists():
+        saved=read_json(dest)
+        if saved['prepare_binding_sha256']!=binding_sha:raise ValueError('Partial input binding differs')
+        for item in saved['items'].values():
+            if sha256(item['offline_source'])!=item['offline_source_sha256']:
+                raise ValueError('Partial offline selection source changed')
+        for g in saved['groups']:
+            if g['reference']:
+                for path,h in g['reference']['sources'].items():
+                    if sha256(path)!=h:raise ValueError('Partial historical source changed')
+        return q,sha256(dest),saved['groups'],saved['duration_seconds']
+    for control,method in study.CONTROLS.items():
+        path=root/'selections'/profile/method/(q+'.json')
+        if sha256(path)!=offline['exports'][str(path.relative_to(root))]:raise ValueError('Offline selection changed')
+        item=read_json(path);selection=item['selection'];key=digest(study.source_identity(selection))
+        if key not in bank:
+            images,rgb=FrameProvider(selection).decode()
+            try:processed=cpu_identity(profile,tools,images,row)
+            finally:
+                for im in images:im.close()
+            bank[key]=(rgb,processed)
+        rgb,processed=bank[key]
+        identity=dict(source=study.source_identity(selection),rgb_sha256=rgb,processed=processed,
+            model_files_sha256=digest(source_spec['model_files']),generation=dict(seed=2027,max_new_tokens=16,do_sample=False))
+        items[control]=dict(control=control,method=method,selection=selection,rgb_sha256=rgb,
+            processed=processed,identity=identity,offline_source=str(path),offline_source_sha256=sha256(path))
+    groups=input_groups(items)
+    # 步骤2仍固定父版→旧对应控制优先级，正确性不参与输入或引用选择。
+    candidates=[historical_result(profile,q)]
+    if profile=='qwen32' and q in dev:candidates += [historical_result(profile,q,c) for c in study.CONTROLS]
+    histories=[(p,read_json(p)) for p in candidates if p is not None]
+    for group in groups:
+        example=items[group['representative']];reference=None
+        for path,old in histories:
+            if any(old[key]!=row[key] for key in ('question_id','video_id','question','options','stratum')):
+                raise ValueError('Historical question/options differ')
+            if study.source_identity(old['selection'])!=group['identity']['source']:continue
+            if old['rgb_sha256']!=example['rgb_sha256'] or not processed_matches(profile,example['processed'],old['answer']['observed']):
+                raise ValueError('Same-source historical model pixels/tokens differ')
+            reference=dict(path=str(path),sources=historical_bundle(path,old));break
+        group.pop('identity');group['reference']=reference
+    # 步骤3原子提交，与四线程版保持同一输入数据结构及实际模型预处理。
+    value=dict(question_id=q,profile=profile,items=items,groups=groups,prepare_binding_sha256=binding_sha,
+        duration_seconds=float(Fraction(items['A']['selection']['video']['duration_fraction'])))
+    study.freeze(dest,value)
+    return q,sha256(dest),groups,value['duration_seconds']
+
+
 def prepare(root, profile, allowed_gpus):
     """接口：2700题两控制→5400方法结果的输入与物理调用划分，先冻结再生成。"""
     root = Path(root); run = root/'qa'/profile; run.mkdir(parents=True,exist_ok=True)
@@ -134,69 +201,10 @@ def prepare(root, profile, allowed_gpus):
                      parent_protocol_sha256=sha256(parent/'protocol.json'))
         study.freeze(run/'prepare_binding.json',binding)
         binding_sha=sha256(run/'prepare_binding.json')
-        tools = cpu_tools(profile); load_task()
-        from videoqa_lmms_bridge.common import task_doc, POST_PROMPT
-        load_task().videomme_doc_to_text(task_doc(data[0]),{'post_prompt':POST_PROMPT})
-        dev = {r['question_id'] for r in read_json(study.DEV)['rows']}
-
-        def one(row):
-            """接口：逐题处理两控制；局部图片有界复用，不保存全部候选PNG。"""
-            q = row['question_id']; items = {}; bank = {}; dest=run/'inputs'/(q+'.json')
-            if dest.exists():
-                saved=read_json(dest)
-                if saved['prepare_binding_sha256']!=binding_sha:raise ValueError('Partial input binding differs')
-                for c,item in saved['items'].items():
-                    if sha256(item['offline_source'])!=item['offline_source_sha256']:
-                        raise ValueError('Partial offline selection source changed')
-                for g in saved['groups']:
-                    if g['reference']:
-                        for path,h in g['reference']['sources'].items():
-                            if sha256(path)!=h:raise ValueError('Partial historical source changed')
-                return q,sha256(dest),saved['groups'],saved['duration_seconds']
-            for control, method in study.CONTROLS.items():
-                path = root/'selections'/profile/method/(q+'.json')
-                if sha256(path) != offline['exports'][str(path.relative_to(root))]:
-                    raise ValueError('Offline selection changed')
-                item = read_json(path); selection = item['selection']; key = digest(study.source_identity(selection))
-                if key not in bank:
-                    images, rgb = FrameProvider(selection).decode()
-                    try: processed = cpu_identity(profile,tools,images,row)
-                    finally:
-                        for im in images: im.close()
-                    bank[key] = (rgb, processed)
-                rgb, processed = bank[key]
-                identity = dict(source=study.source_identity(selection), rgb_sha256=rgb, processed=processed,
-                                model_files_sha256=digest(source_spec['model_files']),
-                                generation=dict(seed=2027,max_new_tokens=16,do_sample=False))
-                items[control] = dict(control=control,method=method,selection=selection,rgb_sha256=rgb,
-                                      processed=processed,identity=identity,offline_source=str(path),
-                                      offline_source_sha256=sha256(path))
-            groups = input_groups(items)
-            # 步骤2对每个输入组固定查父版→旧对应控制；没有同输入才建立新调用。
-            candidates = [historical_result(profile,q)]
-            if profile == 'qwen32' and q in dev:
-                candidates += [historical_result(profile,q,c) for c in study.CONTROLS]
-            histories = [(p,read_json(p)) for p in candidates if p is not None]
-            for group in groups:
-                example = items[group['representative']]; reference = None
-                for path, old in histories:
-                    if any(old[key] != row[key] for key in ('question_id','video_id','question','options','stratum')):
-                        raise ValueError('Historical question/options differ')
-                    if study.source_identity(old['selection']) != group['identity']['source']:
-                        continue
-                    if old['rgb_sha256'] != example['rgb_sha256'] or not processed_matches(profile,example['processed'],old['answer']['observed']):
-                        raise ValueError('Same-source historical model pixels/tokens differ')
-                    reference = dict(path=str(path),sources=historical_bundle(path,old)); break
-                group.pop('identity')
-                group['reference'] = reference
-            value = dict(question_id=q,profile=profile,items=items,groups=groups,
-                         prepare_binding_sha256=binding_sha,
-                         duration_seconds=float(Fraction(items['A']['selection']['video']['duration_fraction'])))
-            study.freeze(dest,value)
-            return q,sha256(dest),groups,value['duration_seconds']
         exports = {}; groups_by_q = {}; began = time.perf_counter()
-        with ThreadPoolExecutor(max_workers=4) as executor:
-            for i,(q,h,groups,seconds) in enumerate(executor.map(one,data),1):
+        with ProcessPoolExecutor(max_workers=8,mp_context=mp.get_context('spawn'),
+                initializer=initialize_prepare,initargs=(str(root),profile,binding_sha)) as executor:
+            for i,(q,h,groups,seconds) in enumerate(executor.map(prepare_one,data),1):
                 exports['inputs/'+q+'.json'] = h; groups_by_q[q] = groups
                 vid=next(r['video_id'] for r in data if r['question_id']==q)
                 if 'duration_seconds' in video_stats[vid] and video_stats[vid]['duration_seconds']!=seconds:

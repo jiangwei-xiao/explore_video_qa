@@ -6,7 +6,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
-| RD两组件消融／Video-MME／2026-10-26 | [固定协议与配额勘误](video_mme_full/2026-10-26/component_ablations/执行协议.md) | 实施与旧开发CPU控制通过，正式全量待执行 | `rd_components__videomme2700__llava8_qwen32__20261026_r1`；10800控制结果、真实QA≤10800，新增选帧模型0 |
+| RD两组件消融／Video-MME／2026-10-26 | [固定协议与配额勘误](video_mme_full/2026-10-26/component_ablations/执行协议.md) | 全量离线控制通过，正式QA待输入冻结；CPU准备工程接续 | `rd_components__videomme2700__llava8_qwen32__20261026_r2`；r1为无QA准备尝试，10800控制结果、真实QA≤10800 |
 | RD成果证据收束／2026-10-20 | [只读协议](cross_dataset/2026-10-20/evidence_consolidation/执行协议.md) | [全量主表、贡献/缺口与两项补证建议](cross_dataset/2026-10-20/evidence_consolidation/研究证据与后续投入.md) | `rd_evidence_consolidation__20261020_r2`；32成绩/110子集/44配对/22文献数值及缺测，新增模型0 |
 | 长视频先导CPU五折／2026-10-20 | [固定197/194协议](longvideo_reason/2026-10-20/pilot_cpu_trainability/执行协议.md) | [折外129/197低于最好固定136；阶段收束](longvideo_reason/2026-10-20/pilot_cpu_trainability/实验结果与决策.md) | `longvideo_pilot_trainability__197cv194__20261020_r1`；五折拟合、1280CPU更新、生成0；194题127低于最好固定135 |
 | 独立长视频集合监督／2026-10-19 | [固定协议](longvideo_reason/2026-10-19/set_value_trial/执行协议.md) | [先导定量通过、画面8/12未达门；停止未训练](longvideo_reason/2026-10-19/set_value_trial/实验结果与决策.md) | `set_value_longvideo__llava8__train800_val400__20261019_r1`；1096真实/104共享、4合成，600追加及400验证未执行 |

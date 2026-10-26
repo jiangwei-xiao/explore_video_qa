@@ -104,3 +104,33 @@ def test_pipeline_freezes_both_profiles_before_any_answer_and_passes_resume():
     assert [name for name,_ in commands]==['offline','prepare_llava8','prepare_qwen32','answer_llava8','answer_qwen32','report','audit']
     assert all('--resume' in command for _,command in commands)
     assert all('--gpus' in command for _,command in commands)
+
+
+def test_offline_reuse_rejects_consumed_qa_and_changed_selection_code(tmp_path,monkeypatch):
+    """纯元数据夹具检查工程恢复边界，不产生真实选择或研究成绩。"""
+    path=ROOT/'scripts/run_rd_component_ablations.py'
+    spec=importlib.util.spec_from_file_location('component_reuse_entry_test',path)
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    from videoqa_generalization import component_ablations as study
+    from videoqa_full import state
+    monkeypatch.setattr(module,'ROOT',tmp_path)
+    monkeypatch.setattr(study,'CORE_FILES',('selection.py','src/videoqa_generalization/component_ablation_runtime.py'))
+    monkeypatch.setattr(state,'rows',lambda:[{'question_id':'q'}])
+    for name in study.CORE_FILES:
+        p=tmp_path/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text('original')
+    source=tmp_path/'old';target=tmp_path/'new';source.mkdir();target.mkdir()
+    durable(source/'offline_protocol.json',dict(task='rd_component_ablations',methods=study.CONTROLS,
+        question_ids=['q'],code_sha256={n:sha256(tmp_path/n) for n in study.CORE_FILES}))
+    durable(source/'selection.json',{'test_fixture':True})
+    durable(source/'offline_summary.json',dict(status='passed',parent_replays=5400,control_selections=10800,
+        exports={'selection.json':sha256(source/'selection.json')},seconds=1.))
+    consumed=source/'qa/llava8/calls/m/q.json';durable(consumed,{})
+    with pytest.raises(ValueError,match='consumed real QA'):module.reuse_offline(target,source)
+    consumed.unlink()
+    (tmp_path/'selection.py').write_text('changed')
+    with pytest.raises(ValueError,match='Selection-critical'):module.reuse_offline(target,source)
+    (tmp_path/'selection.py').write_text('original')
+    (tmp_path/'src/videoqa_generalization/component_ablation_runtime.py').write_text('engineering-only change')
+    module.reuse_offline(target,source)
+    assert read_json(target/'offline_reuse_acceptance.json')['selection_code_exact']
+    assert (target/'selection.json').read_bytes()==(source/'selection.json').read_bytes()
