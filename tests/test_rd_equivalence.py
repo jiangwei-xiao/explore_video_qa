@@ -62,3 +62,26 @@ def test_dp_counter_restores_functions_after_exception():
     with pytest.raises(RuntimeError):
         with audit.count_dp():raise RuntimeError('stop')
     assert functions==[m.allocate_prefix_budget for m in (audit.legacy_prefix,audit.legacy_weighted,production)]
+
+
+@pytest.mark.parametrize('qid,k',[('other-question',8),('q1',16)])
+def test_valid_record_in_wrong_question_or_budget_slot_is_rejected(tmp_path,qid,k):
+    path=tmp_path/'records/videomme/K8/q1.json';path.parent.mkdir(parents=True)
+    value=dict(dataset='videomme',question_id=qid,frame_budget=k,sources={},methods={m:{} for m in production.METHODS})
+    value['record_sha256']=digest(value);durable(path,value)
+    with pytest.raises(ValueError,match='identity differs'):audit.verify_record(path)
+
+
+@pytest.mark.parametrize('field,value',[('methods',['wrong-method']),('expected_comparisons',1)])
+def test_derived_protocol_scope_changes_are_rejected(tmp_path,field,value):
+    spec=dict(methods=list(production.METHODS),scopes=copy.deepcopy(audit.SCOPES),
+        expected_comparisons=24896,implementation_id=production.IMPLEMENTATION_ID)
+    spec[field]=value;durable(tmp_path/'protocol.json',spec)
+    with pytest.raises(ValueError,match='scope changed'):audit.verify_protocol(tmp_path)
+
+
+def test_completion_is_bound_to_original_protocol_bytes(tmp_path,monkeypatch):
+    durable(tmp_path/'protocol.json',{});durable(tmp_path/'summary.json',{})
+    durable(tmp_path/'completion.json',dict(comparisons=24896,summary_sha256=audit.file_hash(tmp_path/'summary.json'),protocol_sha256='wrong'))
+    monkeypatch.setattr(audit,'verify_protocol',lambda root:{})
+    with pytest.raises(ValueError,match='Completion binding'):audit.audit_completed(tmp_path)

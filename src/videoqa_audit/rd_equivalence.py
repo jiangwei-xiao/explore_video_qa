@@ -23,6 +23,7 @@ from videoqa_methods.budget_contract import select_exp07
 from videoqa_audit.framework_contraction import BASE, RUN8, POOL16, RUN16, RUN32
 
 METHODS = production.METHODS
+SCOPES = {'videomme':{'questions':2700,'budgets':[8,16,32]},'mlvu':{'questions':2174,'budgets':[8,32]}}
 WEIGHTED32 = ROOT/'outputs/full_videoqa/rd12_exp12__qwen32__videomme2700__20261003_r1'
 MLVU = ROOT/'outputs/full_videoqa/mlvu_dev__S1__llava8_qwen32__four_methods__20261014_r1'
 MANIFEST = ROOT/'data/manifests/video_mme_full_2700.json'
@@ -34,7 +35,8 @@ FILES = ('src/videoqa_methods/rd_selection.py', 'src/videoqa_audit/rd_equivalenc
     'src/videoqa_full/state.py', 'src/videoqa_runtime/common.py',
     'configs/retrieval_density_v1.json', 'configs/method_versions.json',
     'tests/test_rd_selection.py', 'tests/test_rd_equivalence.py',
-    'docs/experiments/cross_dataset/2026-10-27/rd_equivalence/执行协议.md')
+    'docs/experiments/cross_dataset/2026-10-27/rd_equivalence/执行协议.md',
+    'docs/experiments/cross_dataset/2026-10-27/rd_equivalence/执行修订.md')
 _CONTEXT = None
 
 
@@ -88,10 +90,11 @@ def jobs():
 
 def prepare(root):
     """接口：冻结两数据集清单、检查点、代码和CPU环境，第一项选择前发布。"""
+    # 步骤1固定问题身份及旧检查点；步骤2把代码/环境绑定到独立新运行。
     root=Path(root);root.mkdir(parents=True,exist_ok=True);data=jobs()
     checkpoint_hashes={str(p):file_hash(p) for j in data for p in checkpoint_paths(j['dataset'],j['question_id'])}
     spec=dict(implementation_id=production.IMPLEMENTATION_ID,methods=list(METHODS),jobs=data,
-        expected_comparisons=24896,scopes={'videomme':{'questions':2700,'budgets':[8,16,32]},'mlvu':{'questions':2174,'budgets':[8,32]}},
+        expected_comparisons=24896,scopes=copy.deepcopy(SCOPES),
         manifests={str(p):file_hash(p) for p in (MANIFEST,MLVU/'manifest.json')},checkpoints=checkpoint_hashes,
         code_sha256={p:sha256(ROOT/p) for p in FILES},
         environment=dict(python=sys.version,numpy=np.__version__,executable=sys.executable,
@@ -135,6 +138,7 @@ def mapped_features(pool,base_pool,features):
 
 def load_scope(job,k,base_pool=None,base_features=None):
     """接口：返回合法池/特征/两方法冻结轨迹与源帧；不读取任何答案文件。"""
+    # 步骤1按数据集和预算定位旧资产；步骤2核验绑定/行映射；步骤3读取冻结科学量。
     dataset,q=job['dataset'],job['question_id'];sources={};extra=[]
     if dataset=='mlvu':
         profile='llava8' if k==8 else 'qwen32';cp=MLVU/'checkpoints'/profile/(q+'.json')
@@ -201,6 +205,7 @@ def _legacy(pool,f,k,method):
 
 def compare_outputs(pool,old,new,gold,prefix):
     """接口：严格比较全部离散量与源帧；数值共同科学量允许绝对误差1e-6。"""
+    # 步骤1核对预算/源身份；步骤2逐区域核对前缀、边界与数值递推。
     old_ids,old_trace=old;new_ids,new_trace=new;error=0.
     if old_ids!=new_ids or old_trace['region_budgets']!=new_trace['region_budgets']:raise ValueError('Discrete selection/quota differs')
     actual=dict(video=pool['video'],selected_frames=[pool['candidates'][i] for i in new_ids])
@@ -240,7 +245,14 @@ def initialize(root,stop):
 
 def verify_record(path):
     """接口：完成项只核验来源与记录摘要；不执行选择或重写结果。"""
-    value=read_json(path);payload={k:v for k,v in value.items() if k!='record_sha256'}
+    path=Path(path);value=read_json(path);payload={k:v for k,v in value.items() if k!='record_sha256'}
+    # 步骤1身份必须与结果槽位一致，防止另一题的合法记录被误当作缓存命中。
+    if path.parent.parent.parent.name=='records':
+        if (value.get('dataset')!=path.parent.parent.name or value.get('question_id')!=path.stem
+                or path.parent.name!='K'+str(value.get('frame_budget'))):
+            raise ValueError('Completed record question/budget identity differs from slot')
+        if set(value.get('methods',{}))!=set(METHODS):raise ValueError('Completed method scope differs')
+    # 步骤2先核对记录自身，再核对原输入字节；两者均成立才允许跳过选择。
     if digest(payload)!=value['record_sha256']:raise ValueError('Completed record changed')
     for p,h in value['sources'].items():
         if file_hash(p)!=h:raise ValueError('Completed source changed: '+p)
@@ -252,6 +264,7 @@ def run_question(job):
     root,stop,spec=(_CONTEXT[k] for k in ('root','stop','spec'));q=job['question_id'];dataset=job['dataset']
     budgets=spec['scopes'][dataset]['budgets'];new_count=reused=0
     try:
+        # 步骤1先验证完成槽位和旧来源，整题命中时不加载特征数组或调用选择器。
         for cp in checkpoint_paths(dataset,q):
             if file_hash(cp)!=spec['checkpoints'][str(cp)]:raise ValueError('Source checkpoint changed')
         paths=[root/'records'/dataset/('K'+str(k))/(q+'.json') for k in budgets]
@@ -264,6 +277,7 @@ def run_question(job):
             _bound(BASE/'pools'/(q+'.json'),cp,BASE,bindings);_bound(BASE/'features'/(q+'.npy'),cp,BASE,bindings)
             base_pool=read_json(BASE/'pools'/(q+'.json'));base_features=np.load(BASE/'features'/(q+'.npy'),allow_pickle=False)
         shared_read_seconds=time.perf_counter()-shared_started
+        # 步骤2按预算加载一次合法池，分别执行旧链/新链并实际统计DP调用。
         for k,path in zip(budgets,paths):
             if stop.is_set():return dict(new=new_count,reused=reused)
             if path.exists():verify_record(path);reused+=2;continue
@@ -282,6 +296,7 @@ def run_question(job):
                         timing[kind]=time.perf_counter()-t;counts[kind]=counter[0]
                 old_ids,old_trace,prefix=values['old'];new_ids,new_trace=values['new']
                 error=compare_outputs(pool,(old_ids,old_trace),(new_ids,new_trace),gold[method],prefix)
+                # 步骤3独立核对摘要模式，只有两模式及历史均一致才原子发布预算记录。
                 with count_dp() as counter:
                     t=time.perf_counter();summary_ids,summary=production.select_rd(pool,f,k,method);summary_seconds=time.perf_counter()-t
                 if counts['new']!=1 or counter[0]!=1 or counts['old']!=(1 if method==METHODS[0] else 2):raise ValueError('Unexpected DP call count')
@@ -298,6 +313,7 @@ def run_question(job):
             value['record_sha256']=digest(value);freeze(path,value);new_count+=2
         return dict(new=new_count,reused=reused)
     except BaseException as error:
+        # 步骤4反例只首次落盘，共享停止信号禁止继续提交新问题，不调整规则回退。
         stop.set()
         with exclusive(root/'first_failure.lock'):
             if not (root/'failure.json').exists():
@@ -309,6 +325,7 @@ def run_question(job):
 
 def summarize(root):
     """接口：完整24896项才汇总，不把部分结果或模式检查计成更多问题。"""
+    # 步骤1逐槽位和来源核验；步骤2按固定范围汇总，不以文件总数替代身份检查。
     root=Path(root);spec=read_json(root/'protocol.json');groups=[];files={}
     for job in spec['jobs']:
         for k in spec['scopes'][job['dataset']]['budgets']:
@@ -344,14 +361,16 @@ def summarize(root):
     if (root/'report.md').exists():
         if (root/'report.md').read_text()!=report:raise ValueError('Report content changed')
     else:(root/'report.md').write_text(report)
-    freeze(root/'completion.json',dict(status='passed',comparisons=24896,record_files=len(files),
-        summary_sha256=file_hash(root/'summary.json'),calls=spec['calls']))
     return result
 
 
 def verify_protocol(root):
     """接口：恢复前核对代码、清单和检查点；任何漂移都暂停，不隐式迁移。"""
     spec=read_json(Path(root)/'protocol.json')
+    # 步骤1派生范围仍须与固定任务一致；步骤2核对环境、代码及原检查点指纹。
+    if (spec['methods']!=list(METHODS) or spec['scopes']!=SCOPES or spec['expected_comparisons']!=24896
+            or spec['implementation_id']!=production.IMPLEMENTATION_ID):raise ValueError('Frozen method/matrix scope changed')
+    if spec['jobs']!=jobs():raise ValueError('Frozen question identities changed')
     expected=dict(python=sys.version,numpy=np.__version__,executable=sys.executable,
         threads=2,cuda_visible_devices=os.environ.get('CUDA_VISIBLE_DEVICES'))
     if spec['environment']!=expected:raise ValueError('CPU environment changed')
@@ -364,8 +383,15 @@ def verify_protocol(root):
 
 def audit_completed(root):
     """接口：完成态只验证现存文件/来源，无进程池、无选择、无产物重写。"""
+    # 步骤1完成标记绑定原协议与所有收尾产物；步骤2逐槽位验证，不进入计算路径。
     root=Path(root);spec=verify_protocol(root);done=read_json(root/'completion.json');summary=read_json(root/'summary.json')
-    if done['comparisons']!=24896 or done['summary_sha256']!=file_hash(root/'summary.json'):raise ValueError('Completion binding differs')
+    if (done['comparisons']!=24896 or done['summary_sha256']!=file_hash(root/'summary.json')
+            or done['protocol_sha256']!=file_hash(root/'protocol.json')):raise ValueError('Completion binding differs')
+    for name,h in done['final_artifacts'].items():
+        if file_hash(root/name)!=h:raise ValueError('Finalization artifact changed')
+    expected={str(Path('records')/j['dataset']/('K'+str(k))/(j['question_id']+'.json'))
+              for j in spec['jobs'] for k in spec['scopes'][j['dataset']]['budgets']}
+    if set(summary['files'])!=expected:raise ValueError('Completed result slots differ')
     for relative,expected in summary['files'].items():
         if file_hash(root/relative)!=expected:raise ValueError('Result bytes changed')
         verify_record(root/relative)
@@ -377,6 +403,7 @@ def execute(root,workers=8):
     """接口：有界提交CPU任务，首个反例停止新提交，持续落盘心跳和恢复检查点。"""
     root=Path(root)
     with exclusive(root/'run.lock'):
+        # 步骤1完整恢复仅做审计；未完成任务才初始化有界CPU池和工作账本。
         if (root/'completion.json').exists():return audit_completed(root)
         spec=prepare(root);verify_protocol(root)
         if (root/'failure.json').exists():raise ValueError('Prior failure preserved; investigate before creating a corrected run')
@@ -388,6 +415,7 @@ def execute(root,workers=8):
                 job=next(iterator,None)
                 if job is not None:pending[executor.submit(run_question,job)]=job
             for _ in range(workers):submit()
+            # 步骤2最多保留workers个在途任务，首个异常停止后续提交并保留反例。
             while pending:
                 complete,_=wait(pending,timeout=5,return_when=FIRST_COMPLETED)
                 try:
@@ -404,9 +432,14 @@ def execute(root,workers=8):
                     completed_questions=finished,total_questions=len(spec['jobs']),completed_comparisons=new+reused,total_comparisons=24896,
                     active=[v['dataset']+':'+v['question_id'] for v in pending.values()],seconds=elapsed,
                     eta_seconds=elapsed/max(finished,1)*(len(spec['jobs'])-finished),utc=utc()))
+        # 步骤3先发布摘要/计时/终态；步骤4最后发布绑定全部收尾文件的完成标记。
         result=summarize(root)
-        durable(root/'execution.json',dict(status='completed',wall_seconds=time.perf_counter()-began,
-            new_comparisons=new,reused_comparisons=reused,new_selector_calls=2*new,legacy_chain_calls=new,
-            workers=workers,new_model_calls=0,utc=utc()))
+        if not (root/'execution.json').exists():
+            durable(root/'execution.json',dict(status='completed',wall_seconds=time.perf_counter()-began,
+                new_comparisons=new,reused_comparisons=reused,new_selector_calls=2*new,legacy_chain_calls=new,
+                workers=workers,new_model_calls=0,utc=utc()))
         durable(root/'status.json',dict(status='completed',completed_comparisons=24896,utc=utc()))
+        freeze(root/'completion.json',dict(status='passed',comparisons=24896,record_files=len(result['files']),
+            summary_sha256=file_hash(root/'summary.json'),protocol_sha256=file_hash(root/'protocol.json'),
+            final_artifacts={p:file_hash(root/p) for p in ('report.md','execution.json','status.json')},calls=spec['calls']))
         return result
