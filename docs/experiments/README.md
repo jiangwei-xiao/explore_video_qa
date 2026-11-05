@@ -6,7 +6,7 @@
 
 | 数据集／日期 | 执行协议 | 结果报告 | 原始运行编号 |
 |---|---|---|---|
-| exp27双配置全量／2026-11-05 | [固定协议](video_mme_full/2026-11-05/region_scope_full/执行协议.md) | 独立全量适配及输入核验，尚无新成绩 | 预计1096新QA＋4304引用；父exp07，范围收缩不改变选择组织 |
+| exp27双配置全量／2026-11-05 | [固定协议](video_mme_full/2026-11-05/region_scope_full/执行协议.md) · [修订](video_mme_full/2026-11-05/region_scope_full/执行修订.md) | [Qwen1688、LLaVA1612，未通过统一收缩门](video_mme_full/2026-11-05/region_scope_full/实验结果与收缩决策.md) · [7题初审](video_mme_full/2026-11-05/region_scope_full/画面复核.md) | `exp27_scope_full__videomme2700__qwen32_llava8__20261105_r2`；1096新QA＋4304引用、8合成；61回归/22配对独立/零新增恢复通过 |
 | RD等价选择链／双数据集／2026-10-27 | [固定协议](cross_dataset/2026-10-27/rd_equivalence/执行协议.md) · [恢复修订](cross_dataset/2026-10-27/rd_equivalence/执行修订.md) | [24896项等价与恢复验收](cross_dataset/2026-10-27/rd_equivalence/重放结果与验收.md) · [精简设计/用法](cross_dataset/2026-10-27/rd_equivalence/精简设计说明.md) | `rd_equivalence__S1__20261027_r2`；误差0、53回归、源88188/恢复12454文件通过；模型/解码0，r1保留 |
 | RD两组件消融／Video-MME／2026-10-26启动、27完成 | [固定协议与配额勘误](video_mme_full/2026-10-26/component_ablations/执行协议.md) | [全量结果与收缩结论](video_mme_full/2026-10-26/component_ablations/实验结果与收缩结论.md) · [统计与验收](video_mme_full/2026-10-26/component_ablations/详细统计与验收.md) · [画面复核](video_mme_full/2026-10-26/component_ablations/画面复核.md) | `rd_components__videomme2700__llava8_qwen32__20261026_r2`；7123新QA＋3677引用，A−父−14/0题、B−父+1/−22题，两配置均不降门未通过；实际恢复0新增 |
 | RD成果证据收束／2026-10-20 | [只读协议](cross_dataset/2026-10-20/evidence_consolidation/执行协议.md) | [全量主表、贡献/缺口与两项补证建议](cross_dataset/2026-10-20/evidence_consolidation/研究证据与后续投入.md) | `rd_evidence_consolidation__20261020_r2`；32成绩/110子集/44配对/22文献数值及缺测，新增模型0 |
