@@ -117,17 +117,23 @@ class AccessService:
         """步骤1核验来源；步骤2真实解码/PNG编码；步骤3保存响应供链路重放。"""
         from videoqa_full.state import durable, digest
         if request['video_id'] not in self.indices:raise ValueError('Unknown video')
-        index=self.indices[request['video_id']]; frames=request['frames']
+        index=self.indices[request['video_id']]; frames=request['frames'];representation=request.get('representation','original')
+        if representation not in ('original','preview'):raise ValueError('Unknown representation')
         if not 1<=len(frames)<=4096:raise ValueError('Unbounded source request')
         images,timing=decode_exact(index, frames);encoded=[];records=[];began=time.perf_counter()
         try:
             for f,image in zip(frames,images):
-                output=io.BytesIO();image.save(output,format='PNG')
-                encoded.append(output.getvalue());records.append(dict(f,rgb_sha256=rgb_hash(image)))
+                if representation=='preview':
+                    from PIL import Image
+                    data=preview_bytes(image)
+                    with Image.open(io.BytesIO(data)) as decoded:h=rgb_hash(decoded)
+                else:
+                    output=io.BytesIO();image.save(output,format='PNG');data=output.getvalue();h=rgb_hash(image)
+                encoded.append(data);records.append(dict(f,rgb_sha256=h))
         finally:
             for image in images:image.close()
-        timing['png_encode_seconds']=time.perf_counter()-began
-        metadata=dict(video_id=request['video_id'],frames=records,timing=timing)
+        timing['image_encode_seconds']=time.perf_counter()-began
+        metadata=dict(video_id=request['video_id'],frames=records,timing=timing,representation=representation)
         payload=pack_frames(metadata,encoded);key=hashlib.sha256(payload).hexdigest()
         path=self.payload_dir/(key+'.bin')
         with self.lock:
@@ -180,28 +186,33 @@ def start_service(service):
 class AccessClient:
     """接口：每题每方法拥有独立原图缓存；没有服务器返回即没有该帧像素。"""
     def __init__(self, url, video_id, scope):
-        self.url=url;self.video_id=video_id;self.scope=scope;self.cache={};self.requests=[]
+        self.url=url;self.video_id=video_id;self.scope=scope;self.cache={};self.preview_cache={};self.requests=[]
 
-    def fetch(self, frames):
+    def fetch(self, frames, representation='original'):
         """步骤1仅请求缺失源；步骤2校验原图身份；步骤3保存实际网络与客户端解包耗时。"""
         from videoqa_full.state import digest
-        missing=[f for f in frames if f['source_pts'] not in self.cache]
+        if representation not in ('original','preview'):raise ValueError('Unknown representation')
+        cache=self.cache if representation=='original' else self.preview_cache
+        missing=[f for f in frames if f['source_pts'] not in cache]
         if missing:
-            body=json.dumps(dict(video_id=self.video_id,frames=missing,scope=self.scope)).encode()
+            body=json.dumps(dict(video_id=self.video_id,frames=missing,scope=self.scope,representation=representation)).encode()
             began=time.perf_counter()
             with urlopen(Request(self.url+'/frames',body,{'Content-Type':'application/json'}),timeout=600) as response:
                 payload=response.read()
             transport=time.perf_counter()-began; began=time.perf_counter();meta,images=unpack_frames(payload)
-            if meta['video_id']!=self.video_id or [(f['source_pts'],f['source_frame_index']) for f in meta['frames']]!=[(f['source_pts'],f['source_frame_index']) for f in missing]:
+            if meta['video_id']!=self.video_id or meta['representation']!=representation or [(f['source_pts'],f['source_frame_index']) for f in meta['frames']]!=[(f['source_pts'],f['source_frame_index']) for f in missing]:
                 for im in images:im.close()
                 raise ValueError('Service returned different sources')
-            for f,im in zip(missing,images):self.cache[f['source_pts']]=im
+            for f,im in zip(missing,images):cache[f['source_pts']]=im
             self.requests.append(dict(payload_sha256=hashlib.sha256(payload).hexdigest(),payload_bytes=len(payload),
+                representation=representation,
                 network_and_server_seconds=transport,client_unpack_seconds=time.perf_counter()-began,
                 requested_sources=[(f['source_pts'],f['source_frame_index']) for f in missing],**meta['timing']))
-        return [self.cache[f['source_pts']].copy() for f in frames]
+        return [cache[f['source_pts']].copy() for f in frames]
 
     def close(self):
         """接口：退出只释放本题本方法原图，禁止把缓存特权传给下一种方法。"""
         for im in self.cache.values():im.close()
+        for im in self.preview_cache.values():im.close()
         self.cache.clear()
+        self.preview_cache.clear()

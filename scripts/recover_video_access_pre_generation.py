@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """接口：只允许零模型调用的预生成阶段改版；核验复用预览后启动新指纹运行。"""
 import argparse
+import ast
 import os
 from pathlib import Path
 import shutil
@@ -34,8 +35,14 @@ def main():
     if calls:raise RuntimeError('Source contains model call ledgers; automatic pre-generation recovery forbidden')
     if not (source/'failure.json').exists():raise ValueError('Expected pre-generation fingerprint stop is not recorded')
     old=read_json(source/'protocol.json')
-    for name in ('src/videoqa_access/trial.py','src/videoqa_access/transport.py','src/videoqa_access/acceptance.py'):
-        if sha256(ROOT/name)!=old['code'][name]:raise ValueError('Preview-producing source changed; cannot import')
+    required={'src/videoqa_access/trial.py':('build_preview','coarse_frames','prepare_manifest','subset','freeze'),
+        'src/videoqa_access/transport.py':('preview_bytes','rgb_hash','pack_frames','CountingReader')}
+    for name,functions in required.items():
+        previous=source/'code_snapshot'/name
+        if sha256(previous)!=old['code'][name]:raise ValueError('Historical preview source snapshot changed')
+        def nodes(path):return {n.name:ast.dump(n,include_attributes=False) for n in ast.parse(path.read_text()).body if isinstance(n,(ast.FunctionDef,ast.ClassDef))}
+        left,right=nodes(previous),nodes(ROOT/name)
+        if any(left.get(f)!=right.get(f) for f in functions):raise ValueError('Preview-producing function changed; cannot import')
     manifest=read_json(source/'manifest.json');required={r['video_id'] for r in manifest['rows'] if r['dataset']=='videomme'}
     if not all((source/'indices'/(vid+'.json')).exists() for vid in required):raise ValueError('Original preview phase incomplete')
     # 步骤2只复制不可变原始预览和时钟元数据；所有新评分/选择/问答必须重新生成。
@@ -52,7 +59,7 @@ def main():
             exports[str(rel)]=h
     freeze(target/'pre_generation_recovery.json',dict(source_run=str(source),source_protocol_sha256=sha256(source/'protocol.json'),
         source_failure=read_json(source/'failure.json'),zero_source_model_call_ledgers=True,imported_exports=exports,
-        rationale='fail-fast worker scheduling and environment checks fixed before first model forward; preview geometry and algorithms unchanged',utc=utc()))
+        rationale='pre-generation fixes: fail-fast scheduling, environment checks, symmetric on-demand preview/original API; preview construction AST unchanged and algorithms unchanged',utc=utc()))
     # 步骤3新运行使用新代码快照，旧目录和CPU建设成本原样保留；启动一次协调器/审计器。
     log=(target/'coordinator.log').open('ab',buffering=0)
     command=['nohup','setsid','/App/conda/envs/explore_video_qa/bin/python','-u',str(ROOT/'scripts/run_video_access_pilot.py'),'coordinate','--root',str(target),'--gpus',a.gpus]

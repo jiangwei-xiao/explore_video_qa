@@ -73,6 +73,23 @@ def test_service_rejects_identity_and_unknown_source(media,tmp_path):
     with pytest.raises(ValueError):svc.replay('../'*20)
 
 
+def test_preview_pixels_match_original_transform_without_original_cache(media,tmp_path):
+    index,pts,hashes=media;wanted=[frame(i,pts[i]) for i in (1,3)]
+    service=AccessService(tmp_path,{'v':index});server,thread=start_service(service)
+    client=AccessClient('http://127.0.0.1:'+str(server.server_port),'v','separate-quality')
+    try:
+        low=client.fetch(wanted,representation='preview');assert client.cache=={} and len(client.preview_cache)==2
+        full=client.fetch(wanted)
+        try:
+            for a,b,f in zip(low,full,wanted):
+                with Image.open(io.BytesIO(preview_bytes(b))) as expected:assert rgb_hash(a)==rgb_hash(expected)
+                assert rgb_hash(b)==hashes[f['source_pts']]
+            assert [r['representation'] for r in client.requests]==['preview','original']
+        finally:
+            for im in low+full:im.close()
+    finally:client.close();server.shutdown();server.server_close();thread.join()
+
+
 def test_packet_corruption_and_order():
     image=Image.new('RGB',(20,30),'red');data=io.BytesIO();image.save(data,format='PNG')
     value=pack_frames(dict(frames=[dict(rgb_sha256=rgb_hash(image))]),[data.getvalue()])

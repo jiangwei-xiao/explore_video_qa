@@ -78,3 +78,37 @@ def engineering(root):
     exports={str(p.relative_to(root)):sha256(p) for p in [root/'manifest.json',root/'labels.json',root/'link_calibration.json',*[root/'indices'/(r['video_id']+'.json') for r in panel]]}
     value=dict(status='passed',videos=12,source_frames=sum(len(r['requested_sources']) for r in records),records=records,exports=exports,new_blip_calls=0,new_visual_calls=0,new_auxiliary_generations=0,new_final_qa=0)
     freeze(dest,value);durable(root/'engineering_status.json',dict(status='completed',videos=12,utc=utc()));return value
+
+
+def representation_acceptance(root):
+    """接口：12真实视频验证细预览等于原图原变换，且预览缓存不能充当原图缓存。"""
+    from videoqa_access.transport import preview_bytes
+    import io
+    from PIL import Image
+    root=Path(root);dest=root/'representation_acceptance.json'
+    if dest.exists():
+        value=read_json(dest)
+        if value['protocol_sha256']!=sha256(root/'protocol.json'):raise ValueError('Representation acceptance fingerprint differs')
+        return value
+    panel=engineering_rows(read_json(root/'manifest.json'));indices={r['video_id']:read_json(root/'indices'/(r['video_id']+'.json')) for r in panel}
+    service=AccessService(root,indices);server,thread=start_service(service);url='http://127.0.0.1:'+str(server.server_port);records=[]
+    try:
+        for row in panel:
+            index=indices[row['video_id']];f=index['coarse'][len(index['coarse'])//2]
+            client=AccessClient(url,row['video_id'],'representations/'+row['question_id'])
+            low=client.fetch([f],representation='preview')
+            if client.cache:raise ValueError('Preview incorrectly populated original cache')
+            full=client.fetch([f])
+            try:
+                with Image.open(io.BytesIO(preview_bytes(full[0]))) as expected:
+                    if rgb_hash(low[0])!=rgb_hash(expected) or rgb_hash(low[0])!=f['preview_rgb_sha256']:
+                        raise ValueError('On-demand JPEG differs from original preview transform')
+                records.append(dict(video_id=row['video_id'],question_id=row['question_id'],source_pts=f['source_pts'],
+                    preview_rgb_sha256=rgb_hash(low[0]),original_rgb_sha256=rgb_hash(full[0]),requests=client.requests))
+            finally:
+                for im in low+full:im.close()
+                client.close()
+    finally:server.shutdown();server.server_close();thread.join()
+    value=dict(status='passed',videos=12,protocol_sha256=sha256(root/'protocol.json'),records=records,
+        equivalent_selector_pixels=True,original_and_preview_cache_isolated=True,new_model_calls=0)
+    freeze(dest,value);return value

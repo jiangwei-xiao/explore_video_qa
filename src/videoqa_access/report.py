@@ -69,21 +69,26 @@ def summarize(root,dataset):
             requests=item['requests'];raw_bytes=sum(v['payload_bytes'] for v in requests)
             common=prepared['preview_scoring'];fine=item['extra_visual'];o=result['answer']['observed']
             common_seconds=sum(common[k] for k in ('preprocess_seconds','forward_seconds')) if method!='BASE-Uniform' else 0.
+            preview_read=prepared['preview_read_seconds'] if method!='BASE-Uniform' else 0.
             fine_seconds=sum(fine[k] for k in ('preprocess_seconds','forward_seconds'))
             pp=root/'qa'/dataset/'preprocess_times'/result['representative']/(q+'.json')
             if not pp.exists():raise ValueError('Actual QA preprocessing cost is missing; no repeated generation')
             qa_pre=read_json(pp)['charged_actual_call_seconds']
             if qa_pre is None:raise ValueError('QA preprocessing unobserved')
             # 步骤1只合成不重叠的已测组件；不使用带审计PNG写盘的preparation_seconds。
-            base=common_seconds+fine_seconds+item['selection_compute_seconds']+item['fine_preview_seconds']+o['generation_seconds']+qa_pre
-            access=sum(v['decode_seconds']+v['png_encode_seconds']+v['client_unpack_seconds'] for v in requests)
+            base=preview_read+common_seconds+fine_seconds+item['selection_compute_seconds']+item['fine_preview_seconds']+o['generation_seconds']+qa_pre
+            access=sum(v['decode_seconds']+v['image_encode_seconds']+v['client_unpack_seconds'] for v in requests)
             links={profile:sum(replay[profile+'/'+r['payload_sha256']]['seconds'] for r in requests) for profile in PROFILES}
             cold={profile:(0. if method=='BASE-Uniform' else replay[profile+'/'+index['preview_payload_sha256']]['seconds']) for profile in PROFILES}
             value=dict(dataset=dataset,question_id=q,method=method,task=row.get('task_type'),stratum=row.get('stratum'),
                 correct=result['correct'],native_correct=result['native_correct'],prediction=result['prediction'],
-                raw_payload_bytes=raw_bytes,requests=len(requests),requested_unique_original_frames=sum(len(r['requested_sources']) for r in requests),
+                raw_payload_bytes=raw_bytes,requests=len(requests),requested_observation_frames=sum(len(r['requested_sources']) for r in requests),
+                requested_unique_original_frames=sum(len(r['requested_sources']) for r in requests if r['representation']=='original'),
+                fullres_payload_bytes=sum(r['payload_bytes'] for r in requests if r['representation']=='original'),
+                refinement_preview_payload_bytes=sum(r['payload_bytes'] for r in requests if r['representation']=='preview'),
                 decoded_frames=sum(r['decoded_frames'] for r in requests),logical_original_read_bytes=sum(r['file_read_bytes'] for r in requests),
-                common_blip_seconds=common_seconds,extra_blip_seconds=fine_seconds,
+                preview_read_and_check_seconds=preview_read,common_blip_seconds=common_seconds,extra_blip_seconds=fine_seconds,
+                unique_observed_sources=len({tuple(x) for req in requests for x in req['requested_sources']}),
                 coarse_itm_frames=common['frames'] if method!='BASE-Uniform' else 0,extra_itm_frames=fine['itm_frames'],
                 extra_visual_frames=fine['frames'] if method=='RD-1.2-exp12' else 0,
                 selection_seconds=item['selection_compute_seconds'],qa_generation_seconds=o['generation_seconds'],qa_preprocess_seconds=qa_pre,
@@ -131,7 +136,7 @@ def summarize(root,dataset):
     lines=['# '+dataset+' 受控原片访问试点结果','',
         '固定60/70题的已观察可行性面板。预览与原片获取为新协议；不覆盖历史全量成绩。',
         '组件时延由实际测量分项与真实响应网络重放组成，非独立远端E2E；模型加载、预览创建/首次传输另列。','',
-        '| 方法 | 正确数 | 准确率 | 原片MiB/题 | local组件秒 | fast组件秒 | limited组件秒 |',
+        '| 方法 | 正确数 | 准确率 | 原片服务返回MiB/题 | local组件秒 | fast组件秒 | limited组件秒 |',
         '|---|---:|---:|---:|---:|---:|---:|']
     for m in METHODS:
         v=metrics[m];lines.append('| '+m+' | '+str(v['correct'])+'/'+str(v['n'])+' | '+f"{v['accuracy']:.2f}% | {v['mean_raw_bytes']/1024**2:.3f} | "+' | '.join(f"{v['components'][p]['mean']:.3f}" for p in PROFILES)+' |')

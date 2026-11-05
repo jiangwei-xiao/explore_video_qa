@@ -225,15 +225,18 @@ def prepare_question(root,row,scorer,url):
     begin=time.perf_counter();previews=read_previews(root,index);read_seconds=time.perf_counter()-begin
     scores,features,score_time=encode(scorer,previews,row['question']);t=time.perf_counter()
     plan=build_regions(coarse,scores,video,budget_config(8));region_seconds=time.perf_counter()-t
-    ranked=sorted(range(len(coarse)),key=lambda i:(-scores[i],coarse[i]['source_pts'],i))[:8]
+    t=time.perf_counter();ranked=sorted(range(len(coarse)),key=lambda i:(-scores[i],coarse[i]['source_pts'],i))[:8];topk_seconds=time.perf_counter()-t
     t=time.perf_counter();wi=wfs_indices(scores,features);wfs_seconds=time.perf_counter()-t
-    chosen={'BASE-Uniform':native_frames(np.load(index['pts_path'],allow_pickle=False),video,8),
+    t=time.perf_counter();uniform=native_frames(np.load(index['pts_path'],allow_pickle=False),video,8);uniform_seconds=time.perf_counter()-t
+    chosen={'BASE-Uniform':uniform,
             'BASE-BLIP-TopK':sorted([coarse[i] for i in ranked],key=lambda f:f['source_pts']),
             'REF-WFS-SB':[coarse[i] for i in wi],'CTRL-WFS-preview':[coarse[i] for i in wi]}
     items={};exports={};method_time={};rd_trace=None
     # 步骤1每种方法独立原图缓存，避免共享执行时把别人的原片访问视为免费。
     for method in METHODS:
         t=time.perf_counter();selection_seconds=wfs_seconds if 'WFS' in method else 0.
+        if method in ('BASE-BLIP-TopK','CTRL-TopK-local'):selection_seconds+=topk_seconds
+        if method=='BASE-Uniform':selection_seconds+=uniform_seconds
         client=AccessClient(url,row['video_id'],ds+'/'+q+'/'+method);fine_time=dict(frames=0,itm_frames=0,preprocess_seconds=0.,forward_seconds=0.)
         try:
             if method in ('CTRL-TopK-local','RD-1.2-exp12'):
@@ -243,10 +246,7 @@ def prepare_question(root,row,scorer,url):
                     targets=[(target,Fraction(r['left_fraction']),Fraction(r['right_fraction']),r['region_id']) for r in plan['regions'] if r['refine'] for target in refinement_targets(r,video,budget_config(8))]
                 added=targets_to_frames(targets,index,[f['source_pts'] for f in coarse])
                 for i,f in enumerate(added):f['candidate_index']=len(coarse)+i
-                full=client.fetch(added) if added else [];fine=[];preview_begin=time.perf_counter()
-                for im in full:
-                    with Image.open(io.BytesIO(preview_bytes(im))) as p:fine.append(p.convert('RGB'))
-                    im.close()
+                fine=client.fetch(added,representation='preview') if added else [];preview_begin=time.perf_counter()
                 fine_preview_seconds=time.perf_counter()-preview_begin
                 try:
                     fine_scores,vf,fine_time=encode(scorer,fine,None if method=='RD-1.2-exp12' else row['question']) if fine else ([],np.empty((0,768),np.float32),fine_time)

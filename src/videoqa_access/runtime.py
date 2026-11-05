@@ -77,7 +77,8 @@ def protocol(root):
             models[str(p)]=dict(bytes=s.st_size,mtime_ns=s.st_mtime_ns,sha256=old['sha256'])
     for rel in code:
         dest=root/'code_snapshot'/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/rel,dest)
-    p=dict(protocol_id='budgeted-video-access-pilot-v1',code=code,framework=framework_identity(),models=models,
+    p=dict(protocol_id='budgeted-video-access-pilot-v2',code=code,framework=framework_identity(),models=models,
+        source_access='on-demand JPEG previews for selection; lossless originals only for final selected frames; same API for every policy',
         environments={python:environment(python) for python in (PY,QPY)},
         inputs={n:sha256(root/n) for n in ('manifest.json','labels.json')},methods=list(METHODS),
         source_frame_budget=8,max_new_tokens=16,seed=2027,maximum_real_qa=780,maximum_synthetic_qa=8,
@@ -296,13 +297,13 @@ def run_stage(root,stage,dataset,gpus):
 
 def coordinate(root,args):
     """接口：12视频验收→VME六组→判定→条件MLVU→独立审计，脱离交互会话。"""
-    from .acceptance import engineering
+    from .acceptance import engineering,representation_acceptance
     root=Path(root);root.mkdir(parents=True,exist_ok=True)
     with exclusive(root/'run.lock'):
         if (root/'completion.json').exists():return audit(root,args)
         try:
             check_pause(root)
-            protocol(root);engineering(root)
+            protocol(root);engineering(root);representation_acceptance(root)
             allowed=args.gpus.split(',')
             for dataset in ('videomme','mlvu'):
                 if dataset=='mlvu' and not read_json(root/'reports/videomme.json')['gate']['passed']:

@@ -38,6 +38,9 @@ def main():
         durable(root/'independent_audit_status.json',dict(stage='waiting_coordinator',pid=os.getpid(),target_pid=pid,target_start_ticks=ticks,utc=utc()));time.sleep(10)
     if not (root/'completion.json').exists():raise RuntimeError('Coordinator ended without completion; preserve current state')
     frozen=verify(root);env=read_json(root/'pre_model_runtime_acceptance.json')
+    representation=read_json(root/'representation_acceptance.json')
+    if representation['status']!='passed' or representation['protocol_sha256']!=sha256(root/'protocol.json'):
+        raise ValueError('Two-quality source access acceptance missing')
     if environment(PY)!=env['prepare_environment'] or environment(QPY)!=env['qa_environment'] or framework_identity()!=frozen['framework']:
         raise ValueError('Environment/framework changed during trial')
     audited=completion_audit(root);datasets=audited['datasets'];physical=synthetic=0
@@ -63,6 +66,10 @@ def main():
             if rd['extra_visual']['itm_frames']!=0:raise ValueError('RD unexpectedly scored fine candidates')
             if prepared['items']['CTRL-WFS-preview']['requests']:raise ValueError('Preview-only control accessed original')
             for method in METHODS:
+                item=prepared['items'][method]
+                fetched_originals={tuple(x) for req in item['requests'] if req['representation']=='original' for x in req['requested_sources']}
+                selected={(f['source_pts'],f['source_frame_index']) for f in item['selection']['selected_frames']}
+                if method!='CTRL-WFS-preview' and fetched_originals!=selected:raise ValueError('Unselected full-resolution source accessed')
                 result=read_json(root/'qa'/dataset/'results'/method/(q+'.json'))
                 raw=read_json(root/result['raw_generation_file']);label=labels[dataset+'/'+q]
                 # 模型输入对象使用占位计分字母；实际标签只在完整返回后交官方计分函数复算。
