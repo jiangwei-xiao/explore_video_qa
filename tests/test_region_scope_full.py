@@ -102,3 +102,17 @@ def test_independent_bootstrap_respects_video_clusters():
     actual=m.interval(data,left,right)
     expected=cluster_interval(data,{k:dict(correct=v) for k,v in left.items()},{k:dict(correct=v) for k,v in right.items()})
     assert actual==expected
+
+
+def test_duration_uses_frozen_input_even_if_old_stats_have_no_duration(tmp_path):
+    durable(tmp_path/'inputs/a.json',dict(question_id='a',duration_seconds=25.25))
+    assert runtime.prepared_duration(tmp_path,'a')==25.25
+    durable(tmp_path/'inputs/a.json',dict(question_id='wrong',duration_seconds=25.25))
+    with pytest.raises(ValueError):runtime.prepared_duration(tmp_path,'a')
+
+
+def test_reuse_rejects_any_prior_generation(tmp_path):
+    from videoqa_generalization.region_scope_full_reuse import reuse
+    old=tmp_path/'old';new=tmp_path/'new'
+    durable(old/'qa/qwen32/calls/RD-1.2-exp27/a.json',dict(status='started_may_generate'))
+    with pytest.raises(ValueError,match='Generated source'):reuse(new,old)

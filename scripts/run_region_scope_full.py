@@ -61,11 +61,14 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--run-id',required=True)
     parser.add_argument('--stage',choices=('all','offline','prepare','inputs','answer','report','audit'),default='all')
     parser.add_argument('--profile',choices=study.PROFILES);parser.add_argument('--gpus',nargs='+',default=list(map(str,range(8))))
-    parser.add_argument('--resume',action='store_true');args=parser.parse_args()
+    parser.add_argument('--reuse-prepared-run');parser.add_argument('--resume',action='store_true');args=parser.parse_args()
     if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]*',args.run_id):parser.error('Invalid run ID')
     if args.stage in ('prepare','answer') and not args.profile:parser.error('Profile required')
     root=ROOT/'outputs/full_videoqa'/args.run_id
     if (root/'offline_protocol.json').exists() and not args.resume:raise ValueError('Existing run requires --resume')
+    if args.reuse_prepared_run:
+        from videoqa_generalization.region_scope_full_reuse import reuse
+        reuse(root,ROOT/'outputs/full_videoqa'/args.reuse_prepared_run)
     from videoqa_generalization import region_scope_full_runtime as runtime
     from videoqa_generalization import region_scope_full_report as report
     if args.stage=='all':

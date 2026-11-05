@@ -236,6 +236,15 @@ def audit(run):
     study.freeze(run/'completion_audit.json',{k:v for k,v in result.items() if k!='utc'})
     return result
 
+def prepared_duration(run,question_id):
+    """接口：调度时长来自已冻结输入，不依赖历史文件身份表提供新字段。"""
+    # 步骤1核对题号；步骤2使用源duration_fraction在输入准备时保存的有界秒数。
+    value=read_json(Path(run)/'inputs'/(question_id+'.json'))
+    if value['question_id']!=question_id or not value['duration_seconds']>0:
+        raise ValueError('Invalid frozen scheduling duration')
+    return value['duration_seconds']
+
+
 def execute(run):
     """接口：先恢复已返回答案，再固定空闲卡，自动先行验收后调度全部余题。"""
     # 步骤1恢复引用与已完整返回的后处理；无剩余任务直接只读审计。
@@ -266,7 +275,7 @@ def execute(run):
         p=ctx.Process(target=worker,args=(str(run),g,queues[g],events,stop,i==0));p.start();processes[g]=p
     pilot=[r for r in pending if r['question_id'] in spec['pilot_question_ids']]
     remaining=sorted([r for r in pending if r['question_id'] not in spec['pilot_question_ids']],
-                     key=lambda r:-spec['video_stats'][r['video_id']]['duration_seconds'])
+                     key=lambda r:-prepared_duration(run,r['question_id']))
     pilot_ids={r['question_id'] for r in pilot};pilot_sent=False;full=False;idle=set();completed_pilot=set()
     assigned={}
     for path in (run/'calls').glob('*/*.json'):

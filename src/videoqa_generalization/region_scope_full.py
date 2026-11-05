@@ -36,7 +36,7 @@ CORE_FILES=('src/videoqa_generalization/region_scope_full.py',
  'src/videoqa_methods/region_refinement_scope.py','src/videoqa_methods/budget_contract.py',
  'src/videoqa_methods/density_selection.py','src/videoqa_methods/coarse_eligibility.py',
  'src/videoqa_methods/weighted_seed_support.py','src/videoqa_methods/prefix_coverage_budget.py',
- 'configs/retrieval_density_v1.json')
+ 'src/videoqa_generalization/region_scope_full_reuse.py','configs/retrieval_density_v1.json')
 QA_FILES=('src/videoqa_generalization/llava_observe.py','src/videoqa_generalization/llava_budget8.py',
  'src/videoqa_budget32/observe.py','src/videoqa_budget32/qwen_adapter.py','src/videoqa_budget32/frames.py',
  'src/videoqa_full/qwen_fa2_backend.py','src/videoqa_full/qwen_backend.py','src/videoqa_runtime/llava_backend.py',
@@ -108,6 +108,7 @@ def offline_one(job):
             if sha256(p)!=h:raise ValueError('Historical source changed')
         if sha256(root/saved['trace_file'])!=saved['trace_sha256']:raise ValueError('Replay trace changed')
         return saved
+    if (root/'verified_reuse_source.json').exists():raise ValueError('Reused selection missing; recomputation forbidden')
     began=time.perf_counter()
     for p,h in sources.items():
         if sha256(p)!=h:raise ValueError('Historical source differs')
@@ -168,7 +169,7 @@ def offline(root,workers=8):
             fine_count=sum(v['scope']['fine_count'] for v in records if v['profile']==p),
             actual_frame_counts=dict(Counter(str(v['actual_frame_count']) for v in records if v['profile']==p))) for p in PROFILES}
         value=dict(status='passed',records=len(records),exports=exports,metrics=metrics,
-            maximum_numeric_error=max(v['maximum_numeric_error'] for v in records),seconds=time.perf_counter()-began,new_model_calls=0)
+            maximum_numeric_error=max(v['maximum_numeric_error'] for v in records),seconds=time.perf_counter()-began,new_model_calls=0,new_selector_calls=0 if (root/'verified_reuse_source.json').exists() else 5400)
         freeze(root/'offline_summary.json',value);return value
 
 
@@ -208,6 +209,7 @@ def initialize_prepare(root,profile,binding_sha):
     _PREPARE=dict(root=root,profile=profile,binding_sha=binding_sha,tools=cpu_tools(profile),
         source_spec=read_json(PARENTS[profile]/'protocol.json'),offline=read_json(root/'offline_summary.json'),
         dev={r['question_id'] for r in read_json(DEV)['rows']})
+    _PREPARE['reuse_only']=(root/'verified_reuse_source.json').exists() and profile in read_json(root/'verified_reuse_source.json')['profiles']
     load_task()
 
 
@@ -220,6 +222,7 @@ def prepare_one(row):
         for p,h in v['sources'].items():
             if sha256(p)!=h:raise ValueError('Input preparation source changed')
         return q,sha256(dest),v['groups'],v['reference_kind']
+    if z.get('reuse_only'):raise ValueError('Reused actual input missing; decode forbidden')
     path=root/'selections'/profile/METHOD/(q+'.json')
     if sha256(path)!=z['offline']['exports'][str(path.relative_to(root))]:raise ValueError('Replay export changed')
     item=read_json(path);check_slot(item,profile,q);selection=item['selection'];began=time.perf_counter()
@@ -277,6 +280,10 @@ def prepare(root,profile,allowed_gpus):
             offline_summary_sha256=sha256(root/'offline_summary.json'),parent_protocol_sha256=sha256(PARENTS[profile]/'protocol.json'),
             development_protocol_sha256=sha256(HISTORY/'qa'/profile/'protocol.json'),model_files=models,video_stats=stats)
         freeze(run/'prepare_binding.json',binding);bsha=sha256(run/'prepare_binding.json');began=time.perf_counter();exports={};groups={};counts=Counter()
+        # 修订恢复：来源协议完整且从未生成时，复用已核验像素，只重建新运行的绑定外壳。
+        if (root/'verified_reuse_source.json').exists():
+            from .region_scope_full_reuse import import_profile_cache
+            import_profile_cache(root,profile,bsha)
         # 步骤2八个CPU进程各两线程；旧答案只作完整输入身份比较，不影响源选择。
         with ProcessPoolExecutor(max_workers=8,mp_context=mp.get_context('spawn'),initializer=initialize_prepare,initargs=(str(root),profile,bsha)) as ex:
             for i,(q,h,gs,kind) in enumerate(ex.map(prepare_one,data),1):
