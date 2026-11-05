@@ -116,3 +116,10 @@ def test_reuse_rejects_any_prior_generation(tmp_path):
     old=tmp_path/'old';new=tmp_path/'new'
     durable(old/'qa/qwen32/calls/RD-1.2-exp27/a.json',dict(status='started_may_generate'))
     with pytest.raises(ValueError,match='Generated source'):reuse(new,old)
+
+
+def test_independent_cleanup_replays_existing_framework_only():
+    p=Path(__file__).parents[1]/'scripts/audit_region_scope_full_completion.py';spec=importlib.util.spec_from_file_location('independent_clean',p);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+    assert m.cleaned_response(dict(raw_generated_text='B<|im_end|>ignored',stop_terms=['<|im_end|>']),'qwen32')=='B'
+    assert m.cleaned_response(dict(raw_generated_text=' C. '),'llava8')=='C.'
+    assert m.cleaned_response(dict(raw_generated_text='D. Bicycle'),'llava8')=='D. Bicycle'

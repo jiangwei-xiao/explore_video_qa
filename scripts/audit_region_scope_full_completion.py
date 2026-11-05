@@ -31,6 +31,17 @@ def interval(data,left,right):
     return np.percentile(100*num/den,[2.5,97.5]).tolist()
 
 
+def cleaned_response(raw,profile):
+    """接口：复算固定框架原清理，不新增标点归一化或更宽松的答案规则。"""
+    text=raw['raw_generated_text']
+    if profile=='llava8':return text.strip()
+    # 步骤1按原停止串截断；步骤2调用固定LMMs框架的原推理文本清理。
+    from lmms_eval.models.model_utils.reasoning_model_utils import parse_reasoning_model_answer
+    for term in raw['stop_terms']:
+        if term:text=text.split(term)[0]
+    return parse_reasoning_model_answer(text)
+
+
 def verify(root):
     """接口：读物理原文独立计分、所有主比较/子集/题型/区间，并核验来源与额度。"""
     root=Path(root);summary=read_json(root/'summary.json');data=rows();ids={r['question_id'] for r in data};method='RD-1.2-exp27';total=0;profiles={};comparisons=0
@@ -53,8 +64,8 @@ def verify(root):
             else:
                 assert v['answer']==read_json(ref['path'])['answer'];paths=[p for p in ref['sources'] if '/raw_generations/' in p];assert len(paths)==1;raw_path=Path(paths[0])
             raw=read_json(raw_path);assert raw['generation_state']==dict(started=True,returned=True)
-            assert raw['raw_generated_text'].strip()==v['answer']['raw_output'].strip()
-            metric=load_task().videomme_process_results(task_doc(r),[raw['raw_generated_text']])['videomme_perception_score']
+            text=cleaned_response(raw,profile);assert text==v['answer']['raw_output']
+            metric=load_task().videomme_process_results(task_doc(r),[text])['videomme_perception_score']
             correct=metric['answer']==metric['pred_answer'];assert correct==v['correct'];current[q]=correct;kinds[item['reference_kind']]+=1;input_groups[q]=item['reference_kind']
             for p,h in item['sources'].items():assert file_hash(p)==h
         assert dict(kinds)==spec['reference_counts']
