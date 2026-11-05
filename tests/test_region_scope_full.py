@@ -89,3 +89,16 @@ def test_stage_order_freezes_both_inputs_before_qwen_answers():
     commands=m.commands('test',['4','5']);names=[v[0] for v in commands]
     assert names.index('prepare_llava8')<names.index('answer_qwen32')<names.index('answer_llava8')
     assert all('--resume' in c for _,c in commands)
+
+
+def test_independent_bootstrap_respects_video_clusters():
+    p=Path(__file__).parents[1]/'scripts/audit_region_scope_full_completion.py';spec=importlib.util.spec_from_file_location('independent_scope',p);m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+    from videoqa_full.report import cluster_interval
+    data=[];left={};right={}
+    for j,layer in enumerate(('short','medium','long')):
+        for video in range(3):
+            for q in range(video+1):
+                key=f'{layer}-{video}-{q}';data.append(dict(question_id=key,video_id=f'{j}-{video}',stratum=layer));left[key]=bool((video+q)%2);right[key]=bool(video%2)
+    actual=m.interval(data,left,right)
+    expected=cluster_interval(data,{k:dict(correct=v) for k,v in left.items()},{k:dict(correct=v) for k,v in right.items()})
+    assert actual==expected
