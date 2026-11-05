@@ -77,7 +77,11 @@ def protocol(root):
             models[str(p)]=dict(bytes=s.st_size,mtime_ns=s.st_mtime_ns,sha256=old['sha256'])
     for rel in code:
         dest=root/'code_snapshot'/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/rel,dest)
+    # 步骤3在任何GPU加载前检查WFS完整CPU依赖，选帧使用原生依赖齐全的既有QPY环境。
+    probe="import json, sklearn, pywt, scipy, numpy; print(json.dumps(dict(sklearn=sklearn.__version__,pywavelets=pywt.__version__,scipy=scipy.__version__,numpy=numpy.__version__)))"
+    deps=json.loads(subprocess.check_output([QPY,'-c',probe],cwd=ROOT,env=dict(os.environ,CUDA_VISIBLE_DEVICES=''),text=True))
     p=dict(protocol_id='budgeted-video-access-pilot-v2',code=code,framework=framework_identity(),models=models,
+        selection_python=QPY,wfs_runtime_dependencies=deps,
         source_access='on-demand JPEG previews for selection; lossless originals only for final selected frames; same API for every policy',
         environments={python:environment(python) for python in (PY,QPY)},
         inputs={n:sha256(root/n) for n in ('manifest.json','labels.json')},methods=list(METHODS),
@@ -282,7 +286,7 @@ def run_stage(root,stage,dataset,gpus):
     processes=[]
     for slot,gpu in enumerate(gpus):
         log=Path(root)/'logs'/(dataset+'_'+stage+'_'+str(slot)+'.log');log.parent.mkdir(parents=True,exist_ok=True)
-        stream=log.open('ab',buffering=0);python=QPY if stage=='qa' else PY
+        stream=log.open('ab',buffering=0);python=QPY
         command=[python,'-u',str(ENTRY),stage,'--root',str(root),'--dataset',dataset,'--gpu',gpu,'--slot',str(slot),'--workers',str(len(gpus))]
         process=subprocess.Popen(command,cwd=ROOT,stdin=subprocess.DEVNULL,stdout=stream,stderr=subprocess.STDOUT);stream.close();processes.append(process)
     durable(Path(root)/'active_children.json',dict(stage=stage,dataset=dataset,pids=[p.pid for p in processes],gpus=gpus,utc=utc()))
