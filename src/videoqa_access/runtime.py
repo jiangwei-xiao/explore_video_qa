@@ -36,6 +36,11 @@ def verify(root):
         if sha256(ROOT/rel)!=h:raise ValueError('Pilot code changed: '+rel)
     for rel,h in p['inputs'].items():
         if sha256(root/rel)!=h:raise ValueError('Pilot frozen input changed')
+    from videoqa_lmms_bridge.common import framework_identity
+    from videoqa_full.prepare import environment
+    if framework_identity()!=p['framework']:raise ValueError('Frozen framework changed')
+    for python,expected in p['environments'].items():
+        if environment(python)!=expected:raise ValueError('Frozen environment changed: '+python)
     for path,stat in p['models'].items():
         s=Path(path).stat()
         if (s.st_size,s.st_mtime_ns)!=(stat['bytes'],stat['mtime_ns']):raise ValueError('Shared model changed')
@@ -48,6 +53,7 @@ def verify(root):
 def protocol(root):
     """接口：任何GPU前向前冻结代码/协议及模型身份；完整结束恢复无需GPU。"""
     from videoqa_lmms_bridge.common import framework_identity
+    from videoqa_full.prepare import environment
     root=Path(root)
     if (root/'protocol.json').exists():return verify(root)
     prepare_manifest(root)
@@ -72,6 +78,7 @@ def protocol(root):
     for rel in code:
         dest=root/'code_snapshot'/rel;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/rel,dest)
     p=dict(protocol_id='budgeted-video-access-pilot-v1',code=code,framework=framework_identity(),models=models,
+        environments={python:environment(python) for python in (PY,QPY)},
         inputs={n:sha256(root/n) for n in ('manifest.json','labels.json')},methods=list(METHODS),
         source_frame_budget=8,max_new_tokens=16,seed=2027,maximum_real_qa=780,maximum_synthetic_qa=8,
         preview=dict(fps=1,phase='1/4',long_edge=320,jpeg_quality=80,subsampling=2),
@@ -86,10 +93,16 @@ def heartbeat(root,stage,**kwargs):
     durable(Path(root)/'status.json',dict(stage=stage,pid=os.getpid(),sid=os.getsid(0),utc=utc(),**kwargs))
 
 
+def check_pause(root):
+    """接口：只在调用之间检查暂停；已经开始的调用可保存返回，不能再领取下一条。"""
+    if (Path(root)/'pause_requested.json').exists():
+        raise RuntimeError('Another worker failed; no new call may start')
+
+
 def select_worker(root,args):
     """接口：单GPU长期BLIP进程，按固定槽位处理题目；原片只从独立服务获得。"""
     import torch
-    root=Path(root);verify(root);torch.set_num_threads(2);torch.set_num_interop_threads(1)
+    root=Path(root);verify(root);check_pause(root);torch.set_num_threads(2);torch.set_num_interop_threads(1)
     data=data_rows(root,args.dataset)[args.slot::args.workers]
     pending=[r for r in data if not (root/'prepared'/args.dataset/(r['question_id']+'.json')).exists()]
     if not pending:return dict(status='already_prepared',worker=args.slot)
@@ -101,6 +114,7 @@ def select_worker(root,args):
     service=AccessService(root,indices);server,thread=start_service(service);url='http://127.0.0.1:'+str(server.server_port)
     try:
         for ordinal,row in enumerate(data):
+            check_pause(root)
             prepare_question(root,row,scorer,url)
             durable(root/'selection_status'/args.dataset/(str(args.slot)+'.json'),dict(status='running',completed=ordinal+1,total=len(data),active_question=row['question_id'],gpu=args.gpu,pid=os.getpid(),utc=utc()))
     finally:server.shutdown();server.server_close();thread.join()
@@ -175,10 +189,12 @@ def qa_worker(root,args):
             finally:
                 for im in images:im.close()
     for ordinal,row in enumerate(data):
+        check_pause(root)
         q=row['question_id'];inp=read_json(run/'inputs'/(q+'.json'));public=dict(row,answer_index=0)
         if sha256(root/'prepared'/args.dataset/(q+'.json'))!=inp['prepared_sha256']:raise ValueError('Prepared source receipt changed')
         groups=inp['groups'];shift=ordinal%len(groups);groups=groups[shift:]+groups[:shift]
         for group in groups:
+            check_pause(root)
             rep=group['representative'];item=inp['items'][rep];rawpath=run/'raw_generations'/rep/(q+'.json');callpath=run/'calls'/rep/(q+'.json')
             if [q,rep] not in plan['calls']:raise ValueError('Call not in frozen generation plan')
             identity=dict(dataset=args.dataset,question_id=q,method=rep,protocol_sha256=fingerprint,gpu=args.gpu)
@@ -270,6 +286,10 @@ def run_stage(root,stage,dataset,gpus):
         process=subprocess.Popen(command,cwd=ROOT,stdin=subprocess.DEVNULL,stdout=stream,stderr=subprocess.STDOUT);stream.close();processes.append(process)
     durable(Path(root)/'active_children.json',dict(stage=stage,dataset=dataset,pids=[p.pid for p in processes],gpus=gpus,utc=utc()))
     while any(p.poll() is None for p in processes):
+        failed=[dict(pid=p.pid,returncode=p.poll()) for p in processes if p.poll() not in (None,0)]
+        if failed and not (Path(root)/'pause_requested.json').exists():
+            durable(Path(root)/'pause_requested.json',dict(stage=stage,dataset=dataset,failed=failed,
+                behavior='finish and persist current call, then refuse new calls',utc=utc()))
         heartbeat(root,stage,dataset=dataset,children=[dict(pid=p.pid,returncode=p.poll()) for p in processes]);time.sleep(5)
     if any(p.returncode!=0 for p in processes):raise RuntimeError('Stage failed; inspect existing workers, do not retry generation')
 
@@ -281,6 +301,7 @@ def coordinate(root,args):
     with exclusive(root/'run.lock'):
         if (root/'completion.json').exists():return audit(root,args)
         try:
+            check_pause(root)
             protocol(root);engineering(root)
             allowed=args.gpus.split(',')
             for dataset in ('videomme','mlvu'):

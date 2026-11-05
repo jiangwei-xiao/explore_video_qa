@@ -210,3 +210,32 @@ def test_qa_completed_recovery_does_not_load_model_or_generate(tmp_path,monkeypa
     assert json.loads(path.read_text())['correct']
     (run/'raw_generations'/method/'q.json').unlink()
     with pytest.raises(RuntimeError,match='repetition forbidden'):runtime.qa_worker(root,args)
+
+
+def test_pause_checked_before_next_call(tmp_path):
+    from videoqa_access.runtime import check_pause
+    check_pause(tmp_path)
+    (tmp_path/'pause_requested.json').write_text('{}')
+    with pytest.raises(RuntimeError,match='no new call'):check_pause(tmp_path)
+
+
+def test_worker_failure_requests_pause_before_survivor_finishes(tmp_path,monkeypatch):
+    from videoqa_access import runtime
+    import types
+    class Log:
+        def close(self):pass
+    class Child:
+        def __init__(self,slot):self.pid=100+slot;self.returncode=None;self.slot=slot;self.polls=0
+        def poll(self):
+            self.polls+=1
+            if self.slot==0:self.returncode=1
+            elif self.polls>=4:
+                assert (tmp_path/'pause_requested.json').exists();self.returncode=1
+            return self.returncode
+    children=[]
+    def popen(*args,**kwargs):
+        p=Child(len(children));children.append(p);return p
+    monkeypatch.setattr(runtime.subprocess,'Popen',popen)
+    monkeypatch.setattr(runtime.time,'sleep',lambda x:None)
+    with pytest.raises(RuntimeError,match='Stage failed'):runtime.run_stage(tmp_path,'qa','videomme',['4','5'])
+    assert json.loads((tmp_path/'pause_requested.json').read_text())['behavior'].startswith('finish')
