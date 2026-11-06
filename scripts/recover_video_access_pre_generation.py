@@ -62,7 +62,7 @@ def main():
         rationale='pre-generation fixes: fail-fast scheduling, environment checks, symmetric on-demand preview/original API; preview construction AST unchanged and algorithms unchanged',utc=utc()))
     # 步骤3新运行使用新代码快照，旧目录和CPU建设成本原样保留；启动一次协调器/审计器。
     log=(target/'coordinator.log').open('ab',buffering=0)
-    command=['nohup','setsid','/App/conda/envs/explore_video_qa/bin/python','-u',str(ROOT/'scripts/run_video_access_pilot.py'),'coordinate','--root',str(target),'--gpus',a.gpus]
+    command=['nohup','setsid','/App/conda/envs/explore_video_qa_lmms/bin/python','-u',str(ROOT/'scripts/run_video_access_pilot.py'),'coordinate','--root',str(target),'--gpus',a.gpus]
     child=subprocess.Popen(command,cwd=ROOT,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT);time.sleep(.2)
     durable(target/'launch.json',dict(pid=child.pid,sid=os.getsid(child.pid),recovered_from=str(source),launched_at=utc()))
     log=(target/'independent_audit.log').open('ab',buffering=0)

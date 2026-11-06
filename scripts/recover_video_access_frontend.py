@@ -63,7 +63,7 @@ def main():
         selection_environment=QPY,key_dependency_or_weight_changes=False,physical_selection_gpus=read_json(assignment)['gpus'],utc=utc()))
     # 步骤3启动一次新指纹协调器及独立审计；旧结果和旧失败原样保存。
     log=(target/'coordinator.log').open('ab',buffering=0)
-    child=subprocess.Popen(['nohup','setsid',PY,'-u',str(ROOT/'scripts/run_video_access_pilot.py'),'coordinate','--root',str(target),'--gpus','4,5,6,7'],cwd=ROOT,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT);time.sleep(.2)
+    child=subprocess.Popen(['nohup','setsid',QPY,'-u',str(ROOT/'scripts/run_video_access_pilot.py'),'coordinate','--root',str(target),'--gpus','4,5,6,7'],cwd=ROOT,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT);time.sleep(.2)
     durable(target/'launch.json',dict(pid=child.pid,sid=os.getsid(child.pid),recovered_from=str(source),launched_at=utc()))
     log=(target/'independent_audit.log').open('ab',buffering=0)
     audit=subprocess.Popen(['nohup','setsid',QPY,'-u',str(ROOT/'scripts/audit_video_access_pilot.py'),'--root',str(target)],cwd=ROOT,stdin=subprocess.DEVNULL,stdout=log,stderr=subprocess.STDOUT);time.sleep(.2)
