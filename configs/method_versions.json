@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-11-05",
+  "updated_on": "2026-11-12",
   "current_frozen_method": "RD-1.2",
   "naming_policy": {
     "method": "FAMILY-major.minor",
@@ -755,6 +755,24 @@
       "aliases": [],
       "report": "docs/experiments/video_mme_200/2026-10-04/wfs_reference/实验记录.md",
       "status": "released_reference_development_200_evaluated"
+    },
+    {
+      "id": "CTRL-GlobalMMR-S1",
+      "family": "CTRL",
+      "kind": "diagnostic_control",
+      "parent": null,
+      "description": "完整BLIP-1粗池上直接调用固定WFS单段MMR；lambda=0.5、相关性2r-1、官方未截断余弦；不是RD新版本。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-11-12/selection_structure/执行协议.md"
+    },
+    {
+      "id": "REF-WFS-SB-S1",
+      "family": "REF",
+      "kind": "external_reference",
+      "parent": "REF-WFS-SB",
+      "description": "固定WFS-SB选择器及论文显式参数，本机BLIP-1原问题ITM与视觉特征；不称作者BLIP-2完整复现。",
+      "aliases": [],
+      "report": "docs/experiments/video_mme_200/2026-11-12/selection_structure/执行协议.md"
     }
   ]
 }
