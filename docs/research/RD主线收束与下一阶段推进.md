@@ -1,5 +1,7 @@
 # RD主线收束与下一阶段推进
 
+2026-11-13北京时间完成（运行首次准备为2026-11-12 UTC）：固定父区域/锚点/实际配额的CTRL-RegionMMR-FixedQuota-S1在LLaVA8为123/200，对exp20净+2；Qwen32为134/200，净−3；主区间均含0，192题补充仍+2/−4。未通过统一投入门，结束固定替换，不全量、不扫参、不路由。400份选择、349新QA＋51引用、8合成、82回归、独立原始Token/计分/12配对区间、两次3172文件零新增恢复及8题8.80分钟初审完成；原版本和全量成绩不变。 当前唯一任务已完成，等待统一review，不自动生成新候选。见[结果](../experiments/video_mme_200/2026-11-12/fixed_quota_local_mmr/实验结果与阶段结论.md)、[画面](../experiments/video_mme_200/2026-11-12/fixed_quota_local_mmr/有界案例复核.md)和[成本](../experiments/video_mme_200/2026-11-12/fixed_quota_local_mmr/任务与性能附表.md)。
+
 2026-11-12当前执行：CTRL-RegionMMR-FixedQuota-S1固定exp20区域、锚点和最终实际region_budgets，仅替换官方局部MMR；两配置各开发200题，真实新QA≤400、合成≤8。400份父输入重构和400份新选择、2298区域验收完成，远端58回归通过；正在冻结实际输入，不重复2700题离线选择，不自动接续全量或第二版。 见[固定协议](../experiments/video_mme_200/2026-11-12/fixed_quota_local_mmr/执行协议.md)与[工程验收](../experiments/video_mme_200/2026-11-12/fixed_quota_local_mmr/实施与验收进展.md)。
 
 ## 最新阶段已完成（2026-11-12）：同粗池选择组织净价值诊断

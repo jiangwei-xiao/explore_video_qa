@@ -1,5 +1,7 @@
 # 文档索引
 
+2026-11-13北京时间：[固定配额局部MMR已完成](experiments/video_mme_200/2026-11-12/fixed_quota_local_mmr/实验结果与阶段结论.md)。LLaVA8对父净+2、Qwen32净−3，未通过统一门；349新QA/8合成及零新增恢复通过，结束本控制，不自动全量。
+
 2026-11-12：[固定区域实际配额局部MMR](experiments/video_mme_200/2026-11-12/fixed_quota_local_mmr/执行协议.md)已开始；400项工程验收通过，最多400新QA，完成小测后review，不自动全量。
 
 2026-11-12：[同粗池选择组织对照协议](experiments/video_mme_200/2026-11-12/selection_structure/执行协议.md)已确认执行；先完成P全量离线重放与G/W选择，再做两配置开发200题，正式新QA上限800。当前尚无新精度结论。

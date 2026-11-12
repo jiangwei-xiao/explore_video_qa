@@ -1,5 +1,7 @@
 # 实验索引
 
+2026-11-13北京时间：[固定配额局部MMR结果](video_mme_200/2026-11-12/fixed_quota_local_mmr/实验结果与阶段结论.md) · [8题初审](video_mme_200/2026-11-12/fixed_quota_local_mmr/有界案例复核.md) · [性能边界](video_mme_200/2026-11-12/fixed_quota_local_mmr/任务与性能附表.md)。
+
 2026-11-12：[固定配额局部MMR协议](video_mme_200/2026-11-12/fixed_quota_local_mmr/执行协议.md) · [工程验收](video_mme_200/2026-11-12/fixed_quota_local_mmr/实施与验收进展.md)。
 
 2026-11-06：[受控原片访问试点结果](cross_dataset/2026-11-05/video_access_pilot/实验结果与定位结论.md)。六策略60题、359真实＋1共享；没有新优势，MLVU按门槛未启动；性能为已测组件＋链路重放，不是远端E2E。
