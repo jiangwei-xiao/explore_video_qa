@@ -100,3 +100,5 @@
 目录整理只调整当前维护文档。已完成运行中的 `protocol.json`、`code_snapshot/`、报告副本和结果包属于历史证据，保持原样。
 
 2026-11-12离线阶段：[同粗池5400父重放及10800控制选择已验收](experiments/video_mme_200/2026-11-12/selection_structure/离线验收与输入准备.md)。已进入开发实际输入冻结，当前不报告全量或小测新精度。
+
+2026-11-12完成：[同粗池组织净价值结果](experiments/video_mme_200/2026-11-12/selection_structure/实验结果与阶段结论.md)。两配置各200题，P对G均+5题、对W方向不一致，区间均跨0；762新QA/8合成、原始Token独立计分与零新增恢复通过。见[附表](experiments/video_mme_200/2026-11-12/selection_structure/任务与性能附表.md)和[有界复核](experiments/video_mme_200/2026-11-12/selection_structure/有界案例复核.md)，不自动扩全量。
