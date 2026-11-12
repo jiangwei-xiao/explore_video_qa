@@ -1,5 +1,7 @@
 # 实验索引
 
+2026-11-12：[固定配额局部MMR协议](video_mme_200/2026-11-12/fixed_quota_local_mmr/执行协议.md) · [工程验收](video_mme_200/2026-11-12/fixed_quota_local_mmr/实施与验收进展.md)。
+
 2026-11-06：[受控原片访问试点结果](cross_dataset/2026-11-05/video_access_pilot/实验结果与定位结论.md)。六策略60题、359真实＋1共享；没有新优势，MLVU按门槛未启动；性能为已测组件＋链路重放，不是远端E2E。
 
 2026-10-15新增：[双数据集选择复盘](cross_dataset/2026-10-15/selection_review/实验结果与下一阶段判断.md) · [协议](cross_dataset/2026-10-15/selection_review/执行协议.md)。MLVU标点补充计分后LLaVA8 exp07/12为65.85/65.82 M-Avg；9748主配置、5400项16帧核查及12题初审均为0模型调用。没有统一公式达到三视频支持门槛，200/210题小测清单已冻结但未放行问答。

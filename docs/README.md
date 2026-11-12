@@ -1,5 +1,7 @@
 # 文档索引
 
+2026-11-12：[固定区域实际配额局部MMR](experiments/video_mme_200/2026-11-12/fixed_quota_local_mmr/执行协议.md)已开始；400项工程验收通过，最多400新QA，完成小测后review，不自动全量。
+
 2026-11-12：[同粗池选择组织对照协议](experiments/video_mme_200/2026-11-12/selection_structure/执行协议.md)已确认执行；先完成P全量离线重放与G/W选择，再做两配置开发200题，正式新QA上限800。当前尚无新精度结论。
 
 2026-11-06：[受控原片访问试点已结束](experiments/cross_dataset/2026-11-05/video_access_pilot/实验结果与定位结论.md)。固定60题未建立新精度/成本优势，按预案不接续MLVU/Qwen；359真实问答、独立计分及完成恢复已核验。原全量结果保留，尚未确认新的应用定位。
